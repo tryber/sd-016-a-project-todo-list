@@ -59,3 +59,12 @@ function taskCompleted(event){
 
 list.addEventListener('dblclick', taskCompleted);
 
+// Reset list
+
+const resetButton = document.getElementById('apaga-tudo');
+resetButton.addEventListener('click', () =>{
+  for(let i = list.children.length - 1; list.children.length > 0; i -= 1){
+    list.children[i].remove();
+  }
+})
+
