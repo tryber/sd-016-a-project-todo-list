@@ -11,20 +11,16 @@ function addListItem() {
   input.value = '';
 }
 
-button.addEventListener('click', addListItem);
-
 // Add id to list itens
 function addId() {
   for (let i = 0; i < list.children.length; i += 1) {
     list.children[i].id = i;
-    list.children[i].className = 'incompleted';
   }
 }
-
+button.addEventListener('click', addListItem);
 button.addEventListener('click', addId);
 
 // Add background color to selected list item and make sure thats the only one
-
 let selected = -1;
 
 function clean(selectedID) {
@@ -36,7 +32,7 @@ function clean(selectedID) {
   }
 }
 
-button.addEventListener('click', () => {
+window.addEventListener('mouseover', () => {
   for (let i = 0; i < list.children.length; i += 1) {
     list.children[i].addEventListener('click', () => {
       let id = i.toString();
@@ -53,8 +49,8 @@ function taskCompleted(event) {
   const task = event.target;
   if (task.className !== 'completed') {
     task.className = 'completed';
-  } else {
-    task.className = 'incomplete';
+  }else{
+    task.className = '';
   }
 }
 
@@ -105,14 +101,12 @@ saveListButton.addEventListener('click', () => {
   }
 }) //https://app.betrybe.com/course/fundamentals/javascript-dom-eventos-e-web-storage/javascript-web-storage/b332393f-7548-4075-83e3-f632735efb95/conteudos/a69f590a-b7be-4821-959e-75204430d057/local-e-session-storage/6da4a8cf-1a42-47c9-b271-a4df5f2ba5a3?use_case=side_bar
 
+// Read info on localstorage
+for (let i = 0; i < localStorage.length; i += 1) {
+  let info = JSON.parse(localStorage.getItem(i));
+  list.appendChild(document.createElement('li'))
+  list.children[i].innerHTML = info.text;
+  list.children[i].className = info.class;
+}
 
-
-window.onload = () => {
-  for (let i = 0; i < localStorage.length; i += 1) {
-    let info = JSON.parse(localStorage.getItem(i));
-    list.appendChild(document.createElement('li'))
-    list.children[i].innerHTML = info.text;
-    list.children[i].className = info.class;
-  }
-  fixListItensIds();
-} 
+fixListItensIds();
