@@ -27,12 +27,17 @@ function addInputField() {
 }
 addInputField();
 
-function addOrderedList() {
-  const orderedList = document.createElement('ol');
+function listSection() {
   const section = document.createElement('section');
-  orderedList.id = 'lista-tarefas';
   section.id = 'task-list';
   main.appendChild(section);
+}
+listSection();
+
+function addOrderedList() {
+  const section = document.querySelector('#task-list');
+  const orderedList = document.createElement('ol');
+  orderedList.id = 'lista-tarefas';
   section.appendChild(orderedList);
 }
 addOrderedList();
@@ -99,3 +104,29 @@ function completeTask() {
   });
 }
 completeTask();
+
+function addActionButtons() {
+  const section = document.createElement('section');
+  const eraseAllButton = document.createElement('button');
+  const eraseFinishedButton = document.createElement('button');
+  section.id = 'action-buttons';
+  eraseAllButton.id = 'apaga-tudo';
+  eraseAllButton.innerText = 'remover lista';
+  eraseFinishedButton.id = 'remover-finalizados';
+  eraseFinishedButton.innerText = 'remover finalizados';
+  main.appendChild(section);
+  section.appendChild(eraseAllButton);
+  section.appendChild(eraseFinishedButton);
+}
+addActionButtons();
+
+function eraseAllButton() {
+  const eraseAll = document.querySelector('#apaga-tudo');
+  eraseAll.addEventListener('click', function () {
+    const tasklist = document.getElementsByClassName('task');
+    for (let index = tasklist.length - 1; index >= 0; index--) {
+      tasklist[index].remove();
+    }
+  });
+}
+eraseAllButton();
