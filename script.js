@@ -33,14 +33,17 @@ function clean(selectedID) {
 }
 
 window.addEventListener('mouseover', () => {
+
   for (let i = 0; i < list.children.length; i += 1) {
     list.children[i].addEventListener('click', () => {
+
       let id = i.toString();
       selected = i;
       document.getElementById(id).style.backgroundColor = 'rgb(128, 128, 128)';
       clean(selected);
     });
   }
+
 })
 
 // Add and remove line-trough
@@ -49,7 +52,7 @@ function taskCompleted(event) {
   const task = event.target;
   if (task.className !== 'completed') {
     task.className = 'completed';
-  }else{
+  } else {
     task.className = '';
   }
 }
@@ -110,3 +113,9 @@ for (let i = 0; i < localStorage.length; i += 1) {
 }
 
 fixListItensIds();
+
+//Add up and down button functions
+
+
+
+
