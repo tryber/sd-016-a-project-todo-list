@@ -7,12 +7,12 @@ function createLi() {
   novaLi.innerText = contentInput.value;
   localOl.appendChild(novaLi);
   contentInput.value = '';
-
-  novaLi.addEventListener('click', function () {
+//Auxilio da Camila com o nome da função acusando no lint =>
+  novaLi.addEventListener('click', () => {
     novaLi.style.backgroundColor = 'rgb(128,128,128)';
   });
 
-  novaLi.addEventListener('dblclick', function () {
+  novaLi.addEventListener('dblclick', () => {
     if (novaLi.className === '') {
       novaLi.className = 'completed';
     } else if (novaLi.className === 'completed') {
@@ -23,11 +23,8 @@ function createLi() {
 
 localButton.addEventListener('click', createLi);
 
-// function color() {
-//   novaLi.style.backgroundColor = 'rgb(128,128,128)';
-// }
-
 const buttonApagar = document.getElementById('apaga-tudo');
+
 function erasedIten() {
   localOl.innerHTML = '';
 }
