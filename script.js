@@ -2,6 +2,7 @@ const todoTextInput = document.querySelector('#texto-tarefa');
 const todoSubmitButton = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
 const clearAllButton = document.querySelector('#apaga-tudo');
+const clearTerminatedButton = document.querySelector('#remover-finalizados');
 
 let selected = null;
 
@@ -26,4 +27,9 @@ clearAllButton.addEventListener('click', () => {
   while (todoList.firstChild) {
     todoList.firstChild.remove();
   }
-})
+});
+
+clearTerminatedButton.addEventListener('click', () => {
+  const completed = document.querySelectorAll('.completed');
+  completed.forEach((elem) => elem.remove());
+});
