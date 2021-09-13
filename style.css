@@ -2,3 +2,8 @@
   color: gray;
   font-style: italic; 
 }
+
+#criar-tarefa {
+  background-color: rgb(50, 89, 173);
+  color: white;
+}
