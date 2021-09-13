@@ -56,7 +56,7 @@ function addNewTask() {
     if (inputField.value.length > 0) {
       const addLi = document.createElement('li');
       addLi.innerText = inputField.value;
-      addLi.style.order
+      addLi.className = 'task';
       tasklist.appendChild(addLi);
       inputField.value = '';
     } else {
@@ -65,3 +65,24 @@ function addNewTask() {
   });
 }
 addNewTask();
+
+function deleteTaskBkgrdColor() {
+  const tasks = document.querySelectorAll('.task');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].className = 'task';
+    tasks[index].style.backgroundColor = '';
+  }
+}
+
+function changeTaskBkgrdColor() {
+  const tasklist = document.querySelector('#lista-tarefas');
+
+  tasklist.addEventListener('click', function (clicked) {
+    deleteTaskBkgrdColor();
+    const event = clicked.target;
+    event.className = 'task selected'
+    const selected = document.querySelector('.selected');
+    selected.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+}
+changeTaskBkgrdColor();
