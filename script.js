@@ -15,7 +15,7 @@ createTask.addEventListener('click', addTask);
 function selectedItem(element) {
   const tasks = Array.from(taskList.children);
   for (let i = 0; i < tasks.length; i += 1) {
-    let currentTask = tasks[i];
+    const currentTask = tasks[i];
     if (currentTask.classList.contains('selected')) {
       currentTask.classList.remove('selected');
     }
@@ -31,24 +31,23 @@ function checkItem(originEvent) {
 }
 body.addEventListener('click', checkItem);
 
-function completeTask (element) {
+function completeTask(element) {
   if (element.classList.contains('completed')) {
     element.classList.remove('completed');
-  } 
-  else {
+  } else {
     element.classList.add('completed');
   }
 }
 
-function markTask (originEvent) {
-  let element = originEvent.target;
+function markTask(originEvent) {
+  const element = originEvent.target;
   if (element.parentNode.id === 'lista-tarefas') {
-    completeTask (element);
+    completeTask(element);
   }
 }
 body.addEventListener('dblclick', markTask);
 
-function clearList () {
-  taskList.innerText = "";
+function clearList() {
+  taskList.innerText = '';
 }
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
