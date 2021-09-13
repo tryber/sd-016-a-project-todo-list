@@ -25,3 +25,18 @@
   background-color: #FC8519;
   color: white;
 }
+
+#texto-tarefa-container {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#texto-tarefa {
+  width: 380px;
+  height: 40px;
+  padding:0px 20px;
+  text-align: justify;
+}
