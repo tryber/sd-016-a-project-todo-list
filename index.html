@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>ToDo List</title>
   </head>
   <body>
@@ -11,9 +12,11 @@
     <p id="funcionamento">
       Clique duas vezes em um item para marcá-lo como completo
     </p>
-    <input id="texto-tarefa" type="text">
+    <input placeholder="Insira uma tarefa" id="texto-tarefa" type="text">
     <ol id="lista-tarefas">
-      
+
     </ol>
+    <button onclick="createTask()" id="criar-tarefa">Criar tarefa</button>
   </body>
+  <script src="./script.js"></script>
 </html>
