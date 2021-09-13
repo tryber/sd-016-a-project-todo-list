@@ -1,3 +1,4 @@
+//funçao que adiciona os item a lista
 function additems() {
   let btn = document.querySelector('button');
   btn.addEventListener('click', function(){
@@ -9,7 +10,7 @@ function additems() {
     resetValue();
   });
 }
-
+//funçao que limpa o imput
 function resetValue(){
   document.querySelector('#texto-tarefa').value = "";
 }
@@ -21,7 +22,7 @@ document.querySelector('ol').addEventListener('click',function (event) {
   }
   event.target.classList.add('selected');
 });
-//adiciona class select quando clica duas vezes
+//adiciona ou remove class completed quando clica duas vezes
 document.querySelector('ol').addEventListener('dblclick', function (event) {
   let objeto = event.target;
   if(objeto.classList.contains('completed') === true ){
@@ -30,7 +31,7 @@ document.querySelector('ol').addEventListener('dblclick', function (event) {
     objeto.classList.add('completed');
   }
 });
-//remove class select quando clica duas vezes
+
 
 additems();
 
