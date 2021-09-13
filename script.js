@@ -1,6 +1,7 @@
 const todoTextInput = document.querySelector('#texto-tarefa');
 const todoSubmitButton = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
+const clearAllButton = document.querySelector('#apaga-tudo');
 
 let selected = null;
 
@@ -20,3 +21,9 @@ todoSubmitButton.addEventListener('click', () => {
   todoList.appendChild(item);
   todoTextInput.value = '';
 });
+
+clearAllButton.addEventListener('click', () => {
+  while (todoList.firstChild) {
+    todoList.firstChild.remove();
+  }
+})
