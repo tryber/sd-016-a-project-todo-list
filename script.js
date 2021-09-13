@@ -6,6 +6,7 @@ const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
 const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
 const botaoMoverCima = document.querySelector('#mover-cima');
 const botaoMoverBaixo = document.querySelector('#mover-baixo');
+const botaoRemoverSelecionado = document.querySelector('#remover-selecionado');
 
 function adicionarClasseSelecionado(event) {
   const antigoItem = document.querySelector('.selected');
@@ -107,12 +108,18 @@ function moverTarefaBaixo() {
   trocandoElementosHTML(tarefaParaSerMovida, tarefaAbaixo);
 }
 
+function removerSelecionado() {
+  const tarefaSelecionada = document.querySelector('.selected');
+  tarefaSelecionada.remove();
+}
+
 botaoCriarTarefa.addEventListener('click', adicionarNovaTarefa);
 botaoApagaTudo.addEventListener('click', apagarTodasTarefas);
 botaoRemoveFinalizados.addEventListener('click', removerTarefasFinalizadas);
 botaoSalvarTarefas.addEventListener('click', salvarTarefas);
 botaoMoverCima.addEventListener('click', moverTarefaCima);
 botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
+botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
 
 window.onload = function() {
   const tarefasSalvas = JSON.parse(localStorage.getItem('listaCompleta'));
