@@ -3,14 +3,24 @@
   height: 25px;
 }
 
+.selected {
+  background-color: gray;
+}
+
 .completed {
   text-decoration: line-through;
 }
 
-#apaga-tudo {
-  width: 50px;
+#apaga-tudo, #remover-finalizados {
+  width: 130px;
   height: 25px;
   background-color: red;
+  border-radius: 30px;
   color: white;
-  border-radius: 30%;
 }
+
+/* width: 50px;
+height: 25px;
+background-color: red;
+color: white;
+border-radius: 30%; */

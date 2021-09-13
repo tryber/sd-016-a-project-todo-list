@@ -22,10 +22,9 @@ function colorListAdd() {
 
   lista.addEventListener('click', (event) => {
     for (let index = 0; index < lista.children.length; index += 1) {
-      lista.children[index].style.backgroundColor = 'white';
+      lista.children[index].classList.remove('selected');
     }
-    const evento = event;
-    evento.target.style.backgroundColor = 'gray';
+    event.target.classList.add('selected');
   });
 }
 
@@ -35,17 +34,17 @@ function riskListAdd() {
   const lista = document.getElementById('lista-tarefas');
 
   lista.addEventListener('dblclick', (event) => {
-    if (event.target.className === '') {
-      event.target.className = 'completed';
-    } else {
+    if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
     }
   });
 }
 
 riskListAdd();
 
-function buttomRemove() {
+function buttomRemoveAll() {
   const lista = document.getElementById('lista-tarefas');
   const removeList = document.getElementById('apaga-tudo');
 
@@ -57,4 +56,19 @@ function buttomRemove() {
   });
 }
 
-buttomRemove();
+buttomRemoveAll();
+
+function buttomRemoveComplete() {
+  const lista = document.getElementById('lista-tarefas');
+  const removeComplete = document.getElementById('remover-finalizados');
+
+  removeComplete.addEventListener('click', () => {
+    for (let index = lista.children.length - 1; index >= 0; index -= 1) {
+      if (lista.children[index].classList.contains('completed')) {
+        lista.children[index].remove();
+      }
+    }
+  });
+}
+
+buttomRemoveComplete();
