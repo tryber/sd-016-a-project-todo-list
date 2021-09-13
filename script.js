@@ -1,7 +1,6 @@
 const header = document.querySelector('header');
 const main = document.querySelector('main');
 
-
 function addTitle() {
   const h1Header = document.createElement('h1');
   h1Header.className = 'title';
@@ -69,7 +68,7 @@ addNewTask();
 function deleteTaskBkgrdColor() {
   const tasks = document.querySelectorAll('.task');
   for (let index = 0; index < tasks.length; index += 1) {
-    tasks[index].className = 'task';
+    tasks[index].id = '';
     tasks[index].style.backgroundColor = '';
   }
 }
@@ -80,9 +79,23 @@ function changeTaskBkgrdColor() {
   tasklist.addEventListener('click', function (clicked) {
     deleteTaskBkgrdColor();
     const event = clicked.target;
-    event.className = 'task selected'
-    const selected = document.querySelector('.selected');
+    event.id = 'selected';
+    const selected = document.querySelector('#selected');
     selected.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
 changeTaskBkgrdColor();
+
+function completeTask() {
+  const tasklist = document.querySelector('#lista-tarefas');
+
+  tasklist.addEventListener('dblclick', function (clicked) {
+    const event = clicked.target;
+    if (event.className !== 'task completed') {
+      event.className = 'task completed';
+    } else {
+      event.className = 'task';
+    }
+  });
+}
+completeTask();
