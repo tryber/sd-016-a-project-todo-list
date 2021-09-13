@@ -8,6 +8,10 @@ background-color: gainsboro;
   margin-left: auto;
 }
 
+#lista-tarefas {
+  list-style: none;
+}
+
 #funcionamento {
   text-align: center;
 }

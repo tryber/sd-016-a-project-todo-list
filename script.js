@@ -1,21 +1,23 @@
 function taskList() {
- let father = document.getElementById("lista-tarefas");
- let text = document.getElementById('texto-tarefa');
- let list = document.createElement("li");
+const input = document.getElementById('texto-tarefa');
+const listContent = input.value;
+let list = document.getElementById('lista-tarefas');
 
- list.innerText = text.value;
+const creatList = document.createElement('li')
+list.appendChild(creatList);
+creatList.innerText = listContent;
+input.value = '';
+ }
  
- father.appendChild(list);
-
- }
-
  function addEvents() {
-   let button = document.getElementById('criar-tarefas')
-   button.addEventListener('click',taskList)
+const button = document.getElementById('criar-tarefa');
+button.addEventListener('click',taskList);
  }
 
- addEvents()
- taskList()
+addEvents()
+ 
+
+
 
  
  
