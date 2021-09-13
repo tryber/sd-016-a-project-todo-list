@@ -6,11 +6,21 @@ function additems() {
     let criacao = document.createElement('li');
     criacao.innerHTML = input;
     ol.appendChild(criacao);
-    resetvalue();
+    resetValue();
   });
 }
-function resetvalue(){
+
+function resetValue(){
   document.querySelector('#texto-tarefa').value = "";
 }
 
+
+document.querySelector('ol').addEventListener('click',function (event) {
+  if (document.querySelectorAll('.selected').length > 0) {
+    document.querySelector('.selected').classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+});
+console.log(document.querySelector('ol'));
 additems();
+
