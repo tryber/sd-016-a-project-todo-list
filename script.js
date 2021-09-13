@@ -130,3 +130,14 @@ function eraseAllButton() {
   });
 }
 eraseAllButton();
+
+function eraseFinishedButton() {
+  const eraseFinished = document.querySelector('#remover-finalizados');
+  eraseFinished.addEventListener('click', function () {
+    const tasklist = document.getElementsByClassName('completed');
+    for (let index = tasklist.length - 1; index >= 0; index--) {
+      tasklist[index].remove();
+    }
+  });
+}
+eraseFinishedButton();
