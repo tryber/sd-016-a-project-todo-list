@@ -56,6 +56,11 @@
   width: 140px;
 }
 
+#salvar-tarefas {
+  height: 40px;
+  width: 120px;
+}
+
 .botao {
   border: 1px solid black;
   margin-left:20px;
@@ -94,11 +99,22 @@
 
 #lista-tarefas {
   list-style-position: inside;
-  padding:20px;
-  font-size:1.4rem;
-  cursor:pointer;
+  padding: 20px;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#footer-container {
+  width: 100%;
+  height:30vh;
+  background-color: #634428;
+  color:white;
+  margin-top:100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
