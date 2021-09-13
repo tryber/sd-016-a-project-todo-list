@@ -1,0 +1,13 @@
+body {
+background-color: gainsboro;
+}
+
+#title {
+  font-size: 50px;
+  text-align: center;
+  margin-left: auto;
+}
+
+#funcionamento {
+  text-align: center;
+}
