@@ -27,15 +27,14 @@ body {
   max-width: 80%;
   margin-left: 45px;
   padding: 7px;
-  display: inline-block;
 }
 
 #criar-tarefa {
   height: 20px;
   width: 80px;
-  display: inline-block ;
+  margin-left: 100px;
 }
 
 #lista{
-  display: inline-block;
+  clear: both;
 }
