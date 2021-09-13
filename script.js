@@ -2,6 +2,8 @@ const button = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const lista = document.getElementById('lista-tarefas');
 let items = [];
+const clearButton = document.getElementById('apaga-tudo');
+const clearTaskButton = document.getElementById('remover-finalizados');
 
 function changeBackground(item) {
   items.forEach((element) => {
@@ -33,5 +35,19 @@ button.addEventListener('click', () => {
   items.forEach((item) => {
     item.addEventListener('click', changeBackground);
     item.addEventListener('dblclick', lineThrough);
+  });
+});
+
+clearButton.addEventListener('click', () => {
+  items.forEach((item) => {
+    item.remove();
+  });
+});
+
+clearTaskButton.addEventListener('click', () => {
+  items.forEach((item) => {
+    if (item.classList.contains('completed')) {
+      item.remove();
+    }
   });
 });
