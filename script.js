@@ -1,14 +1,16 @@
 // Determinando as variáveis
 const addButton = document.getElementById("criar-tarefa");
+const clearButton = document.getElementById("apaga-tudo");
+const completedButton = document.getElementById("remover-finalizados");
 let todoList = [];
 let nbmrOfTodos = 0;
 
 // Adicionar funcoes
 addButton.addEventListener("click", addTodo);
+clearButton.addEventListener("click", deleteEverything);
+completedButton.addEventListener("click", deleteCompleted);
 
-
-
-
+// Funcoes
 function addTodo(){
     // Pegar o item e o valor do item
     let caixaDeTexto = document.getElementById("texto-tarefa");
@@ -54,5 +56,19 @@ function riskIt(){
         this.className = "";
     }else{
         this.className = "completed";
+    }
+}
+
+function deleteEverything(){
+    const theList = document.querySelectorAll("li");
+    for(let z = 0; z < theList.length; z += 1){
+        theList[z].remove();
+    }
+}
+
+function deleteCompleted(){
+    const toBeDeleted = document.querySelectorAll(".completed")
+    for(let k = 0; k < toBeDeleted.length; k += 1){
+        toBeDeleted[k].remove();
     }
 }
