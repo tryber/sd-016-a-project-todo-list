@@ -69,6 +69,12 @@ function removeAll() {
       el.remove());
   });
 }
+function removeFinish() {
+  document.querySelector('#remover-finalizados').addEventListener('click', () => {
+    document.querySelectorAll('.completed').forEach((el) =>
+      el.remove());
+  });
+}
 
 function buttonClick() {
   const button = document.querySelector('#criar-tarefa');
@@ -87,6 +93,7 @@ function buttonClick() {
     changeColorItem();
     doubleClick();
     removeAll();
+    removeFinish();
   });
 }
 buttonClick();
@@ -98,3 +105,11 @@ function addButtonClearAll() {
   inputButton.appendChild(buttonClear);
 }
 addButtonClearAll();
+
+function addButtonClearFinish() {
+  const buttonFinish = document.createElement('button');
+  buttonFinish.innerText = 'Apaga os Finalizados';
+  buttonFinish.id = 'remover-finalizados';
+  inputButton.appendChild(buttonFinish);
+}
+addButtonClearFinish();
