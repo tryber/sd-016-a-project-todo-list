@@ -3,6 +3,8 @@ function createDiv(idName) {
   div.id = idName;
   document.querySelector('main').appendChild(div);
 }
+createDiv('input-button');
+const inputButton = document.querySelector('#input-button');
 
 function addTitle() {
   const title = document.createElement('h1');
@@ -22,7 +24,7 @@ addParagraph();
 function addInput() {
   const input = document.createElement('input');
   input.id = 'texto-tarefa';
-  document.querySelector('#input-button').appendChild(input);
+  inputButton.appendChild(input);
 }
 addInput();
 
@@ -38,7 +40,7 @@ function addButton() {
   const button = document.createElement('button');
   button.id = 'criar-tarefa';
   button.innerText = 'Adicionar';
-  document.querySelector('#input-button').appendChild(button);
+  inputButton.appendChild(button);
 }
 addButton();
 function clearInput() {
@@ -46,10 +48,26 @@ function clearInput() {
 }
 function changeColorItem() {
   document.querySelectorAll('.list').forEach((el) =>
-    el.addEventListener('click', (event) => {     
+    el.addEventListener('click', (event) => {
       const changeColor = event.target;
       changeColor.style.color = 'rgb(128, 128, 128)';
     }));
+}
+function doubleClick() {
+  document.querySelectorAll('.list').forEach((el) =>
+    el.addEventListener('dblclick', (event) => {
+      const riscaItem = event.target;
+      if (riscaItem.classList) {
+        riscaItem.className += ' completed';
+      }
+    }));
+}
+
+function removeAll() {
+  document.querySelector('#apaga-tudo').addEventListener('click', () => {
+    document.querySelectorAll('.list').forEach((el) =>
+      el.remove());
+  });
 }
 
 function buttonClick() {
@@ -67,6 +85,16 @@ function buttonClick() {
       clearInput();
     }
     changeColorItem();
+    doubleClick();
+    removeAll();
   });
 }
 buttonClick();
+
+function addButtonClearAll() {
+  const buttonClear = document.createElement('button');
+  buttonClear.innerText = 'Apaga Tudo';
+  buttonClear.id = 'apaga-tudo';
+  inputButton.appendChild(buttonClear);
+}
+addButtonClearAll();
