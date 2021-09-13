@@ -71,10 +71,12 @@ function addSaveBtnListener() {
 addSaveBtnListener();
 
 function changeFinishedClass(firstEl, secondEl) {
-  const firstElClassList = firstEl.classList.contains('completed');
-  const secondElClassList = secondEl.classList.contains('completed');
-  const firstCheck = firstElClassList && secondElClassList;
-  const secondCheck = firstElClassList || secondElClassList;
+  const firstElClassList = firstEl.classList;
+  const secondElClassList = secondEl.classList;
+  const firstElClassListState = firstEl.classList.contains('completed');
+  const secondElClassListState = secondEl.classList.contains('completed');
+  const firstCheck = firstElClassListState && secondElClassListState;
+  const secondCheck = firstElClassListState || secondElClassListState;
 
   if (firstCheck) return;
   if (secondCheck) {
