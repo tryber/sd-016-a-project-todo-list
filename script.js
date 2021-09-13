@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 function createTask() {
   const inputField = document.getElementById('texto-tarefa');
   const input = document.getElementById('texto-tarefa').value;
