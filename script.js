@@ -1,23 +1,3 @@
-function actionList() {
-  const getButton = document.querySelector('#criar-tarefa');
-  getButton.addEventListener('click', addList);
-}
-actionList();
-
-function addList() {
-  const getInput = document.querySelector('#texto-tarefa');
-  const getOl = document.querySelector('#lista-tarefas');
-  const createLi = document.createElement('li');
-  createLi.innerText = getInput.value;
-  getOl.appendChild(createLi);  
-  getInput.value = '';
-
-  changeBackGroundColor();
-  changeTextList();
-  deletedTasks();
-  deleteCompletedTasks();
-}
-
 function changeBackGroundColor() {
   const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
@@ -35,17 +15,17 @@ function clearNotSelectedColor() {
     getOl[index].style.backgroundColor = 'white';  
   }
 }
-
-function changeTextList() {
-  const getLi = document.querySelectorAll('li');
-  for (let index = 0; index < getLi.length; index += 1) {
-    getLi[index].addEventListener('dblclick', function(event) {     
-        getLi[index].classList.add('completed');
-        event.textDecoration = 'line-through solid rgb(0, 0, 0)'
-    });
-  }
+// Referência do código para o Rafael Dal Soler, Turma 16 - Tribo A;
+function changeTextList(event) {
+  let validate = false;
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+    validate = true;
+  } else if (validate === false) {
+    event.target.classList.add('completed');
+    validate = false;
+  } 
 }
-
 
 function deletedTasks() {
   const getButton = document.querySelector('#apaga-tudo');
@@ -62,9 +42,30 @@ function deleteCompletedTasks() {
   const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
     getButtonCompleted.addEventListener('click', function x() {
+      //https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList, referenciando o método contains.
       if (getLi[index].classList.contains('completed')) {
         getLi[index].remove();
       }
     });
   }
 }
+
+function addList() {
+  const getInput = document.querySelector('#texto-tarefa');
+  const getOl = document.querySelector('#lista-tarefas');
+  const createLi = document.createElement('li');
+  createLi.innerText = getInput.value;
+  getOl.appendChild(createLi);  
+  getInput.value = '';
+
+  changeBackGroundColor();
+  createLi.addEventListener('dblclick',changeTextList);
+  deletedTasks();
+  deleteCompletedTasks();
+}
+
+function actionList() {
+  const getButton = document.querySelector('#criar-tarefa');
+  getButton.addEventListener('click', addList);
+}
+actionList();
