@@ -32,8 +32,9 @@ function addTask(){
 button.addEventListener('click', addTask)
 
 list.addEventListener('click', function (event){
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
-})
+    event.target.removeEventListener('click', event)
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
+}, { once: true })
 
 
 
