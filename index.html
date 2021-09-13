@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project To Do List</title>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1 class="hero-title">Minha Lista de Tarefas</h1>
+    <p class="hero-text" id="funcionamento">
+      Clique duas vezes em um item para marcá-lo como completo
+    </p>
+
+    <!-- Header label buttons for tasks -->
+    <nav class="hero-nav-container">
+      <div class="hero-nav-label-input">
+        <label>Digite uma tarefa</label>
+        <input class="task-list-input" id="texto-tarefa" type="text" placeholder="Type your task here" />
+      </div>
+
+      <div class="hero-nav-button-container">
+        <button class="task-list-add-button" id="criar-tarefa">
+          Add Task
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="task-list-container">
+    <ol class="task-list" id="lista-tarefas">
+      <!-- To Do List is set here -->
+    </ol>
+
+    <nav class="task-list-container-buttons">
+      <!-- Navigate thru task list -->
+      <button class="task-list-remove-button" id="remover-finalizados">
+        Remove Task
+      </button>
+
+      <button class="task-list-clear-button" id="apaga-tudo">
+        Clear All
+      </button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
