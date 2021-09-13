@@ -19,3 +19,10 @@ function addInput() {
   document.querySelector('main').appendChild(input);
 }
 addInput();
+
+function addOlist() {
+  const oList = document.createElement('ol');
+  oList.id = 'lista-tarefas';
+  document.querySelector('main').appendChild(oList);
+}
+addOlist();
