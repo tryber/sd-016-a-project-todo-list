@@ -22,4 +22,11 @@ function addInputField() {
   inputField.id = 'texto-tarefa';
   main.appendChild(inputField);
 }
-addInputField()
+addInputField();
+
+function addOrderedList() {
+  const orderedList = document.createElement('ol');
+  orderedList.id = 'lista-tarefas';
+  main.appendChild(orderedList);
+}
+addOrderedList();
