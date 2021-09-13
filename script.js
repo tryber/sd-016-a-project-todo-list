@@ -71,7 +71,7 @@ function removeCrossedButton () {
 };
 
 function clearCrossed () {
-  let allCrossed = document.querySelectorAll('.crossed-line');
+  let allCrossed = document.querySelectorAll('.completed');
   for (let index = 0 ; index < allCrossed.length ; index += 1){
     allCrossed[index].remove();
   };
