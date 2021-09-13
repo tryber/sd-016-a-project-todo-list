@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        Minha Lista de Tarefas
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo
+        </p>
+        <input type="text" id="texto-tarefa" placeholder="digite sua tarefa">
+        <button id="criar-tarefa" onclick=addTask()>
+            <p>
+                Criar tarefa                
+            </p>
+        </button>
+        <button id="apaga-tudo" onclick=eraselist()>
+            <p>
+                Apaga lista
+            </p>
+        </button>
+        <button id="remover-finalizados" onclick=removerfinalizados()>
+            <p>
+                Remover Concluidos
+            </p>
+        </button>
+        <button id="salvar-tarefas" onclick= savelist()>
+            <p>
+                Salvar lista
+            </p>
+        </button>
+        <button id="remover-selecionado" onclick=removerselected()>
+            <p>
+                X
+            </p>
+        </button>
+        <button id="mover-cima" onclick=MoveUp()>
+            <p>
+                ⇧
+            </p>
+        </button>
+        <button id="mover-baixo" onclick=MoveDown()>
+            <p>
+                ⇩
+            </p>
+        </button>
+    </header>
+    <main>
+        <ol id="lista-tarefas">
+        </ol>
+    </main>
+    <button class="butao"></button>
+    
+    <script src="script.js"></script>
+</body>
+</html>

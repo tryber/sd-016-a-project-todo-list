@@ -1,0 +1,71 @@
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.white {
+  background-color: gray;
+}
+
+header {
+  font-size: xx-large;
+  text-align: center;
+}
+
+body {
+  font-family: monospace;
+  box-shadow: 0 4px 8px 0 rgba(0 , 0 , 0 , 0.2) , 0 6px 20px 0 rgba(0 , 0 , 0 , 0.19);
+  margin: 6% 6% 9%;
+  padding: 10px;
+  background-color: wheat;
+  border-radius: 20px;
+}
+
+.butao {
+  display: none;
+}
+
+ol {
+  text-align: center;
+  list-style-position: inside;
+  margin: 50px;
+  padding: 0 0 40px;
+}
+
+input {
+  display: block;
+  margin: 20px auto;
+  width: 70%;
+  text-align: center;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+}
+
+main {
+  background-color: white;
+  border-radius: 20px;
+  margin: 10px 10px 30px;
+}
+
+#remover-selecionado p {
+  font-size: x-large;
+  margin: 0;
+}
+
+#mover-baixo p , #mover-cima p {
+  margin: 0;
+  font-size: xx-large;
+}
+
+button {
+  border-radius: 10px;
+  font-size: large;
+  background-color: red;
+  color: white;
+  font-weight: 600;
+}
+
+li {
+  font-size: x-large;
+  background-color: white;
+}
