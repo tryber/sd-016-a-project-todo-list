@@ -12,3 +12,8 @@ h1 {
   font-weight: 500;
   color: rgb(173 , 181 , 189);
 }
+
+p {
+  color: rgb(206 , 212 , 218);
+  font-size: 21px;
+}
