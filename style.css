@@ -58,4 +58,6 @@ p {
 li {
   line-height: 25px;
   font-family: Montserrat, sans-serif;
+  margin: 10px auto;
+  padding-left: 10px;
 }
