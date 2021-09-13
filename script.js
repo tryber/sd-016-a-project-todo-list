@@ -40,6 +40,7 @@ function listra() {
     });
   }
 }
+
 function remove2() {
   const filhosOl = olPai.children;
   for (let index = 0; index < filhosOl.length; index += 1) {
@@ -54,4 +55,11 @@ function remove3() {
       remove2();
     });
   }
+}
+let botApaga = document.querySelector('#apaga-tudo');
+botApaga.addEventListener('click', apagou);
+
+function apagou() {
+  let apaga = document.querySelector('section');
+  apaga.parentNode.removeChild(apaga)
 }
