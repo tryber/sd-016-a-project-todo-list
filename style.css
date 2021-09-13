@@ -1,78 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
-body{
-    font-family: 'Comfortaa', cursive;
+body {
+  font-family: Comfortaa, cursive;
 }
 
 #title {
-    text-align: center;
-    font-weight: normal;
+  text-align: center;
+  font-weight: 100;
 }
 
-#funcionamento{
-    text-align: center;
+#funcionamento {
+  text-align: center;
 }
 
-main{
-    text-align: center;
+main {
+  text-align: center;
 }
 
-#texto-tarefa{
-    text-align: center;
+#texto-tarefa {
+  text-align: center;
+  height: 25px;
 }
 
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
-
-#mover-cima, #mover-baixo, #remover-selecionado {
-    background-color:black;
-    color: white;
-    font-size: 20px;
-    width: 30px;
-    height: 30px;
-    border-radius: 30%;
+#mover-cima , #mover-baixo , #remover-selecionado {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30%;
 }
 
-#apaga-tudo{
-    width: 70px;
-    height: 30px;
+#apaga-tudo {
+  width: 70px;
+  height: 30px;
 }
 
-#remover-finalizados{
-    width: 150px;
-    height: 30px;
+#remover-finalizados {
+  width: 150px;
+  height: 30px;
 }
 
-#salvar-tarefas{
-    width: 100px;
-    height: 30px;
+#salvar-tarefas {
+  width: 100px;
+  height: 30px;
 }
 
-#apaga-tudo, #remover-finalizados, #salvar-tarefas, #criar-tarefa {
-    background-color: black;
-    color: white;
+#apaga-tudo , #remover-finalizados , #salvar-tarefas , #criar-tarefa {
+  background-color: black;
+  color: white;
 }
 
-#criar-tarefa{
-    width: 80px;
-    height: 30px;
+#criar-tarefa {
+  width: 80px;
+  height: 30px;
 }
 
-#texto-tarefa{
-    height: 25px;
+#texto-tarefa::placeholder {
+  color: black;
 }
 
-#texto-tarefa::placeholder{
-    color: black;
-} /* https://www.w3schools.com/howto/howto_css_placeholder.asp */
-
-li{
-    line-height: 30px;
-    height: 30px;
+/* https://www.w3schools.com/howto/howto_css_placeholder.asp */
+li {
+  line-height: 30px;
+  height: 30px;
 }
 
-p{
-    color: grey;
+p {
+  color: grey;
 }
