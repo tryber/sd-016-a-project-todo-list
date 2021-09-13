@@ -58,3 +58,22 @@ function addClearFinishedListener() {
   btn.addEventListener('click', clearFinished);
 }
 addClearFinishedListener();
+
+function saveState() {
+  const taskList = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('taskList', taskList);
+}
+
+function addSaveBtnListener() {
+  const btn = document.getElementById('salvar-tarefas');
+  btn.addEventListener('click', saveState);
+}
+addSaveBtnListener();
+
+function loadStorage() {
+  if (localStorage.getItem('taskList') !== null) {
+    const taskList = document.getElementById('lista-tarefas');
+    taskList.innerHTML = localStorage.getItem('taskList');
+  }
+}
+loadStorage();
