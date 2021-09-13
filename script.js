@@ -7,8 +7,17 @@ function createLi() {
   novaLi.innerText = contentInput.value;
   localOl.appendChild(novaLi);
   contentInput.value = '';
+
   novaLi.addEventListener('click', function () {
     novaLi.style.backgroundColor = 'rgb(128,128,128)';
+  });
+
+  novaLi.addEventListener('dblclick', function () {
+    if (novaLi.className === '') {
+      novaLi.className = 'completed';
+    } else if (novaLi.className === 'completed') {
+      novaLi.className = 'notCompleted';
+    }
   });
 }
 
@@ -23,4 +32,4 @@ function erasedIten() {
   localOl.innerHTML = '';
 }
 
-buttonApagar.addEventListener('click',erasedIten);
+buttonApagar.addEventListener('click', erasedIten);
