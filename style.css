@@ -1,0 +1,41 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  margin-top: 30px;
+}
+
+header p {
+  margin: 15px 0;
+}
+
+main {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: seagreen;
+}
+
+#lista-tarefas {
+  width: 200px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.item-list {
+  width: 150px;
+  font-size: 20px;
+  padding: 5px;
+}

@@ -7,6 +7,9 @@ function removeAddClassItemList(event) {
   eventListItem.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+function completedTask(event) {
+  event.target.classList.toggle('completed');
+}
 function addNewTask() {
   const inputTask = document.querySelector('#texto-tarefa');
   if (inputTask.value === '') {
@@ -17,7 +20,7 @@ function addNewTask() {
   listItem.classList.add('item-list');
   listItem.innerHTML = inputTask.value;
   listItem.addEventListener('click', removeAddClassItemList);
-
+  listItem.addEventListener('dblclick', completedTask);
   lisTask.appendChild(listItem);
   inputTask.value = '';
 }
