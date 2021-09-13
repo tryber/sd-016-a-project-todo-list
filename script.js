@@ -21,7 +21,8 @@ function addTask() {
     let listItems = document.body.getElementsByTagName("li");
 
     for (let index = 0; index < listItems.length; index += 1) {
-        listItems[index].addEventListener("click", paintedBackground)
+        listItems[index].addEventListener("click", paintedBackground);
+        listItems[index].addEventListener("dblclick", lineThrough)
     }
     
 
@@ -35,5 +36,21 @@ function paintedBackground(event) {
     event.target.className = "selected";
     if (event.target.className === "selected") {
         event.target.style.backgroundColor = "rgb(128, 128, 128)";
+    }
+}
+
+
+function lineThrough(event) {
+    event.style.textDecoration = "line-through";
+} 
+
+
+let eraseButton = document.getElementById("apaga-tudo");
+eraseButton.addEventListener("click", apagaLista);
+
+function apagaLista () {
+    let listaCompleta = document.querySelectorAll("li");
+    for (let index = 0; index < listaCompleta.length; index += 1) {
+        listaCompleta[index].remove();
     }
 }
