@@ -61,7 +61,7 @@ li {
   height: 15vh;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-flow: column;
   align-content: center;
   justify-content: center;
   align-items: center;
@@ -102,7 +102,7 @@ li {
   position: relative;
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-flow: nowrap;
   flex-direction: column;
   align-items: center;
   align-content: center;
