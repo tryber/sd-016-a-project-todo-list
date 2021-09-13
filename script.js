@@ -2,6 +2,7 @@ const botaoCriarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 const inputNovaTarefa = document.querySelector('#texto-tarefa');
 const botaoApagaTudo = document.querySelector('#apaga-tudo');
+const botaoRemoveFinalizados = document.querySelector('#remover-finalizados');
 
 function adicionarClasseSelecionado(event) {
   const antigoItem = document.querySelector('.selected');
@@ -38,11 +39,19 @@ function adicionarNovaTarefa() {
 }
 
 function apagarTodasTarefas() {
-  const ItensLista = document.querySelectorAll('#lista-tarefas li');
-  ItensLista.forEach((item) => {
+  const itensLista = document.querySelectorAll('#lista-tarefas li');
+  itensLista.forEach((item) => {
+    item.remove();
+  });
+}
+
+function removerTarefasFinalizadas() {
+  const itemsFinalizados = document.querySelectorAll('.completed');
+  itemsFinalizados.forEach((item) => {
     item.remove();
   });
 }
 
 botaoCriarTarefa.addEventListener('click', adicionarNovaTarefa);
 botaoApagaTudo.addEventListener('click', apagarTodasTarefas)
+botaoRemoveFinalizados.addEventListener('click', removerTarefasFinalizadas)
