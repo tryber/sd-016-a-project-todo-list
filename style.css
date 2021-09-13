@@ -17,3 +17,15 @@ p {
   color: rgb(206 , 212 , 218);
   font-size: 21px;
 }
+
+#input-container {
+  text-align: center;
+}
+
+#texto-tarefa {
+  width: 20em;
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: 1px solid rgb(33 , 37 , 41);
+  background-color: rgb(206 , 212 , 218);
+}
