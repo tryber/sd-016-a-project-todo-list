@@ -1,6 +1,7 @@
 const botaoCriarTarefa = document.querySelector('#criar-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 const inputNovaTarefa = document.querySelector('#texto-tarefa');
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
 
 function adicionarClasseSelecionado(event) {
   const antigoItem = document.querySelector('.selected');
@@ -36,4 +37,12 @@ function adicionarNovaTarefa() {
   inputNovaTarefa.value = '';
 }
 
+function apagarTodasTarefas() {
+  const ItensLista = document.querySelectorAll('#lista-tarefas li');
+  ItensLista.forEach((item) => {
+    item.remove();
+  });
+}
+
 botaoCriarTarefa.addEventListener('click', adicionarNovaTarefa);
+botaoApagaTudo.addEventListener('click', apagarTodasTarefas)
