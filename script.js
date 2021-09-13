@@ -5,9 +5,9 @@ const clearButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
 
 function addListItem() {
-  let listItem = document.createElement('li');
-  let taskText = document.querySelector('#texto-tarefa').value;
-  let textBox =  document.querySelector('#texto-tarefa');
+  const listItem = document.createElement('li');
+  const taskText = document.querySelector('#texto-tarefa').value;
+  const textBox = document.querySelector('#texto-tarefa');
   listItem.innerText = taskText;
   toDoList.appendChild(listItem);
   textBox.value = '';
@@ -16,17 +16,17 @@ function addListItem() {
 addbutton.addEventListener('click', addListItem);
 
 function selectListItem(event) {
-  for (let i = 0; i<listItems.length; i += 1) {
+  for (let i = 0; i < listItems.length; i += 1) {
     listItems[i].style.backgroundColor = document.body.style.background;
   }
-  let eventTarget = event;
-  eventTarget.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  const eventTarget = event;
+  eventTarget.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 toDoList.addEventListener('click', selectListItem);
 
 function riskItem(event) {
-  let eventTarget = event;
+  const eventTarget = event;
   if (eventTarget.target.className === 'completed') {
     eventTarget.target.classList.remove('completed');
   } else {
@@ -37,24 +37,21 @@ function riskItem(event) {
 toDoList.addEventListener('dblclick', riskItem);
 
 function clearList() {
-  if (listItems.length > 0){
-    for (let i = listItems.length; i>0; i -= 1) {
-      listItems[listItems.length -1].remove('li');
+  if (listItems.length > 0) {
+    for (let i = listItems.length; i > 0; i -= 1) {
+      listItems[listItems.length - 1].remove('li');
     }
   }
 }
 
 clearButton.addEventListener('click', clearList);
 
-function clearCompletedTasks(){
-  if (listItems.length > 0){
-    for (let i = listItems.length-1; i>=0; i -= 1) {
-      if (listItems[i].className === 'completed') {
-        listItems[i].remove('li');
-      }
-      //console.log(listItems[i]);
+function clearCompletedTasks() {
+  for (let i = listItems.length - 1; i >= 0; i -= 1) {
+    if (listItems[i].className === 'completed') {
+      listItems[i].remove('li');
     }
   }
 }
 
-clearCompletedButton.addEventListener('click',clearCompletedTasks);
+clearCompletedButton.addEventListener('click', clearCompletedTasks);
