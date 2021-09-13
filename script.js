@@ -22,7 +22,7 @@ function addTask() {
 
     for (let index = 0; index < listItems.length; index += 1) {
         listItems[index].addEventListener("click", paintedBackground);
-        listItems[index].addEventListener("dblclick", lineThrough)
+        listItems[index].addEventListener("dblclick", lineThrough);
     }
     
 
@@ -33,7 +33,7 @@ function paintedBackground(event) {
     oldSelected.classList.remove("selected");
     oldSelected.style.backgroundColor = "white";
 
-    event.target.className = "selected";
+    event.target.classList.add("selected");
     if (event.target.className === "selected") {
         event.target.style.backgroundColor = "rgb(128, 128, 128)";
     }
@@ -41,7 +41,12 @@ function paintedBackground(event) {
 
 
 function lineThrough(event) {
-    event.style.textDecoration = "line-through";
+    console.log(event.target.className);
+    if (event.target.className === "completed selected") {
+        event.target.classList.remove("completed");
+    } else {
+        event.target.classList.add("completed");
+    }
 } 
 
 
