@@ -51,8 +51,9 @@ function addTaskButton() {
 }
 addTaskButton();
 
+const tasklist = document.querySelector('#lista-tarefas');
+
 function addNewTask() {
-  const tasklist = document.querySelector('#lista-tarefas');
   const addButton = document.querySelector('#criar-tarefa');
   const inputField = document.querySelector('#texto-tarefa');
 
@@ -79,8 +80,6 @@ function deleteTaskBkgrdColor() {
 }
 
 function changeTaskBkgrdColor() {
-  const tasklist = document.querySelector('#lista-tarefas');
-
   tasklist.addEventListener('click', function (clicked) {
     deleteTaskBkgrdColor();
     const event = clicked.target;
@@ -92,8 +91,6 @@ function changeTaskBkgrdColor() {
 changeTaskBkgrdColor();
 
 function completeTask() {
-  const tasklist = document.querySelector('#lista-tarefas');
-
   tasklist.addEventListener('dblclick', function (clicked) {
     const event = clicked.target;
     if (event.className !== 'task completed') {
@@ -123,9 +120,9 @@ addActionButtons();
 function eraseAllButton() {
   const eraseAll = document.querySelector('#apaga-tudo');
   eraseAll.addEventListener('click', function () {
-    const tasklist = document.getElementsByClassName('task');
-    for (let index = tasklist.length - 1; index >= 0; index--) {
-      tasklist[index].remove();
+    const tasks = document.getElementsByClassName('task');
+    for (let index = tasks.length - 1; index >= 0; index -= 1) {
+      tasks[index].remove();
     }
   });
 }
@@ -134,10 +131,37 @@ eraseAllButton();
 function eraseFinishedButton() {
   const eraseFinished = document.querySelector('#remover-finalizados');
   eraseFinished.addEventListener('click', function () {
-    const tasklist = document.getElementsByClassName('completed');
-    for (let index = tasklist.length - 1; index >= 0; index--) {
-      tasklist[index].remove();
+    const tasksCompleted = document.getElementsByClassName('completed');
+    for (let index = tasksCompleted.length - 1; index >= 0; index -= 1) {
+      tasksCompleted[index].remove();
     }
   });
 }
 eraseFinishedButton();
+
+const actionButtons = document.querySelector('#action-buttons');
+
+function taskSaveButton() {
+  const taskSaveButton = document.createElement('button');
+  taskSaveButton.id = 'salvar-tarefas';
+  taskSaveButton.innerText = 'Salvar lista';
+  actionButtons.appendChild(taskSaveButton);
+}
+taskSaveButton();
+
+function taskSave() {
+  const taskSaveBttn = document.querySelector('#salvar-tarefas');
+  taskSaveBttn.addEventListener('click', function () {
+    const currentList = document.querySelector('ol').innerHTML;
+    localStorage.setItem('saveList', currentList);
+  })
+}
+taskSave();
+
+function taskSaveReload() {
+  tasklist.innerHTML = localStorage.getItem('saveList');
+}
+
+window.onload = function onload() {
+  taskSaveReload();
+};
