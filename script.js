@@ -36,7 +36,7 @@ function clean(selectedID) {
 }
 
 function selectListItem(event) {
-  const { id } = event.target;
+  const { id } = event.target; // acessa propriedade id do objeto event.target
   selected = parseInt(id, 10);
 
   document.getElementById(id).classList.add('selected');
