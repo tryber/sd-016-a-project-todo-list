@@ -43,9 +43,20 @@ function setLiBackgroundStyleOnClick() {
     const liIndexPosition = getListParentElementChildren[index];
     console.log(liIndexPosition);
     liIndexPosition.addEventListener('click', () => {
-      console.log('passou');
       cleanAllSelectedItems();
       liIndexPosition.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  }
+}
+
+// Function to set a line through to the clicked task.
+function setLineThroughToCompletedTask() {
+  const getListParentElementChildren = document.querySelector(taskListClass).children;
+  for (let index = 0; index < getListParentElementChildren.length; index += 1) {
+    const liIndexPosition = getListParentElementChildren[index];
+    console.log(liIndexPosition);
+    liIndexPosition.addEventListener('dblclick', () => {
+      liIndexPosition.style.textDecorationLine = 'line-through';
     });
   }
 }
@@ -61,6 +72,7 @@ function onClickInputTextOnTaskList() {
     getTaskListInputElement.value = '';
     listElementFuncReturn.append(textContainer);
     setLiBackgroundStyleOnClick();
+    setLineThroughToCompletedTask();
   });
 }
 onClickInputTextOnTaskList();
