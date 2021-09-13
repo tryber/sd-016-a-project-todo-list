@@ -1,3 +1,23 @@
-#titulo{
-    font-family: monospace, sans-serif;    
+body{
+  margin: 0;
+  background-color: rgb(200, 200, 200);
+}
+
+#titulo {
+  font-family: monospace, sans-serif;
+  margin-left: 15px;
+  padding: 5px;
+}
+
+#box1{
+height: 70px;
+width: 300px;
+max-width: 80%;
+margin-left: 15px;
+padding: 7px;
+}
+
+#funcionamento{
+font-family: monospace, sans-serif;
+
 }
