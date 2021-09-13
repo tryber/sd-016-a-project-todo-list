@@ -1,9 +1,14 @@
+function colorLi(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
 function addNewLi() {
-  console.log('cliquei no botao');
   const inputText = document.querySelector('#texto-tarefa');
   const ol = document.querySelector('#lista-tarefas');
   const li = document.createElement('li');
+  li.className = 'li';
   li.innerText = inputText.value;
+  li.addEventListener('click', colorLi);
   ol.appendChild(li);
   inputText.value = '';
 }
