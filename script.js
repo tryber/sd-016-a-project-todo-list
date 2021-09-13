@@ -14,11 +14,11 @@ roadButton.addEventListener('click', addAssign)
 
 function addLiListenner(event) {
 
-  const listLi = document.querySelectorAll('ol')
-  for (let index = 0; index < listLi.length; index += 1) {
-    listLi[index].addEventListener('click', function (event) {
-      for (let i = 0; i < listLi.length; i += 1) {
-       listLi[i].style.background = 'white'
+  const listItem = document.querySelectorAll('li')
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].addEventListener('click', function (event) {
+      for (let i = 0; i < listItem.length; i += 1) {
+       listItem[i].style.background = 'white'
       }
       event.target.style.background = 'rgb(128,128,128)'
     })
