@@ -53,5 +53,5 @@ function removerTarefasFinalizadas() {
 }
 
 botaoCriarTarefa.addEventListener('click', adicionarNovaTarefa);
-botaoApagaTudo.addEventListener('click', apagarTodasTarefas)
-botaoRemoveFinalizados.addEventListener('click', removerTarefasFinalizadas)
+botaoApagaTudo.addEventListener('click', apagarTodasTarefas);
+botaoRemoveFinalizados.addEventListener('click', removerTarefasFinalizadas);
