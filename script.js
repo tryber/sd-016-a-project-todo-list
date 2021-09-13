@@ -47,5 +47,22 @@ function createInput() {
   input.id = 'texto-tarefa';
   section.appendChild(input);
 }
+
+function createUl() {
+  const ol = document.createElement('ol');
+  const main = document.querySelector('main');
+  ol.id = 'lista-tarefas';
+  main.appendChild(ol);
+}
+
+function createButInput() {
+  const button = document.createElement('button');
+  const section = document.querySelector('#content-input');
+  button.id = 'criar-tarefa';
+  button.innerHTML = 'Adicionar';
+  section.appendChild(button);
+}
 createContentInput();
 createInput();
+createButInput();
+createUl();
