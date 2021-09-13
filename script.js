@@ -2,10 +2,18 @@
 const selectOl = document.querySelector('#lista-tarefas');
 const selectButton = document.querySelector('#criar-tarefa');
 
+function removeColorLine() {
+  const selectLineList = document.querySelectorAll('.tasks-line');
+  for (let index = 0; index < selectLineList.length; index += 1) {
+    selectLineList[index].style.backgroundColor = '';
+  }
+}
+
 function paintColorList() {
   const selectLineList = document.querySelectorAll('.tasks-line');
   for (let index = 0; index < selectLineList.length; index += 1) {
-    selectLineList[index].addEventListener('click', (event) => {
+    selectLineList[index].addEventListener('click', () => {
+      removeColorLine();
       selectLineList[index].style.backgroundColor = 'rgb(128, 128, 128)';
     });
   }
