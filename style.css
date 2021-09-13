@@ -4,4 +4,58 @@
 
 body {
   font-family: Urbanist, sans-serif;
+  background-color: rgb(42 , 95 , 172);
+}
+
+main {
+  width: max-content;
+  font-size: x-large;
+  margin-left: 80px;
+  margin-top: 40px;
+  background-color: rgb(233 , 233 , 233);
+  padding: 20px 30px;
+  border-radius: 30px;
+}
+
+#title {
+  text-align: center;
+}
+
+#funcionamento {
+  text-align: center;
+  font-style: italic;
+  font-size: medium;
+  margin-bottom: 5px;
+}
+
+#add-task {
+  margin-bottom: 10px;
+}
+
+#texto-tarefa {
+  border: 1px solid rgb(185 , 185 , 185);
+  text-align: center;
+  font-size: 15px;
+  width: 150px;
+}
+
+#criar-tarefa {
+  padding: 5px 7px;
+  border-radius: 10px;
+  border: 2px solid rgb(194 , 149 , 52);
+  color: black;
+  background-color: rgb(233 , 233 , 233);
+  vertical-align: middle;
+  margin-left: 5px;
+  transition-duration: 0.3s;
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(194 , 149 , 52);
+  color: white;
+}
+
+#criar-tarefa:active {
+  background-color: rgb(180 , 139 , 50);
+  color: white;
 }
