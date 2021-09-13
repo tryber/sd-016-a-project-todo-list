@@ -2,6 +2,15 @@ function completedTasks(doubleClick) {
   doubleClick.target.classList.toggle('completed');
 }
 
+function activeTask(click) {
+  const listItem = document.querySelectorAll('.list-item');
+
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].classList.remove('active');
+    click.target.classList.add('active');
+  }
+}
+
 function createListItem() {
   const listItem = document.createElement('li');
   const input = document.getElementById('texto-tarefa');
@@ -9,6 +18,7 @@ function createListItem() {
   listItem.className = 'list-item';
   listItem.innerText = input.value;
   listItem.addEventListener('dblclick', completedTasks);
+  listItem.addEventListener('click', activeTask);
   parentElement.appendChild(listItem);
   input.value = '';
 }

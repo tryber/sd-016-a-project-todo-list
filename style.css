@@ -10,3 +10,8 @@ button {
 .completed {
   text-decoration: line-through;
 }
+
+.active {
+  background-color: rgb(128, 128, 128);
+  font-weight: 900;
+}
