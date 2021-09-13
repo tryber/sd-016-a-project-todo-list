@@ -32,7 +32,6 @@ function removeFinalizados() {
   const paiDaLista = document.getElementById('lista-tarefas');
   let tamanhoFinalizados = finalizados.length - 1; // para fazer for descrescente
   for (let i = tamanhoFinalizados; i >= 0; i -= 1) {
-    console.log(finalizados[i]);
     paiDaLista.removeChild(finalizados[i]);
   }
 }
@@ -42,10 +41,32 @@ function removeSelecionado() {
   const paiDaLista = document.getElementById('lista-tarefas');
   const tamanho = lista.length - 1;
   for (let i = tamanho; i >= 0; i -= 1) {
-    console.log(lista[i].style.backgroundColor);
     if (lista[i].style.backgroundColor == 'rgb(128, 128, 128)') {
       paiDaLista.removeChild(lista[i]);
-      console.log('entrou if');
+    }
+  }
+}
+
+function moveItemCima() {
+  let lista = document.querySelectorAll('li');
+  const paiDaLista = document.getElementById('lista-tarefas');
+  for (let i = 0; i < lista.length; i += 1) {
+    if (lista[i].style.backgroundColor == 'rgb(128, 128, 128)') {
+      if (i > 0) { // caso não seja o primeiro elemento
+        paiDaLista.insertBefore(lista[i], lista[i - 1]);
+      }
+    }
+  }
+}
+
+function moveItemBaixo() {
+  let lista = document.querySelectorAll('li');
+  const paiDaLista = document.getElementById('lista-tarefas');
+  for (let i = 0; i < lista.length; i += 1) {
+    if (lista[i].style.backgroundColor == 'rgb(128, 128, 128)') {
+      if (i < lista.length - 1) { // caso não seja o último elemento
+        paiDaLista.insertBefore(lista[i + 1], lista[i]);
+      }
     }
   }
 }
