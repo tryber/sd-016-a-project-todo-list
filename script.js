@@ -21,10 +21,11 @@ function colorListAdd() {
   const lista = document.getElementById('lista-tarefas');
 
   lista.addEventListener('click', (event) => {
-    for (index = 0; index < lista.children.length; index += 1) {
+    for (let index = 0; index < lista.children.length; index += 1) {
       lista.children[index].style.backgroundColor = 'white';
     }
-    event.target.style.backgroundColor = 'gray';
+    const evento = event;
+    evento.target.style.backgroundColor = 'gray';
   });
 }
 
