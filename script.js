@@ -1,8 +1,12 @@
 // Determinando as variáveis
 const addButton = document.getElementById("criar-tarefa");
+let todoList = [];
+let nbmrOfTodos = 0;
 
-// Adicionar a funcao ao betao
+// Adicionar funcoes
 addButton.addEventListener("click", addTodo);
+
+
 
 
 function addTodo(){
@@ -12,7 +16,7 @@ function addTodo(){
 
     // criando uma li contendo o valor do input
     const actualTodo = document.createElement("li");
-    actualTodo.innerText = textoTarefa;
+    actualTodo.innerHTML = textoTarefa;
 
     // Pegando o OL
     const orderedList = document.getElementById("lista-tarefas");
@@ -20,14 +24,35 @@ function addTodo(){
     // appendando a li dentro do ol
     orderedList.appendChild(actualTodo);
 
-    // Checando se tem valor
-    //if (textoTarefa !== ""){
-    //    console.log(textoTarefa);
-    //} else{
-    //    console.log("erro");
-    //}
-
     // Limpar a caixa de texto
     caixaDeTexto.value = "";
+
+    // Adicionando o todo para a lista de todos
+    todoList.push(actualTodo);
+
+    // Adicionando o evento de clicar em cada LI criada
+    todoList[nbmrOfTodos].addEventListener("click", turnGrey);
+    todoList[nbmrOfTodos].addEventListener("dblclick", riskIt);
+
+    // Checando se foi
+    console.log(todoList);
+
+    // Adicionando todo +1
+    nbmrOfTodos += 1;
 }
-console.log(addButton);
+
+function turnGrey(){
+    for (let y = 0; y < todoList.length; y += 1){
+        todoList[y].style.backgroundColor = "white";
+    }
+    this.style.backgroundColor = "rgb(128, 128, 128)";
+}
+
+function riskIt(){
+    // Checar se já tem a classe completed
+    if(this.className === "completed"){
+        this.className = "";
+    }else{
+        this.className = "completed";
+    }
+}
