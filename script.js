@@ -21,6 +21,16 @@ document.querySelector('ol').addEventListener('click',function (event) {
   }
   event.target.classList.add('selected');
 });
-console.log(document.querySelector('ol'));
+//adiciona class select quando clica duas vezes
+document.querySelector('ol').addEventListener('dblclick', function (event) {
+  let objeto = event.target;
+  if(objeto.classList.contains('completed') === true ){
+    objeto.classList.remove('completed');
+  }else{
+    objeto.classList.add('completed');
+  }
+});
+//remove class select quando clica duas vezes
+
 additems();
 
