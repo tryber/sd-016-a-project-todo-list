@@ -12,6 +12,17 @@ function changeBackground(item) {
   task.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function lineThrough(item) {
+  const task = item;
+  if (task.target.classList.contains('completed')) {
+    task.target.style.textDecoration = 'none';
+    task.target.classList.remove('completed');
+  } else {
+    task.target.classList.add('completed');
+    task.target.style.textDecoration = 'line-through';
+  }
+}
+
 button.addEventListener('click', () => {
   const liTask = document.createElement('li');
   liTask.innerHTML = input.value;
@@ -21,5 +32,6 @@ button.addEventListener('click', () => {
   items = document.querySelectorAll('.items');
   items.forEach((item) => {
     item.addEventListener('click', changeBackground);
+    item.addEventListener('dblclick', lineThrough);
   });
 });
