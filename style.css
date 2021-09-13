@@ -4,4 +4,10 @@
 
 #header {
   text-align: center;
+  margin-bottom: 50px;
+}
+
+#input-section {
+  width: 50%;
+  text-align: center;
 }
