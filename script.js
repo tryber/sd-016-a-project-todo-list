@@ -17,5 +17,18 @@ function colorirItem(event) {
         event.target.style.background = 'rgb(128, 128, 128)';
 }
 
+// Requisito 8
+function verificaSeSelecionado() {
+    let itensDaLista = document.getElementById('lista-tarefas');
+    itensDaLista.addEventListener('click', function(event){
+        for (let i = 0; i < itensDaLista.children.length; i += 1){
+            itensDaLista.children[i].style.background = 'white';
+        }
+        event.target.style.background = 'rgb(128, 128, 128)';
+    })
+    }
+ verificaSeSelecionado();
+
+
 
 
