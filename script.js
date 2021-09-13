@@ -1,6 +1,7 @@
 const addbutton = document.querySelector('#criar-tarefa');
 const toDoList = document.querySelector('#lista-tarefas');
 const listItems = document.querySelector('#lista-tarefas').children;
+const clearButton = document.querySelector('#apaga-tudo');
 
 function addListItem() {
   let listItem = document.createElement('li');
@@ -33,3 +34,13 @@ function riskItem(event) {
 }
 
 toDoList.addEventListener('dblclick', riskItem);
+
+function clearList() {
+  if (listItems.length > 0){
+    for (let i = listItems.length; i>0; i -= 1) {
+      listItems[listItems.length -1].remove('li');
+    }
+  }
+}
+
+clearButton.addEventListener('click', clearList);
