@@ -1,6 +1,6 @@
-body{
+body {
   margin: 0;
-  background-color: rgb(200, 200, 200);
+  background-color: rgb (200, 200, 200);
 }
 
 #titulo {
@@ -9,15 +9,23 @@ body{
   padding: 5px;
 }
 
-#box1{
-height: 70px;
-width: 300px;
-max-width: 80%;
-margin-left: 15px;
-padding: 7px;
+#box1 {
+  height: 55px;
+  width: 300px;
+  max-width: 80%;
+  margin-left: 15px;
+  padding: 7px;
 }
 
-#funcionamento{
-font-family: monospace, sans-serif;
+#funcionamento {
+  font-family: monospace, sans-serif;
+}
 
+#box2 {
+  height: 20px;
+  width: 30%;
+  max-width: 80%;
+  margin-left: 45px;
+  padding: 7px;
+  display: block;
 }
