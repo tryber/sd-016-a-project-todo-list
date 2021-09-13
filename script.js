@@ -14,7 +14,8 @@ function addList() {
 
   changeBackGroundColor();
   changeTextList();
-  deletedTasks()
+  deletedTasks();
+  deleteCompletedTasks();
 }
 
 function changeBackGroundColor() {
@@ -36,19 +37,15 @@ function clearNotSelectedColor() {
 }
 
 function changeTextList() {
-  const getLi = document.querySelector('ol').children;
+  const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
     getLi[index].addEventListener('dblclick', function(event) {     
-      if (getLi[index].className === '') {
         getLi[index].classList.add('completed');
-        console.log(getLi[index])
-      } else {
-        getLi[index].className = '';
-        console.log(getLi[index]);
-      }
-    })
+        event.textDecoration = 'line-through solid rgb(0, 0, 0)'
+    });
   }
 }
+
 
 function deletedTasks() {
   const getButton = document.querySelector('#apaga-tudo');
@@ -58,4 +55,16 @@ function deletedTasks() {
       getLi[index].remove();
     }
   });
+}
+
+function deleteCompletedTasks() {
+  const getButtonCompleted = document.querySelector('#remover-finalizados');
+  const getLi = document.querySelectorAll('li');
+  for (let index = 0; index < getLi.length; index += 1) {
+    getButtonCompleted.addEventListener('click', function x() {
+      if (getLi[index].classList.contains('completed')) {
+        getLi[index].remove();
+      }
+    });
+  }
 }
