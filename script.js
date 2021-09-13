@@ -20,5 +20,5 @@ function criaClasse() {
 listaTarefas.addEventListener('click', mudaCor);
 
 function mudaCor() {
-  filho.style.backgroundColor = 'red';
+  filho.style.backgroundColor = 'rgb(128, 128, 128)';
 }
