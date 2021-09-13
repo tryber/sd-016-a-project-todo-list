@@ -15,11 +15,19 @@ function addList() {
   changeBackGroundColor();
 }
 
-function changeBackGroundColor(){
+function changeBackGroundColor() {
   const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
-    getLi[index].addEventListener('click', function() {    
-      getLi[index].style.backgroundColor = 'rgb(128,128,128)'
+    getLi[index].addEventListener('click', function() {
+      clearNotSelectedColor();
+      getLi[index].style.backgroundColor = 'rgb(128,128,128)';
     })
-  }  
+  }
+}
+
+function clearNotSelectedColor() {
+  const getOl = document.querySelector('ol').children;
+  for (let index = 0; index < getOl.length; index += 1) {
+    getOl[index].style.backgroundColor = 'white';  
+  }
 }
