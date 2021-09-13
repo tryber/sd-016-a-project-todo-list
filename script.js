@@ -207,4 +207,4 @@ window.onload = function onLoad() {
 	if (localStorage.getItem('tasks') !== null) {
 		loadList();
 	}
-}
+};
