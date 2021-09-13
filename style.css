@@ -1,3 +1,8 @@
 #funcionamento {
     font-size: small;
 }
+
+li {
+    background-color: white;
+    width:fit-content;
+}
