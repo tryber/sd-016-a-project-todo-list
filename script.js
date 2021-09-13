@@ -3,9 +3,7 @@ function selectTask(event) {
   const oldSelected = document.getElementsByClassName('selected')[0];
 
   if (!oldSelected) return newSelected.classList.toggle('selected');
-  if (oldSelected === newSelected) {
-    return newSelected.classList.toggle('selected');
-  }
+  if (oldSelected === newSelected) return;
   oldSelected.classList.toggle('selected');
   newSelected.classList.toggle('selected');
 }
@@ -70,10 +68,92 @@ function addSaveBtnListener() {
 }
 addSaveBtnListener();
 
+function moveUp() {
+  const firstElement = document.getElementsByClassName('selected')[0];
+  if (firstElement === undefined) return;
+  const previousElement = firstElement.previousElementSibling;
+  if (previousElement === null) return;
+  const firstElementText = firstElement.innerHTML;
+  const previousElementText = previousElement.innerHTML;
+  firstElement.innerHTML = previousElementText;
+  previousElement.innerHTML = firstElementText;
+  firstElement.classList.toggle('selected');
+  previousElement.classList.toggle('selected');
+
+  if (
+    previousElement.classList.contains('completed') &&
+    firstElement.classList.contains('completed')
+  )
+    return;
+
+  if (
+    previousElement.classList.contains('completed') ||
+    firstElement.classList.contains('completed')
+  ) {
+    firstElement.classList.toggle('completed');
+    previousElement.classList.toggle('completed');
+  }
+}
+
+function addMoveUpListener() {
+  const btn = document.getElementById('mover-cima');
+  btn.addEventListener('click', moveUp);
+}
+addMoveUpListener();
+
+function moveDown() {
+  const firstElement = document.getElementsByClassName('selected')[0];
+  if (firstElement === undefined) return;
+  const nextElement = firstElement.nextElementSibling;
+  if (nextElement === null) return;
+  const firstElementText = firstElement.innerHTML;
+  const nextElementText = nextElement.innerHTML;
+  firstElement.innerHTML = nextElementText;
+  nextElement.innerHTML = firstElementText;
+  firstElement.classList.toggle('selected');
+  nextElement.classList.toggle('selected');
+
+  if (
+    nextElement.classList.contains('completed') &&
+    firstElement.classList.contains('completed')
+  )
+    return;
+
+  if (
+    nextElement.classList.contains('completed') ||
+    firstElement.classList.contains('completed')
+  ) {
+    firstElement.classList.toggle('completed');
+    nextElement.classList.toggle('completed');
+  }
+}
+
+function addDownUpListener() {
+  const btn = document.getElementById('mover-baixo');
+  btn.addEventListener('click', moveDown);
+}
+addDownUpListener();
+
+function removeTask() {
+  const task = document.getElementsByClassName('selected')[0];
+  task.parentNode.removeChild(task);
+}
+
+function addBtnRemoveListner() {
+  const btn = document.getElementById('remover-selecionado');
+  btn.addEventListener('click', removeTask);
+}
+addBtnRemoveListner();
+
 function loadStorage() {
   if (localStorage.getItem('taskList') !== null) {
     const taskList = document.getElementById('lista-tarefas');
     taskList.innerHTML = localStorage.getItem('taskList');
+    const taskListElements = taskList.children;
+    for (let index = 0; index < taskList.childElementCount; index += 1) {
+      taskListElements[index].addEventListener('click', selectTask);
+      taskListElements[index].addEventListener('dblclick', completeTask);
+    }
   }
 }
 loadStorage();
