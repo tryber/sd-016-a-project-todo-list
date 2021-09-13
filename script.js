@@ -10,3 +10,11 @@ function adicionaTarefa (){
     })
 }
 adicionaTarefa();
+
+function alteraCorItemLista (event){
+    let itemLista = document.querySelector('ol')
+    itemLista.addEventListener('click',function(event){
+        event.target.style.backgroundColor = "rgb(128, 128, 128)"
+    })
+}
+alteraCorItemLista();
