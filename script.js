@@ -3,22 +3,27 @@ const botaoAdicionar = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 
 botaoAdicionar.addEventListener('click', ()=> {
-  listaOrdenada.appendChild(document.createElement('li'));
-  listaOrdenada.lastChild.innerText = input.value;
+  listaOrdenada.appendChild(document.createElement('li')).className = 'list-item';
+  listaOrdenada.lastChild.innerText = input.value;    
+  
+  listaOrdenada.lastChild.addEventListener('click', (event) => {
+    for (let x = 0; x < listaOrdenada.children.length; x += 1) {
+      listaOrdenada.children[x].style.backgroundColor = 'white';
+    };
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
 
-  listaOrdenada.lastChild.addEventListener('click', (event)=> {
+  })
+
+  listaOrdenada.lastChild.addEventListener('dblclick', (event) => {
     const element = event.target;
-    const previousElement = document.getElementsByClassName('selected')[0];
-
-    if (previousElement !== undefined) {
-      previousElement.style.backgroundColor = 'white';
-      previousElement.className = '';
+    
+    if (element.className === 'completed') {
+      element.className = '';
+    } else {
+      element.className = 'completed';
     }
-
-    element.className += ' selected';
-    element.style.backgroundColor = 'rgb(128, 128, 128)';
-
-  });
+  })
 
   input.value = '';
 });
+
