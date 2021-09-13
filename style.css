@@ -47,14 +47,14 @@
   border: 1px solid black;
   margin-left:20px;
   box-sizing: unset;
-  background-color:white;
+  background-color: white;
   transition: all 300ms;
   cursor: pointer;
 }
 
 #criar-tarefa:hover {
   background-color: #34D06C;
-  color:white;
+  color: white;
   transform: scale(110%);
 }
 
