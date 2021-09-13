@@ -16,5 +16,10 @@ function selectItem(event) {
    }
    event.target.classList.add('selected')
 }
-list.addEventListener('dblclick', selectItem);
+list.addEventListener('click', selectItem);
 
+function completeItem(event) {
+    event.target.classList.add('completed')
+ }
+ list.addEventListener('dblclick', completeItem);
+ 
