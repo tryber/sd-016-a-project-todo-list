@@ -11,9 +11,21 @@ function adicionarClasseSelecionado(event) {
   itemAtual.classList.add('selected');
 }
 
+function removeClasseCompleto(event) {
+  const itemAtual = event.target;
+  itemAtual.classList.remove('completed');
+}
+
+function adicionarClasseCompleto(event) {
+  const itemAtual = event.target;
+  itemAtual.addEventListener('dblclick', removeClasseCompleto);
+  itemAtual.classList.add('completed');
+}
+
 function criandoItemDaLista() {
   const novaTarefa = document.createElement('li');
   novaTarefa.addEventListener('click', adicionarClasseSelecionado);
+  novaTarefa.addEventListener('dblclick', adicionarClasseCompleto);
   novaTarefa.innerText = inputNovaTarefa.value;
   return novaTarefa;
 }
