@@ -2,6 +2,7 @@ const addbutton = document.querySelector('#criar-tarefa');
 const toDoList = document.querySelector('#lista-tarefas');
 const listItems = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
+const clearCompletedButton = document.querySelector('#remover-finalizados');
 
 function addListItem() {
   let listItem = document.createElement('li');
@@ -44,3 +45,16 @@ function clearList() {
 }
 
 clearButton.addEventListener('click', clearList);
+
+function clearCompletedTasks(){
+  if (listItems.length > 0){
+    for (let i = listItems.length-1; i>=0; i -= 1) {
+      if (listItems[i].className === 'completed') {
+        listItems[i].remove('li');
+      }
+      //console.log(listItems[i]);
+    }
+  }
+}
+
+clearCompletedButton.addEventListener('click',clearCompletedTasks);
