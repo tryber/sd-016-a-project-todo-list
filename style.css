@@ -59,3 +59,7 @@ main {
   background-color: rgb(180 , 139 , 50);
   color: white;
 }
+
+.selected {
+  background-color: gray;
+}

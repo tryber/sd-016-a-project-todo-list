@@ -12,8 +12,13 @@ function createTask() {
 }
 
 function changeTaskColor(e) {
+  for (let i = 0; i < taskList.children.length; i += 1) {
+    if (taskList.children[i].classList.contains('selected')) {
+      taskList.children[i].classList.remove('selected');
+    }
+  }
   const task = e.target;
-  task.style.backgroundColor = 'rgb(128, 128, 128)';
+  task.classList.add('selected');
 }
 
 // Listeners
