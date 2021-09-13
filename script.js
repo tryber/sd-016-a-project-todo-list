@@ -50,3 +50,17 @@ function setLiBackgroundStyleOnClick() {
   }
 }
 
+// Function to add a input value to the task list.
+function onClickInputTextOnTaskList() {
+  const getTaskListAddButtonElement = document.querySelector('.task-list-add-button');
+  // Event Listener
+  getTaskListAddButtonElement.addEventListener('click', () => {
+    const getTaskListInputElement = document.querySelector('.task-list-input');
+    const listElementFuncReturn = createListElement();
+    const textContainer = getTaskListInputElement.value;
+    getTaskListInputElement.value = '';
+    listElementFuncReturn.append(textContainer);
+    setLiBackgroundStyleOnClick();
+  });
+}
+onClickInputTextOnTaskList();
