@@ -36,7 +36,9 @@ list.addEventListener('click', function (event){
     event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
 }, { once: true })
 
-
+list.addEventListener('dblclick', function (event){
+    event.target.classList.toggle('completed')
+})
 
 
 
