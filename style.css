@@ -1,0 +1,23 @@
+h1{
+    color: #0B4F6C;
+}
+#funcionamento{
+    color: #01BAEF;
+}
+#criar-tarefa{
+    background-color: #20BF55;
+    border: none;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+}
+#criar-tarefa:hover{
+  background-color: #168761;
+  color: aliceblue;
+}
+#texto-tarefa{
+    width: 150px;
+    height: 30px; 
+    border-radius: 5px;
+
+}
