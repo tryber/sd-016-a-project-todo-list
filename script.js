@@ -19,6 +19,7 @@ function addTask () {
   newItem.addEventListener('click', select);
   newItem.addEventListener('dblclick' , crossItem);
   itemList.appendChild(newItem);
+  inputTask.value = '';
 };
 
 function select (event) {
