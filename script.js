@@ -36,6 +36,11 @@ document.getElementById(nomeDoId).addEventListener('dblclick', lineThrough);
 
 // Adiciona cor de fundo
 function color(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const paint = event;
+  if (paint.target.style.backgroundColor === 'rgb(128, 128, 128)') {
+    paint.target.style.backgroundColor = 'white';
+  } else {
+    paint.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
 }
 document.getElementById(nomeDoId).addEventListener('click', color);
