@@ -48,3 +48,14 @@ function clearAll() {
   }
 }
 buttonClearAll.addEventListener('click', clearAll);
+
+// Adicione um botão com id="remover-finalizados"
+// que quando clicado remove somente os elementos finalizados da sua lista
+const buttonClearDoneTasks = document.getElementById('remover-finalizados');
+function clearDoneTasks() {
+  let doneTasks = document.querySelectorAll('.completed');
+  for (const task of doneTasks) {
+    task.remove();
+  }
+}
+buttonClearDoneTasks.addEventListener('click', clearDoneTasks);
