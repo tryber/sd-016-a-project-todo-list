@@ -3,3 +3,7 @@ header {
   font-size: 20px;
   font-weight: 800;
 }
+
+.task {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
