@@ -12,11 +12,21 @@ getButtonClick.addEventListener('click', function () {
   highlightElement();
 });
 
+let selected = null;
+
 function highlightElement() {
   const getLi = document.querySelectorAll('.item-lista');
   for (let index = 0; index < getLi.length; index += 1) {
     getLi[index].addEventListener('click', function () {
-      getLi[index].style.backgroundColor = 'rgb(128, 128, 128)';
+      getLi[index].classList.add('highlighted-item');
+    });
+  }
+  for (let j = 0; j < getLi.length; j += 1) {
+    getLi[j].addEventListener('click', function (evt) {
+      for (let i = 0; i < getLi.length; i += 1) {
+        getLi[i].classList.remove('highlighted-item');
+      }
+      evt.target.classList.add('highlighted-item');
     });
   }
 }

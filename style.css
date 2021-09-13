@@ -53,3 +53,7 @@ body {
 .item-lista:hover {
     cursor: pointer;
 }
+
+.highlighted-item {
+    background-color: rgb(128, 128, 128);
+}
