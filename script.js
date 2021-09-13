@@ -33,3 +33,19 @@ function createTagP() {
 
 createMain();
 createTagP();
+
+function createContentInput() {
+  const section = document.createElement('section');
+  const main = document.querySelector('main');
+  section.id = 'content-input';
+  main.appendChild(section);
+}
+
+function createInput() {
+  const input = document.createElement('input');
+  const section = document.querySelector('#content-input');
+  input.id = 'texto-tarefa';
+  section.appendChild(input);
+}
+createContentInput();
+createInput();
