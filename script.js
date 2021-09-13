@@ -35,3 +35,18 @@ SOURCE - While loop extracted from:
 https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the-same-class-pure-js
 */
 
+// Function to set a different background to the clicked task.
+function setLiBackgroundStyleOnClick() {
+  const getListParentElementChildren = document.querySelector(taskListClass).children;
+  console.log(getListParentElementChildren);
+  for (let index = 0; index < getListParentElementChildren.length; index += 1) {
+    const liIndexPosition = getListParentElementChildren[index];
+    console.log(liIndexPosition);
+    liIndexPosition.addEventListener('click', () => {
+      console.log('passou');
+      cleanAllSelectedItems();
+      liIndexPosition.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  }
+}
+
