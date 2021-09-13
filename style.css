@@ -1,10 +1,10 @@
 body {
   background-color: rgb(33 , 37 , 41);
+  font-family: Dancing Script, cursive;
 }
 
 header {
   text-align: center;
-  font-family: Dancing Script, cursive;
 }
 
 h1 {
@@ -16,10 +16,12 @@ h1 {
 p {
   color: rgb(206 , 212 , 218);
   font-size: 21px;
+  margin: 21px auto 30px;
 }
 
 #input-container {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 #texto-tarefa {
@@ -28,4 +30,32 @@ p {
   border-radius: 8px;
   border: 1px solid rgb(33 , 37 , 41);
   background-color: rgb(206 , 212 , 218);
+  color: black;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+#criar-tarefa {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(33 , 37 , 41);
+  background-color: rgb(173 , 181 , 189);
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+#to-do-list {
+  margin: auto;
+  max-width: 400px;
+}
+
+#lista-tarefas {
+  color: rgb(206 , 212 , 218);
+}
+
+li {
+  line-height: 25px;
+  font-family: Montserrat, sans-serif;
 }
