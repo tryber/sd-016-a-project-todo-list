@@ -18,7 +18,7 @@ function addLiListenner(event) {
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].addEventListener('click', function (event) {
       for (let i = 0; i < listItem.length; i += 1) {
-       listItem[i].style.background = 'white'
+        listItem[i].style.background = 'white'
       }
       event.target.style.background = 'rgb(128,128,128)'
     })
@@ -31,4 +31,70 @@ document.querySelector('#lista-tarefas').addEventListener('click', addLiListenne
 // let caminhoDeOndeCliquei = document.querySelectorAll('.pixel');
 // for (let i = 0; i < caminhoDeOndeCliquei.length; i += 1){
 // caminhoDeOndeCliquei[i].addEventListener('click', pintarQuadrado);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const input = document.getElementById('texto-tarefa');
+// const button = document.getElementById('criar-tarefa');
+// const taskList = document.getElementById('lista-tarefas');
+
+
+// function criarInput() {
+//   const newList = document.createElement('li');
+//   newList.innerText = input.value;
+//   taskList.appendChild(newList);
+//   input.value = '';
+ 
+// }
+
+// button.addEventListener('click', criarInput);
+
+// function colorirList(){
+//   const listItem = document.getElementsByTagName('li');
+//   listItem[i].addEventListener('click', (event) => {
+//   event.target.style.backgroundColor = 'rgb (128, 128, 128)';
+// });
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function colorLi(event) {
+//   const listLi = document.querySelectorAll('li');
+//   for (let index = 0; index < listLi.length; index += 1) {
+//     const element = listLi[index];
+//     document.querySelector('.selected').style.backgroundColor = 'white';
+//     element.classList.remove('selected');
+//   }
+  
+//   event.target.className = 'selected';
+//   document.querySelector('.selected').style.backgroundColor = 'rgb(128, 128, 128)';
 // }
