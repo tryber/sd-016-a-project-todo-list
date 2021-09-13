@@ -125,6 +125,10 @@ function checkIfAnyElementIsSelected(array, upOrDown) {
 }
 
 // 3. Muda a ordem dos elementos da array
+/**
+ * Consulta para resolver essa parte:
+ * Resposta do usuário Fragile Falcon no fórum: https://www.codegrepper.com/code-examples/javascript/change+position+of+element+in+array+javascript
+ */
 function changeOrderOfElementsInArray(array, currentIndex, upOrDown) {
     const element = array[currentIndex];
     if (upOrDown === 'up') {
