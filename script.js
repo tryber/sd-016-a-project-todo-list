@@ -1,9 +1,14 @@
 function changeBackgroudColor() {
   const liContent = document.querySelectorAll('.content');
   for (let index = 0; index < liContent.length; index += 1) {
-    const liSelected = liContent[index];
     liContent[index].addEventListener('click', () => {
-      liSelected.style.backgroundColor = 'rgb(128, 128, 128)';
+      const selected = document.querySelector('.selected');
+      if (selected === null) {
+        liContent[index].className = 'selected';
+      } else {
+        selected.className = '';
+        liContent[index].className = 'selected';
+      }
     });
   }
 }
