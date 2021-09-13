@@ -1,5 +1,20 @@
 function colorLi(event) {
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const listLi = document.querySelectorAll('li');
+  for (let index = 0; index < listLi.length; index += 1) {
+    const element = listLi[index];
+    element.removeAttribute('id');
+  }
+  event.target.id = 'selected';
+}
+
+function addLiListenner(li) {
+  li.addEventListener('dblclick', (evento) => {
+    if (evento.target.className === 'completed') {
+      evento.target.classList.remove('completed');
+    }else {
+      evento.target.className = 'completed';
+    }
+  });
 }
 
 function addNewLi() {
@@ -8,6 +23,7 @@ function addNewLi() {
   const li = document.createElement('li');
   li.className = 'li';
   li.innerText = inputText.value;
+  addLiListenner(li);
   li.addEventListener('click', colorLi);
   ol.appendChild(li);
   inputText.value = '';
