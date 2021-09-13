@@ -61,3 +61,13 @@ function removeTasksFinalized() {
   }
 }
 document.getElementById('remover-finalizados').addEventListener('click', removeTasksFinalized);
+
+function removeTaskSelected() {
+  const list = Array.from(taskList.children);
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('selected')) {
+      taskList.removeChild(list[i]);
+    }
+  }
+}
+document.getElementById('remover-selecionado').addEventListener('click', removeTaskSelected);
