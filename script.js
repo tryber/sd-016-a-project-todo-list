@@ -1,9 +1,10 @@
 const listaOrdenada = document.getElementById('lista-tarefas');
 const botaoAdicionar = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
+const botaoApagarTudo = document.getElementById('apaga-tudo');
 
 botaoAdicionar.addEventListener('click', ()=> {
-  listaOrdenada.appendChild(document.createElement('li')).className = 'list-item';
+  listaOrdenada.appendChild(document.createElement('li'));
   listaOrdenada.lastChild.innerText = input.value;    
   
   listaOrdenada.lastChild.addEventListener('click', (event) => {
@@ -27,3 +28,8 @@ botaoAdicionar.addEventListener('click', ()=> {
   input.value = '';
 });
 
+botaoApagarTudo.addEventListener('click', () => {
+   do {
+    listaOrdenada.children[0].remove();
+  } while (listaOrdenada.children.length !== 0)
+});

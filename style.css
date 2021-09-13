@@ -43,7 +43,15 @@
 
 #criar-tarefa {
   width:80px;
+  height:40px; 
+}
+
+#apaga-tudo {
   height:40px;
+  width:120px;
+}
+
+.botao {
   border: 1px solid black;
   margin-left:20px;
   box-sizing: unset;
@@ -52,13 +60,13 @@
   cursor: pointer;
 }
 
-#criar-tarefa:hover {
+.botao:hover {
   background-color: #34D06C;
   color: white;
   transform: scale(110%);
 }
 
-#criar-tarefa:active {
+.botao:active {
   background-color: #2aad5a;
   transform: scale(100%);
 }
