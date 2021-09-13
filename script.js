@@ -18,9 +18,9 @@ function addLiListenner(event) {
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].addEventListener('click', function (event) {
       for (let i = 0; i < listItem.length; i += 1) {
-        listItem[i].style.background = 'white'
+        listItem[i].classList.remove('selected')
       }
-      event.target.style.background = 'rgb(128,128,128)'
+      event.target.classList.add('selected');
     })
   }
 }
