@@ -1,6 +1,6 @@
 // Localiza o input
 const taskInput = document.querySelector('#texto-tarefa');
-
+const teste = 'teste' 
 // Localiza lista ordenada de tarefas
 const olTask = document.querySelector('#lista-tarefas');
 
