@@ -1,0 +1,59 @@
+#texto-tarefa {
+  border-color: dodgerblue;
+}
+
+#criar-tarefa {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: dodgerblue;
+}
+
+#remover-selecionado {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color:rgb(202, 52, 52);
+}
+
+#mover-cima {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: orange;
+}
+
+#mover-baixo {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: orange;
+}
+
+#remover-finalizados {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: dodgerblue;
+}
+
+#apaga-tudo {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(202, 52, 52);
+}
+
+#salvar-tarefas {
+  padding: 4px;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  background-color: forestgreen;
+}
