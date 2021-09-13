@@ -2,12 +2,12 @@ function changeBackgroudColor() {
   const liContent = document.querySelectorAll('.content');
   for (let index = 0; index < liContent.length; index += 1) {
     liContent[index].addEventListener('click', () => {
-      const selected = document.querySelector('.selected');
+      const selected = document.querySelector('#selected');
       if (selected === null) {
-        liContent[index].className = 'selected';
+        liContent[index].id = 'selected';
       } else {
-        selected.className = '';
-        liContent[index].className = 'selected';
+        selected.id = '';
+        liContent[index].id = 'selected';
       }
     });
   }
@@ -17,10 +17,10 @@ function CompletedTasks() {
   const liContent = document.querySelectorAll('.content');
   for (let index = 0; index < liContent.length; index += 1) {
     liContent[index].addEventListener('dblclick', () => {
-      if (liContent[index].className === '') {
+      if (liContent[index].className !== 'completed') {
         liContent[index].className = 'completed';
       } else if (liContent[index].className === 'completed') {
-        liContent.className = '';
+        liContent[index].className = '';
       }
     });
   }
@@ -42,4 +42,14 @@ button.addEventListener('click', () => {
 const clearTasks = document.querySelector('#apaga-tudo');
 clearTasks.addEventListener('click', () => {
   document.querySelector('ol').innerHTML = '';
+});
+
+const removeDone = document.querySelector('#remover-finalizados');
+removeDone.addEventListener('click', () => {
+  const liContent = document.querySelectorAll('li');
+  for (let index = 0; index < liContent.length; index += 1) {
+    if (liContent[index].className === 'completed') {
+      liContent.splice(index);
+    }
+  }
 });
