@@ -31,8 +31,14 @@ getButton.addEventListener('click', function(){
     const input = document.querySelector('#texto-tarefa')
     const ordList = document.querySelector('#lista-tarefas')
     const createLi = document.createElement('li');
+    createLi.className = 'lista'
     createLi.innerHTML = input.value;
     ordList.appendChild(createLi)
     input.value = '';
-    
+})
+
+const lista = document.querySelector('#lista-tarefas')
+lista.addEventListener('click', function(event){
+event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+
 })
