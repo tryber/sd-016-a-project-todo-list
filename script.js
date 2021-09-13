@@ -1,14 +1,15 @@
 const body = document.querySelector('body');
-const input = document.getElementById('texto-tarefa');
-const button = document.getElementById('criar-tarefa');
+const addInput = document.getElementById('texto-tarefa');
+const addButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const eraseButton = document.getElementById('apaga-tudo');
 
 function createTask() {
   const newTask = document.createElement('li');
-  newTask.innerText = input.value;
+  newTask.innerText = addInput.value;
   newTask.className = 'tarefa';
   taskList.appendChild(newTask);
-  input.value = '';
+  addInput.value = '';
 }
 
 function changeTaskColor(e) {
@@ -30,9 +31,15 @@ function changeToCompleteTask(e) {
   }
 }
 
+function eraseTasks() {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+
 // Listeners
-button.addEventListener('click', createTask);
-input.addEventListener('keyup', (e) => {
+addButton.addEventListener('click', createTask);
+addInput.addEventListener('keyup', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
     createTask();
@@ -52,3 +59,5 @@ body.addEventListener('dblclick', (e) => {
     changeToCompleteTask(e);
   }
 });
+
+eraseButton.addEventListener('click', eraseTasks);

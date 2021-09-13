@@ -67,3 +67,35 @@ main {
 .completed {
   text-decoration: line-through;
 }
+
+.down-button {
+  padding: 5px 7px;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  background-color: rgb(233 , 233 , 233);
+  vertical-align: middle;
+  margin-bottom: 5px;
+  margin-top: 25px;
+  transition-duration: 0.3s;
+}
+
+.down-button:hover {
+  color: white;
+}
+
+.down-button:active {
+  color: white;
+}
+
+#apaga-tudo {
+  border: 2px solid rgb(194 , 52 , 52);
+}
+
+#apaga-tudo:hover {
+  background-color: rgb(194 , 52 , 52);
+}
+
+#apaga-tudo:active {
+  background-color: rgb(180 , 50 , 50);
+}
