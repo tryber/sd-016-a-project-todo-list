@@ -30,7 +30,7 @@ function colorLi(event) {
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
-
+/// entulhar eventos no mesmo elemento para add e remove deu problema
 function eventColorLi() {
     let li = document.querySelector('#lista-tarefas').children
     for (let index = 0; index < li.length; index += 1) {
@@ -39,6 +39,21 @@ function eventColorLi() {
 }
 
 ///////////////////////////
+
+function removeAllTarefas() {
+    let tarefaList = document.querySelector('#lista-tarefas').children;
+    for (let index = 0; index < tarefaList.length; index += 1) {
+        tarefaList[index].remove()
+    }
+}
+
+function removeAllButton() {
+    let removeButton = document.querySelector('#apaga-tudo');
+    removeButton.addEventListener('click', removeAllTarefas)
+}
+removeAllButton()
+
+////////////////////////
 
 function completedTarefa(event) {
     // as tarefas sao as li filhas de ul
