@@ -6,3 +6,12 @@ function creatingInput() {
   divCont.appendChild(input)
 }
 creatingInput();
+
+const olCont = document.getElementById('ol-container');
+function creatingOl() {
+    const orderedList = document.createElement('ol');
+    orderedList.id = 'lista-tarefas';
+    olCont.appendChild(orderedList);
+}
+
+creatingOl();
