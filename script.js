@@ -11,6 +11,7 @@ function adiciona() {
   olPai.appendChild(criaLi);
 
   mudaCor();
+  listra();
 }
 
 function mudaCor() {
@@ -27,5 +28,30 @@ function remove() {
   const filhosOl = olPai.children;
   for (let index = 0; index < filhosOl.length; index += 1) {
     filhosOl[index].style.backgroundColor = 'white';  
+  }
+}
+
+function listra() {
+  const lis = document.querySelectorAll('li');
+  for (let index = 0; index < lis.length; index += 1) {
+    lis[index].addEventListener('dblclick', function() {
+      lis[index].classList.add('completed');
+      remove3();
+    });
+  }
+}
+function remove2() {
+  const filhosOl = olPai.children;
+  for (let index = 0; index < filhosOl.length; index += 1) {
+    filhosOl[index].classList.remove('completed');
+  }
+}
+
+function remove3() {
+  const lis = document.querySelectorAll('li');
+  for (let index = 0; index < lis.length; index += 1) {
+    lis[index].addEventListener('dblclick', function() {
+      remove2();
+    });
   }
 }
