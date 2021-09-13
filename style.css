@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+#main-title-container {
+  width: 100%;
+  height: 30vh;
+  background-color: #C92500;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
