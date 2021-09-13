@@ -43,13 +43,13 @@ function unselect (){
 function crossItem (event){
   let currentItem = event.target;
   let allClasses = currentItem.className;
-  let checkClass = allClasses.includes('crossed-line');
+  let checkClass = allClasses.includes('completed');
 
   if(checkClass === true){
-    currentItem.classList.remove('crossed-line');
+    currentItem.classList.remove('completed');
 
   }else {
-    currentItem.classList.add('crossed-line');
+    currentItem.classList.add('completed');
   };
 };
 
