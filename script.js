@@ -44,12 +44,20 @@ addButton();
 function clearInput() {
   document.querySelector('#texto-tarefa').value = '';
 }
+function changeColorItem() {
+  document.querySelectorAll('.list').forEach((el) =>
+    el.addEventListener('click', (event) => {     
+      const changeColor = event.target;
+      changeColor.style.color = 'rgb(128, 128, 128)';
+    }));
+}
 
 function buttonClick() {
   const button = document.querySelector('#criar-tarefa');
   button.addEventListener('click', () => {
     const olist = document.querySelector('#ol-list');
     const elementLi = document.createElement('li');
+    elementLi.className = 'list';
     const inputValue = document.querySelector('#texto-tarefa').value;
     if (inputValue === '') {
       console.log('Caixa vazia');
@@ -58,6 +66,7 @@ function buttonClick() {
       olist.appendChild(elementLi);
       clearInput();
     }
+    changeColorItem();
   });
 }
 buttonClick();
