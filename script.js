@@ -52,10 +52,10 @@ function clearList() {
 }
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
 
-function removeTasksFinalized () {
-  let list = Array.from (taskList.children);
+function removeTasksFinalized() {
+  const list = Array.from(taskList.children);
   for (let i = 0; i < list.length; i += 1) {
-    if(list[i].classList.contains('completed')) {
+    if (list[i].classList.contains('completed')) {
       taskList.removeChild(list[i]);
     }
   }
