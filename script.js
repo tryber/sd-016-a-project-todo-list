@@ -30,3 +30,17 @@ function colorListAdd() {
 }
 
 colorListAdd();
+
+function riskListAdd() {
+  const lista = document.getElementById('lista-tarefas');
+
+  lista.addEventListener('dblclick', (event) => {
+    if (event.target.className === '') {
+      event.target.className = 'completed';
+    } else {
+      event.target.classList.remove('completed');
+    }
+  });
+}
+
+riskListAdd();
