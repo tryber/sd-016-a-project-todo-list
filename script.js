@@ -16,6 +16,12 @@ const deleteCompletedBtn = document.querySelector('#remover-finalizados');
 // Localiza o botão de salvar tarefas
 const saveTasksBtn = document.querySelector('#salvar-tarefas');
 
+// Localiza o botão de mover para cima
+const moveUpBtn = document.querySelector('#mover-cima');
+
+// Localiza o botão de mover para baixo
+const moveDownBtn = document.querySelector('#mover-baixo');
+
 // Lista de tarefas
 let taskList = [];
 
@@ -43,6 +49,7 @@ function createTask(content, status) {
     if (status) {
         newTask.classList.add('completed');
     }
+    newTask.style.backgroundColor = 'white';
     newTask.addEventListener('click', changeListItemColor);
     newTask.addEventListener('dblclick', completeTask);
     olTask.appendChild(newTask);
@@ -79,6 +86,77 @@ function deleteCompletedTasks() {
 }
 
 deleteCompletedBtn.addEventListener('click', deleteCompletedTasks);
+
+// Mover elementos
+// 1. Criar array com elementos atuais
+function moveItemUp() {
+    const olTaskChildren = olTask.children;
+    const newArray = [];
+    for (let index = 0; index < olTaskChildren.length; index += 1) {
+        const currentItem = olTaskChildren[index];
+        newArray.push(currentItem);
+    }
+    checkIfAnyElementIsSelected(newArray, 'up');
+}
+
+function moveItemDown() {
+    const olTaskChildren = olTask.children;
+    const newArray = [];
+    for (let index = 0; index < olTaskChildren.length; index += 1) {
+        const currentItem = olTaskChildren[index];
+        newArray.push(currentItem);
+    }
+    checkIfAnyElementIsSelected(newArray, 'down');
+}
+
+// 2. Verifica se tem algum elemento selecionado
+function checkIfAnyElementIsSelected(array, upOrDown) {
+    let currentIndex = undefined;
+    for (let index = 0; index < array.length; index += 1) {
+        const currentItem = array[index];
+        if (currentItem.style.backgroundColor !== 'white') {
+            currentIndex = array.indexOf(currentItem);
+        }
+    }
+    changeOrderOfElementsInArray(array, currentIndex, upOrDown);
+}
+
+// 3. Muda a ordem dos elementos da array
+function changeOrderOfElementsInArray(array, currentIndex, upOrDown) {
+    const element = array[currentIndex];
+    if (upOrDown === 'up') {
+        if (currentIndex > 0) {
+            const newIndex = currentIndex - 1;
+            array.splice(currentIndex, 1);
+            array.splice(newIndex, 0, element);
+            deleteAllTasks();
+            updateOlTask(array);
+        }
+    } else {
+        if (currentIndex < array.length - 1) {
+            array.splice(currentIndex, 1);
+            array.splice((currentIndex + 1), 0, element);
+            deleteAllTasks();
+            updateOlTask(array);
+        }
+    }
+}
+
+// 4. Atualiza lista
+function updateOlTask(array) {
+    for (let index = 0; index < array.length; index += 1) {
+        olTask.appendChild(array[index]);
+    }
+}
+
+moveUpBtn.addEventListener('click', moveItemUp);
+moveDownBtn.addEventListener('click', moveItemDown);
+
+function printarray(array) {
+    for (let element of array) {
+        console.log(element.innerHTML);
+    }
+}
 
 // Atualiza lista de tarefas e salva no localStorage
 function saveListToLocalStorage() {
