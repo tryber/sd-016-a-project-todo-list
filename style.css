@@ -1,0 +1,28 @@
+header {
+  width: 800px;
+  font-size: 35px;
+  margin: 200px auto 0;
+}
+
+main {
+  width: 800px;
+  height: 100px;
+  margin: -10px auto;
+}
+
+#texto-tarefa {
+  height: 30px;
+  border-radius: 10px;
+}
+
+#funcionamento {
+  font-size: 20px;
+  font-style: italic;
+}
+
+#criar-tarefa {
+  width: 150px;
+  height: 30px;
+  margin-left: 10px;
+  border-radius: 30px;
+}
