@@ -30,3 +30,20 @@ function checkItem(originEvent) {
   }
 }
 body.addEventListener('click', checkItem);
+
+function completeTask (element) {
+  if (element.classList.contains('completed')) {
+    element.classList.remove('completed');
+  } 
+  else {
+    element.classList.add('completed');
+  }
+}
+
+function markTask (originEvent) {
+  let element = originEvent.target;
+  if (element.parentNode.id === 'lista-tarefas') {
+    completeTask (element);
+  }
+}
+body.addEventListener('dblclick', markTask);
