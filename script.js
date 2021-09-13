@@ -1,4 +1,5 @@
 const header = document.querySelector('header');
+const main = document.querySelector('main');
 
 function addTitle() {
   const h1Header = document.createElement('h1');
@@ -15,3 +16,10 @@ function addParagraph() {
   header.appendChild(pHeader);
 }
 addParagraph();
+
+function addInputField() {
+  const inputField = document.createElement('input');
+  inputField.id = 'texto-tarefa';
+  main.appendChild(inputField);
+}
+addInputField()
