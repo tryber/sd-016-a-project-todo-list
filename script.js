@@ -3,11 +3,12 @@ const toDoList = document.querySelector('#lista-tarefas');
 const listItems = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
+const saveTasksButton = document.querySelector('#salvar-tarefas');
+const textBox = document.querySelector('#texto-tarefa');
 
 function addListItem() {
   const listItem = document.createElement('li');
   const taskText = document.querySelector('#texto-tarefa').value;
-  const textBox = document.querySelector('#texto-tarefa');
   listItem.innerText = taskText;
   toDoList.appendChild(listItem);
   textBox.value = '';
@@ -55,3 +56,40 @@ function clearCompletedTasks() {
 }
 
 clearCompletedButton.addEventListener('click', clearCompletedTasks);
+
+function saveList() {
+  const taskList = [];
+  const taskClassList = [];
+  for (let i = 0; i < listItems.length; i += 1) {
+    taskList[i] = listItems[i].innerText;
+    taskClassList[i] = listItems[i].className;
+  }
+  localStorage.setItem('taskList', JSON.stringify(taskList));
+  localStorage.setItem('taskClassList', JSON.stringify(taskClassList));
+}
+
+saveTasksButton.addEventListener('click', saveList);
+
+function addNewListItem(taskText, taskClassList) {
+  const listItem = document.createElement('li');
+  listItem.innerText = taskText;
+  if (taskClassList !== '') {
+    listItem.classList.add(taskClassList);
+  }
+  toDoList.appendChild(listItem);
+  textBox.value = '';
+}
+
+function recoverList() {
+  if (JSON.parse(localStorage.getItem('taskList')) !== null
+  && JSON.parse(localStorage.getItem('taskClassList')) !== null) {
+    const recoveredTaskList = JSON.parse(localStorage.getItem('taskList'));
+    const listLength = recoveredTaskList.length;
+    const recoveredTaskClassList = JSON.parse(localStorage.getItem('taskClassList'));
+    for (let i = 0; i < listLength; i += 1) {
+      addNewListItem(recoveredTaskList[i], recoveredTaskClassList[i]);
+    }
+  }
+}
+
+window.onload = recoverList;
