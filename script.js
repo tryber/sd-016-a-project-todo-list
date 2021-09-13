@@ -15,7 +15,7 @@ createTask.addEventListener('click', addTask);
 function selectedItem(element) {
   const tasks = Array.from(taskList.children);
   for (let i = 0; i < tasks.length; i += 1) {
-    currentTask = tasks[i];
+    let currentTask = tasks[i];
     if (currentTask.classList.contains('selected')) {
       currentTask.classList.remove('selected');
     }
@@ -47,3 +47,8 @@ function markTask (originEvent) {
   }
 }
 body.addEventListener('dblclick', markTask);
+
+function clearList () {
+  taskList.innerText = "";
+}
+document.getElementById('apaga-tudo').addEventListener('click', clearList);
