@@ -1,49 +1,60 @@
-let listt = document.getElementById('lista-tarefas');
-let upButton = document.getElementById('mover-cima');
+const lisT = document.getElementById('lista-tarefas');
+const upButton = document.getElementById('mover-cima');
 
-//selected = selected list item id
+// selected = selected list item id
+
+let myId;
+
+function findSelected() {
+  const selectedByClass = document.getElementsByClassName('selected');
+  if (selectedByClass.length !== 0) {
+    myId = parseInt(selectedByClass[0].id, 10);
+  }
+}
+
+lisT.addEventListener('click', findSelected);
 
 function upButtonFunction() {
-    // Change elements id's
-    if (selected > 0) {
-        let listArray = list.children;
+  // Change elements id's
+  if (myId > 0) {
+    const listArray = lisT.children;
 
-        let aux = listArray[selected].innerText;
-        let auxClass = listArray[selected].className;
+    const aux = listArray[myId].innerText;
+    const auxClass = listArray[myId].className;
 
-        listArray[selected].innerText = listArray[selected - 1].innerText;
-        listArray[selected].className = listArray[selected - 1].className;
+    listArray[myId].innerText = listArray[myId - 1].innerText;
+    listArray[myId].className = listArray[myId - 1].className;
 
-        listArray[selected - 1].innerText = aux;
-        listArray[selected - 1].className = auxClass;
+    listArray[myId - 1].innerText = aux;
+    listArray[myId - 1].className = auxClass;
 
-        listArray[selected - 1].style.backgroundColor = 'rgb(128, 128, 128)';
-        listArray[selected].style.backgroundColor = 'white';
+    listArray[myId - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    listArray[myId].style.backgroundColor = 'white';
 
-        selected = selected - 1;
-    }
+    myId -= 1;
+  }
 }
 
 upButton.addEventListener('click', upButtonFunction);
 
-let downButton = document.getElementById('mover-baixo');
+const downButton = document.getElementById('mover-baixo');
 
 downButton.addEventListener('click', () => {
-    if (selected < listt.children.length-1 && selected !== -1) {
-        let listArray = list.children;
+  if (myId < lisT.children.length - 1 && myId !== -1) {
+    const listArray = lisT.children;
 
-        let aux = listArray[selected].innerText;
-        let auxClass = listArray[selected].className;
+    const aux = listArray[myId].innerText;
+    const auxClass = listArray[myId].className;
 
-        listArray[selected].innerText = listArray[selected + 1].innerText;
-        listArray[selected].className = listArray[selected + 1].className;
+    listArray[myId].innerText = listArray[myId + 1].innerText;
+    listArray[myId].className = listArray[myId + 1].className;
 
-        listArray[selected + 1].innerText = aux;
-        listArray[selected + 1].className = auxClass;
+    listArray[myId + 1].innerText = aux;
+    listArray[myId + 1].className = auxClass;
 
-        listArray[selected + 1].style.backgroundColor = 'rgb(128, 128, 128)';
-        listArray[selected].style.backgroundColor = 'white';
+    listArray[myId + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    listArray[myId].style.backgroundColor = 'white';
 
-        selected += 1;
-    }
-})
+    myId += 1;
+  }
+});
