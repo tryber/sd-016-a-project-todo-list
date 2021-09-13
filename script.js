@@ -18,3 +18,20 @@ function cleanAllSelectedItems() {
   }
 }
 
+// Function to clear all tasks as the clear button is clicked.
+function clearAllTasks() {
+  const getClearAllButton = document.querySelector('.task-list-clear-button');
+  const getListParentElement = document.querySelector(taskListClass);
+  const getListChildElements = getListParentElement.getElementsByClassName('task-list-single-task');
+  getClearAllButton.addEventListener('click', () => {
+    while (getListChildElements[0]) {
+      getListChildElements[0].parentNode.removeChild(getListChildElements[0]);
+    }
+  });
+}
+clearAllTasks();
+/*
+SOURCE - While loop extracted from:
+https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the-same-class-pure-js
+*/
+
