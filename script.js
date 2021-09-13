@@ -15,3 +15,21 @@ function createHeader() {
 
 createContainer();
 createHeader();
+
+function createMain() {
+  const main = document.createElement('main');
+  const container = document.querySelector('#container');
+  main.id = 'content-main';
+  container.appendChild(main);
+}
+
+function createTagP() {
+  const p = document.createElement('p');
+  const main = document.querySelector('main');
+  p.id = 'funcionamento';
+  p.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
+  main.appendChild(p);
+}
+
+createMain();
+createTagP();
