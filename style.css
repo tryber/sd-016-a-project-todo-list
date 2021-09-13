@@ -6,3 +6,7 @@ body {
 button {
   cursor: url('/magic-wand (1).png'), default;
 }
+
+.completed {
+  text-decoration: line-through;
+}
