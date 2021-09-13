@@ -12,3 +12,10 @@ function addParagraph() {
   document.querySelector('main').appendChild(paragraph);
 }
 addParagraph();
+
+function addInput() {
+  const input = document.createElement('input');
+  input.id = 'texto-tarefa';
+  document.querySelector('main').appendChild(input);
+}
+addInput();
