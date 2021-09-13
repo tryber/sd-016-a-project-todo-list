@@ -6,6 +6,6 @@ function buttonValue() {
   const li = document.createElement('li');
   li.innerText = input.value;
   ol.appendChild(li);
-  input.value = ' ';
+  input.value = '';
 }
 button.addEventListener('click', buttonValue);
