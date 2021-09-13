@@ -45,6 +45,7 @@ function createInput() {
   const input = document.createElement('input');
   const section = document.querySelector('#content-input');
   input.id = 'texto-tarefa';
+  input.placeholder = 'Digite uma tarefa à fazer';
   section.appendChild(input);
 }
 
@@ -66,3 +67,20 @@ createContentInput();
 createInput();
 createButInput();
 createUl();
+
+// funções acima são estrutura HTML fixa
+
+function addList() {
+  const input = document.querySelector('#texto-tarefa');
+  const button = document.querySelector('#criar-tarefa');
+  const ol = document.querySelector('#lista-tarefas');
+  button.addEventListener('click', () => {
+    if (input.value.length > 0) {
+      const addLi = document.createElement('li');
+      addLi.innerHTML = input.value;
+      ol.appendChild(addLi);
+      input.value = '';
+    }
+  });
+}
+addList();
