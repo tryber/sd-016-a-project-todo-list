@@ -13,16 +13,11 @@ function addAssign() {
 roadButton.addEventListener('click', addAssign)
 
 function addLiListenner(event) {
-
   const listItem = document.querySelectorAll('li')
   for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('click', function (event) {
-      for (let i = 0; i < listItem.length; i += 1) {
-        listItem[i].classList.remove('selected')
-      }
-      event.target.classList.add('selected');
-    })
+    listItem[index].style.backgroundColor = 'white';
   }
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 document.querySelector('#lista-tarefas').addEventListener('click', addLiListenner);
@@ -59,7 +54,7 @@ document.querySelector('#lista-tarefas').addEventListener('click', addLiListenne
 //   newList.innerText = input.value;
 //   taskList.appendChild(newList);
 //   input.value = '';
- 
+
 // }
 
 // button.addEventListener('click', criarInput);
@@ -94,7 +89,7 @@ document.querySelector('#lista-tarefas').addEventListener('click', addLiListenne
 //     document.querySelector('.selected').style.backgroundColor = 'white';
 //     element.classList.remove('selected');
 //   }
-  
+
 //   event.target.className = 'selected';
 //   document.querySelector('.selected').style.backgroundColor = 'rgb(128, 128, 128)';
 // }
