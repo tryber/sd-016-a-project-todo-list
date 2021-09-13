@@ -33,8 +33,21 @@ function createTaskInput() {
   taskInputSection.appendChild(taskInput);
 }
 
+// 4 - Adicionando uma lista ordenada
+function createOrderedList() {
+  let listSection = document.createElement('section');
+  let orderedList = document.createElement('ol');
+
+  listSection.id = 'list-section';
+  orderedList.id = 'lista-tarefas';
+
+  document.body.append(listSection);
+  listSection.appendChild(orderedList);
+}
+
 window.onload = () => {
   createTitle();
   createParagraphOperation();
   createTaskInput();
+  createOrderedList();
 };
