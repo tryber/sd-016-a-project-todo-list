@@ -53,6 +53,7 @@ ol {
 
 li {
   cursor: pointer;
+  text-decoration-line: none;
 }
 
 .hero-nav-container {

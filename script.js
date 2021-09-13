@@ -38,10 +38,8 @@ https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the
 // Function to set a different background to the clicked task.
 function setLiBackgroundStyleOnClick() {
   const getListParentElementChildren = document.querySelector(taskListClass).children;
-  console.log(getListParentElementChildren);
   for (let index = 0; index < getListParentElementChildren.length; index += 1) {
     const liIndexPosition = getListParentElementChildren[index];
-    console.log(liIndexPosition);
     liIndexPosition.addEventListener('click', () => {
       cleanAllSelectedItems();
       liIndexPosition.style.backgroundColor = 'rgb(128, 128, 128)';
@@ -54,9 +52,14 @@ function setLineThroughToCompletedTask() {
   const getListParentElementChildren = document.querySelector(taskListClass).children;
   for (let index = 0; index < getListParentElementChildren.length; index += 1) {
     const liIndexPosition = getListParentElementChildren[index];
-    console.log(liIndexPosition);
     liIndexPosition.addEventListener('dblclick', () => {
-      liIndexPosition.style.textDecorationLine = 'line-through';
+      const computedStyle = getComputedStyle(liIndexPosition);
+      const lineStyle = computedStyle.getPropertyValue('text-decoration-line');
+      if (lineStyle === 'none') {
+        liIndexPosition.style.textDecorationLine = 'line-through';
+      } else if (lineStyle === 'line-through') {
+        liIndexPosition.style.textDecorationLine = 'none';
+      }
     });
   }
 }
