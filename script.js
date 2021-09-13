@@ -46,10 +46,10 @@ clearTasks.addEventListener('click', () => {
 
 const removeDone = document.querySelector('#remover-finalizados');
 removeDone.addEventListener('click', () => {
-  const liContent = document.querySelectorAll('li');
+  const liContent = document.querySelectorAll('.completed');
   for (let index = 0; index < liContent.length; index += 1) {
     if (liContent[index].className === 'completed') {
-      liContent.splice(index);
+      liContent[index].remove();
     }
   }
 });
