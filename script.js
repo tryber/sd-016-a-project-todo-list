@@ -18,8 +18,25 @@ function adicionaNovaTarefa() {
   listaTarefas.appendChild(novaTarefa);
 }
 
-// let riscado = document.createElement('s');
-// riscado.innerText = novaTarefa.innerText;
-// novaTarefa.innerText = '';
-// novaTarefa.appendChild(riscado);
-// novaTarefa.classList.toggle('completed');
+function removeLista() {
+  const lista = document.getElementsByTagName('li');
+  const paiDaLista = document.getElementById('lista-tarefas');
+  let tamanhoFixoLista = lista.length;
+  for (let i = 0; i < tamanhoFixoLista; i += 1){
+    paiDaLista.lastChild.remove();
+  }
+}
+
+function removeFinalizados() {
+  const finalizados = document.querySelectorAll('.completed');
+  const paiDaLista = document.getElementById('lista-tarefas');
+  let tamanhoFinalizados = finalizados.length - 1; // para fazer for descrescente
+  console.log(tamanhoFinalizados);
+  for (let i = tamanhoFinalizados; i >= 0; i -= 1) {
+    console.log(finalizados[i]);
+    paiDaLista.removeChild(finalizados[i]);
+  }
+
+
+
+}
