@@ -1,5 +1,6 @@
 const addButton = document.getElementById('criar-tarefa');
 const clearButton = document.getElementById('apaga-tudo');
+const clearCompletedButton = document.getElementById('remover-finalizados');
 
 function AddSelectedClassToListItem(event) {
   const task = event.target;
@@ -50,3 +51,13 @@ function clearTasks() {
 }
 
 clearButton.addEventListener('click', clearTasks);
+
+function clearComplete() {
+  const tasks = document.getElementsByClassName('completed');
+  for (let index = tasks.length - 1; index > -1; index -= 1) {
+    const task = tasks[index];
+    task.parentNode.removeChild(task);
+  }
+}
+
+clearCompletedButton.addEventListener('click', clearComplete);
