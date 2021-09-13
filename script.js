@@ -13,6 +13,6 @@ function add () {
   inputAdd.value = '';
 
   function changeBackground () {
-    taskLine.classList.remove('background');
+    taskLine.classList.add('background');
   }
 }
