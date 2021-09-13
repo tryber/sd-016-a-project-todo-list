@@ -28,6 +28,7 @@ function addTask() {
 
 } 
 
+// Requisitos 7 e 8
 function paintedBackground(event) {
     let oldSelected = document.querySelector(".selected");
     oldSelected.classList.remove("selected");
@@ -39,17 +40,17 @@ function paintedBackground(event) {
     }
 }
 
-
+// Requisito 9
 function lineThrough(event) {
     console.log(event.target.className);
-    if (event.target.className === "completed selected") {
+    if (event.target.classList.contains("completed")) {
         event.target.classList.remove("completed");
     } else {
         event.target.classList.add("completed");
     }
 } 
 
-
+// Requisito 10
 let eraseButton = document.getElementById("apaga-tudo");
 eraseButton.addEventListener("click", apagaLista);
 
@@ -57,5 +58,26 @@ function apagaLista () {
     let listaCompleta = document.querySelectorAll("li");
     for (let index = 0; index < listaCompleta.length; index += 1) {
         listaCompleta[index].remove();
+    }
+}
+
+
+// Requisito 11
+let removeButton = document.getElementById("remover-finalizados");
+removeButton.addEventListener("click", removeFinalizados);
+
+function removeFinalizados () {
+    let listaCompleta = document.querySelectorAll("li");
+    for (let index = 0; index < listaCompleta.length; index += 1) {
+        if (listaCompleta[index].classList.contains("completed")) {
+            if (listaCompleta[index].className === "completed"){
+                listaCompleta[index].remove();
+            } else if (listaCompleta[index].className === "selected completed" || listaCompleta[index].className === "completed selected") {
+                let selectedDestiny = document.getElementById("lista-tarefas");
+                selectedDestiny.classList.add("selected");
+                listaCompleta[index].remove();
+            }
+            
+        }
     }
 }
