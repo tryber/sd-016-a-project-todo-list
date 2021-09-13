@@ -44,3 +44,17 @@ function riskListAdd() {
 }
 
 riskListAdd();
+
+function buttomRemove() {
+  const lista = document.getElementById('lista-tarefas');
+  const removeList = document.getElementById('apaga-tudo');
+
+  removeList.addEventListener('click', () => {
+    for (let index = 0; index < lista.children.length + 1; index += 1) {
+      index = 0;
+      lista.children[0].remove();
+    }
+  });
+}
+
+buttomRemove();
