@@ -1,0 +1,37 @@
+h1 {
+  color: #9932CC;
+  font-size: 50px;
+  font-family: URW Chancery L, cursive;
+}
+
+ol {
+    background-color: #DA70D6;
+    width: 1px;
+    padding-left: 25px;
+    border-radius: 10%;
+}
+
+#funcionamento {
+  color: #32CD32;
+}
+
+#criar-tarefa {
+    background-color: chocolate;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+#texto-tarefa {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+
+
+.background-color {
+    background-color: rgb(128, 128, 128);
+    width: 60px;
+    text-align: center;
+    border-radius: 20px;
+}
