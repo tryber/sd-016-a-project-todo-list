@@ -1,4 +1,5 @@
 const addButton = document.getElementById('criar-tarefa');
+const clearButton = document.getElementById('apaga-tudo');
 
 function AddSelectedClassToListItem(event) {
   const task = event.target;
@@ -39,3 +40,13 @@ function addTask() {
 }
 
 addButton.addEventListener('click', addTask);
+
+function clearTasks() {
+  const tasks = document.getElementById('lista-tarefas').children;
+  for (let index = tasks.length - 1; index > -1; index -= 1) {
+    const task = tasks[index];
+    task.parentNode.removeChild(task);
+  }
+}
+
+clearButton.addEventListener('click', clearTasks);
