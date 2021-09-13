@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: aqua;
+}
+
+main {
+  max-width: 60%;
+  margin: 40px auto;
+  border: 2px double black;
+  border-radius: 20px;
+  background-color: burlywood;
+}
+
+header {
+  text-align: center;
+}
+
+#title, #funcionamento {
+  margin: 20px;
+}
+
+section {
+  margin: auto;
+  text-align: center;
+}
+
+.colors {
+  background-color: green;
+  color: yellow;
+}
+
+#tasks {
+  margin: 30px;
+  padding: 10px;
+}
+
+#texto-tarefa {
+  width: 200px;
+  font-size: 15pt;
+  text-indent: 10px;
+  outline-style: ridge;
+  padding: 10px;
+}
+
+#criar-tarefa {
+  width: 200px;
+  padding: 10px;
+  border-radius: 20px;
+  margin: auto 20px;
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+}
+
+#listas-tarefas {
+  margin: auto;
+}
+
+.tasks-line {
+  text-align: left;
+  font-size: 15pt;
+  font-weight: 900;
+}
