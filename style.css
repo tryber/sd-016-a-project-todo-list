@@ -1,0 +1,50 @@
+body {
+  width:1366px ;
+  height: 768px;
+  margin: auto;
+  background-color: rgb(186, 233, 180);
+  text-align: center;
+}
+
+#geral {
+  margin-top: 50px;
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  border-radius: 30px;
+  background-color: aliceblue;
+  overflow-y: scroll;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+ol li {
+  text-align: start;
+  font-size: 20px;
+}
+
+button {
+  border-radius: 20px;
+  padding: 5px;
+}
+
+#apaga-tudo {
+  background-color: rgb(143, 14, 14);
+  color: aliceblue;
+}
+
+#remover-finalizados {
+  background-color: rgb(143, 14, 14);
+  color: aliceblue;
+}
+
+#criar-tarefa {
+  background-color: rgba(8, 79, 211, 0.925);
+  color: aliceblue;
+}
+
+input {
+  border-radius: 5px;
+}
