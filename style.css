@@ -51,6 +51,11 @@
   width:120px;
 }
 
+#remover-finalizados {
+  height: 40px;
+  width: 140px;
+}
+
 .botao {
   border: 1px solid black;
   margin-left:20px;
