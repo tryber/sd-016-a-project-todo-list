@@ -36,24 +36,16 @@ function listra() {
   for (let index = 0; index < lis.length; index += 1) {
     lis[index].addEventListener('dblclick', function() {
       lis[index].classList.add('completed');
-      lis[index].classList.add('finalizado');
-      remove3();
+      remove2();
     });
   }
 }
 
 function remove2() {
-  const filhosOl = olPai.children;
-  for (let index = 0; index < filhosOl.length; index += 1) {
-    filhosOl[index].classList.remove('completed');
-  }
-}
-
-function remove3() {
-  const lis = document.querySelectorAll('li');
+  const lis = document.querySelectorAll('.completed');
   for (let index = 0; index < lis.length; index += 1) {
     lis[index].addEventListener('dblclick', function() {
-      remove2();
+      lis[index].classList.remove('completed');
     });
   }
 }
@@ -73,7 +65,7 @@ let botApagaFina = document.querySelector('#remover-finalizados');
 botApagaFina.addEventListener('click', apagouFina);
 
 function apagouFina() {
-  let apaga = document.querySelectorAll('section ol .finalizado');
+  let apaga = document.querySelectorAll('section ol .completed');
   for (let index = 0; index < apaga.length; index += 1) {
     let apaga2 = apaga[index]
     apaga2.parentNode.removeChild(apaga2)
