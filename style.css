@@ -9,7 +9,7 @@ body {
 
 main {
   width: max-content;
-  font-size: x-large;
+  font-size: xx-large;
   margin-left: 80px;
   margin-top: 40px;
   background-color: rgb(233 , 233 , 233);
@@ -98,4 +98,16 @@ main {
 
 #apaga-tudo:active {
   background-color: rgb(180 , 50 , 50);
+}
+
+#remover-finalizados {
+  border: 2px solid rgb(194 , 52 , 170);
+}
+
+#remover-finalizados:hover {
+  background-color: rgb(194 , 52 , 170);
+}
+
+#remover-finalizados:active {
+  background-color: rgb(180 , 50 , 170);
 }

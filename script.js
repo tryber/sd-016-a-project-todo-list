@@ -3,6 +3,7 @@ const addInput = document.getElementById('texto-tarefa');
 const addButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const eraseButton = document.getElementById('apaga-tudo');
+const removeCButton = document.getElementById('remover-finalizados');
 
 function createTask() {
   const newTask = document.createElement('li');
@@ -37,6 +38,13 @@ function eraseTasks() {
   }
 }
 
+function removeCompleted() {
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let i = 0; i < completedTasks.length; i += 1) {
+    taskList.removeChild(completedTasks[i]);
+  }
+}
+
 // Listeners
 addButton.addEventListener('click', createTask);
 addInput.addEventListener('keyup', (e) => {
@@ -61,3 +69,4 @@ body.addEventListener('dblclick', (e) => {
 });
 
 eraseButton.addEventListener('click', eraseTasks);
+removeCButton.addEventListener('click', removeCompleted);
