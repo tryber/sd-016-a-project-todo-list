@@ -14,6 +14,9 @@ todoSubmitButton.addEventListener('click', () => {
     item.style.backgroundColor = 'rgb(128, 128, 128)';
     selected = item;
   });
+  item.addEventListener('dblclick', () => {
+    item.classList.toggle('completed');
+  });
   todoList.appendChild(item);
   todoTextInput.value = '';
 });
