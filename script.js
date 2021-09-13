@@ -21,6 +21,15 @@ function changeTaskColor(e) {
   task.classList.add('selected');
 }
 
+function changeToCompleteTask(e) {
+  const task = e.target;
+  if (task.classList.contains('completed')) {
+    task.classList.remove('completed');
+  } else {
+    task.classList.add('completed');
+  }
+}
+
 // Listeners
 button.addEventListener('click', createTask);
 input.addEventListener('keyup', (e) => {
@@ -34,5 +43,12 @@ body.addEventListener('click', (e) => {
   if (e.target.classList.contains('tarefa')) {
     e.preventDefault();
     changeTaskColor(e);
+  }
+});
+
+body.addEventListener('dblclick', (e) => {
+  if (e.target.classList.contains('tarefa')) {
+    e.preventDefault();
+    changeToCompleteTask(e);
   }
 });
