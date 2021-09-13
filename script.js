@@ -8,9 +8,20 @@ const olTask = document.querySelector('#lista-tarefas');
 const addTaskBtn = document.querySelector('#criar-tarefa');
 
 // Funções
-// Adicionar cor ao item de lista quando for clicado
+// Adicionar cor de fundo ao item de lista quando for clicado e tira dos outros
 function changeListItemColor(event) {
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    for (let index = 0; index < olTask.children.length; index += 1) {
+        const currentListItem = olTask.children[index];
+        currentListItem.style.backgroundColor = 'white';
+    }
+
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+// Risca a linha caso a tarefa tenha sido realizada + retorna ao estado original
+function completeTask(event) {
+    const currentListItem = event.target;
+    currentListItem.classList.toggle('completed');
 }
 
 // Adicionar nova tarefa
@@ -19,8 +30,10 @@ function addNewTask() {
     newTask.classList.add('item-de-lista');
     newTask.innerHTML = taskInput.value;
     newTask.addEventListener('click', changeListItemColor);
+    newTask.addEventListener('dblclick', completeTask);
     olTask.appendChild(newTask);
     taskInput.value = '';
 }
 
 addTaskBtn.addEventListener('click', addNewTask);
+
