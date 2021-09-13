@@ -4,3 +4,6 @@
 #criar-tarefa {
     
 }
+.completed {
+    text-decoration: line-through;
+}

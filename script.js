@@ -29,6 +29,23 @@ function verificaSeSelecionado() {
     }
  verificaSeSelecionado();
 
+ // Requisito 9 
+ function riscaItem() {
+     let itemLista = document.getElementById('lista-tarefas');
+     itemLista.addEventListener('dblclick', function(event){
+        event.target.classList = 'completed'
+        removeRisco();
+    })
+ }
+riscaItem();
+
+  function removeRisco() {
+
+    let itemLista = document.getElementById('lista-tarefas');
+    itemLista.addEventListener('dblclick', function(event){
+        event.target.classList.remove('completed')
+    })
+} 
 
 
-
+ 
