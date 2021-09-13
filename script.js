@@ -5,7 +5,7 @@ function createTask() {
 
   const itemList = document.createElement('li');
   itemList.innerText = getInput.value;
-  itemList.className = 'task'
+  itemList.className = 'task';
   orderList.append(itemList);
   getInput.value = '';
 }
@@ -14,26 +14,19 @@ const buttonCreate = document.querySelector('#criar-tarefa');
 buttonCreate.addEventListener('click', createTask);
 
 // MUDA COR QUANDO SELECIONADO
-let selectItem = document.getElementsByClassName('selected')
-function removeSelection(){
-  
-  for (let index = 0; index < selectItem.length; index++) {
+const selectItem = document.getElementsByClassName('selected');
+function removeSelection() {
+  for (let index = 0; index < selectItem.length; index += 1) {
     selectItem[index].style.backgroundColor = 'rgb(255, 255, 255)';
   }
 }
 
-function changeColorBg(event){
+function changeColorBg(event) {
   removeSelection();
-  event.target.className = 'selected'; 
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
-
-
+  event.target.className = 'selected';
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-let task = document.getElementById('lista-tarefas');
-
+const task = document.getElementById('lista-tarefas');
 
 task.addEventListener('click', changeColorBg);
-
-
-
