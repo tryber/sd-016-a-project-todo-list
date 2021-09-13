@@ -47,5 +47,15 @@ riscaItem();
     })
 } 
 
-
+// Requisito 10
+       function deleteList() {
+            let buttonDelete = document.getElementById('apaga-tudo');
+            buttonDelete.addEventListener('click', function() {
+                let lista = document.querySelectorAll('li');
+                for (let i = 0; i < lista.length; i += 1) {
+                    lista[i].remove();
+                }
+            });
+       }
+deleteList();
  
