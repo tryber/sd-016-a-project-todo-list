@@ -22,6 +22,9 @@ const moveUpBtn = document.querySelector('#mover-cima');
 // Localiza o botão de mover para baixo
 const moveDownBtn = document.querySelector('#mover-baixo');
 
+// Localiza o botão para remover selecionado
+const removeSelectedBtn = document.querySelector('#remover-selecionado');
+
 // Lista de tarefas
 let taskList = [];
 
@@ -152,11 +155,16 @@ function updateOlTask(array) {
 moveUpBtn.addEventListener('click', moveItemUp);
 moveDownBtn.addEventListener('click', moveItemDown);
 
-function printarray(array) {
-    for (let element of array) {
-        console.log(element.innerHTML);
+// Remove o item selecionado
+function removeSelected() {
+    for (let index = 0; index < olTask.children.length; index += 1) {
+        if (olTask.children[index].style.backgroundColor !== 'white') {
+            olTask.children[index].remove();
+        }
     }
 }
+
+removeSelectedBtn.addEventListener('click', removeSelected);
 
 // Atualiza lista de tarefas e salva no localStorage
 function saveListToLocalStorage() {
