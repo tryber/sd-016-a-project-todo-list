@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(33 , 37 , 41);
+}
+
+header {
+  text-align: center;
+  font-family: Dancing Script, cursive;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 500;
+  color: rgb(173 , 181 , 189);
+}
