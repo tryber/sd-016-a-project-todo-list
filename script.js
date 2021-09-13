@@ -1,3 +1,5 @@
+const taskListEl = document.getElementById('lista-tarefas');
+
 function selectTask(event) {
   const newSelected = event.target;
   const oldSelected = document.getElementsByClassName('selected')[0];
@@ -16,7 +18,7 @@ function createNewTask() {
   const task = document.getElementById('texto-tarefa').value;
   document.getElementById('texto-tarefa').value = '';
   if (task === '') return true;
-  const list = document.getElementById('lista-tarefas');
+  const list = taskListEl;
   const newTask = document.createElement('li');
   newTask.innerHTML = task;
   newTask.addEventListener('click', selectTask);
@@ -31,7 +33,7 @@ function addTaskBtnListener() {
 addTaskBtnListener();
 
 function clearTasks() {
-  const taskList = document.getElementById('lista-tarefas');
+  const taskList = taskListEl;
   while (taskList.firstChild) {
     taskList.removeChild(taskList.firstChild);
   }
@@ -58,7 +60,7 @@ function addClearFinishedListener() {
 addClearFinishedListener();
 
 function saveState() {
-  const taskList = document.getElementById('lista-tarefas').innerHTML;
+  const taskList = taskListEl.innerHTML;
   localStorage.setItem('taskList', taskList);
 }
 
@@ -67,6 +69,19 @@ function addSaveBtnListener() {
   btn.addEventListener('click', saveState);
 }
 addSaveBtnListener();
+
+function changeFinishedClass(firstEl, secondEl) {
+  const firstElClassList = firstEl.classList.contains('completed');
+  const secondElClassList = secondEl.classList.contains('completed');
+  const firstCheck = firstElClassList && secondElClassList;
+  const secondCheck = firstElClassList || secondElClassList;
+
+  if (firstCheck) return;
+  if (secondCheck) {
+    secondElClassList.toggle('completed');
+    firstElClassList.toggle('completed');
+  }
+}
 
 function moveUp() {
   const firstElement = document.getElementsByClassName('selected')[0];
@@ -79,20 +94,7 @@ function moveUp() {
   previousElement.innerHTML = firstElementText;
   firstElement.classList.toggle('selected');
   previousElement.classList.toggle('selected');
-
-  if (
-    previousElement.classList.contains('completed') &&
-    firstElement.classList.contains('completed')
-  )
-    return;
-
-  if (
-    previousElement.classList.contains('completed') ||
-    firstElement.classList.contains('completed')
-  ) {
-    firstElement.classList.toggle('completed');
-    previousElement.classList.toggle('completed');
-  }
+  changeFinishedClass(firstElement, previousElement);
 }
 
 function addMoveUpListener() {
@@ -112,20 +114,7 @@ function moveDown() {
   nextElement.innerHTML = firstElementText;
   firstElement.classList.toggle('selected');
   nextElement.classList.toggle('selected');
-
-  if (
-    nextElement.classList.contains('completed') &&
-    firstElement.classList.contains('completed')
-  )
-    return;
-
-  if (
-    nextElement.classList.contains('completed') ||
-    firstElement.classList.contains('completed')
-  ) {
-    firstElement.classList.toggle('completed');
-    nextElement.classList.toggle('completed');
-  }
+  changeFinishedClass(firstElement, nextElement);
 }
 
 function addDownUpListener() {
@@ -147,7 +136,7 @@ addBtnRemoveListner();
 
 function loadStorage() {
   if (localStorage.getItem('taskList') !== null) {
-    const taskList = document.getElementById('lista-tarefas');
+    const taskList = taskListEl;
     taskList.innerHTML = localStorage.getItem('taskList');
     const taskListElements = taskList.children;
     for (let index = 0; index < taskList.childElementCount; index += 1) {
