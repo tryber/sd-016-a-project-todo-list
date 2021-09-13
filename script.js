@@ -32,15 +32,22 @@ containerInput.appendChild(btnAdd);
 const orderedList = document.createElement('ol');
 orderedList.id = 'lista-tarefas';
 orderedList.style.userSelect = 'none';
+orderedList.style.width = '100vw';
 main.appendChild(orderedList);
 
 btnAdd.addEventListener('click', () => {
   const newItem = document.createElement('li');
   newItem.classList.add('clickItem');
   newItem.innerHTML = inputTasks.value;
-  newItem.addEventListener('click', () => {
-    newItem.style.backgroundColor = 'gray';
-  });
   orderedList.appendChild(newItem);
   inputTasks.value = '';
+
+  newItem.addEventListener('click', (event) => {
+    const listLi = document.querySelectorAll('li');
+    const currentLi = event.target;
+    for (let index = 0; index < listLi.length; index += 1) {
+      listLi[index].style.backgroundColor = 'white';
+    }
+    currentLi.style.backgroundColor = 'rgb(128,128,128)';
+  });
 });

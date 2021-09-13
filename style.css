@@ -34,7 +34,7 @@ main {
 #criar-tarefa {
   text-transform: uppercase;
   font-weight: 900;
-  background-color: rgb(47, 193, 140);
+  background-color: rgb(47 , 193 , 140);
   color: white;
   border-radius: 0 5px 5px 0;
   box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
@@ -43,5 +43,9 @@ main {
 
 #criar-tarefa:hover {
   background-color: white;
-  color: rgb(47, 193, 140);
+  color: rgb(47 , 193 , 140);
+}
+
+.selected {
+  background-color: gray;
 }
