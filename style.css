@@ -1,14 +1,14 @@
 #funcionamento {
   color: gray;
-  font-style: italic; 
+  font-style: italic;
 }
 
 #criar-tarefa {
-  background-color: rgb(50, 89, 173);
+  background-color: rgb(50 , 89 , 173);
   color: white;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0 , 0 , 0);
   color: gray;
 }
