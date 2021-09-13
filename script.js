@@ -51,3 +51,13 @@ function clearList() {
   taskList.innerText = '';
 }
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
+
+function removeTasksFinalized () {
+  let list = Array.from (taskList.children);
+  for (let i = 0; i < list.length; i += 1) {
+    if(list[i].classList.contains('completed')) {
+      taskList.removeChild(list[i]);
+    }
+  }
+}
+document.getElementById('remover-finalizados').addEventListener('click', removeTasksFinalized);
