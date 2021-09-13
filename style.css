@@ -40,3 +40,18 @@
   padding:0px 20px;
   text-align: justify;
 }
+
+#lista-tarefas-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#lista-tarefas-box {
+  width:60%;
+  min-height:400px;
+  background-color:white;
+  border: 1px solid black;
+  border-radius: 20px;
+
+}
