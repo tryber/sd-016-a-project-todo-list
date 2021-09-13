@@ -16,6 +16,11 @@ header p {
   margin: 15px 0;
 }
 
+header button,
+input {
+  font-size: 16px;
+  padding: 8px;
+}
 main {
   width: 50%;
   margin-left: auto;
@@ -30,8 +35,17 @@ main {
   margin-right: auto;
 }
 
+#options-task {
+  padding: 15px 0;
+}
+
+#apaga-tudo {
+  font-size: 16px;
+  padding: 8px;
+}
+
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 .item-list {

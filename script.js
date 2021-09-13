@@ -36,5 +36,15 @@ function addClassItemList() {
   itemList.classList.add('selected');
 }
 
+function deleteAllTask() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const listItensTask = document.querySelectorAll('.item-list');
+  for (let index = 0; index < listItensTask.length; index += 1) {
+    taskList.removeChild(listItensTask[index]);
+  }
+}
 const btnAddNewTask = document.querySelector('#criar-tarefa');
 btnAddNewTask.addEventListener('click', addClassItemList);
+
+const btnDeleteAllTask = document.querySelector('#apaga-tudo');
+btnDeleteAllTask.addEventListener('click', deleteAllTask);
