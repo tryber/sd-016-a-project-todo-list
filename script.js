@@ -7,6 +7,7 @@ function adicionaTarefa() {
     const tarefa = document.createElement('li');
     tarefa.className = 'tarefa';
     tarefa.innerHTML = input.value;
+    tarefa.style.backgroundColor = 'white';
     lista.appendChild(tarefa);
     input.value = '';
     addEvent();
@@ -19,6 +20,10 @@ function addEvent() {
     }
 }
 function taskColor(origin) {
+    const tasks = document.getElementsByClassName('tarefa');
+    for (let index = 0; index < tasks.length; index +=1) {
+        tasks[index].style.backgroundColor = 'white';
+    }
     origin.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 // Requisito 8
