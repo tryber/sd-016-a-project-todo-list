@@ -21,7 +21,15 @@ function addTask() {
     console.log('aqui');
   
     function addBackgroundColor() {
+      // Requisito 8
+      for(let index = 0; index < liTags.length; index += 1) {
+        if (liTags[index].className === 'last-select') {
+          liTags[index].className = ''
+          liTags[index].style.backgroundColor = '';
+        }
+      }
       if (liTags[index].style.backgroundColor === '') {
+        liTags[index].className = 'last-select';
         liTags[index].style.backgroundColor = 'rgb(128, 128, 128)';
       }
     }
