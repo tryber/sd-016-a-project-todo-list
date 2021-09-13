@@ -1,11 +1,12 @@
 body {
-background-color: gainsboro;
+  background-color: gainsboro;
 }
 
 #title {
   font-size: 50px;
   text-align: center;
   margin-left: auto;
+  margin-top: 70px;
 }
 
 #lista-tarefas {
@@ -14,4 +15,13 @@ background-color: gainsboro;
 
 #funcionamento {
   text-align: center;
+}
+
+#texto-tarefa {
+  margin-left: 40%;
+}
+
+#lista-tarefas {
+  text-align: center;
+  font-size: 20px;
 }
