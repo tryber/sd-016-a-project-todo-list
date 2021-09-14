@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project-todo-list</title>
+</head>
+<body>
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <main>
+        <section>
+            <input type="text" id="texto-tarefa">
+            <button id="criar-tarefa" onclick="addItems()">adicionar</button>
+            <button id="apaga-tudo" onclick="deleteItems()">Remover todos itens</button>
+
+            <ol id="lista-tarefas">
+            
+            </ol> 
+        
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
