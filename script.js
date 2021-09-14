@@ -2,6 +2,9 @@ window.onload = function () {
   taskButton();
   clearButton();
   removeCrossedButton();
+  eraseSelected();
+  saveButton();
+  recoverList();
 };
 
 function taskButton () {
@@ -76,3 +79,51 @@ function clearCrossed () {
     allCrossed[index].remove();
   };
 };
+
+function eraseSelected () {
+  let buttonA = document.querySelector('#apagar-selecionado');
+  buttonA.addEventListener('click', apagaSelecionado);
+};
+
+function apagaSelecionado () {
+  let selected = document.querySelector('.selected');
+  selected.remove();
+};
+
+function saveButton () {
+  let buttonS = document.querySelector('#salvar-tarefas');
+  buttonS.addEventListener('click', salvarTarefas);
+}
+
+function salvarTarefas () {
+  let lista = document.querySelectorAll('.lista');
+  let listaKeys = generateKeys();
+  localStorage.clear();
+
+  for (let index = 0 ; index < lista.length ; index += 1){
+    console.log(lista[index].innerHTML);
+    localStorage.setItem(listaKeys[index], lista[index].innerHTML);
+  };
+};
+
+function generateKeys () {
+  let listaKeys = [];
+  let lista = document.querySelectorAll('.lista');
+  for (let index = 0 ; index < lista.length ; index += 1){
+    listaKeys.push('tarefa'+index);
+  };
+  return listaKeys;
+};
+
+function recoverList () {
+  let lista = document.querySelector('#lista-tarefas');  
+  for (let index = 0 ; index < localStorage.length ; index += 1){
+    let tarefaArmazenada = localStorage.getItem('tarefa'+index)
+    let novaTarefa = document.createElement('li');
+    novaTarefa.innerHTML = tarefaArmazenada;
+    novaTarefa.classList.add('lista');
+    console.log(tarefaArmazenada);
+    lista.appendChild(novaTarefa);
+  }
+
+}
