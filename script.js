@@ -102,10 +102,54 @@ function initialRenderization() {
         listElement.className = (localList[index + 1]);
       }
       lista.appendChild(listElement);
-    };
-  };
-};
+    }
+  }
+}
 
 window.onload = function restart() {
   initialRenderization();
 };
+
+function moveUp() {
+  const buttonUp = document.getElementById('mover-cima');
+  const lista = document.getElementById('lista-tarefas');
+  buttonUp.addEventListener('click', () => {
+    const phraseSelected = document.getElementsByClassName('selected')[0];
+    if (phraseSelected !== undefined) {
+      for (let index = 1; index < lista.children.length; index += 1) {
+        if (lista.children[index].textContent === phraseSelected.textContent) {
+          const auxClass = lista.children[index].className;
+          lista.children[index].className = lista.children[index - 1].className;
+          lista.children[index - 1].className = auxClass;
+          const aux = lista.children[index].textContent;
+          lista.children[index].textContent = lista.children[index - 1].textContent;
+          lista.children[index - 1].textContent = aux;
+        }
+      }
+    }
+  });
+}
+
+moveUp();
+
+function moveDown() {
+  const buttonDown = document.getElementById('mover-baixo');
+  const lista = document.getElementById('lista-tarefas');
+  buttonDown.addEventListener('click', () => { 
+    const phraseSelected = document.getElementsByClassName('selected')[0];
+    if (phraseSelected !== undefined) {
+      for (let index = 0; index < lista.children.length - 1; index += 1) {
+        if (lista.children[index].textContent === phraseSelected.textContent) {
+          const auxClass = lista.children[index].className;
+          lista.children[index].className = lista.children[index + 1].className;
+          lista.children[index + 1].className = auxClass;
+          const aux = lista.children[index].textContent;
+          lista.children[index].textContent = lista.children[index + 1].textContent;
+          lista.children[index + 1].textContent = aux;
+        }
+      }
+    }
+  });
+}
+
+moveDown();
