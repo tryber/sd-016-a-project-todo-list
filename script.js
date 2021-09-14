@@ -1,6 +1,7 @@
 const getTaskButton = document.querySelector('#criar-tarefa');
 const getContainerButtons = document.querySelector('#container-buttons');
 const deleteButton = document.querySelector('#apaga-tudo');
+const delCompletedButton = document.querySelector('#remover-finalizados');
 
 function changeTaskColor(event) {
     const getList = document.querySelectorAll('li');
@@ -40,8 +41,6 @@ function completedTask() {
     };  
 } 
 
-
-
 function deleteList() {
     const getList = document.querySelectorAll('li');
     for (let index = 0; index < getList.length; index += 1) {
@@ -49,3 +48,11 @@ function deleteList() {
     } 
 }
 deleteButton.addEventListener('click', deleteList);
+
+function deleteCompletedTask() {
+    const getCompleted = document.querySelectorAll('.completed');
+    for (let index = 0; index < getCompleted.length; index += 1) {
+        getCompleted[index].remove();
+      } 
+}
+delCompletedButton.addEventListener('click', deleteCompletedTask)
