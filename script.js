@@ -1,18 +1,18 @@
 const inputField = document.querySelector('#texto-tarefa');
 
-function addsTaskItem() {
-  if (inputField.value === '') {
-    alert('The input field is Null!');
-  } else {
-    const taskItem = document.createElement('li');
-    taskItem.className = 'task-item';
-    taskItem.innerText = inputField.value;
-    document.querySelector('#lista-tarefas').appendChild(taskItem);
-    inputField.value = '';
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'criar-tarefa') {
+    if (inputField.value === '') {
+      alert('The input field is Null!');
+    } else {
+      const taskItem = document.createElement('li');
+      taskItem.className = 'task-item';
+      taskItem.innerText = inputField.value;
+      document.querySelector('#lista-tarefas').appendChild(taskItem);
+      inputField.value = '';
+    }
   }
-}
-
-document.querySelector('#criar-tarefa').addEventListener('click', addsTaskItem);
+});
 
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('task-item')) {
