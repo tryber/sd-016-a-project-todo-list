@@ -1,6 +1,9 @@
 /* Fonts Import */
+
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
 html,
@@ -53,7 +56,10 @@ ol {
 
 li {
   cursor: pointer;
-  text-decoration-line: none;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 .hero-nav-container {
@@ -120,6 +126,8 @@ li {
 .task-list-container-buttons button {
   margin-top: 1vh;
   border-radius: 0.5rem;
-  height: 4vh;
-  width: 40vw;
+  margin-left: -5vw;
+  height: 5vh;
+  width: 25vw;
+  font-size: .5rem;
 }

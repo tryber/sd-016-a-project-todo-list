@@ -9,7 +9,7 @@ function createListElement() {
   return getListParentElement.appendChild(createLi);
 }
 
-// Function to set back color shadow of a task list element.
+// Function to set background color shadow of a task list element.
 function cleanAllSelectedItems() {
   const getListParentElementChildren = document.querySelector(taskListClass).children;
   for (let index = 0; index < getListParentElementChildren.length; index += 1) {
@@ -50,17 +50,11 @@ function setLiBackgroundStyleOnClick() {
 // Function to set a line through to the clicked task.
 function setLineThroughToCompletedTask() {
   const getListParentElementChildren = document.querySelector(taskListClass).children;
+  console.log(getListParentElementChildren);
   for (let index = 0; index < getListParentElementChildren.length; index += 1) {
-    const liIndexPosition = getListParentElementChildren[index];
-    liIndexPosition.addEventListener('dblclick', () => {
-      const computedStyle = getComputedStyle(liIndexPosition);
-      const lineStyle = computedStyle.getPropertyValue('text-decoration-line');
-      if (lineStyle === 'none') {
-        liIndexPosition.style.textDecorationLine = 'line-through';
-      } else if (lineStyle === 'line-through') {
-        liIndexPosition.style.textDecorationLine = 'none';
-      }
-    });
+    getListParentElementChildren[index].ondblclick = () => {
+      getListParentElementChildren[index].classList.toggle('completed');
+    };
   }
 }
 
@@ -74,8 +68,8 @@ function onClickInputTextOnTaskList() {
     const textContainer = getTaskListInputElement.value;
     getTaskListInputElement.value = '';
     listElementFuncReturn.append(textContainer);
-    setLiBackgroundStyleOnClick();
     setLineThroughToCompletedTask();
+    setLiBackgroundStyleOnClick();
   });
 }
 onClickInputTextOnTaskList();
