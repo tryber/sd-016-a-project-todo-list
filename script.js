@@ -5,6 +5,37 @@ const clearAllButton = document.querySelector('#apaga-tudo');
 const clearTerminatedButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
 
+const moveDown = document.querySelector('#mover-baixo');
+const moveUp = document.querySelector('#mover-cima');
+
+moveDown.addEventListener('click', () => {
+  const selectElem = document.querySelector('.selected');
+  if (selectElem && selectElem.nextElementSibling) {
+    const innerNext = selectElem.nextElementSibling.innerHTML;
+    const innerElem = selectElem.innerHTML;
+    selectElem.innerHTML = innerNext;
+    selectElem.nextElementSibling.innerHTML = innerElem;
+    selectElem.classList.toggle('selected');
+    selectElem.nextElementSibling.classList.toggle('selected');
+    selectElem.classList.toggle('completed');
+    selectElem.nextElementSibling.classList.toggle('completed');
+  }
+});
+
+moveUp.addEventListener('click', () => {
+  const selectElem = document.querySelector('.selected');
+  if (selectElem && selectElem.previousElementSibling) {
+    const innerNext = selectElem.previousElementSibling.innerHTML;
+    const innerElem = selectElem.innerHTML;
+    selectElem.innerHTML = innerNext;
+    selectElem.previousElementSibling.innerHTML = innerElem;
+    selectElem.classList.toggle('selected');
+    selectElem.previousElementSibling.classList.toggle('selected');
+    selectElem.classList.toggle('completed');
+    selectElem.nextElementSibling.classList.toggle('completed');
+  }
+});
+
 todoList.innerHTML = window.localStorage.items === undefined ? '' : window.localStorage.items;
 
 function complete(event) {
