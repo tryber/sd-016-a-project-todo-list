@@ -1,7 +1,64 @@
+:root {
+
+  --azul-bebe: rgb(212 , 241 , 244);
+
+  --azul-esverdeado: rgb(117 , 230 , 218);
+
+  --azul-gruta: rgb(24 , 154 , 180);
+
+  --azul-marinho: rgb(5 , 68 , 94);
+}
+
+body {
+  height: 100%;
+  background-color: var(--azul-bebe);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#title {
+  color: var(--azul-marinho);
+  font-size: 46px;
+  margin-bottom: 4px;
+}
+
+#funcionamento {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+button {
+  background-color: var(--azul-esverdeado);
+  border: 1px solid var(--azul-gruta);
+  color: darkslategray;
+}
+
 .selected {
   background-color: grey;
 }
 
 .completed {
   text-decoration: line-through;
+}
+
+#lista-tarefas li {
+  width: 20%;
+  margin: 0 auto;
+  list-style-type: upper-roman;
+  text-align: justify;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.botoes button {
+  width: 30%;
+  margin: 4px;
 }

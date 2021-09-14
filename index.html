@@ -7,19 +7,25 @@
   </head>
   <body>
     <header>
-      <h1>Minha Lista de Tarefas</h1>
-      <span id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</span>
+      <div class="container">
+        <h1 id="title">Minha Lista de Tarefas</h1>
+        <span id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</span>
+      </div>
     </header>
     <main>
-      <input type="text" id="texto-tarefa" placeholder="Qual sua tarefa ?">
-      <button id="criar-tarefa">Criar Tarefa</button>
-      <ol id="lista-tarefas"></ol>
-      <button id="salvar-tarefas">Salvar tarefas</button>
-      <button id="mover-cima">Mova para cima a tarefa selecionada</button>
-      <button id="mover-baixo">Mova para baixo a tarefa selecionada</button>
-      <button id="remover-selecionado">Apaga tarefa selecionada</button>
-      <button id="remover-finalizados">Apaga todas as tarefas finalizadas</button>
-      <button id="apaga-tudo">Apagar TODAS as tarefas</button>
+      <div class="container">
+        <input type="text" id="texto-tarefa" placeholder="Qual sua tarefa ?">
+        <button id="criar-tarefa">Criar Tarefa</button>
+        <ol id="lista-tarefas"></ol>
+        <div class="botoes">
+          <button id="salvar-tarefas">Salvar tarefas</button>
+          <button id="mover-cima">Mova para cima a tarefa selecionada</button>
+          <button id="mover-baixo">Mova para baixo a tarefa selecionada</button>
+          <button id="remover-selecionado">Apaga tarefa selecionada</button>
+          <button id="remover-finalizados">Apaga todas as tarefas finalizadas</button>
+          <button id="apaga-tudo">Apagar TODAS as tarefas</button>
+        </div>
+      </div>
     </main>
     <script src="./script.js"></script>
   </body>
