@@ -10,3 +10,10 @@ function addsTaskItem() {
 }
 
 buttonTaskAdd.addEventListener('click', addsTaskItem);
+
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('task-item')) {
+    const color = event.target.style;
+    color.backgroundColor = 'rgb(128, 128, 128)';
+  }
+});
