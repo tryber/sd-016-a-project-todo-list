@@ -2,6 +2,7 @@
 const input = document.getElementById('texto-tarefa');
 const button = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
+const clearItems = document.getElementById('apaga-tudo');
 
 // Código elaborado com a ajuda da Laura Fumagalli e Camila Rannieli, turma 16 - tribo A.
 function addItem() {
@@ -29,11 +30,26 @@ function paintList(event) {
 taskList.addEventListener('click', paintList);
 
 // Código elaborado com a ajuda da Laura Fumagalli, Turma 16 - Tribo A.
-function doubleCLick (event) {
-// Adicionar a classe 'completed' nos elementos da li.
-event.target.classList.toggle('completed');
-// A função toggle nesse caso vai adicionar a classe 'completed' quando o elemento não tiver e vai retirar a classe 'completed' quando o elemento tiver. Obs: só funciona com o classList. Fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+function doubleCLick(event) {
+  // Adicionar a classe 'completed' nos elementos da li.
+  event.target.classList.toggle('completed');
+  // A função toggle nesse caso vai adicionar a classe 'completed' quando o elemento não tiver e vai retirar a classe 'completed' quando o elemento tiver. Obs: só funciona com o classList. Fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
 }
 // Adicionar o evento de double click nos itens da lista.
 taskList.addEventListener('dblclick', doubleCLick);
 
+// Criar um botão que ao clicar nele apaga todas as tarefas criadas.
+function clearList() {
+  //Adicionar o evento de click no botão que apaga tudo.
+  clearItems.addEventListener('click', function () {
+    // Chamar os elementos da lista, que são elementos li.
+    const clearListItems = document.querySelectorAll('li');
+    // Quando o usuário clicar no botão apagar tudo ele vai percorrer todos os itens da lista (li) para poder apagar um por um.
+    for (let i = 0; i < clearListItems.length; i += 1) {
+      const eraser = clearListItems[i];
+      // Remover os elementos da lista que são filhos da ol.
+      taskList.removeChild(eraser);
+    }
+  });
+}
+clearList();
