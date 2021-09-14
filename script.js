@@ -75,11 +75,11 @@ function removeAllButton() {
 removeAllButton()
 
 function removerCompleted() {
+    //chama as li filhas do ol
     let completedTarefas = document.getElementsByClassName('completed')
     for (let index = 0; index < completedTarefas.length; index += 1) {
-        if (completedTarefas[index].remove) {
-        }
-        // tentar fazer um remove children/child com base em condição
+        // chama o pai ol para deletar as filhas li completed
+        completedTarefas[index].parentElement.removeChild(completedTarefas[index])
     }
 }
 
