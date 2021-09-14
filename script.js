@@ -5,6 +5,10 @@ const clearButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 const textBox = document.querySelector('#texto-tarefa');
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
+const removeButton = document.querySelector('#remover-selecionado');
+const selectedColor = 'rgb(128, 128, 128)';
 
 function addListItem() {
   const listItem = document.createElement('li');
@@ -21,7 +25,7 @@ function selectListItem(event) {
     listItems[i].style.backgroundColor = document.body.style.background;
   }
   const eventTarget = event;
-  eventTarget.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  eventTarget.target.style.backgroundColor = selectedColor;
 }
 
 toDoList.addEventListener('click', selectListItem);
@@ -93,3 +97,48 @@ function recoverList() {
 }
 
 window.onload = recoverList;
+
+function moveUp() {
+  let i = 1;
+  for (i = 0; i < toDoList.children.length; i += 1) {
+    if (toDoList.children[i].style.backgroundColor === selectedColor) {
+      break;
+    }
+  }
+  if (i > 0) {
+    const saveItem = toDoList.children[i - 1];
+    toDoList.removeChild(saveItem);
+    toDoList.insertBefore(saveItem, toDoList.children[i]);
+  }
+}
+
+moveUpButton.addEventListener('click', moveUp);
+
+function moveDown() {
+  let i = 1;
+  for (i = 0; i < toDoList.children.length; i += 1) {
+    if (toDoList.children[i].style.backgroundColor === selectedColor) {
+      break;
+    }
+  }
+  if (i < toDoList.children.length) {
+    const saveItem = toDoList.children[i];
+    toDoList.removeChild(saveItem);
+    toDoList.insertBefore(saveItem, toDoList.children[i + 1]);
+  }
+}
+
+moveDownButton.addEventListener('click', moveDown);
+
+function removeListItem() {
+  let i = 1;
+  for (i = 0; i < toDoList.children.length; i += 1) {
+    if (toDoList.children[i].style.backgroundColor === selectedColor) {
+      break;
+    }
+  }
+  const removeItem = toDoList.children[i];
+  toDoList.removeChild(removeItem);
+}
+
+removeButton.addEventListener('click', removeListItem);
