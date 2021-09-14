@@ -6,22 +6,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-html,
+html , 
 body {
   padding: 0;
   margin: 0;
-  background-color: rgb(241, 207, 176);
+  background-color: rgb(241 , 207 , 176);
 }
 
 body {
-  font-family: 'Urbanist', sans-serif;
+  font-family: Urbanist, sans-serif;
   letter-spacing: 0.1rem;
   margin: 2rem;
-  background-color: rgb(241, 207, 176);
+  background-color: rgb(241 , 207 , 176);
 }
 
 h1 {
-  font-family: 'Righteous', cursive;
+  font-family: Righteous, cursive;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   text-align: center;
@@ -38,14 +38,14 @@ input {
 
 button {
   cursor: pointer;
-  font-family: 'Urbanist', sans-serif;
+  font-family: Urbanist, sans-serif;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 ol {
-  font-family: 'Urbanist', sans-serif;
+  font-family: Urbanist, sans-serif;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -59,7 +59,7 @@ li {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .hero-nav-container {
@@ -129,5 +129,5 @@ li {
   margin-left: -5vw;
   height: 5vh;
   width: 25vw;
-  font-size: .5rem;
+  font-size: 0.5rem;
 }
