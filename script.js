@@ -2,6 +2,7 @@ let botao = document.querySelector('#criar-tarefa');
 let text = document.querySelector('#texto-tarefa');
 let lista = document.querySelector('#lista-tarefas')
 let btnApagar = document.querySelector('#apaga-tudo');
+let btnFinalizados = document.querySelector('#remover-finalizados');
 
 function adicionaTarefa (){ 
    
@@ -42,12 +43,23 @@ function adicionaTarefa (){
 
     lista.addEventListener('dblclick', riscaTarefa);
 
-    function apagarTarefas (){
+    function apagarTarefas (event){
         let apagar = document.querySelectorAll('.line')
+        if (event.target = btnApagar){
          for (let i =0; i < apagar.length; i+=1){
            let itemApagar = apagar[i];
            console.log(itemApagar);
             itemApagar.remove();
+         }
+        
         }
     }
+
+    function excluiFinalizados (){
+        let excluiFinalizados = document.querySelectorAll('.completed');
+            for (let key in excluiFinalizados){
+                excluiFinalizados[key].remove();
+            }
+    }
     btnApagar.addEventListener('click', apagarTarefas);
+    btnFinalizados.addEventListener('click', excluiFinalizados);
