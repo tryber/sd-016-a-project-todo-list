@@ -12,7 +12,8 @@ function createTarefa() {
     // zerar o valor do input para a proxima tarefa
     inputValue.value = ''
     eventColorLi();
-    eventCompletedTarefa() 
+    eventCompletedTarefa();
+    removeCompletedTarefa();
 }
 
 function eventCreateTarefa() {
@@ -38,16 +39,14 @@ function eventColorLi() {
 }
 
 function completedTarefa(event) {
-    let li = document.querySelector('#lista-tarefas').children
+    let li = document.querySelector('#lista-tarefas').children;
+    // parecido com o exercico do course do tirar e por a classe tech;
     for (let index = 0; index < li.length; index += 1) {
-        if (li[index].className === 'completed') {
-            li[index].classList.remove('completed')    
-        }
-        else {
-            event.target.classList.add('completed')
-        }        
-    }    
+        // remove de tudo para garantir e dps adiciona
+        event.target.classList.add('completed')
+    }
 }
+
 
 function eventCompletedTarefa() {
     let li = document.querySelector('#lista-tarefas').children;
@@ -56,12 +55,27 @@ function eventCompletedTarefa() {
     }
 }
 
-//////////////////////////
+function removeCompletedTarefa(event) {
+    let li = document.querySelector('#lista-tarefas').children;
+    event.target.classList.remove('completed')
+}
+
+
+function removeCompletedTarefa() {
+    let li = document.querySelector('#lista-tarefas').children;
+    for (let index = 0; index < li.length; index += 1) {
+        li[index].addEventListener('dblclick', completedTarefa)
+    }
+}
 
 function removeAllTarefas() {
-    let tarefaList = document.querySelector('#lista-tarefas').children;
-    for (let index = 0; index < tarefaList.length; index += 1) {
-        tarefaList[index].remove()
+    // fonte para o código abaixo foi encontrada e baseado na seguinte página, na resposta de Gibolt
+    // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+    let tarefaList = document.querySelector('#lista-tarefas')
+    while (tarefaList.firstChild) {
+        // remove filho enquanto houver algum firschild na ul
+        // assim evita que tenha de apagar um por vez pq no loop pegava cada elemento por vez na posicao index;
+        tarefaList.removeChild(tarefaList.firstChild);
     }
 }
 
