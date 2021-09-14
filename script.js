@@ -74,7 +74,7 @@ function removeCompletedTask() {
 }
 clearCompleted.addEventListener('click', removeCompletedTask);
 
-// requisito 12 
+// requisito 12
 function saveTaskStorage() {
   localStorage.setItem('taskListStorage', JSON.stringify(taskList.innerHTML));
 }
@@ -82,10 +82,10 @@ saveTask.addEventListener('click', saveTaskStorage);
 
 window.onload = () => {
   if (localStorage !== null) {
-   const returnTaskHTML = JSON.parse(localStorage.getItem('taskListStorage'));
+    const returnTaskHTML = JSON.parse(localStorage.getItem('taskListStorage'));
     taskList.innerHTML = returnTaskHTML;
   }
-}
+};
 
 // requisito 13 - o comando dentro do if faz uma nova sequencia, baseado se tem um elemento antes ou depois.
 const upwards = document.querySelector('#mover-cima');

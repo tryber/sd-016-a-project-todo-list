@@ -1,15 +1,15 @@
 #criar-tarefa:hover {
-  background-color: rgb(204, 116, 116);
+  background-color: purple;
   color: white;
-  box-shadow: 2px 2px 5px rgb(173, 86, 86);
+  box-shadow: 2px 2px 5px pink;
 }
 
 .task:active {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
 
 #funcionamento {
@@ -17,5 +17,5 @@
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
