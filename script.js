@@ -9,20 +9,18 @@ function addLi(selection) {
     ol.appendChild(li).innerHTML = input.value;
     input.value = '';
   }
-
-  return ol;
 }
 
 function changeColorItem(selection) {
   const li = document.querySelectorAll('li');
 
-  li.forEach(function removeItem(item) {
+  li.forEach((item) => {
     const itemLet = item;
     itemLet.classList.remove('selected');
-    itemLet.style.backgroundColor = 'white';
+    itemLet.style.backgroundColor = 'rgb(93, 93, 93)';
   });
 
-  li.forEach(function addItem(item) {
+  li.forEach((item) => {
     if (selection.target === item) {
       const itemLet = item;
       itemLet.classList.add('selected');
@@ -34,7 +32,7 @@ function changeColorItem(selection) {
 function doubleClick(selection) {
   const li = document.querySelectorAll('li');
 
-  li.forEach(function addLineThrough(item) {
+  li.forEach((item) => {
     const itemLet = item;
     if (selection.target === item) {
       itemLet.classList.toggle('completed');
@@ -44,11 +42,21 @@ function doubleClick(selection) {
         itemLet.style.textDecoration = 'none';
       }
     }
-
-    return item;
   });
+}
+
+function cleanListAll(selection) {
+  const li = document.querySelectorAll('li');
+  const buttonCleanAll = document.querySelector('#apaga-tudo');
+
+  if (selection.target === buttonCleanAll) {
+    li.forEach((item) => {
+      item.remove();
+    });
+  }
 }
 
 document.addEventListener('click', addLi);
 document.addEventListener('click', changeColorItem);
 document.addEventListener('dblclick', doubleClick);
+document.addEventListener('click', cleanListAll);
