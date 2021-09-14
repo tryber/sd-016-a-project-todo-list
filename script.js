@@ -1,3 +1,14 @@
+function buttonClearFineshed() {
+  const button = document.querySelector('#remover-finalizados');
+  button.addEventListener('click', () => {
+    const listSelected = document.querySelectorAll('.completed');
+    for (let index = 0; index < listSelected.length; index += 1) {
+      const element = listSelected[index];
+      element.parentNode.removeChild(element);
+    }
+  });
+}
+
 function buttonClearEverything() {
   const button = document.querySelector('#apaga-tudo');
   button.addEventListener('click', () => {
@@ -53,4 +64,5 @@ function addButtonListenner() {
 window.onload = () => {
   addButtonListenner();
   buttonClearEverything();
+  buttonClearFineshed();
 };
