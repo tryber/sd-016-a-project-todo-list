@@ -7,25 +7,75 @@
 }
 
 body {
-  background-color: rgb(3 , 127 , 140);
+  background-color: rgb(84 , 135 , 255);
 }
 
 #body {
   background-color: white;
   width: 800px;
-  height: 350px;
+  height: auto 350px;
   border-radius: 10px;
   padding: 20px;
+  padding-left: 70px;
+  margin-top: 100px;
+  margin-left: 250px;
 }
 
 button {
+  height: 30px;
+  border-radius: 10px;
+  color: white;
+  font-size: 17px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#criar-tarefa {
   margin-left: 20px;
-  background-color: rgb(242 , 130 , 65);
-  border: rgb(242 , 130 , 65);
-  color: rgb(242 , 206 , 162);
+  background-color: rgb(227 , 25 , 123);
+  border: rgb(227 , 25 , 123);
+}
+
+#apaga-tudo {
+  background-color: rgb(250 , 162 , 40);
+  border: rgb(250 , 162 , 40);
+}
+
+#remover-finalizados {
+  background-color: rgb(161 , 230 , 14);
+  border: rgb(161 , 230 , 14);
+}
+
+#remover-selecionado {
+  background-color: rgb(26 , 214 , 171);
+  border: rgb(26 , 214 , 171);
 }
 
 p {
   font-style: italic;
   color: gray;
+}
+
+.buttons {
+  margin-top:auto 80px;
+  margin-right: 10px;
+}
+
+#section-input {
+  margin-top: 30px;
+}
+
+#texto-tarefa {
+  height: 25px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+  font-size: 30px;
+}
+li {
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 280px;
 }
