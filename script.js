@@ -13,7 +13,6 @@ function createTarefa() {
     inputValue.value = ''
     eventColorLi();
     eventCompletedTarefa();
-    removeCompletedTarefa();
 }
 
 function eventCreateTarefa() {
@@ -30,7 +29,7 @@ function colorLi(event) {
     }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
-/// entulhar eventos no mesmo elemento para add e remove deu problema
+
 function eventColorLi() {
     let li = document.querySelector('#lista-tarefas').children
     for (let index = 0; index < li.length; index += 1) {
@@ -39,29 +38,19 @@ function eventColorLi() {
 }
 
 function completedTarefa(event) {
-    let li = document.querySelector('#lista-tarefas').children;
-    // parecido com o exercico do course do tirar e por a classe tech;
-    for (let index = 0; index < li.length; index += 1) {
-        // remove de tudo para garantir e dps adiciona
-        event.target.classList.add('completed')
+// let li = document.querySelector('#lista-tarefas').children;
+// ou passa só um ou passa todos ou passa um e nao o utro -- remover for para teste
+// for (let index = 0; index < li.length; index += 1) {
+    // usando o contains seguindo o indicado no seguinte link
+    // https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
+    if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed')        
+    } else {
+      event.target.classList.add('completed')
     }
 }
-
 
 function eventCompletedTarefa() {
-    let li = document.querySelector('#lista-tarefas').children;
-    for (let index = 0; index < li.length; index += 1) {
-        li[index].addEventListener('dblclick', completedTarefa)
-    }
-}
-
-function removeCompletedTarefa(event) {
-    let li = document.querySelector('#lista-tarefas').children;
-    event.target.classList.remove('completed')
-}
-
-
-function removeCompletedTarefa() {
     let li = document.querySelector('#lista-tarefas').children;
     for (let index = 0; index < li.length; index += 1) {
         li[index].addEventListener('dblclick', completedTarefa)
@@ -84,3 +73,18 @@ function removeAllButton() {
     removeButton.addEventListener('click', removeAllTarefas)
 }
 removeAllButton()
+
+function removerCompleted() {
+    let completedTarefas = document.getElementsByClassName('completed')
+    for (let index = 0; index < completedTarefas.length; index += 1) {
+        if (completedTarefas[index].remove) {
+        }
+        // tentar fazer um remove children/child com base em condição
+    }
+}
+
+function removeCompletedButton() {
+    let removeCompletedButton = document.querySelector('#remover-finalizados');
+    removeCompletedButton.addEventListener('click', removerCompleted)
+}
+removeCompletedButton()
