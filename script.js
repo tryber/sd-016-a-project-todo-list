@@ -105,6 +105,7 @@ function moveItemDown() {
 
 // Função para salvar o conteudo HTML da tag OL.
 function saveTasksItens() {
+  // Função criada com a ajuda do @Emmerson Moreira.
   localStorage.setItem('tasksItem', JSON.stringify(selectOl.innerHTML));
 }
 
@@ -137,6 +138,7 @@ selectButton.addEventListener('click', createTasksList);
 
 // Função onload, retorna o valor do localStorage e recria o conteudo das listas.
 window.onload = () => {
+  // Função criada com a ajuda do @Emmerson Moreira.
   const returnOl = JSON.parse(localStorage.getItem('tasksItem'));
   if (returnOl !== null) {
     selectOl.innerHTML = returnOl;
