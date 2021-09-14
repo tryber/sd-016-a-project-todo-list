@@ -1,0 +1,126 @@
+/* Fonts Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+body {
+  padding: 0;
+  background-color: rgb(241 , 207 , 176);
+  font-family: Urbanist, sans-serif;
+  letter-spacing: 0.1rem;
+  margin: 2rem;
+}
+
+h1 {
+  font-family: Righteous, cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+input {
+  width: 15rem;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  font-family: Urbanist, sans-serif;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+ol {
+  font-family: Urbanist, sans-serif;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+li {
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.hero-nav-container {
+  width: 80vw;
+  height: 15vh;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.hero-nav-label-input {
+  width: 80vw;
+  height: 10vh;
+}
+
+.hero-nav-container label {
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  height: 4vh;
+  width: 80vw;
+  line-height: 4vh;
+}
+
+.hero-nav-container input {
+  text-align: center;
+  display: block;
+  height: 3vh;
+  width: 50vw;
+  margin: 1vh auto;
+}
+
+.hero-nav-container .task-list-add-button {
+  padding: 0.5vh 7vw;
+  width: 50vw;
+  border-radius: 0.5rem;
+}
+
+.task-list-container {
+  height: 52vh;
+  width: 80vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-flow: nowrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+}
+
+.task-list-container-buttons {
+  position: absolute;
+  width: 40vw;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+}
+
+.task-list-container-buttons button {
+  margin-top: 1vh;
+  border-radius: 0.5rem;
+  margin-left: -5vw;
+  height: 5vh;
+  width: 25vw;
+  font-size: 0.5rem;
+}
