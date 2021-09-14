@@ -1,0 +1,21 @@
+#criar-tarefa:hover {
+  background-color: purple;
+  color: white;
+  box-shadow: 2px 2px 5px pink;
+}
+
+.task:active {
+  background-color: white;
+}
+
+.selected {
+  background-color: gray;
+}
+
+#funcionamento {
+  user-select: none;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
