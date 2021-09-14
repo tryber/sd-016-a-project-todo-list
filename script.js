@@ -23,7 +23,7 @@ createParagraphOperation();
 function createTaskInput() {
   let taskInputSection = document.createElement('section');
   let taskInput = document.createElement('input');
-  taskInputSection.id = 'input-section'
+  taskInputSection.id = 'input-section';
   taskInput.id = 'texto-tarefa';
   document.body.append(taskInputSection);
   taskInputSection.appendChild(taskInput);
@@ -73,13 +73,12 @@ taskButton.addEventListener('click', handleTaskButton);
 // 8 - Fazendo com que somente um item fique selecionado
 function changeBgColorItemTask(event) {
   let listItem = document.getElementsByClassName('item-task');
-  const clickedItem = event.target
 
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('selected');
   }
 
-  clickedItem.classList.add('selected');
+  event.target.classList.add('selected');
 }
 orderedList.addEventListener('click', changeBgColorItemTask);
 
@@ -92,3 +91,23 @@ function completedTask(event) {
   }
 }
 orderedList.addEventListener('dblclick', completedTask);
+
+function createDeleteTasksButton() {
+  let taskInputSection = document.getElementById('input-section');
+  let deleteTasksButton = document.createElement('button');
+
+  deleteTasksButton.id = 'apaga-tudo';
+  deleteTasksButton.innerText = 'Apagar Tudo';
+  taskInputSection.appendChild(deleteTasksButton);
+}
+createDeleteTasksButton();
+
+let deleteTasksButton = document.getElementById('apaga-tudo');
+function deleteTasks() {  
+  // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+  // Utilizando while para verificar enquanto a lista estiver um elemento, ele ira remover (ultimo), ate a lista ficar vazia
+  while (orderedList.lastElementChild) {
+    orderedList.removeChild(orderedList.lastElementChild);
+  }
+}
+deleteTasksButton.addEventListener('click', deleteTasks);
