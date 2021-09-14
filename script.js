@@ -30,6 +30,7 @@ moveUp.addEventListener('click', () => {
       const aboveLi = selected[index - 1].outerHTML;
       selected[index - 1].outerHTML = selected[index].outerHTML;
       selected[index].outerHTML = aboveLi;
+      break;
     }
   }
   changeBackgroudColor();
@@ -82,3 +83,32 @@ removeDone.addEventListener('click', () => {
   changeBackgroudColor();
   completedTasks();
 });
+
+const save = document.querySelector('#salvar-tarefas');
+save.addEventListener('click', () => {
+  const liContent = document.querySelectorAll('li');
+  const content = [];
+  for (let index = 0; index < liContent.length; index += 1) {
+    content.push(liContent[index].outerHTML);
+  }
+  localStorage.setItem('content', JSON.stringify(content));
+});
+
+const removeItem = document.querySelector('#remover-selecionado');
+removeItem.addEventListener('click', () => {
+  document.querySelector('#selected').remove();
+});
+
+window.onload = () => {
+  if (localStorage.getItem('content') !== null) {
+    const content = JSON.parse(localStorage.getItem('content'));
+    for (let index = 0; index < content.length; index += 1) {
+      const createLi = document.createElement('li');
+      const list = document.querySelector('#lista-tarefas');
+      list.appendChild(createLi);
+      createLi.outerHTML = content[index];
+    }
+  }
+  changeBackgroudColor();
+  completedTasks();
+};
