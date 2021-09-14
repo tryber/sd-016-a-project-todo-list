@@ -51,12 +51,12 @@ function removeCompleted() {
 function saveTasks() {
   for (let i = 0; i < taskList.children.length; i += 1) {
     const saveTask = taskList.children[i].outerHTML;
-    sessionStorage.setItem(`task${i}`, JSON.stringify(saveTask));
+    localStorage.setItem(`task${i}`, JSON.stringify(saveTask));
   }
 }
 
 function loadTasks() {
-  const allKeys = Object.keys(sessionStorage);
+  const allKeys = Object.keys(localStorage);
   // eslint-disable-next-line sonarjs/no-unused-collection
   const taskKeys = [];
   for (let i = 0; i < allKeys.length; i += 1) {
@@ -67,7 +67,7 @@ function loadTasks() {
   taskKeys.sort();
   for (let i = 0; i < taskKeys.length; i += 1) {
     const taskKey = document.createElement('div');
-    const task = JSON.parse(sessionStorage.getItem(taskKeys[i]));
+    const task = JSON.parse(localStorage.getItem(taskKeys[i]));
     taskList.appendChild(taskKey);
     taskKey.outerHTML = task;
   }
@@ -75,16 +75,16 @@ function loadTasks() {
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
-  const itemBefore = selectedTask.previousElementSibling;
-  if (itemBefore !== null) {
+  if (selectedTask !== null && selectedTask.previousElementSibling) {
+    const itemBefore = selectedTask.previousElementSibling;
     taskList.insertBefore(selectedTask, itemBefore);
   }
 }
 
 function moveDown() {
   const selectedTask = document.querySelector('.selected');
-  const itemAfter = selectedTask.nextElementSibling;
-  if (itemAfter !== null) {
+  if (selectedTask !== null && selectedTask.nextElementSibling) {
+    const itemAfter = selectedTask.nextElementSibling;
     itemAfter.after(selectedTask);
   }
 }
