@@ -4,6 +4,7 @@ listIten.innerHTML = window.localStorage.items === undefined ? '' : window.local
 function complete(event) {
   let elem = event.target;
   elem.classList.toggle('completed');
+  elem.style.textDecoration = 'line-through';
 }
 function select(event) {
   let elem = event.target;
