@@ -2,6 +2,10 @@ const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 
 function listElementHilight(event) {
+  const hilightElement = document.querySelector('.hilight');
+  if (hilightElement !== null) {
+    hilightElement.classList.remove('hilight');
+  }
   if (event.target.classList.contains('hilight') === false) {
     event.target.classList.add('hilight');
   } else {
