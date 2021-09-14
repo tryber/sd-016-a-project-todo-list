@@ -3,8 +3,11 @@ const botaoAdicionar = document.getElementById('criar-tarefa');
 const input = document.getElementById('texto-tarefa');
 const botaoApagarTudo = document.getElementById('apaga-tudo');
 const botaoApagarFinalizados = document.getElementById('remover-finalizados');
-let n = JSON.parse(localStorage.getItem('counter'));
 const botaoSalvarTarefas = document.getElementById('salvar-tarefas');
+const botaoLimparLista = document.getElementById('limpar-lista');
+const botaoMoveUp = document.getElementById('move-up');
+const botaoRemoverSelecionado = document.getElementById('remover-selecionado');
+let n = JSON.parse(localStorage.getItem('counter'));
 
 if (n == null) {
   n = 0;
@@ -38,6 +41,7 @@ function finishedListItem() {  // riscando os elementos que receberem o duplo cl
 
 if (localStorage.length > 0) { // pegando os itens da lista armazenados no localstorage
 
+
   for (let x = 0; x < localStorage.getItem('counter'); x += 1) {
       listaOrdenada.appendChild(document.createElement('li')).innerText = localStorage.getItem('valor' + x);
   }
@@ -45,7 +49,7 @@ if (localStorage.length > 0) { // pegando os itens da lista armazenados no local
 
 const indexLength = JSON.parse(localStorage.getItem('index.length'));
 
-for (let z = 0; z <= indexLength; z += 1) {
+for (let z = 0; z <= indexLength; z += 1) { // codigo usado para identificar quais itens de tarefa possuem o line through, para salvar e recupera-lo do localstorage com a classe ja definida
   for (let v = 0; v < JSON.parse(localStorage.getItem('counter')); v += 1) {
     if (v === JSON.parse(localStorage.getItem('index' + z))) {
       listaOrdenada.children[v].className = 'completed';
@@ -54,30 +58,34 @@ for (let z = 0; z <= indexLength; z += 1) {
   }  
 }
 
+let indice = 0;
 botaoAdicionar.addEventListener('click', ()=> { // criação dos elementos a partir do click no botao
   listaOrdenada.appendChild(document.createElement('li'));
   listaOrdenada.lastChild.innerText = input.value;
-
+  
   selectListItem();
+
+  listaOrdenada.lastChild.style.order = indice;
+  indice += 1;
+
 
   listaOrdenada.lastChild.addEventListener('dblclick', (event) => {
     const element = event.target;
     
-    if (element.className === 'completed') {
+    if (element.className === 'completed') { // switch de colocar ou tirar a classe completed que risca a linha do item de tarefa
       element.className = '';
     } else {
       element.className = 'completed';
     }
   });
 
-  input.value = '';
+  input.value = ''; // seta o valor do input como vazio depois de ter o seu valor adicionado a lista
 });
-
-finishedListItem();
 
 botaoSalvarTarefas.addEventListener('click', () => { // salva a lista no localStorage
   let k = 1;
   let n = 0;
+  localStorage.clear();
 
   for (let x = 0; x < listaOrdenada.children.length; x += 1) {
     localStorage.setItem('valor' + n, listaOrdenada.children[x].innerText);
@@ -91,6 +99,9 @@ botaoSalvarTarefas.addEventListener('click', () => { // salva a lista no localSt
 
   localStorage.setItem('counter', n);
 });
+
+finishedListItem();
+selectListItem();
 
 botaoApagarTudo.addEventListener('click', () => { // apaga todos os elementos da lista
   if(listaOrdenada.children.length > 0) {
@@ -109,3 +120,29 @@ botaoApagarFinalizados.addEventListener('click', () => { // apaga aqueles elemen
     } while (completed.length !== 0)
   }
 });
+
+botaoLimparLista.addEventListener('click', () => {
+  localStorage.clear();
+})
+
+botaoMoveUp.addEventListener('click', (event) => {
+ let y = 0;
+  for (let x = 0; x < listaOrdenada.children.length; x += 1) {
+    if (listaOrdenada.children[x].style.backgroundColor === 'rgb(128, 128, 128)') {
+      y = x;
+      if (y !== 0) {
+        listaOrdenada.children[y].parentNode.insertBefore(listaOrdenada.children[y], listaOrdenada.children[y - 1]);
+        y -= 1;
+      }
+    }
+  }
+  
+});
+
+botaoRemoverSelecionado.addEventListener('click', () => {
+  for (let x = 0; x < listaOrdenada.children.length; x += 1) {
+    if (listaOrdenada.children[x].style.backgroundColor == 'rgb(128, 128, 128)') {
+      listaOrdenada.children[x].remove();
+    }
+  }
+})
