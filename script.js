@@ -7,3 +7,8 @@ button.addEventListener('click', () => {
   list.appendChild(task);
   input.value = '';
 });
+
+const task = document.querySelector('#lista-tarefas');
+task.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+});
