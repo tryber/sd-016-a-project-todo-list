@@ -71,42 +71,45 @@ createUl();
 // funções acima são estrutura HTML fixa
 
 // Usei a base do exercicio do Calendario
-
 function addList() {
   const input = document.querySelector('#texto-tarefa');
-  const button = document.querySelector('#criar-tarefa');
   const ol = document.querySelector('#lista-tarefas');
-  // click
-  button.addEventListener('click', () => {
-    if (input.value.length > 0) {
-      const addLi = document.createElement('li');
-      addLi.classList.add('list');
-      addLi.innerHTML = input.value;
-      ol.appendChild(addLi);
-      input.value = '';
-    }
-    // clickOl();
-  });
+  if (input.value.length > 0) {
+    const addLi = document.createElement('li');
+    addLi.classList.add('list');
+    addLi.innerHTML = input.value;
+    ol.appendChild(addLi);
+    input.value = '';
+  }
 }
 
-addList();
 // instutor Caique Coelho me ajudou a melhorar minha função de click
+
+function clearSelectedOl() {
+  const taskList = document.querySelectorAll('.list');
+  for (let i = 0; i < taskList.length; i += 1) {
+    taskList[i].style.backgroundColor = 'unset';
+  }
+  // unset - deixara indefinoido o background
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/unset
+}
+
 function clickOl() {
-  const ol = document.querySelector('ol');
-  ol.addEventListener('click', (evt) => {
-    evt.target.style.backgroundColor = 'rgb(128, 128, 128) ';
+  const taskList = document.querySelectorAll('.list');
+  for (let i = 0; i < taskList.length; i += 1) {
+    taskList[i].addEventListener('click', () => {    
+      clearSelectedOl();
+      taskList[i].style.backgroundColor = 'rgb(128, 128, 128) ';
+    });
+  }
+}
+
+function allFunction() {
+  const button = document.querySelector('#criar-tarefa');
+  button.addEventListener('click', () => {
+    addList();
+    clickOl();
   });
 }
 
-clickOl();
-
-// function clickOl() {
-//   const listOl = document.querySelectorAll('.list');
-//   for (let i = 0; i < listOl.length; i += 1) {
-//     const element = listOl[i];
-//     element.addEventListener('click', (evt) => {
-//       console.log(evt.target)
-//       evt.target.style.backgroundColor = 'rgb(128, 128, 128) ';
-//     });
-//   }
-// }
+allFunction();
