@@ -59,17 +59,42 @@ getButton.addEventListener('click', function(){
     
 })
 
+//botão que remove as li's
 //https://forums.asp.net/t/1872818.aspx?how+to+remove+all+the+li+inside+the+ul+using+javascript+
 function removeLi() {
-var ol = document.getElementById('lista-tarefas');
+let ol = document.getElementById('lista-tarefas');
   if (ol) {
     while (ol.firstChild) {
       ol.removeChild(ol.firstChild);
-        }
     }
+  }
 }
 
 const clearButton = document.querySelector('#apaga-tudo')
 clearButton.addEventListener('click', removeLi)
 
+//função que passa a classe completed e o estilo inline-through
+let riskItens = document.querySelector('#lista-tarefas');
+riskItens.addEventListener('dblclick', function(event) {
+  for (let index = 0; index < riskItens.length; index += 1){
+    riskItens[index].classList.add = ''
+  }
+  if (event.target.className === 'completed') {
+    event.target.classList.toggle('completed');
+  } else {
+  event.target.className = 'completed';
+  }
+         
+})
+
+function completedButton(){
+  let completed = document.querySelector('.completed');
+  if (completed){
+    while(completed.firstChild)
+    completed.remove(completed.firstChild)
+  }
+}
+
+let clearCompletedButton = document.querySelector('#remover-finalizados')
+clearCompletedButton.addEventListener('click', completedButton);
 
