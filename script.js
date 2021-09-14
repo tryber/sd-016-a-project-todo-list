@@ -1,15 +1,15 @@
-let button = document.querySelector('#criar-tarefa');
-let input = document.querySelector('#texto-tarefa');
-let list = document.querySelector('#lista-tarefas');
-let clearAll = document.querySelector('#apaga-tudo');
-let clearFinalizados = document.querySelector('#remover-finalizados');
-let up = document.querySelector('#mover-cima');
-let down = document.querySelector('#mover-baixo');
+const button = document.querySelector('#criar-tarefa');
+const input = document.querySelector('#texto-tarefa');
+const list = document.querySelector('#lista-tarefas');
+const clearAll = document.querySelector('#apaga-tudo');
+const clearFinalizados = document.querySelector('#remover-finalizados');
+const up = document.querySelector('#mover-cima');
+const down = document.querySelector('#mover-baixo');
 
 
 
 button.addEventListener('click', function () {
-   let createLi = document.createElement('li');
+   const createLi = document.createElement('li');
    if (input.value.length > 0) {
   createLi.innerText = input.value;
   createLi.className = 'li-lista'
@@ -21,7 +21,7 @@ button.addEventListener('click', function () {
 })
 
 function addGrey(event) {
-  let selectList = document.querySelector('.graycolor');
+  const selectList = document.querySelector('.graycolor');
   if (selectList != null) {
     selectList.classList.remove('graycolor');
   }
