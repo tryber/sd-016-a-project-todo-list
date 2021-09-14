@@ -30,7 +30,7 @@ body.addEventListener('click', (e) => {
   }
 });
 
-// requisito 9 - Guilherme Spinelli nos mostrou como usar o toggle e ai reduziu o código que eu havia criado como o anterior.
+// requisito 9 - Guilherme Spinelli nos mostrou como usar o toggle que verifica se a classe está presente, senão adiciona ela.
 taskList.addEventListener('dblclick', (event) => { 
   event.target.classList.toggle('completed')
 });
