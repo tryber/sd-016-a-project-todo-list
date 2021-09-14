@@ -1,7 +1,61 @@
 #lista-tarefas li{
     /*background-color: rgb(255, 255, 255); */
+    list-style-position: inside;
+    font-weight: bold;
 }
 
 .completed {
     text-decoration: line-through solid rgb(0,0,0);
+}
+
+.main {
+    display: inline-block;
+    background-color: whitesmoke;
+    width: 50%;
+    height:350px;
+    margin-top: 30px;
+
+}
+
+body {
+    background-color: rgb(0,0,0);
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.buttons button{
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#criar-tarefa {
+    background-color: blue;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.insert-area button:hover {
+    cursor: pointer;
+}
+
+#apaga-tudo {
+    background-color:tomato;
+    margin-right: 10px;
+}
+
+#apaga-tudo {
+    cursor: pointer;
+}
+
+#remover-finalizados {
+    background-color: grey;
+}
+
+#remover-finalizados:hover{
+    cursor: pointer;
 }

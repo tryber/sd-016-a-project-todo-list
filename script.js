@@ -75,11 +75,11 @@ function removeAllButton() {
 removeAllButton()
 
 function removerCompleted() {
-    //chama as li filhas do ol
-    let completedTarefas = document.getElementsByClassName('completed')
-    for (let index = 0; index < completedTarefas.length; index += 1) {
-        // chama o pai ol para deletar as filhas li completed
-        completedTarefas[index].parentElement.removeChild(completedTarefas[index])
+    //chama as li filhas do ol -- partindo do principio que havera tarefas completed
+    let tarefaList = document.querySelectorAll('.completed')
+    for (let index = 0; index < tarefaList.length; index += 1) {
+    //chama o pai ol para deletar as filhas li completed na posicao index
+        tarefaList[index].parentElement.removeChild(tarefaList[index])
     }
 }
 

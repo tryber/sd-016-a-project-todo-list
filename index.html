@@ -8,14 +8,20 @@
         <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     </head>
     <body>
-        <header><h1>Minha Lista de Tarefas</h1></header>
-        <p id = 'funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
-        <input id = 'texto-tarefa'></input>
-        <ol id = 'lista-tarefas'>
-        </ol>
-        <button id = 'criar-tarefa'>Criar tarefa</button>
-        <button id = 'apaga-tudo'>Remover tudo</button>
-        <button id = 'remover-finalizados'>Remover finalizados</button>
+        <main class = 'main'>
+            <header><h1>Minha Lista de Tarefas</h1>
+                <p id = 'funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+            </header>
+            <div class = 'insert-area'>
+            <input id = 'texto-tarefa'></input>
+            <button id = 'criar-tarefa'>Criar tarefa</button>    
+            </div>
+            <ol id = 'lista-tarefas'></ol>
+            <div class = 'buttons'>
+                <button id = 'apaga-tudo'>Remover tudo</button>
+                <button id = 'remover-finalizados'>Remover finalizados</button>                 
+            </div>
+        </main>
     </body>
     <script src='script.js'></script>
 </html>
