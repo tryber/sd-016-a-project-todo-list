@@ -3,6 +3,7 @@ const allList = document.getElementById('lista-tarefas');
 const task = document.getElementById('texto-tarefa');
 const taskList = document.getElementsByClassName('task-list');
 const clearBtn = document.getElementById('apaga-tudo');
+const clearComp = document.getElementById('remover-finalizados');
 
 addButton.addEventListener('click', () => {
   const newList = document.createElement('li');
@@ -35,6 +36,14 @@ addButton.addEventListener('click', () => {
     clearBtn.addEventListener('click', () => {
       for (let index = 0; index < taskList.length; index += 1 ){
         allList.removeChild(taskList[index]);
+      }
+    })
+
+    //reqcuisito 11
+    clearComp.addEventListener('click', () => {
+      const completos = document.getElementsByClassName('completed');
+      for (let index = 0; index < completos.length; index += 1 ){
+        allList.removeChild(completos[index]);
       }
     })
   }
