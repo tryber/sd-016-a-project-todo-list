@@ -50,12 +50,13 @@ function createTaskButton() {
   let taskInputSection = document.getElementById('input-section');
   let taskButton = document.createElement('button');
   taskButton.id = 'criar-tarefa';
-  taskButton.innerText = 'Criar Tarefa'
+  taskButton.innerText = 'Criar Tarefa';
 
   taskInputSection.appendChild(taskButton);
 }
 
 // 5 - Fazendo com que as tarefas seja adicionadas
+// 6 - Ordenando por ordem de criacao
 function handleTaskButton() {
   let taskInput = document.getElementById('texto-tarefa');
   let taskButton = document.getElementById('criar-tarefa');
@@ -66,11 +67,37 @@ function handleTaskButton() {
       alert('Preencha o campo!');
     } else {
       let listItem = document.createElement('li');
+      listItem.className = 'item-task';
       listItem.innerText = taskInput.value;
       orderedList.appendChild(listItem);
       taskInput.value = '';
     }
-  })
+
+    changeBgColorItemTask();
+  });
+}
+
+// 7 - Alterando a cor do fundo do item selecionado
+// 8 - Fazendo com que somente um item fique selecionado
+function changeBgColorItemTask(){
+  let listItem = document.getElementsByClassName('item-task');
+  let selectedItem = document.querySelector('.selected');
+
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].classList.remove('selected');
+    listItem[i].addEventListener('click', () => {
+      if (listItem[i] !== selectedItem) {
+        if (selectedItem === null) {
+          listItem[i].classList.add('selected');
+          selectedItem = document.querySelector('.selected');
+        } else {
+          listItem[i].classList.add('selected');
+          selectedItem.classList.remove('selected');
+          selectedItem = document.querySelector('.selected');
+        } 
+      }
+    })
+  }
 }
 
 window.onload = () => {
@@ -80,4 +107,5 @@ window.onload = () => {
   createOrderedList();
   createTaskButton();
   handleTaskButton();
+  changeBgColorItemTask();
 };

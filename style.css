@@ -16,3 +16,7 @@
   width: 45%;
   margin-top: 20px;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
