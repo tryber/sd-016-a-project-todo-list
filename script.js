@@ -26,6 +26,7 @@ function paintList(event) {
 listaTarefas.addEventListener('click', paintList);
 
 // Requisto 10 - apagar todos os item da lista - Função busca a existencia de um filho para a varial listaTarefas, caso ele ache o While esse mesmo filho sera apagado até não haver mais filho para a variavel.
+//Estrututa feita com base em conhecimentos adiquiridos em https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild 
 function apagaTudo() {
   while (listaTarefas.firstChild) {
     listaTarefas.removeChild(listaTarefas.firstChild);
