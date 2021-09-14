@@ -8,12 +8,10 @@
 
 body {
   padding: 0;
-  margin: 0;
   background-color: rgb(241 , 207 , 176);
   font-family: Urbanist, sans-serif;
   letter-spacing: 0.1rem;
   margin: 2rem;
-  background-color: rgb(241 , 207 , 176);
 }
 
 h1 {
