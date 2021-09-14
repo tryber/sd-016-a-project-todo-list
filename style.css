@@ -19,7 +19,7 @@ button {
   color: white;
 }
 
-#mover-cima, #mover-baixo {
+#mover-cima, #mover-baixo, #remover-selecionado{
   width: 40px;
   font-size: 16px;
   font-weight: 500;
@@ -39,4 +39,9 @@ button {
 
 #salvar-tarefas {
   background-color: green;
+}
+
+#remover-selecionado {
+  background-color: red;
+  color: white;
 }

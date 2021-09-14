@@ -135,6 +135,7 @@ moveUp();
 function moveDown() {
   const buttonDown = document.getElementById('mover-baixo');
   const lista = document.getElementById('lista-tarefas');
+
   buttonDown.addEventListener('click', () => { 
     const phraseSelected = document.getElementsByClassName('selected')[0];
     if (phraseSelected !== undefined) {
@@ -153,3 +154,18 @@ function moveDown() {
 }
 
 moveDown();
+
+function removeSelected() {
+  const buttonRemoveSelected = document.getElementById('remover-selecionado');
+  const lista = document.getElementById('lista-tarefas');
+
+  buttonRemoveSelected.addEventListener('click', () => {
+    for (let index = lista.children.length - 1; index >= 0; index -= 1) {
+      if (lista.children[index].classList.contains('selected')) {
+        lista.children[index].remove();
+      }
+    }
+  });
+}
+
+removeSelected();
