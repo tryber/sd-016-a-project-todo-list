@@ -1,12 +1,13 @@
 #criar-tarefa:hover {
-  background-color: pink;
+  background-color: rgb(204, 116, 116);
   color: white;
-  boxshadow: 2px 2px 5px rgb(173, 86, 86);
+  box-shadow: 2px 2px 5px rgb(173, 86, 86);
 }
 
 .task:active {
   background-color: rgb(255, 255, 255);
 }
+
 .selected {
   background-color: rgb(128, 128, 128);
 }

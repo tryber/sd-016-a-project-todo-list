@@ -6,7 +6,7 @@ const createTask = document.querySelector('#criar-tarefa'); // button new task
 const clearAll = document.querySelector('#apaga-tudo'); // button clear all
 const clearCompleted = document.querySelector('#remover-finalizados'); // button remove defaced
 const removedSelected = document.querySelector('#remover-selecionado'); // remove selected
-const saveTask = document.querySelector("#salvar-tarefas"); // save task on storage
+const saveTask = document.querySelector('#salvar-tarefas'); // save task on storage
 
 // cria uma lista de tarefas
 createTask.addEventListener('click', () => { // escuta o button
@@ -75,20 +75,17 @@ function removeCompletedTask() {
 clearCompleted.addEventListener('click', removeCompletedTask);
 
 // requisito 12 
-
 function saveTaskStorage() {
   localStorage.setItem('taskListStorage', JSON.stringify(taskList.innerHTML));
 }
-saveTask.addEventListener('click', saveTaskStorage)
+saveTask.addEventListener('click', saveTaskStorage);
 
-function openStorage() {
+window.onload = () => {
   if (localStorage !== null) {
-    let returnTaskHTML = JSON.parse(localStorage.getItem('taskListStorage'));
-    console.log(returnTaskHTML);
+   const returnTaskHTML = JSON.parse(localStorage.getItem('taskListStorage'));
     taskList.innerHTML = returnTaskHTML;
   }
 }
-window.onload = openStorage();
 
 // requisito 13 - o comando dentro do if faz uma nova sequencia, baseado se tem um elemento antes ou depois.
 const upwards = document.querySelector('#mover-cima');
