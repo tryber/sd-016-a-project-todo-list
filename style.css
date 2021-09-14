@@ -65,3 +65,7 @@ section {
   font-size: 15pt;
   font-weight: 900;
 }
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
