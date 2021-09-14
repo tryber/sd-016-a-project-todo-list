@@ -1,5 +1,16 @@
 const nomeDoId = 'lista-tarefas';
 
+// Adiciona cor de fundo
+function color(event) {
+  const allItems = document.querySelectorAll('.list-item');
+  const paint = event;
+  for (let i = 0; i < allItems.length; i += 1) {
+    allItems[i].classList.remove('selected');
+    paint.target.classList.add('selected');
+  }
+}
+document.getElementById(nomeDoId).addEventListener('click', color);
+
 // Cria a tarefa
 function createTask() {
   const inputField = document.getElementById('texto-tarefa');
@@ -8,14 +19,13 @@ function createTask() {
     alert('Insira um texto válido!');
     return;
   }
-  const a = document.createElement('a');
   const ol = document.getElementById(nomeDoId);
   const li = document.createElement('li');
-  a.className = 'list-item';
-  a.innerHTML = input;
-  li.appendChild(a);
+  li.className = 'list-item';
+  li.innerHTML = input;
   inputField.value = '';
   ol.appendChild(li);
+  li.addEventListener('click', color);
 }
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 
@@ -34,13 +44,11 @@ function lineThrough(event) {
 }
 document.getElementById(nomeDoId).addEventListener('dblclick', lineThrough);
 
-// Adiciona cor de fundo
-function color(event) {
-  const paint = event;
-  if (paint.target.style.backgroundColor === 'rgb(128, 128, 128)') {
-    paint.target.style.backgroundColor = 'white';
-  } else {
-    paint.target.style.backgroundColor = 'rgb(128, 128, 128)';
+// Remover tarefas completas
+function removeDone() {
+  const list = document.getElementsByClassName('list-item');
+  while (list.length > 0) {
+    console.log('xablau');
   }
 }
-document.getElementById(nomeDoId).addEventListener('click', color);
+document.getElementById('remover-finalizados').addEventListener('click', removeDone);
