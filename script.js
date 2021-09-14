@@ -1,8 +1,9 @@
-// Chamar o input, o botão e a ol.
+// Chamar o input, os botões e a ol.
 const input = document.getElementById('texto-tarefa');
 const button = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const clearItems = document.getElementById('apaga-tudo');
+const clearTasks = document.getElementById('remover-finalizados');
 
 // Código elaborado com a ajuda da Laura Fumagalli e Camila Rannieli, turma 16 - tribo A.
 function addItem() {
@@ -53,3 +54,19 @@ function clearList() {
   });
 }
 clearList();
+
+// Criar um botão que ao clicar nele remove as tarefas FINALIZADAS.
+function clearFinishTasks() {
+  // Adicionar o evento click no botão que apaga as tarefas finalizadas.
+  clearTasks.addEventListener('click', function () {
+    // Chamar os elementos da lista (li), que possuem a classe completed.
+    const clearTasksItems = document.querySelectorAll('.completed');
+    // Quando o usuário clicar no botão apagar tarefas finalizadas ele vai percorrer todos os itens da lista (li) para poder apagar uma por uma das tarefas completed.
+    for (let i = 0; i < clearTasksItems.length; i += 1) {
+      const eraserTasks = clearTasksItems[i];
+      // Remover os elementos com a classe completed que são filhos da ol.
+      taskList.removeChild(eraserTasks);
+    }
+  });
+}
+clearFinishTasks();
