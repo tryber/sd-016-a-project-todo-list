@@ -1,0 +1,25 @@
+body {
+    Width: 1366px;
+    height: 768px;
+    background-color: rgb(253, 251, 251); 
+  }
+  
+  #titulo{
+    font-family: 'Montserrat', courier;
+    font-size:180%;
+    margin: 0 auto;
+    margin-left: 10%;
+    max-width: 450px;
+  }
+
+  #funcionamento {
+    margin: 10px 10px 10px;
+    font-size:75%;
+    margin-left: 50px;
+  }
+  
+  #texto-tarefa {
+
+  }
+
+  
