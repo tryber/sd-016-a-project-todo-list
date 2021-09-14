@@ -1,13 +1,13 @@
-const createList = document.getElementById("#lista-tarefas")
-const addInput = document.getElementById('#texto-tarefa')
-const workButton = document.getElementById("#criar-tarefa")
+const createList = document.getElementById("lista-tarefas")
+const addInput = document.getElementById("texto-tarefa")
+const workButton = document.getElementById("criar-tarefa")
 
 
 function adicionarItem () {
 
 const lista = document.createElement('li');
 lista.innerText = addInput.value;
-creatList.appendChild(lista);
+createList.appendChild(lista);
 addInput.value = '';
 };
 
