@@ -1,10 +1,13 @@
 // Global functions
 const taskListClass = '.task-list';
+const taskListCompletedClass = 'task-list-remove-button';
+const taskListElement = 'task-list-single-task';
+const taskListFinishedClass = 'task-list-single-task completed';
 
 // Function to create element li and return its creation.
 function createListElement() {
   const createLi = document.createElement('li');
-  createLi.classList.add('task-list-single-task');
+  createLi.classList.add(taskListElement);
   const getListParentElement = document.querySelector(taskListClass);
   return getListParentElement.appendChild(createLi);
 }
@@ -22,7 +25,7 @@ function cleanAllSelectedItems() {
 function clearAllTasks() {
   const getClearAllButton = document.querySelector('.task-list-clear-button');
   const getListParentElement = document.querySelector(taskListClass);
-  const getListChildElements = getListParentElement.getElementsByClassName('task-list-single-task');
+  const getListChildElements = getListParentElement.getElementsByClassName(taskListElement);
   getClearAllButton.addEventListener('click', () => {
     while (getListChildElements[0]) {
       getListChildElements[0].parentNode.removeChild(getListChildElements[0]);
@@ -50,13 +53,28 @@ function setLiBackgroundStyleOnClick() {
 // Function to set a line through to the clicked task.
 function setLineThroughToCompletedTask() {
   const getListParentElementChildren = document.querySelector(taskListClass).children;
-  console.log(getListParentElementChildren);
   for (let index = 0; index < getListParentElementChildren.length; index += 1) {
     getListParentElementChildren[index].ondblclick = () => {
       getListParentElementChildren[index].classList.toggle('completed');
+      console.log(getListParentElementChildren[index].className);
     };
   }
 }
+
+// Function to remove task marked as completed (adorned with line through)
+function removeFinishedTask() {
+  const getRemoveFinishedTaskButton = document.querySelector('.task-list-remove-button');
+  getRemoveFinishedTaskButton.addEventListener('click', () => {
+    const getListParentElementChildren = document.querySelector(taskListClass).children;
+    for (let index = 0; index < getListParentElementChildren.length; index += 1) {
+      console.log(getListParentElementChildren[index].className);
+      if (getListParentElementChildren[index].className === taskListFinishedClass) {
+        document.querySelector(taskListClass).removeChild(getListParentElementChildren[index]);
+      }
+    }
+  });
+}
+// getListChildElements[0].parentNode.removeChild(getListChildElements[0]);
 
 // Function to add a input value to the task list.
 function onClickInputTextOnTaskList() {
@@ -70,6 +88,7 @@ function onClickInputTextOnTaskList() {
     listElementFuncReturn.append(textContainer);
     setLineThroughToCompletedTask();
     setLiBackgroundStyleOnClick();
+    removeFinishedTask();
   });
 }
 onClickInputTextOnTaskList();
