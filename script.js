@@ -72,3 +72,87 @@ function buttomRemoveComplete() {
 }
 
 buttomRemoveComplete();
+
+function saveList() {
+  const buttonSave = document.getElementById('salvar-tarefas');
+  //const inputText = document.getElementById('texto-tarefa');
+  const lista = document.getElementById('lista-tarefas');
+
+  buttonSave.addEventListener('click', () => {
+    const list = [];
+    for (let index = 0; index < lista.children.length; index += 1) {
+      list.push(lista.children[index].textContent);
+      list.push(lista.children[index].className);
+      // if (lista.children[index].classList.contains('completed')) {
+      //   list.className += 'completed';
+      // }
+    }
+    localStorage.setItem('list', JSON.stringify(list)); 
+  });
+
+}
+saveList();
+
+function initialRenderization() {
+  const lista = document.getElementById('lista-tarefas');
+  if (localStorage.getItem('list') === null) {
+    localStorage.setItem('list', JSON.stringify([]));
+  } else {
+    const localList = JSON.parse(localStorage.getItem('list'));
+    for (let index = 0; index < localList.length; index += 2) {
+      const listElement = document.createElement('li');
+      listElement.innerText = localList[index];
+      if (localList[index + 1] !== '') {
+        listElement.className = (localList[index + 1]);
+      }
+      console.log(listElement);
+      lista.appendChild(listElement);
+    };
+  };
+};
+
+window.onload = function restart() {
+  initialRenderization();
+};
+
+
+// const button = document.getElementById('add-button');
+// const input = document.getElementById('phrases-input');
+// const list = document.getElementById('phrases-list');
+
+// function addPhraseToLocalStorage() {
+//   const oldList = JSON.parse(localStorage.getItem('phrases'));
+//   const phraseText = input.value;
+//   oldList.push(phraseText);
+//   localStorage.setItem('phrases', JSON.stringify(oldList));
+//   insertPhraseInDOM();
+// };
+
+// function insertPhraseInDOM() {
+//   const phrasesList = JSON.parse(localStorage.getItem('phrases'));
+//   const listLength = phrasesList.length - 1;
+//   const phraseText = phrasesList[listLength];
+//   const phrase = document.createElement('li');
+//   phrase.innerText = phraseText;
+//   list.appendChild(phrase);
+// };
+
+// function initialRenderization() {
+//   if (localStorage.getItem('phrases') === null) {
+//     localStorage.setItem('phrases', JSON.stringify([]));
+//   } else {
+//     const phrasesList = JSON.parse(localStorage.getItem('phrases'));
+//     const listLength = phrasesList.length - 1;
+//     for (let index = 0; index <= listLength; index += 1) {
+//       const listElement = document.createElement('li');
+//       listElement.innerText = phrasesList[index];
+//       list.appendChild(listElement);
+//     };
+//   };
+// };
+
+// button.addEventListener('click', addPhraseToLocalStorage);
+
+// window.onload = function() {
+//   initialRenderization();
+// };
