@@ -34,4 +34,4 @@ function addEvents() {
   list.addEventListener('click', paintList);
   list.addEventListener('dblclick', taskComplete);
 }
-addEvents()
+addEvents();
