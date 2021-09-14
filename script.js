@@ -1,6 +1,5 @@
 // Global functions
 const taskListClass = '.task-list';
-const taskListCompletedClass = 'task-list-remove-button';
 const taskListElement = 'task-list-single-task';
 const taskListFinishedClass = 'task-list-single-task completed';
 
@@ -56,7 +55,6 @@ function setLineThroughToCompletedTask() {
   for (let index = 0; index < getListParentElementChildren.length; index += 1) {
     getListParentElementChildren[index].ondblclick = () => {
       getListParentElementChildren[index].classList.toggle('completed');
-      console.log(getListParentElementChildren[index].className);
     };
   }
 }
@@ -67,7 +65,6 @@ function removeFinishedTask() {
   getRemoveFinishedTaskButton.addEventListener('click', () => {
     const getListParentElementChildren = document.querySelector(taskListClass).children;
     for (let index = 0; index < getListParentElementChildren.length; index += 1) {
-      console.log(getListParentElementChildren[index].className);
       if (getListParentElementChildren[index].className === taskListFinishedClass) {
         document.querySelector(taskListClass).removeChild(getListParentElementChildren[index]);
       }
