@@ -11,14 +11,12 @@ function mudarCor(event) {
 }
 
 function completado(event) {
-    var todos = document.querySelectorAll(".tarefa");
 
     if (event.target.classList.contains("completed")) {
         event.target.classList.remove("completed");
     } else {
         event.target.classList.add("completed")
     }
-    
 
 }
 
@@ -43,21 +41,29 @@ function criarLista() {
     }
 
     for (index = 0; index < selecionar.length; index++) {
-        selecionar[index].addEventListener("dblclick", completado, false);
+        selecionar[index].addEventListener("dblclick", completado);
     }
 
 
 
 }
 
+function apagarLista() {
+    const todos = document.getElementById("lista-tarefas");
+
+    while (todos.firstChild) {
+        todos.removeChild(todos.lastChild);
+    }
+}
 
 
 
 function eventos() {
     const botao = document.querySelector("#criar-tarefa");
+    const botaoApagar = document.querySelector("#apaga-tudo")
 
     botao.addEventListener("click", criarLista);
-
+    botaoApagar.addEventListener("click", apagarLista);
 
 }
 
