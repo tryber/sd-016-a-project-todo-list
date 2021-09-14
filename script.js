@@ -1,13 +1,13 @@
-function addLi(selection) {
+function addItem(selection) {
   const ol = document.querySelector('#lista-tarefas');
-  const input = document.querySelector('#texto-tarefa');
-  const buttonAdd = document.querySelector('#criar-tarefa');
+  const textoTarefa = document.querySelector('#texto-tarefa');
+  const criarTarefa = document.querySelector('#criar-tarefa');
 
-  if (selection.target === buttonAdd && input.value !== '') {
+  if (selection.target === criarTarefa && textoTarefa.value !== '') {
     const li = document.createElement('li');
 
-    ol.appendChild(li).innerHTML = input.value;
-    input.value = '';
+    ol.appendChild(li).innerHTML = textoTarefa.value;
+    textoTarefa.value = '';
   }
 }
 
@@ -15,48 +15,55 @@ function changeColorItem(selection) {
   const li = document.querySelectorAll('li');
 
   li.forEach((item) => {
-    const itemLet = item;
-    itemLet.classList.remove('selected');
-    itemLet.style.backgroundColor = 'rgb(93, 93, 93)';
+    const itemList = item;
+    itemList.classList.remove('selected');
+    itemList.style.backgroundColor = 'rgb(93, 93, 93)';
   });
 
   li.forEach((item) => {
     if (selection.target === item) {
-      const itemLet = item;
-      itemLet.classList.add('selected');
-      itemLet.style.backgroundColor = 'rgb(128,128,128)';
+      const itemList = item;
+      itemList.classList.add('selected');
+      itemList.style.backgroundColor = 'rgb(128,128,128)';
     }
   });
 }
 
-function doubleClick(selection) {
+function completeItem(selection) {
   const li = document.querySelectorAll('li');
 
   li.forEach((item) => {
-    const itemLet = item;
+    const itemList = item;
     if (selection.target === item) {
-      itemLet.classList.toggle('completed');
+      itemList.classList.toggle('completed');
       if (item.classList.contains('completed')) {
-        itemLet.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+        itemList.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
       } else {
-        itemLet.style.textDecoration = 'none';
+        itemList.style.textDecoration = 'none';
       }
     }
   });
 }
 
-function cleanListAll(selection) {
+function cleanList(selection) {
   const li = document.querySelectorAll('li');
-  const buttonCleanAll = document.querySelector('#apaga-tudo');
+  const apagaTudo = document.querySelector('#apaga-tudo');
+  const removerFinalizados = document.querySelector('#remover-finalizados');
 
-  if (selection.target === buttonCleanAll) {
+  if (selection.target === apagaTudo) {
     li.forEach((item) => {
       item.remove();
+    });
+  } else if (selection.target === removerFinalizados) {
+    li.forEach((item) => {
+      if (item.classList.contains('completed')) {
+        item.remove();
+      }
     });
   }
 }
 
-document.addEventListener('click', addLi);
+document.addEventListener('click', addItem);
+document.addEventListener('click', cleanList);
 document.addEventListener('click', changeColorItem);
-document.addEventListener('dblclick', doubleClick);
-document.addEventListener('click', cleanListAll);
+document.addEventListener('dblclick', completeItem);

@@ -4,7 +4,7 @@ main {
   margin: 200px auto 0;
   border-radius: 20px;
   border: 10px solid black;
-  background-color: rgb(93, 93, 93);
+  background-color: rgb(93 , 93 , 93);
 }
 
 header {
@@ -19,8 +19,8 @@ header {
 #texto-tarefa {
   height: 30px;
   border-radius: 10px;
+  background-color: gray;
   border: 5px solid black;
-  background-color: rgb(128,128,128);
 }
 
 #criar-tarefa {
@@ -32,9 +32,10 @@ header {
   border: 6px solid darkgreen;
 }
 
-#apaga-tudo {
+#apaga-tudo , #remover-finalizados {
   width: 150px;
   height: 40px;
+  margin: 20px 0 0 10px;
   border-radius: 30px;
   background-color: red;
   border: 6px solid darkred;
