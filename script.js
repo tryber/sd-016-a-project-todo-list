@@ -2,6 +2,7 @@
 let button = document.querySelector('#criar-tarefa');
 let list = document.querySelector('#lista-tarefas');
 let input = document.querySelector('#texto-tarefa');
+let li = document.querySelectorAll('#lista-tarefas li')
 
 let taskList = []
 
@@ -39,6 +40,29 @@ list.addEventListener('click', function (event){
 list.addEventListener('dblclick', function (event){
     event.target.classList.toggle('completed')
 })
+
+
+
+function addRemoverButton(){
+    let removeButton = document.createElement('button');
+    removeButton.innerHTML = 'Remover'
+    removeButton.id = 'apaga-tudo'
+    let sec1 = document.querySelector('#sec1');
+
+    sec1.appendChild(removeButton)
+}
+
+addRemoverButton()
+
+
+function removeAllTasks(){
+    let removeButton = document.querySelector('#apaga-tudo')
+    removeButton.addEventListener('click', function(){
+        list.innerHTML = ''
+    })
+}
+
+removeAllTasks()
 
 
 
