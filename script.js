@@ -5,7 +5,8 @@ const botaoApagarTudo = document.getElementById('apaga-tudo');
 const botaoApagarFinalizados = document.getElementById('remover-finalizados');
 const botaoSalvarTarefas = document.getElementById('salvar-tarefas');
 const botaoLimparLista = document.getElementById('limpar-lista');
-const botaoMoveUp = document.getElementById('move-up');
+const botaoMoveUp = document.getElementById('mover-cima');
+const botaoMoveDown = document.getElementById('mover-baixo');
 const botaoRemoverSelecionado = document.getElementById('remover-selecionado');
 let n = JSON.parse(localStorage.getItem('counter'));
 
@@ -58,15 +59,12 @@ for (let z = 0; z <= indexLength; z += 1) { // codigo usado para identificar qua
   }  
 }
 
-let indice = 0;
 botaoAdicionar.addEventListener('click', ()=> { // criação dos elementos a partir do click no botao
   listaOrdenada.appendChild(document.createElement('li'));
   listaOrdenada.lastChild.innerText = input.value;
   
   selectListItem();
 
-  listaOrdenada.lastChild.style.order = indice;
-  indice += 1;
 
 
   listaOrdenada.lastChild.addEventListener('dblclick', (event) => {
@@ -125,19 +123,37 @@ botaoLimparLista.addEventListener('click', () => {
   localStorage.clear();
 })
 
-botaoMoveUp.addEventListener('click', (event) => {
- let y = 0;
+botaoMoveUp.addEventListener('click', () => {
+  let string = '';
+
   for (let x = 0; x < listaOrdenada.children.length; x += 1) {
-    if (listaOrdenada.children[x].style.backgroundColor === 'rgb(128, 128, 128)') {
-      y = x;
-      if (y !== 0) {
-        listaOrdenada.children[y].parentNode.insertBefore(listaOrdenada.children[y], listaOrdenada.children[y - 1]);
-        y -= 1;
+    if (x - 1 >= 0) {
+      if(listaOrdenada.children[x].style.backgroundColor == 'rgb(128, 128, 128)') {
+        string = listaOrdenada.children[x].innerText;
+        listaOrdenada.children[x].innerText = listaOrdenada.children[x-1].innerText
+        listaOrdenada.children[x].style.backgroundColor = 'white';
+        listaOrdenada.children[x - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+        listaOrdenada.children[x-1].innerText = string;
       }
     }
   }
-  
 });
+
+botaoMoveDown.addEventListener('click', () => {
+  let string = '';
+
+  for (let x = listaOrdenada.children.length - 1; x >= 0; x -= 1) {
+    if (listaOrdenada.children[x].style.backgroundColor === 'rgb(128, 128, 128)') {
+      if (x < listaOrdenada.children.length - 1) {
+          string = listaOrdenada.children[x + 1].innerText;
+          listaOrdenada.children[x + 1].innerText = listaOrdenada.children[x].innerText;
+          listaOrdenada.children[x].innerHTML = string;
+          listaOrdenada.children[x].style.backgroundColor = 'white';
+          listaOrdenada.children[x + 1].style.backgroundColor = 'rgb(128,128,128)';
+      }
+    }
+  }
+})
 
 botaoRemoverSelecionado.addEventListener('click', () => {
   for (let x = 0; x < listaOrdenada.children.length; x += 1) {
