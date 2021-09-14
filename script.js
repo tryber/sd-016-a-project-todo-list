@@ -12,24 +12,27 @@ function addItems(){
     creatItem.className = "item-list"
     getInputText.value = ""
 }
+
 function deleteItems(){
     let list = document.querySelector("#lista-tarefas")
     list.innerHTML = ""
 }
 
-function colorItems(event){       
-    
+  //com ajuda do Brunão/camila/pri
+function removeSelect() {
+    let itemList = document.getElementById('lista-tarefas');
+    itemList.addEventListener('click', function(event){
+        for (let i = 0; i < itemList.children.length; i += 1){
+            itemList.children[i].style.background = 'white';
+        }
+        event.target.style.background = 'rgb(128, 128, 128)';
+    })
+    }
+ removeSelect();
 
-}
+ 
 
-listaDeTarefas.addEventListener("click", function(event){
-    event.target.style.backgroundColor = "rgb(128, 128, 128)";
-    event.target.className = "selected"
-let listaOl = document.querySelector(".item-list")
-    
-})
-     
-    
+
 
 
 
