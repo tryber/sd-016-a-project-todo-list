@@ -6,6 +6,7 @@ function addTask() {
   const task = document.createElement('li');
   task.innerHTML = input.value;
   list.appendChild(task);
-  input.value = '';
+  input.value = null;
 }
 button.addEventListener('click', addTask);
+
