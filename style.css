@@ -1,6 +1,10 @@
 body{
-    background-color:coral;
+    background-color:beige;
 }
 .completed{
     text-decoration: line-through;
+}
+
+li{
+    max-width: max-content;
 }

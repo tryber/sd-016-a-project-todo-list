@@ -26,18 +26,20 @@ function createTask() {
     getList.appendChild(taskLine);
     getTaskInput.value = '';
     setTaskList();
+    completedTask();
 }
 getTaskButton.addEventListener('click', createTask);
+
 
 function completedTask() {
     const getList = document.querySelectorAll('li');
     for (let index = 0; index < getList.length; index += 1) {
-        getList[index].addEventListener('dblclick', function (event) {
+        getList[index].ondblclick = function (event) {
             event.target.classList.toggle('completed');
-        })
+        }
     };  
 } 
-completedTask();
+
 
 
 function deleteList() {
