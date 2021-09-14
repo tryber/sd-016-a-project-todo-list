@@ -1,9 +1,17 @@
+function buttonClearSelected() {
+  const button = document.querySelector('#remover-selecionado');
+  button.addEventListener('click', () => {
+    const listSelected = document.querySelector('#selected');
+    listSelected.parentNode.removeChild(listSelected);
+  });
+}
+
 function buttonClearFineshed() {
   const button = document.querySelector('#remover-finalizados');
   button.addEventListener('click', () => {
-    const listSelected = document.querySelectorAll('.completed');
-    for (let index = 0; index < listSelected.length; index += 1) {
-      const element = listSelected[index];
+    const listCompleted = document.querySelectorAll('.completed');
+    for (let index = 0; index < listCompleted.length; index += 1) {
+      const element = listCompleted[index];
       element.parentNode.removeChild(element);
     }
   });
@@ -13,10 +21,7 @@ function buttonClearEverything() {
   const button = document.querySelector('#apaga-tudo');
   button.addEventListener('click', () => {
     const listLi = document.querySelectorAll('li');
-    console.log('vou coletar os lis');
-    console.log(listLi);
     for (let index = 0; index < listLi.length; index += 1) {
-      console.log('entrei no loop');
       const element = listLi[index];
       element.parentNode.removeChild(element);
     }
@@ -65,4 +70,5 @@ window.onload = () => {
   addButtonListenner();
   buttonClearEverything();
   buttonClearFineshed();
+  buttonClearSelected();
 };
