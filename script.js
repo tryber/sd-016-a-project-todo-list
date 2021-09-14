@@ -1,6 +1,21 @@
+window.onload = function loadTasks() {
+  if (localStorage.getItem('Tasks') !== null) {
+    const task = JSON.parse(localStorage.getItem('Tasks'));
+    for (let i = 0; i < task.length; i += 1) {
+      const taskItem = document.createElement('li');
+      getTaskOl.appendChild(taskItem);
+      taskItem.outerHTML = task[i];
+    }
+    addEventsToTasks();
+  }
+};
+
 const getButtonClick = document.getElementById('criar-tarefa');
 const getDeleteButton = document.getElementById('apaga-tudo');
 const getDoneItems = document.getElementById('remover-finalizados');
+const moverCimaButton = document.getElementById('mover-cima');
+const moverBaixoButton = document.getElementById('mover-baixo');
+const removeTaskItem = document.getElementById('remover-selecionado');
 const saveMyItems = document.getElementById('salvar-tarefas');
 const getTaskOl = document.getElementById('lista-tarefas');
 
@@ -68,18 +83,36 @@ function saveItems() {
   }
 }
 
+function moveUp() {
+  let itemMover = document.getElementById('selected');
+  if (document.querySelectorAll('#selected').length !== 0) {
+    if (itemMover.previousElementSibling)
+      itemMover.parentNode.insertBefore(
+        itemMover,
+        itemMover.previousElementSibling
+      );
+  }
+}
+
+function moveDown() {
+  let itemMover = document.getElementById('selected');
+  if (document.querySelectorAll('#selected').length !== 0) {
+    if (itemMover.nextElementSibling)
+      itemMover.parentNode.insertBefore(
+        itemMover.nextElementSibling,
+        itemMover
+      );
+  }
+}
+
+function removeTask() {
+  let taskToRemove = document.getElementById('selected');
+  taskToRemove.remove();
+}
+
 getDeleteButton.addEventListener('click', deleteList);
 getDoneItems.addEventListener('click', deleteDone);
 saveMyItems.addEventListener('click', saveItems);
-
-window.onload = function loadTasks() {
-  if (localStorage.getItem('Tasks') !== null) {
-    const task = JSON.parse(localStorage.getItem('Tasks'));
-    for (let i = 0; i < task.length; i += 1) {
-      const taskItem = document.createElement('li');
-      getTaskOl.appendChild(taskItem);
-      taskItem.outerHTML = task[i];
-    }
-    addEventsToTasks();
-  }
-};
+moverCimaButton.addEventListener('click', moveUp);
+moverBaixoButton.addEventListener('click', moveDown);
+removeTaskItem.addEventListener('click', removeTask);
