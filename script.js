@@ -35,19 +35,46 @@ orderedList.style.userSelect = 'none';
 orderedList.style.width = '100vw';
 main.appendChild(orderedList);
 
+const btnClear = document.createElement('button');
+btnClear.innerText = 'Limpar';
+btnClear.id = 'apaga-tudo';
+containerInput.appendChild(btnClear);
+
+const btnAllClear = document.createElement('button');
+btnAllClear.innerText = 'Concluídos';
+btnAllClear.id = 'remover-finalizados';
+containerInput.appendChild(btnAllClear);
+
+btnClear.addEventListener('click', () => {
+  orderedList.innerHTML = '';
+});
+
+btnAllClear.addEventListener('click', () => {
+  const findItem = Array.prototype.slice.call(main.children[1].children);
+  const newOutput = findItem.filter((el) => el.className !== 'clickItem completed');
+  orderedList.innerHTML = '';
+  newOutput.forEach((el) => {
+    console.log(el);
+    orderedList.appendChild(el);
+  });
+});
+// /clickItem
 btnAdd.addEventListener('click', () => {
   const newItem = document.createElement('li');
   newItem.classList.add('clickItem');
   newItem.innerHTML = inputTasks.value;
   orderedList.appendChild(newItem);
   inputTasks.value = '';
+});
 
-  newItem.addEventListener('click', (event) => {
-    const listLi = document.querySelectorAll('li');
-    const currentLi = event.target;
-    for (let index = 0; index < listLi.length; index += 1) {
-      listLi[index].style.backgroundColor = 'white';
-    }
-    currentLi.style.backgroundColor = 'rgb(128,128,128)';
-  });
+orderedList.addEventListener('click', (event) => {
+  const listLi = document.querySelectorAll('li');
+  const currentLi = event.target;
+  for (let index = 0; index < listLi.length; index += 1) {
+    listLi[index].style.backgroundColor = 'white';
+  }
+  currentLi.style.backgroundColor = 'rgb(128,128,128)';
+});
+orderedList.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed');
 });

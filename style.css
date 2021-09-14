@@ -24,7 +24,7 @@ main {
   margin-inline: auto;
   border-radius: 5px 0 0 5px;
   box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
-  margin-left: 33%;
+  margin-left: 20%;
 }
 
 #texto-tarefa:hover {
@@ -41,11 +41,31 @@ main {
   cursor: pointer;
 }
 
-#criar-tarefa:hover {
+#apaga-tudo {
+  border-radius: 5px;
+  margin-left: 15px;
+  background-color: rgb(47 , 193 , 140);
+  color: white;
+  box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+#remover-finalizados {
+  background-color: rgb(47 , 193 , 140);
+  color: white;
+  box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+
+#criar-tarefa:hover , #apaga-tudo:hover , #remover-finalizados:hover {
   background-color: white;
   color: rgb(47 , 193 , 140);
 }
 
-.selected {
-  background-color: gray;
+.completed {
+  text-decoration: line-through solid rgba(0 , 0 , 0);
 }
