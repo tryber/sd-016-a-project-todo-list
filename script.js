@@ -48,13 +48,11 @@ containerInput.appendChild(btnAllClear);
 btnClear.addEventListener('click', () => {
   orderedList.innerHTML = '';
 });
-
 btnAllClear.addEventListener('click', () => {
-  const findItem = Array.prototype.slice.call(main.children[1].children);
+  const findItem = Array.from(main.children[1].children);
   const newOutput = findItem.filter((el) => el.className !== 'clickItem completed');
   orderedList.innerHTML = '';
   newOutput.forEach((el) => {
-    console.log(el);
     orderedList.appendChild(el);
   });
 });
@@ -77,4 +75,20 @@ orderedList.addEventListener('click', (event) => {
 });
 orderedList.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
+});
+
+// remover-selecionado
+
+const btnRemoveSelected = document.createElement('button');
+btnRemoveSelected.id = 'remover-selecionado';
+btnRemoveSelected.innerText = 'Remover selecionado';
+containerInput.appendChild(btnRemoveSelected);
+btnRemoveSelected.addEventListener('click', () => {
+  const findItem = Array.from(main.children[1].children);
+  const newOutput = findItem.filter((el) => el.style.backgroundColor !== 'rgb(128, 128, 128)');
+  console.log(newOutput);
+  orderedList.innerHTML = '';
+  newOutput.forEach((el) => {
+    orderedList.appendChild(el);
+  });
 });
