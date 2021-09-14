@@ -4,6 +4,9 @@ const clearCompletedButton = document.getElementById('remover-finalizados');
 const inputTasks = document.getElementById('texto-tarefa');
 const listTasks = document.getElementById('lista-tarefas');
 const saveButton = document.getElementById('salvar-tarefas');
+const upButtom = document.getElementById('mover-cima');
+const downButtom = document.getElementById('mover-baixo');
+const deletButtom = document.getElementById('remover-selecionado');
 
 function AddSelectedClassToListItem(event) {
   const task = event.target;
@@ -63,6 +66,46 @@ function clearComplete() {
 
 clearCompletedButton.addEventListener('click', clearComplete);
 
+function getSelectedTask() {
+  const selectedTask = document.querySelector('.task-selected');
+  return selectedTask;
+}
+
+function moveTaskUp() {
+  const currentTask = getSelectedTask();
+  const tasks = listTasks.children;
+  for (let index = 1; index < tasks.length; index += 1) {
+    if (tasks[index] === currentTask) {
+      listTasks.insertBefore(currentTask, tasks[index - 1]);
+      break;
+    }
+  }
+}
+
+upButtom.addEventListener('click', moveTaskUp);
+
+function moveTaskDown() {
+  const currentTask = getSelectedTask();
+  const tasks = listTasks.children;
+  for (let index = 0; index < tasks.length - 1; index += 1) {
+    if (tasks[index] === currentTask) {
+      listTasks.insertBefore(currentTask, tasks[index + 2]);
+      break;
+    }
+  }
+}
+
+downButtom.addEventListener('click', moveTaskDown);
+
+function deletSelectedTask() {
+  const selected = getSelectedTask();
+  if (selected !== null) {
+    selected.parentNode.removeChild(selected);
+  }
+}
+
+deletButtom.addEventListener('click', deletSelectedTask);
+
 function getTaskKeys() {
   let index = 0;
   const keys = [];
@@ -115,14 +158,21 @@ saveButton.addEventListener('click', saveTasks);
 
 function loadTaskList() {
   const keys = getTaskKeys();
-  const tasksCompleted = localStorage.tasksCompleted.split(',');
-  let taskIndex = 0;
   for (let index = 0; index < keys.length; index += 1) {
     const listItem = document.createElement('li');
     listItem.innerText = localStorage.getItem(keys[index]);
     addEventToList(listItem);
     listTasks.appendChild(listItem);
+  }
+}
+
+function loadTaskCompleteds() {
+  const tasksCompleted = localStorage.tasksCompleted.split(',');
+  let taskIndex = 0;
+  const tasks = listTasks.children;
+  for (let index = 0; index < tasks.length; index += 1) {
     if (index === parseInt(tasksCompleted[taskIndex], 10)) {
+      const listItem = tasks[index];
       listItem.classList.add('completed');
       taskIndex += 1;
     }
@@ -130,8 +180,11 @@ function loadTaskList() {
 }
 
 function checkSaves() {
-  if (localStorage.tasksCompleted) {
+  if (localStorage.tarefa0) {
     loadTaskList();
+  }
+  if (localStorage.tasksCompleted) {
+    loadTaskCompleteds();
   }
 }
 
