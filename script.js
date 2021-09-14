@@ -31,11 +31,11 @@ const buttonClearList = document.getElementById('apaga-tudo');
 buttonClearList.addEventListener('click', removeItemList);
 
 function removeItemList() {
-const selectLi = document.querySelectorAll('li');
- for (let index = 0; index < selectLi.length; index += 1) {
- const list = selectLi[index];
- listOrder.removeChild(list);
- }
+  const selectLi = document.querySelectorAll('li');
+  for (let index = 0; index < selectLi.length; index += 1) {
+    const list = selectLi[index];
+    listOrder.removeChild(list);
+  }
 }
 const buttonClearListRiscados = document.querySelector('#remover-finalizados');
 buttonClearListRiscados.addEventListener('click', clearListRiscados);

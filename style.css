@@ -9,17 +9,17 @@ h1 {
 #funcionamento {
   color: limegreen;
 }
-#salvar-tarefas{
+#salvar-tarefas {
   background-color: yellow;
   padding: 7px;
   border-radius: 10%;
 }
-#mover-cima{
+#mover-cima {
   background-color: crimson;
   height: 40px;
   border-radius: 50%;
 }
-#mover-baixo{
+#mover-baixo {
   background-color: crimson;
   height: 40px;
   border-radius: 50%;
