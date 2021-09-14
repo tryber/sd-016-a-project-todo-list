@@ -34,7 +34,7 @@ function createEventListeners() {
 createEventListeners();
 
 const getButtonClear = document.querySelector('#apaga-tudo');
-const buttonCreateTasks = () => {
+const buttonClearTasks = () => {
   const getOrderedList = document.querySelectorAll('li');
   for (let index = 0; index < getOrderedList.length; index += 1) {
     if (getOrderedList[index].parentElement) {
@@ -42,4 +42,15 @@ const buttonCreateTasks = () => {
     }
   }
 };
-getButtonClear.addEventListener('click', buttonCreateTasks);
+getButtonClear.addEventListener('click', buttonClearTasks);
+
+const getButtonClearCompletedTask = document.querySelector('#remover-finalizados');
+const buttonClearCompletedTasks = () => {
+  const getOrderedList = document.querySelectorAll('.completed');
+  for (let index = 0; index < getOrderedList.length; index += 1) {
+    if (getOrderedList[index].parentElement) {
+      getOrderedList[index].parentElement.removeChild(getOrderedList[index]);
+    }
+  }
+};
+getButtonClearCompletedTask.addEventListener('click', buttonClearCompletedTasks);

@@ -85,7 +85,7 @@ p {
   display: inline-block;
 }
 
-#apaga-tudo {
+.button {
   padding: 8px 12px;
   margin-left: 10px;
   border-radius: 8px;
