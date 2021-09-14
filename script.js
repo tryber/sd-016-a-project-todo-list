@@ -17,14 +17,13 @@ function troca(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function dbClick (event){
-  console.log("cliquei duas vezes");
-  if(event.target.className === 'completed'){
+function dbClick(event) {
+  if (event.target.className === 'completed') {
     event.target.classList.remove('completed')
-  }else{
+  } else {
     event.target.className = 'completed';
   }
-  
+
 }
 
 function showTask() {
@@ -40,21 +39,15 @@ function showTask() {
 }
 showTask()
 
-/*function risk (){
-  const riskList = document.querySelectorAll('li');
-  for (let index = 0; index < riskList.length; index += 1){
-    const rList = riskList[index];
-    if()
-    rList.addEventListener('dblclick', function (event){
-      rList.event.target.classList.add('completed');
-    });
-  }
-}
-risk()*/
 
-const clearList = document.querySelectorAll('li');
+function limpList() {
 
-  getButLimp.addEventListener('click', function (event){
-    clearList.innerText = getInput.value;
-    clearList.event.target.remove('li');
+  getButLimp.addEventListener('click', function () {
+    const clearList = document.querySelectorAll('li');
+    for (let index = 0; index < clearList.length; index += 1) {
+      const limp = clearList[index];
+      getLista.removeChild(limp);
+    }
   });
+}
+limpList()
