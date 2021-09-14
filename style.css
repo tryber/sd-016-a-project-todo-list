@@ -1,12 +1,49 @@
 #funcionamento {
-
+    color: #6b705c;
+    margin-top: 0px;
+    
 }
 #criar-tarefa {
-    
+    background-color: #8cb369;
+    color: white;
 }
 .completed {
     text-decoration: line-through;
 }
 #apaga-tudo {
-    
+    background-color: #F94144;
+    color: white;
+}
+#remover-finalizados {
+    background-color: #277DA1;
+    color: white;
+}
+#salvar-tarefas {
+    background-color: #F8961E;
+    color: white;
+}
+button {
+ margin-top: 15px;
+ padding: 7px;   
+ border-radius: 5px;
+ margin-left: 10px;
+ border-color: white;
+}
+div#buttons {
+    margin-left: 5px;
+}
+div#area-texto {
+    margin-top: 100px;
+    margin-left: 100px;
+    border: 2px ;
+    padding: 20px;
+    margin-right: 300px;
+    border-radius: 10px;
+    background-color: white;
+}
+body {
+    background-color: #99d98c;
+}
+.adicionar {
+    display: inline-block;
 }

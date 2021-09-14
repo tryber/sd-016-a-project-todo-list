@@ -8,15 +8,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="area-texto">
     <header>
         <h1>Minha Lista de Tarefas</h1>
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
-    <input id="texto-tarefa" type="text">
+    <input class="adicionar" id="texto-tarefa" type="text">
+    <button class="adicionar" id="criar-tarefa">Adicionar</button>
     <ol id="lista-tarefas"></ol>
-    <button id="criar-tarefa">Adicionar</button>
+    <div id="buttons">
     <button id="apaga-tudo">Limpar Lista</button>
-
+    <button id="remover-finalizados">Limpar completos</button>
+    <button id="salvar-tarefas">Salvar tarefas</button>
+    </div>
+    </div>
 
 <script src="script.js"></script>
 </body>
