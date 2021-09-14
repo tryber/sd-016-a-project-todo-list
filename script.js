@@ -88,7 +88,7 @@ function addList() {
 function clearSelectedOl() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
-    taskList[i].style.backgroundColor = 'white';
+    taskList[i].style.backgroundColor = 'unset';
   }
   // unset - deixara indefinoido o background
   // https://developer.mozilla.org/en-US/docs/Web/CSS/unset
@@ -107,16 +107,11 @@ function clickOl() {
 function completeTask() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
-    const event = taskList[i]
-    event.addEventListener('dblclick', () => {
-      const tasks = getComputedStyle(event);
-      const completed = tasks.getPropertyValue('text-decoration-line');
-      if (completed === 'none') {
-        event.style.textDecoration = 'line-through';
-      } else {
-        event.style.textDecoration = 'none';
-      }
-    });
+    // Ajuda do instutor Victor Faria e Brunão da turma A
+    // usei o .ondblclick porque o javaScript da um bug quando utliza o addEventListener, ele pula um elemento.
+    taskList[i].ondblclick = () => {
+      taskList[i].classList.toggle('completed');
+    };
   }
 }
 
@@ -124,8 +119,8 @@ function allFunction() {
   const button = document.querySelector('#criar-tarefa');
   button.addEventListener('click', () => {
     addList();
-    clickOl();
     completeTask();
+    clickOl();
   });
 }
 
