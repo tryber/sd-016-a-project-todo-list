@@ -22,3 +22,12 @@ function adicionaTarefa (){
     }
 
     lista.addEventListener('click',selecionarTarefa);
+
+    function riscaTarefa (event){
+        if(document.querySelectorAll('.completed').length > 0){
+            document.querySelector('.completed').classList.remove('completed');
+        }
+        event.target.classList.add('completed')
+    };
+
+    lista.addEventListener('dblclick', riscaTarefa);
