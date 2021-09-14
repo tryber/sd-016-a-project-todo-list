@@ -7,16 +7,24 @@ function createLi() {
   novaLi.innerText = contentInput.value;
   localOl.appendChild(novaLi);
   contentInput.value = '';
-//Auxilio da Camila com o nome da função acusando no lint =>
+
+  // Auxilio da Camila com o nome da função acusando no lint =>
+
   novaLi.addEventListener('click', () => {
-    novaLi.style.backgroundColor = 'rgb(128,128,128)';
+    if (novaLi.className === '') {
+      novaLi.className = 'selected';
+    } else if (novaLi.className === 'selected') {
+      novaLi.classList.remove('selected');
+      return novaLi;
+    }
   });
+  // Auxilio durante mentoria Sumo vendo sugestão de colega
 
   novaLi.addEventListener('dblclick', () => {
-    if (novaLi.className === '') {
+    if (novaLi.className !== 'completed') {
       novaLi.className = 'completed';
     } else if (novaLi.className === 'completed') {
-      novaLi.className = 'notCompleted';
+      novaLi.classList.remove('completed');
     }
   });
 }

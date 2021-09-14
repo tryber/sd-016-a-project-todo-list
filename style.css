@@ -20,6 +20,14 @@ button {
   height: 25px;
 }
 
+.selected {
+  background-color: gray;
+}
+
+.notSelected {
+  background-color: rgb(163 , 170 , 172);
+}
+
 #estilo {
   border: solid 1px black;
   width: 50%;
@@ -49,8 +57,3 @@ button {
 .completed {
   text-decoration: line-through;
 }
-
-.notCompleted {
-  text-decoration: none;
-}
-
