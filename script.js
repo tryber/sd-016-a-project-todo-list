@@ -66,3 +66,13 @@ function removeCompletedTask() {
   }
 }
 clearCompleted.addEventListener('click', removeCompletedTask);
+
+// requisito 14
+
+const removedSelected = document.querySelector('#remover-selecionado');
+function removeSelectedTask() {
+  for ( index = 0; index < taskList.children.length; index +=1 ) {
+    taskList.removeChild(taskList.children[index]);
+  }
+}
+removedSelected.addEventListener('click', removeSelectedTask);
