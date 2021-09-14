@@ -16,11 +16,16 @@ header p {
   margin: 15px 0;
 }
 
-header button,
-input {
+#texto-tarefa {
   font-size: 16px;
   padding: 8px;
 }
+
+#criar-tarefa {
+  font-size: 16px;
+  padding: 8px;
+}
+
 main {
   width: 50%;
   margin-left: auto;
@@ -58,8 +63,9 @@ main {
   font-size: 16px;
   padding: 8px;
 }
+
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 .item-list {
