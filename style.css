@@ -1,0 +1,19 @@
+#criar-tarefa {
+  background-color: deepskyblue;
+  border-radius: 12%;
+  border: solid;
+  border-color: black;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+#apaga-tudo {
+  background-color: red;
+  color: whitesmoke;
+}
+
+#remover-finalizados {
+  background-color: yellow;
+}
