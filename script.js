@@ -5,7 +5,6 @@ window.onload = function () {
   eraseSelected();
   saveButton();
   recoverList();
-  moveButtons();
 };
 
 function taskButton () {
@@ -35,6 +34,7 @@ function select (event) {
   };
   unselect();
   currentItem.classList.add('selected');
+  moveButtons();
 };
 
 function unselect (){
@@ -82,7 +82,7 @@ function clearCrossed () {
 };
 
 function eraseSelected () {
-  let buttonA = document.querySelector('#apagar-selecionado');
+  let buttonA = document.querySelector('#remover-selecionado');
   buttonA.addEventListener('click', apagaSelecionado);
 };
 
@@ -130,10 +130,13 @@ function recoverList () {
 };
 
 function moveButtons () {
-  let buttonUp = document.querySelector('#mover-cima');
+  let selected = document.querySelector('.selected');
+  if (selected != null){
+    let buttonUp = document.querySelector('#mover-cima');
   buttonUp.addEventListener('click', moverCima);
   let buttonDown = document.querySelector('#mover-baixo');
   buttonDown.addEventListener('click', moverBaixo);
+  };  
 };
 
 function moverCima () {
