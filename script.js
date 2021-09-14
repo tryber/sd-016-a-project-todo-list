@@ -33,7 +33,19 @@ const orderedList = document.createElement('ol');
 orderedList.id = 'lista-tarefas';
 orderedList.style.userSelect = 'none';
 orderedList.style.width = '100vw';
-main.appendChild(orderedList);
+const repairItens = JSON.parse(localStorage.getItem('saveList'));
+if (repairItens !== null) {
+  repairItens.forEach((el) => {
+    const itemList = document.createElement('li');
+    el.className.split(' ').forEach((classList) => {
+      itemList.classList.add(classList);
+    });
+    itemList.innerText = el.text;
+    itemList.style.backgroundColor = el.style;
+    orderedList.appendChild(itemList);
+    console.log(el.className.split(' '));
+  });
+} main.appendChild(orderedList);
 
 const btnClear = document.createElement('button');
 btnClear.innerText = 'Limpar';
@@ -77,8 +89,23 @@ orderedList.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
 
-// remover-selecionado
+// salvar-tarefas
 
+const btnSalveTask = document.createElement('button');
+btnSalveTask.id = 'salvar-tarefas';
+btnSalveTask.innerText = 'Salvar tarefas';
+containerInput.appendChild(btnSalveTask);
+btnSalveTask.addEventListener('click', () => {
+  const contentList = Array.from(main.children[1].children);
+  const containerSave = contentList.map((el) => ({
+    text: el.innerText,
+    className: el.className,
+    style: el.style.backgroundColor,
+  }));
+  localStorage.setItem('saveList', JSON.stringify(containerSave));
+});
+
+// remover-selecionado
 const btnRemoveSelected = document.createElement('button');
 btnRemoveSelected.id = 'remover-selecionado';
 btnRemoveSelected.innerText = 'Remover selecionado';
