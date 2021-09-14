@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400&display=swap');
+
+body {
+  background-color: rgb(163 , 170 , 172);
+  font-family: IBM Plex Sans Arabic, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  border: solid 1px black;
+  width: 50%;
+  margin-left: 25%;
+  background-color: rgb(94 , 98 , 98);
+  color: white;
+}
+
+button {
+  background-color: rgb(94 , 98 , 98);
+  color: white;
+  height: 25px;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.notSelected {
+  background-color: rgb(163 , 170 , 172);
+}
+
+#estilo {
+  border: solid 1px black;
+  width: 50%;
+  margin-left: 25%;
+}
+
+#funcionamento {
+  margin-left: 20%;
+  margin-top: 50px;
+}
+
+#apaga-tudo {
+  margin-left: 30%;
+  margin-bottom: 50px;
+}
+
+#texto-tarefa {
+  margin-left: 30%;
+}
+
+#lista-tarefas {
+  width: 25%;
+  margin-left: 30%;
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
