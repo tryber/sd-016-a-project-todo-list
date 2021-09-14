@@ -24,6 +24,7 @@ addParagraph();
 function addInput() {
   const input = document.createElement('input');
   input.id = 'texto-tarefa';
+  input.placeholder = 'Tarefas';
   inputButton.appendChild(input);
 }
 addInput();
@@ -46,26 +47,27 @@ addButton();
 function clearInput() {
   document.querySelector('#texto-tarefa').value = '';
 }
-function changeColorItem() {
-  document.querySelectorAll('.list').forEach((el) =>
-    el.addEventListener('click', (event) => {
-      const changeColor = event.target;
-      changeColor.style.color = 'rgb(128, 128, 128)';
-    }));
+
+function doubleClickRemove() {
+  document.querySelector('.completed').addEventListener('dblclick', (event) => {
+    event.target.classList.remove('completed');
+  });
 }
+
 function doubleClick() {
-  document.querySelectorAll('.list').forEach((el) =>
+  document.querySelectorAll('li').forEach((el) =>
     el.addEventListener('dblclick', (event) => {
       const riscaItem = event.target;
       if (riscaItem.classList) {
-        riscaItem.className += ' completed';
+        riscaItem.classList.add('completed');
       }
+      doubleClickRemove();
     }));
 }
 
 function removeAll() {
   document.querySelector('#apaga-tudo').addEventListener('click', () => {
-    document.querySelectorAll('.list').forEach((el) =>
+    document.querySelectorAll('#lista-tarefas>li').forEach((el) =>
       el.remove());
   });
 }
@@ -76,12 +78,28 @@ function removeFinish() {
   });
 }
 
+function clearSelected() {
+  const selected = document.querySelectorAll('.selected');
+  for (let index = 0; index < selected.length; index += 1) {
+    selected[index].classList.remove('selected');
+  }
+}
+
+function clickList() {
+  const todosLi = document.querySelectorAll('li');
+  for (let index = 0; index < todosLi.length; index += 1) {
+    todosLi[index].addEventListener('click', () => {
+      clearSelected();
+      todosLi[index].classList.add('selected');
+    });
+  }
+}
+
 function buttonClick() {
   const button = document.querySelector('#criar-tarefa');
+  const olist = document.querySelector('#lista-tarefas');
   button.addEventListener('click', () => {
-    const olist = document.querySelector('#ol-list');
     const elementLi = document.createElement('li');
-    elementLi.className = 'list';
     const inputValue = document.querySelector('#texto-tarefa').value;
     if (inputValue === '') {
       console.log('Caixa vazia');
@@ -90,7 +108,7 @@ function buttonClick() {
       olist.appendChild(elementLi);
       clearInput();
     }
-    changeColorItem();
+    clickList();
     doubleClick();
     removeAll();
     removeFinish();
