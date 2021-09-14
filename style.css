@@ -97,6 +97,7 @@ main {
 }
 
 #apaga-tudo:active {
+  border-color: rgb(180 , 50 , 50);
   background-color: rgb(180 , 50 , 50);
 }
 
@@ -109,18 +110,38 @@ main {
 }
 
 #remover-finalizados:active {
+  border-color: rgb(180 , 50 , 170);
   background-color: rgb(180 , 50 , 170);
 }
 
 #salvar-tarefas {
   border: 2px solid rgb(52 , 194 , 59);
-  margin-left: 45%;
+  margin-left: 28%;
 }
 
 #salvar-tarefas:hover {
-  background-color: rgb(49 , 175 , 55);
+  background-color: rgb(52 , 194 , 59);
 }
 
 #salvar-tarefas:active {
+  border-color: rgb(41 , 150 , 64);
   background-color: rgb(41 , 150 , 64);
+}
+
+#up-n-down {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+#mover-cima , #mover-baixo {
+  border: 2px solid rgb(186 , 189 , 35);
+}
+
+#mover-cima:hover , #mover-baixo:hover {
+  background-color: rgb(186 , 189 , 35);
+}
+
+#mover-cima:active , #mover-baixo:active {
+  border-color: rgb(168 , 170 , 36);
+  background-color: rgb(168 , 170 , 36);
 }
