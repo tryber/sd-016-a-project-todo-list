@@ -16,32 +16,37 @@ function addLi(selection) {
 function changeColorItem(selection) {
   const li = document.querySelectorAll('li');
 
-  for (let index = 0; index < li.length; index += 1) {
-    if (selection.target === li[index]) {
-      for (let indexRemove = 0; indexRemove < li.length; indexRemove += 1) {
-        li[indexRemove].classList.remove('selected');
-        li[indexRemove].style.backgroundColor = 'white';
-      }
+  li.forEach(function removeItem(item) {
+    const itemLet = item;
+    itemLet.classList.remove('selected');
+    itemLet.style.backgroundColor = 'white';
+  });
 
-      li[index].classList.toggle('selected');
-      li[index].style.backgroundColor = 'rgb(128,128,128)';
+  li.forEach(function addItem(item) {
+    if (selection.target === item) {
+      const itemLet = item;
+      itemLet.classList.add('selected');
+      itemLet.style.backgroundColor = 'rgb(128,128,128)';
     }
-  }
+  });
 }
 
 function doubleClick(selection) {
   const li = document.querySelectorAll('li');
 
-  for (let index = 0; index < li.length; index += 1) {
-    if (selection.target === li[index]) {
-      li[index].classList.toggle('completed');
-      if (li[index].classList.contains('completed')) {
-        li[index].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  li.forEach(function addLineThrough(item) {
+    const itemLet = item;
+    if (selection.target === item) {
+      itemLet.classList.toggle('completed');
+      if (item.classList.contains('completed')) {
+        itemLet.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
       } else {
-        li[index].style.textDecoration = 'none';
+        itemLet.style.textDecoration = 'none';
       }
     }
-  }
+
+    return item;
+  });
 }
 
 document.addEventListener('click', addLi);
