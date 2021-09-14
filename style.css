@@ -77,3 +77,21 @@ p {
 .completed {
   text-decoration: line-through solid black;
 }
+
+#buttons-container {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  display: inline-block;
+}
+
+#apaga-tudo {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(33 , 37 , 41);
+  background-color: rgb(203 , 153 , 126);
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
