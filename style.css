@@ -1,5 +1,5 @@
 body{
-  background-color: green;
+  background-color: rosybrown;
 }
 header{
   margin-top: 5%;
@@ -15,6 +15,9 @@ padding: 20px;
 padding-left: 70px;
 margin-top: 100px;
 margin-left: 250px;
+}
+li {
+  width: 150px;
 }
 #criar-tarefa{
   border-radius: 10px;

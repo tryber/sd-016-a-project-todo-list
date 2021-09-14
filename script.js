@@ -2,6 +2,7 @@ const getLista = document.querySelector('ol');
 const getInput = document.querySelector('input');
 const getBut = document.querySelector('button');
 const getButLimp = document.getElementById('apaga-tudo');
+const getButRemov = document.getElementById('remover-finalizados');
 const assignment = [];
 //Função pinta tudo feita com ajuda do Brunão que me explicou o unset 
 function pintaTudo() {
@@ -51,3 +52,14 @@ function limpList() {
   });
 }
 limpList()
+
+function limpRemov() {
+  getButRemov.addEventListener('click', function () {
+    const clearRemov = document.querySelectorAll('.completed');
+    for (let index = 0; index < clearRemov.length; index += 1) {
+      const clearTaskRemov = clearRemov[index];
+      getLista.removeChild(clearTaskRemov);
+    }
+  });
+}
+limpRemov()
