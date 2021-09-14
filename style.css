@@ -11,16 +11,32 @@
   text-decoration: line-through;
 }
 
-#apaga-tudo, #remover-finalizados {
+button {
   width: 130px;
-  height: 25px;
+  height: 30px;
   background-color: red;
   border-radius: 30px;
   color: white;
 }
 
-/* width: 50px;
-height: 25px;
-background-color: red;
-color: white;
-border-radius: 30%; */
+#mover-cima, #mover-baixo {
+  width: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: darkgray;
+  color: black;
+}
+
+#criar-tarefa {
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+}
+
+#remover-finalizados {
+  background-color: blueviolet;
+}
+
+#salvar-tarefas {
+  background-color: green;
+}
