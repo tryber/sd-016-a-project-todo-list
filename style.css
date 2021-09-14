@@ -1,8 +1,3 @@
-#criar-tarefa {
-  width: 80px;
-  height: 25px;
-}
-
 .selected {
   background-color: gray;
 }
@@ -19,7 +14,7 @@ button {
   color: white;
 }
 
-#mover-cima, #mover-baixo, #remover-selecionado{
+#mover-cima , #mover-baixo , #remover-selecionado {
   width: 40px;
   font-size: 16px;
   font-weight: 500;

@@ -77,10 +77,10 @@ function saveList() {
       list.push(lista.children[index].textContent);
       list.push(lista.children[index].className);
     }
-    localStorage.setItem('list', JSON.stringify(list)); 
+    localStorage.setItem('list', JSON.stringify(list));
   });
-
 }
+
 saveList();
 
 function continueRenderization() {
@@ -152,7 +152,7 @@ moveUp();
 function moveDown() {
   const buttonDown = document.getElementById('mover-baixo');
 
-  buttonDown.addEventListener('click', () => { 
+  buttonDown.addEventListener('click', () => {
     const phraseSelected = document.getElementsByClassName('selected')[0];
     if (phraseSelected !== undefined) {
       changeDownContentAndClass();
