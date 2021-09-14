@@ -11,9 +11,17 @@
     <small id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</small>
     <div id="cabeçalho">
       <input type="text" name="txtTarefa" id="texto-tarefa" placeholder="Sua tarefa aqui">
-      <button id="criar-tarefa">Add</button>
+      <div id="botao-extra">
+        <button id="apaga-tudo">Del All</button>
+        <button id="remover-finalizados">Remover Finalizados</button>
+        <button id="salvar-tarefas">Save</button>
+        <button id="mover-cima">&uparrow;</button>
+        <button id="mover-baixo">&downarrow;</button>
+        <button id="remover-selecionado">Remove Selected</button>
+      </div>
+        <ol id="lista-tarefas"></ol>
     </div>
-      <ol id="lista-tarefas"></ol>
+    <button id="criar-tarefa">Add</button>
   </div>
   <script src="script.js"></script>
 </body>
