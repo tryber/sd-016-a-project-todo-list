@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+}
+
+li {
+  max-width: 100px;
+}
+
+#funcionamento {
+  text-align: center;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
