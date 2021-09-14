@@ -1,3 +1,11 @@
+const taskCompleted = (event) => {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+};
+
 const changeBackgroundColor = (event) => {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
@@ -14,6 +22,7 @@ function addTasks() {
   const getOrderedList = document.querySelector('#lista-tarefas');
   getOrderedList.appendChild(listItem);
   listItem.addEventListener('click', changeBackgroundColor);
+  listItem.addEventListener('dblclick', taskCompleted);
 
   inputText.value = '';
 }
