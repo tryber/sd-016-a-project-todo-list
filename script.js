@@ -19,7 +19,7 @@ function changeColorItem(selection) {
   for (let index = 0; index < li.length; index += 1) {
     if (selection.target === li[index]) {
       for (let indexRemove = 0; indexRemove < li.length; indexRemove += 1) {
-        li[indexRemove].classList.remove('selected')
+        li[indexRemove].classList.remove('selected');
         li[indexRemove].style.backgroundColor = 'white';
       }
 
@@ -34,9 +34,9 @@ function doubleClick(selection) {
 
   for (let index = 0; index < li.length; index += 1) {
     if (selection.target === li[index]) {
-      li[index].classList.toggle('risc');
-      if (li[index].classList.contains('risc')) {
-        li[index].style.textDecoration = 'line-through'
+      li[index].classList.toggle('completed');
+      if (li[index].classList.contains('completed')) {
+        li[index].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
       } else {
         li[index].style.textDecoration = 'none';
       }
