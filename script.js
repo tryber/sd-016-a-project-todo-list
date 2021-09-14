@@ -82,8 +82,6 @@ buttonRemoveSelectedTask.addEventListener('click', removeSelected);
 
 // Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo",
 // que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
-const buttonUp = document.getElementById('mover-cima');
-const buttonDown = document.getElementById('mover-baixo');
 
 // Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista.
 // Se você fechar e reabrir a página, a lista deve continuar no estado em que estava.
@@ -100,5 +98,44 @@ function recoverList() {
   let storageSavedList = localStorage.getItem('savedList');
   taskList.innerHTML = storageSavedList;
 }
-
 window.addEventListener('load', recoverList);
+
+// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo",
+// que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+function moveUp() {
+  if (document.getElementById('selected')) {
+    let selectedTask = document.getElementById('selected');
+    sessionStorage.setItem('selected', selectedTask.outerHTML);
+    var previousTask;
+
+    if (selectedTask.previousSibling) {
+      previousTask = document.getElementById('selected').previousSibling;
+      sessionStorage.setItem('previous', previousTask.outerHTML);
+
+      selectedTask.outerHTML = sessionStorage.getItem('previous');
+      previousTask.outerHTML = sessionStorage.getItem('selected');
+    }
+  }
+}
+
+const buttonUp = document.getElementById('mover-cima');
+buttonUp.addEventListener('click', moveUp);
+
+function moveDown() {
+  if (document.getElementById('selected')) {
+    let selectedTask = document.getElementById('selected');
+    sessionStorage.setItem('selected', selectedTask.outerHTML);
+    var nextTask;
+
+    if (selectedTask.nextSibling) {
+      nextTask = document.getElementById('selected').nextSibling;
+      sessionStorage.setItem('next', nextTask.outerHTML);
+
+      selectedTask.outerHTML = sessionStorage.getItem('next');
+      nextTask.outerHTML = sessionStorage.getItem('selected');
+    }
+  }
+}
+
+const buttonDown = document.getElementById('mover-baixo');
+buttonDown.addEventListener('click', moveDown);
