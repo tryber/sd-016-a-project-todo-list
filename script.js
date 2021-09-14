@@ -1,5 +1,9 @@
 
 
+const input = document.querySelector('#texto-tarefa')
+    const ordList = document.querySelector('#lista-tarefas')
+    const createLi = document.createElement('li');
+//função que cria o input dinamicamente
 const divCont = document.getElementById('input-container')
 function creatingInput() {
   const input = document.createElement('input')
@@ -8,6 +12,12 @@ function creatingInput() {
 }
 creatingInput();
 
+// //função que vai pintar o input escolhido
+// function itemColor(event) {
+//     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+// }
+
+//função pra criar a ol dinamicamente
 const olCont = document.getElementById('ol-container');
 function creatingOl() {
   const orderedList = document.createElement('ol');
@@ -17,6 +27,7 @@ function creatingOl() {
 
 creatingOl();
 
+//função que cria o botão
 const buttonCont = document.getElementById('button-container');
 function creatingButton() {
   const button = document.createElement('button');
@@ -26,6 +37,7 @@ function creatingButton() {
 }
 creatingButton();
 
+//função que cria as Li com o input
 const getButton = document.getElementById('criar-tarefa');
 getButton.addEventListener('click', function(){
     const input = document.querySelector('#texto-tarefa')
@@ -35,10 +47,24 @@ getButton.addEventListener('click', function(){
     createLi.innerHTML = input.value;
     ordList.appendChild(createLi)
     input.value = '';
-})
 
-const lista = document.querySelector('#lista-tarefas')
-lista.addEventListener('click', function(event){
-event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-
+    // evento que vai pintar o input clicado
+    const listedItens = document.querySelector('#lista-tarefas').children;
+    createLi.addEventListener('click', function (event) {
+        for (let index = 0; index < listedItens.length; index += 1){
+            listedItens[index].style.backgroundColor = document.body.style.background;
+        }
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    })
+    
 })
+// const listedItens = document.querySelector('#lista-tarefas').children
+// const clearButton = document.querySelector('#apaga-tudo')
+// clearButton.addEventListener('click', function(){
+//     // const lista = document.getElementsByClassName(lista)
+//     const getOl = document.querySelectorAll('#lista-tarefas')
+//     for(let index = 0; index < getOl.length; index += 1){
+//     listedItens.removeChild(getOl[index])
+//     }
+// })
+
