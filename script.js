@@ -79,3 +79,26 @@ function removeSelected() {
   }
 }
 buttonRemoveSelectedTask.addEventListener('click', removeSelected);
+
+// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo",
+// que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+const buttonUp = document.getElementById('mover-cima');
+const buttonDown = document.getElementById('mover-baixo');
+
+// Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista.
+// Se você fechar e reabrir a página, a lista deve continuar no estado em que estava.
+const buttonSave = document.getElementById('salvar-tarefas');
+const storageList = localStorage.getItem('savedList');
+
+function saveList() {
+  let listSaved = taskList.innerHTML;
+  localStorage.setItem('savedList', listSaved);
+}
+buttonSave.addEventListener('click', saveList);
+
+function recoverList() {
+  let storageSavedList = localStorage.getItem('savedList');
+  taskList.innerHTML = storageSavedList;
+}
+
+window.addEventListener('load', recoverList);
