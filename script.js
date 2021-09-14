@@ -5,18 +5,19 @@ const clearAll = document.querySelector('#apaga-tudo');
 const clearFinalizados = document.querySelector('#remover-finalizados');
 const up = document.querySelector('#mover-cima');
 const down = document.querySelector('#mover-baixo');
+const removeGraySelected = document.querySelector('#remover-selecionado');
 
 
 
 button.addEventListener('click', function () {
-   const createLi = document.createElement('li');
-   if (input.value.length > 0) {
-  createLi.innerText = input.value;
-  createLi.className = 'li-lista'
-  list.appendChild(createLi);
-  input.value = '';
-  createLi.addEventListener('click', addGrey)
-  createLi.addEventListener('dblclick', addRisk)
+  const createLi = document.createElement('li');
+  if (input.value.length > 0) {
+    createLi.innerText = input.value;
+    createLi.className = 'li-lista'
+    list.appendChild(createLi);
+    input.value = '';
+    createLi.addEventListener('click', addGrey)
+    createLi.addEventListener('dblclick', addRisk)
   }
 })
 
@@ -44,29 +45,43 @@ function addRisk(event) {
 
 function removeFinished() {
   finisHim = document.querySelectorAll('li.completed');
-  for (let index = 0; index < finisHim.length; index+= 1) {
-    list.removeChild(document.querySelector('li.completed'));    
+  for (let index = 0; index < finisHim.length; index += 1) {
+    list.removeChild(document.querySelector('li.completed'));
   }
 }
 
-clearFinalizados.addEventListener('click', removeFinished);
+
 
 
 
 
 function moveUp() {
-  upUp = document.querySelector('li.graycolor');
-  if(upUp.previousElementSibling != null) {
-    upUp.parentNode.insertBefore(upUp, upUp.previousElementSibling);
+  let upUp = document.querySelector('li.graycolor');
+  if (upUp != null) {
+    if (upUp.previousElementSibling != null) {
+      upUp.parentNode.insertBefore(upUp, upUp.previousElementSibling);
+    }
   }
 }
 
 function moveDown() {
-  downDown = document.querySelector('li.graycolor');
-  if(downDown.nextElementSibling != null) {
-    downDown.parentNode.insertBefore(downDown, downDown.nextElementSibling.nextElementSibling);
+  let downDown = document.querySelector('li.graycolor');
+  if (downDown != null) {
+    if (downDown.nextElementSibling != null) {
+      downDown.parentNode.insertBefore(downDown, downDown.nextElementSibling.nextElementSibling);
+    }
   }
 }
 
+function removeSelect() {
+  let selectHim = document.querySelector('li.graycolor');
+  if (selectHim != null) {
+  selectHim.remove()
+  }
+}
+
+
 up.addEventListener('click', moveUp);
 down.addEventListener('click', moveDown);
+clearFinalizados.addEventListener('click', removeFinished);
+removeGraySelected.addEventListener('click', removeSelect);
