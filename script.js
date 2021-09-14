@@ -25,5 +25,14 @@ function mudaCor(event) {
 }
 listaTarefas.addEventListener('click', mudaCor);
 
+function adicionaLinha(event) {
+  let line = event.target;
+  if (line.classList.contains('completed')) {
+    line.classList.remove('completed')
+  }else {
+    line.classList.add('completed')
+  }
+}
+listaTarefas.addEventListener('dblclick', adicionaLinha);
 
 
