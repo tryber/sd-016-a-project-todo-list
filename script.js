@@ -13,3 +13,19 @@ function showTask() {
   });  
 }
 showTask();
+
+function newColor (){
+  getLista.addEventListener('click', function (event) {
+    event.target.style.backgroundColor = "rgb(128, 128, 128)";
+  });
+}
+newColor();
+
+/*function clenList (){
+
+  const limp = document.getElementById(apaga-tudo);
+  const taskList = document.querySelector('li');
+  limp.addEventListener('click', function (){
+
+  }
+}*/
