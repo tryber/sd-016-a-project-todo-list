@@ -22,3 +22,9 @@ function changeBackground (event) {
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
+
+addList.addEventListener('dblclick', changeTextStyle);
+
+function changeTextStyle (event) {
+  event.target.classList.toggle('completed')
+}
