@@ -37,7 +37,7 @@ body.addEventListener('click', (e) => {
 
 // requisito 9 - Guilherme Spinelli nos mostrou como usar o toggle que verifica se a classe está presente, senão adiciona ela.
 
-taskList.addEventListener('dblclick', (event) => { 
+taskList.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed')
 });
 // mark with completed task
@@ -73,8 +73,28 @@ function removeCompletedTask() {
 }
 clearCompleted.addEventListener('click', removeCompletedTask);
 
-// requisito 12 
+// requisito 12 - o comando dentro do if faz uma nova sequencia, baseado se tem um elemento antes ou depois.
 
+const upwards = document.querySelector('#mover-cima');
+const below = document.querySelector('#mover-baixo');
+
+function moveUp() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null && selectedTask.previousElementSibling) {
+    const itemBefore = selectedTask.previousElementSibling;
+    taskList.insertBefore(selectedTask, itemBefore);
+  }
+}
+upwards.addEventListener('click', moveUp);
+
+function moveDown() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null && selectedTask.nextElementSibling) {
+    const itemAfter = selectedTask.nextElementSibling;
+    itemAfter.after(selectedTask);
+  }
+}
+below.addEventListener('click', moveDown);
 
 // requisito 14 - Tentei meios outras comparacoes e dava erro, dai vi no código do Guilherme que ele usou o null e excluindo as sem a classe.
 
