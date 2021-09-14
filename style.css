@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Urbanist, sans-serif;
+  background-color: rgb(42 , 95 , 172);
+}
+
+main {
+  width: max-content;
+  font-size: xx-large;
+  margin-left: 80px;
+  margin-top: 40px;
+  background-color: rgb(233 , 233 , 233);
+  padding: 20px 30px;
+  border-radius: 30px;
+}
+
+#title {
+  text-align: center;
+}
+
+#funcionamento {
+  text-align: center;
+  font-style: italic;
+  font-size: medium;
+  margin-bottom: 5px;
+}
+
+#add-task {
+  margin-bottom: 10px;
+}
+
+#texto-tarefa {
+  border: 1px solid rgb(185 , 185 , 185);
+  text-align: center;
+  font-size: 15px;
+  width: 150px;
+}
+
+#criar-tarefa {
+  padding: 5px 7px;
+  border-radius: 10px;
+  border: 2px solid rgb(194 , 149 , 52);
+  color: black;
+  background-color: rgb(233 , 233 , 233);
+  vertical-align: middle;
+  margin-left: 5px;
+  transition-duration: 0.3s;
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(194 , 149 , 52);
+  color: white;
+}
+
+#criar-tarefa:active {
+  background-color: rgb(180 , 139 , 50);
+  color: white;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+#down-buttons {
+  width: max-content;
+  margin: auto;
+}
+
+.down-button {
+  padding: 5px 7px;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  background-color: rgb(233 , 233 , 233);
+  vertical-align: middle;
+  margin-bottom: 5px;
+  margin-top: 25px;
+  transition-duration: 0.3s;
+}
+
+.down-button:hover {
+  color: white;
+}
+
+.down-button:active {
+  color: white;
+}
+
+#apaga-tudo {
+  border: 2px solid rgb(194 , 52 , 52);
+}
+
+#apaga-tudo:hover {
+  background-color: rgb(194 , 52 , 52);
+}
+
+#apaga-tudo:active {
+  border-color: rgb(180 , 50 , 50);
+  background-color: rgb(180 , 50 , 50);
+}
+
+#remover-finalizados {
+  border: 2px solid rgb(194 , 52 , 170);
+}
+
+#remover-finalizados:hover {
+  background-color: rgb(194 , 52 , 170);
+}
+
+#remover-finalizados:active {
+  border-color: rgb(180 , 50 , 170);
+  background-color: rgb(180 , 50 , 170);
+}
+
+#salvar-tarefas {
+  border: 2px solid rgb(52 , 194 , 59);
+}
+
+#salvar-tarefas:hover {
+  background-color: rgb(52 , 194 , 59);
+}
+
+#salvar-tarefas:active {
+  border-color: rgb(41 , 150 , 64);
+  background-color: rgb(41 , 150 , 64);
+}
+
+#up-n-down {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+}
+
+#mover-cima , #mover-baixo {
+  border: 2px solid rgb(186 , 189 , 35);
+}
+
+#mover-cima:hover , #mover-baixo:hover {
+  background-color: rgb(186 , 189 , 35);
+}
+
+#mover-cima:active , #mover-baixo:active {
+  border-color: rgb(168 , 170 , 36);
+  background-color: rgb(168 , 170 , 36);
+}
+
+#remover-selecionado {
+  border: 2px solid rgb(90 , 52 , 194);
+}
+
+#remover-selecionado:hover {
+  background-color: rgb(90 , 52 , 194);
+}
+
+#remover-selecionado:active {
+  border-color: rgb(80 , 46 , 172);
+  background-color: rgb(80 , 46 , 172);
+}
