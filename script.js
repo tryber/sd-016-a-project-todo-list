@@ -9,7 +9,7 @@ function adicionaTexto() {
     newList.className = 'item-da-lista';
     newList.addEventListener('click', colorirItem);
     newList.addEventListener('dblclick', riscaItem);
-   /*  newList.addEventListener('dblclick', removeRisco); */
+    newList.addEventListener('click', selecionaItem);
     lista.appendChild(newList);
     newList.innerText = input.value;
     input.value = '';
@@ -64,3 +64,34 @@ deleteList();
        }
 removeItensFinalizados();
 
+// Requisito 12
+/* 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+O que será verificado:
+
+Será verificado que existe um elemento button com o id salvar-tarefas
+
+Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está. */
+
+
+// Requisito 13
+
+
+// Requisito 14
+    function selecionaItem(event) {
+        if (event.target.classList.contains('selecionado')){
+            event.target.classList.remove('selecionado');
+        } else {
+            event.target.classList.add('selecionado')
+        }
+    }   
+
+    function removeSelecionados() {
+    let buttonX = document.getElementById('remover-selecionado');
+    buttonX.addEventListener('click', function() {
+        let selecionados = document.querySelectorAll('.selecionado');
+        for (let i = 0; i < selecionados.length; i += 1) {
+         selecionados[i].remove();
+     }
+    });
+}
+removeSelecionados();
