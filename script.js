@@ -5,6 +5,7 @@ window.onload = function () {
   eraseSelected();
   saveButton();
   recoverList();
+  moveButtons();
 };
 
 function taskButton () {
@@ -101,7 +102,6 @@ function salvarTarefas () {
   localStorage.clear();
 
   for (let index = 0 ; index < lista.length ; index += 1){
-    console.log(lista[index].innerHTML);
     localStorage.setItem(listaKeys[index], lista[index].innerHTML);
   };
 };
@@ -122,8 +122,55 @@ function recoverList () {
     let novaTarefa = document.createElement('li');
     novaTarefa.innerHTML = tarefaArmazenada;
     novaTarefa.classList.add('lista');
-    console.log(tarefaArmazenada);
+    novaTarefa.addEventListener('click', select);
+    novaTarefa.addEventListener('dblclick' , crossItem);
     lista.appendChild(novaTarefa);
   }
 
+};
+
+function moveButtons () {
+  let buttonUp = document.querySelector('#mover-cima');
+  buttonUp.addEventListener('click', moverCima);
+  let buttonDown = document.querySelector('#mover-baixo');
+  buttonDown.addEventListener('click', moverBaixo);
+};
+
+function moverCima () {
+  let selecionado = document.querySelector('.selected');
+  let textoSelecionado = selecionado.innerHTML;
+  let lista = Array.from(document.querySelectorAll('.lista'));
+
+  for (let index = 0 ; index < lista.length ; index += 1){
+    let textoLista = lista[index].innerHTML;
+
+    if(textoLista === textoSelecionado && index > 0){
+      let currentSelected = textoLista;
+      let upItem = lista[index-1].innerHTML;
+      selecionado.innerHTML = upItem;
+      lista[index-1].innerHTML = currentSelected;
+      selecionado.classList.remove('selected');
+      lista[index-1].classList.add('selected');
+    }
+  }
+}
+
+function moverBaixo(){
+  let selecionado = document.querySelector('.selected');
+  let textoSelecionado = selecionado.innerHTML;
+  let lista = Array.from(document.querySelectorAll('.lista'));
+
+  for (let index = 0 ; index < lista.length ; index += 1){
+    let textoLista = lista[index].innerHTML;
+    if(textoLista === textoSelecionado && index < lista.length -1){
+      let newIndex = index +1;
+      let currentSelected = textoLista;
+      let downItem = lista[newIndex].innerHTML;
+      selecionado.innerHTML = downItem;
+      lista[newIndex].innerHTML = currentSelected;
+      selecionado.classList.remove('selected');
+      lista[newIndex].classList.add('selected');
+      break;
+    }    
+  }
 }
