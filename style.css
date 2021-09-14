@@ -1,2 +1,7 @@
+button {
+  cursor: pointer;
+}
 
-
+li {
+  cursor: default;
+}

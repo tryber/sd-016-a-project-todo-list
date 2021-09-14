@@ -4,6 +4,20 @@ const lista = document.getElementById('lista-tarefas');
 let items = [];
 const clearButton = document.getElementById('apaga-tudo');
 const clearTaskButton = document.getElementById('remover-finalizados');
+const saveButton = document.getElementById('salvar-tarefas');
+
+window.onload = () => {
+  // source: https://stackoverflow.com/questions/22991871/localstorage-save-array/22992002
+  // usei para aprender a transformar em objeto JSON e depois recuperá-lo
+  const storage = JSON.parse(localStorage.getItem('tasks'));
+  storage.forEach((task) => {
+    const liTask = document.createElement('li');
+    liTask.innerText = task;
+    lista.appendChild(liTask);
+    liTask.classList.add('items');
+    items = document.querySelectorAll('.items');
+  });
+};
 
 function changeBackground(item) {
   items.forEach((element) => {
@@ -42,6 +56,7 @@ clearButton.addEventListener('click', () => {
   items.forEach((item) => {
     item.remove();
   });
+  localStorage.clear();
 });
 
 clearTaskButton.addEventListener('click', () => {
@@ -50,4 +65,12 @@ clearTaskButton.addEventListener('click', () => {
       item.remove();
     }
   });
+});
+
+saveButton.addEventListener('click', () => {
+  const itemArray = [];
+  items.forEach((item) => {
+    itemArray.push(item.innerText);
+  });
+  localStorage.setItem('tasks', JSON.stringify(itemArray));
 });
