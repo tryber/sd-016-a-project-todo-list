@@ -1,0 +1,19 @@
+h1 {
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: -5px;
+}
+
+body {
+  background-color: silver;
+}
+
+p {
+  font-style: italic;
+}
+
+button {
+  background-color: green;
+}
