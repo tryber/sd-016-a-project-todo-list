@@ -3,8 +3,14 @@ const selectOl = document.querySelector('#lista-tarefas');
 const selectButton = document.querySelector('#criar-tarefa');
 const selectInput = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
-const removeButton = document.querySelector('#remover-finalizados');
+const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
+const buttonRemoveSelected = document.querySelector('#remover-selecionado');
+const saveButton = document.querySelector('#salvar-tarefas');
 let selectLineList = null;
+
+function selectorTasks() {
+  return document.querySelectorAll('.tasks-line');
+}
 
 // Função remove cor de fundo das linhas.
 function removeColorLine() {
@@ -36,15 +42,37 @@ function removeTasksList() {
   for (let index = 0; index < selectLineList.length; index += 1) {
     selectOl.removeChild(selectLineList[index]);
   }
+  selectLineList = selectorTasks();
 }
 
+// Função para remover as Tarefas marcadas como completas.
 function removeTaskCompleted() {
   for (let index = 0; index < selectLineList.length; index += 1) {
     if (selectLineList[index].classList.contains('completed')) {
       selectOl.removeChild(selectLineList[index]);
     }
   }
+  selectLineList = selectorTasks();
 }
+
+function removeTaskSelected() {
+  for (let index = 0; index < selectLineList.length; index += 1) {
+    if (selectLineList[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      selectOl.removeChild(selectLineList[index]);
+    }
+  }
+  selectLineList = selectorTasks();
+}
+
+// Função para salvar a lista de tarefas no LocalStorage.
+// function saveTaskList() {
+//   const savesTask = [];
+//   for (let index = 0; index < selectLineList.length; index += 1) {
+//     savesTask.push(selectLineList[index].innerHTML);
+//   }
+//   localStorage.setItem('savesTask', JSON.stringify(savesTask));
+//   storedSaves = JSON.parse(localStorage.getItem('savesTask'));
+// }
 
 // Função Principal, chama todos os escutadores de eventos.
 function generatorMain() {
@@ -52,7 +80,9 @@ function generatorMain() {
     selectLineList[index].addEventListener('click', paintColorList);
     selectLineList[index].addEventListener('dblclick', addClassCompleted);
     clearButton.addEventListener('click', removeTasksList);
-    removeButton.addEventListener('click', removeTaskCompleted);
+    buttonRemoveCompleted.addEventListener('click', removeTaskCompleted);
+    buttonRemoveSelected.addEventListener('click', removeTaskSelected);
+    // saveButton.addEventListener('click', saveTaskList);
   }
 }
 
@@ -62,8 +92,21 @@ function createTasksList() {
   createtasks.classList.add('tasks-line');
   selectOl.appendChild(createtasks);
   selectInput.value = '';
-  selectLineList = document.querySelectorAll('.tasks-line');
+  selectLineList = selectorTasks();
   generatorMain();
 }
 
 selectButton.addEventListener('click', createTasksList);
+
+// window.onload = () => {
+//   if (storedSaves.length !== 0) {
+//     const createtasks = document.createElement('li');
+//     for (let index = 0; index < storedSaves.length; index += 1) {
+//       createtasks.innerHTML = storedSaves[index];
+//       createtasks.classList.add('tasks-line');
+//       selectOl.appendChild(createtasks);
+//     }
+//   }
+//   selectInput.value = '';
+//   selectLineList = document.querySelectorAll('.tasks-line');
+// };
