@@ -1,3 +1,8 @@
 #texto-tarefa {
   padding: 5px;
+  background-color:rgb(125, 140, 153);
+}
+
+body {
+  background-color: rgb(12, 93, 168);
 }
