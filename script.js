@@ -1,5 +1,8 @@
 const getButtonClick = document.getElementById('criar-tarefa');
 const getDeleteButton = document.getElementById('apaga-tudo');
+const getDoneItems = document.getElementById('remover-finalizados');
+const saveMyItems = document.getElementById('salvar-tarefas');
+const getTaskOl = document.getElementById('lista-tarefas');
 
 function createTask() {
   const getInputValue = document.getElementById('texto-tarefa');
@@ -49,6 +52,34 @@ function deleteList() {
   taskList.innerHTML = '';
 }
 
-getDeleteButton.addEventListener('click', deleteList);
+function deleteDone() {
+  let taskList = document.querySelectorAll('.completed');
+  taskList.forEach((e) => e.remove());
+}
 
-addEventsToTasks();
+function saveItems() {
+  if (document.querySelectorAll('.item-lista').length !== 0) {
+    const tasks = [];
+    const saved = document.querySelectorAll('.item-lista');
+    for (let index = 0; index < saved.length; index += 1) {
+      tasks.push(saved[index].outerHTML);
+    }
+    localStorage.setItem('Tasks', JSON.stringify(tasks));
+  }
+}
+
+getDeleteButton.addEventListener('click', deleteList);
+getDoneItems.addEventListener('click', deleteDone);
+saveMyItems.addEventListener('click', saveItems);
+
+window.onload = function loadTasks() {
+  if (localStorage.getItem('Tasks') !== null) {
+    const task = JSON.parse(localStorage.getItem('Tasks'));
+    for (let i = 0; i < task.length; i += 1) {
+      const taskItem = document.createElement('li');
+      getTaskOl.appendChild(taskItem);
+      taskItem.outerHTML = task[i];
+    }
+    addEventsToTasks();
+  }
+};

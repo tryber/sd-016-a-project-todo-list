@@ -41,6 +41,7 @@ button{
     border-style: none;
     background: linear-gradient(40deg,#0072ff,#00d4ff, #5ffbf1);
     color: white;
+    cursor: pointer;
 }
 
 #lista-tarefas {
