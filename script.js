@@ -71,11 +71,21 @@ function createButAllClear() {
   buttonAllClear.innerHTML = 'Limpar lista';
   main.appendChild(buttonAllClear);
 }
+
+function buttonClearSelected() {
+  const butClear = document.createElement('button');
+  const main = document.querySelector('#content-main');
+  butClear.id = 'remover-finalizados';
+  butClear.innerHTML = 'Limpar Completos';
+  main.appendChild(butClear);
+}
+
 createContentInput();
 createInput();
 createButInput();
 createUl();
 createButAllClear();
+buttonClearSelected();
 // funções acima são estrutura HTML fixa
 
 // Usei a base do exercicio do Calendario
@@ -93,7 +103,7 @@ function addList() {
 
 // instutor Caique Coelho me ajudou a melhorar minha função de click
 
-function clearSelectedOl() {
+function clearBackgroundOl() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
     taskList[i].style.backgroundColor = 'unset';
@@ -106,7 +116,7 @@ function clickOl() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
     taskList[i].addEventListener('click', () => {
-      clearSelectedOl();
+      clearBackgroundOl();
       taskList[i].style.backgroundColor = 'rgb(128, 128, 128) ';
     });
   }
@@ -147,3 +157,15 @@ function allFunction() {
 }
 
 allFunction();
+
+function clearCompleted() {
+  const tasksCompleted = document.querySelectorAll('.completed');
+  for (let i = 0; i < tasksCompleted.length; i += 1) {
+    tasksCompleted[i].remove();
+  }
+}
+function removeCompleted() {
+  const butClear = document.querySelector('#remover-finalizados');
+  butClear.addEventListener('click', clearCompleted);
+}
+removeCompleted();
