@@ -11,11 +11,11 @@ function taskList() {
   input.value = '';
 }
 
- function paintList(event2){
-   const listContent = document.querySelector('.selected');
-   if (event2.target.className === 'task') {
-     event2.target.classList.add('selected');
-      if (listContent !== null){
+function paintList(event2) {
+  const listContent = document.querySelector('.selected');
+  if (event2.target.className === 'task') {
+    event2.target.classList.add('selected');
+    if (listContent !== null) {
       listContent.classList.remove('selected');
     }
   }
@@ -33,6 +33,5 @@ function addEvents() {
   button.addEventListener('click', taskList);
   list.addEventListener('click', paintList);
   list.addEventListener('dblclick', taskComplete);
-  
- }
+}
 addEvents()
