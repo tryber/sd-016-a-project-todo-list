@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: aqua;
 }
 
@@ -19,7 +19,7 @@ header {
   text-align: center;
 }
 
-#title, #funcionamento {
+#title , #funcionamento {
   margin: 20px;
 }
 
@@ -50,7 +50,7 @@ section {
   padding: 10px;
 }
 
-#criar-tarefa, .buttons{
+#criar-tarefa , .buttons {
   width: 200px;
   padding: 10px;
   border-radius: 20px;
@@ -71,5 +71,5 @@ section {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through, solid, black;
 }

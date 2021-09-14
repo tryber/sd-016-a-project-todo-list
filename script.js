@@ -5,7 +5,7 @@ const selectInput = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
 const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
 const buttonRemoveSelected = document.querySelector('#remover-selecionado');
-const saveButton = document.querySelector('#salvar-tarefas');
+// const saveButton = document.querySelector('#salvar-tarefas');
 let selectLineList = null;
 
 function selectorTasks() {
