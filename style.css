@@ -1,0 +1,32 @@
+body{
+  background-color: rosybrown;
+}
+header{
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+#style{
+font-family: "Play", sans-serif;
+background-color: honeydew;
+width: 800px;
+height: auto 350px;
+border-radius: 10px;
+padding: 20px;
+padding-left: 70px;
+margin-top: 100px;
+margin-left: 250px;
+}
+li {
+  width: 150px;
+}
+#criar-tarefa{
+  border-radius: 10px;
+  background-color: blue;
+}
+#apaga-tudo{
+  border-radius: 10px;
+  background-color: brown;
+}
+.completed {
+  text-decoration:  line-through;
+}
