@@ -74,12 +74,13 @@ function handleTaskButton() {
     }
 
     changeBgColorItemTask();
+    completedTask();
   });
 }
 
 // 7 - Alterando a cor do fundo do item selecionado
 // 8 - Fazendo com que somente um item fique selecionado
-function changeBgColorItemTask(){
+function changeBgColorItemTask() {
   let listItem = document.getElementsByClassName('item-task');
   let selectedItem = document.querySelector('.selected');
 
@@ -94,7 +95,22 @@ function changeBgColorItemTask(){
           listItem[i].classList.add('selected');
           selectedItem.classList.remove('selected');
           selectedItem = document.querySelector('.selected');
-        } 
+        }
+      }
+    })
+    
+  }
+}
+
+function completedTask() {
+  let listItem = document.getElementsByClassName('item-task');
+
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].addEventListener('dblclick', () => {
+      if (listItem[i].classList.contains('completed')) {
+        listItem[i].classList.remove('completed');
+      } else {
+        listItem[i].classList.add('completed');
       }
     })
   }
@@ -108,4 +124,5 @@ window.onload = () => {
   createTaskButton();
   handleTaskButton();
   changeBgColorItemTask();
+  completedTask();
 };
