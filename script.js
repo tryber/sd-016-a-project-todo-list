@@ -1,12 +1,3 @@
-window.onload = () => {
-  const taksListUl = document.querySelector('#lista-tarefas');
-
-  const getTaskListStorage = JSON.parse(localStorage.getItem('taskList'));
-  if (getTaskListStorage !== null) {
-    taksListUl.innerHTML = getTaskListStorage;
-  }
-};
-
 function changeClassSelectedItemList(event) {
   const classListItem = document.querySelector('.selected');
   const eventListItem = event.target;
@@ -22,6 +13,7 @@ function completedTask(event) {
   event.target.classList.toggle('completed');
 }
 
+// Pegar o elemento OL
 function getListTaskUl() {
   const lisTask = document.querySelector('#lista-tarefas');
   return lisTask;
@@ -32,6 +24,7 @@ function addNewTask() {
   if (inputTask.value === '') {
     return alert('Não pode ser adicionado uma tarfa vazia');
   }
+
   const lisTask = getListTaskUl();
   const listItem = document.createElement('li');
   listItem.classList.add('item-list');
@@ -42,20 +35,21 @@ function addNewTask() {
   inputTask.value = '';
 }
 
+// Pegar pegar todos os elmentos LI
 function getListItensTask() {
-  const itemListCalss = document.querySelector('.item-list');
-  return itemListCalss;
+  const itemListTack = document.querySelectorAll('.item-list');
+  return itemListTack;
 }
 
 function addClassItemList() {
   addNewTask();
-  const itemList = getListItensTask();
+  const itemList = document.querySelector('.item-list');
   itemList.classList.add('selected');
 }
 
 function deleteAllTask() {
   const taskList = getListTaskUl();
-  const listItensTask = document.querySelectorAll('.item-list');
+  const listItensTask = getListItensTask();
   for (let index = 0; index < listItensTask.length; index += 1) {
     taskList.removeChild(listItensTask[index]);
   }
@@ -73,6 +67,41 @@ function saveTaskStorage() {
   const listItensTask = getListTaskUl();
   localStorage.setItem('taskList', JSON.stringify(listItensTask.innerHTML));
 }
+
+window.onload = () => {
+  const taksListUl = document.querySelector('#lista-tarefas');
+
+  const getTaskListStorage = JSON.parse(localStorage.getItem('taskList'));
+  if (getTaskListStorage !== null) {
+    taksListUl.innerHTML = getTaskListStorage;
+    for (let index = 0; index < taksListUl.children.length; index += 1) {
+      taksListUl.children[index].addEventListener('click', changeClassSelectedItemList);
+      taksListUl.children[index].addEventListener('dblclick', completedTask);
+    }
+  }
+};
+
+function moveUpTaskItem() {
+  const moveUp = document.querySelector('.selected');
+
+  if (moveUp.previousElementSibling) {
+    moveUp.parentNode.insertBefore(moveUp, moveUp.previousElementSibling);
+  }
+}
+
+function moveDownTaskItem() {
+  const moveDown = document.querySelector('.selected');
+
+  if (moveDown.nextElementSibling) {
+    moveDown.parentNode.insertBefore(moveDown.nextElementSibling, moveDown);
+  }
+}
+
+const btnMoveUpItemList = document.querySelector('#mover-cima');
+btnMoveUpItemList.addEventListener('click', moveUpTaskItem);
+
+const btnMoveDownItemList = document.querySelector('#mover-baixo');
+btnMoveDownItemList.addEventListener('click', moveDownTaskItem);
 
 const btnSaveTaskList = document.querySelector('#salvar-tarefas');
 btnSaveTaskList.addEventListener('click', saveTaskStorage);

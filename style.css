@@ -64,6 +64,16 @@ main {
   padding: 8px;
 }
 
+#mover-cima {
+  font-size: 16px;
+  padding: 8px;
+}
+
+#mover-baixo {
+  font-size: 16px;
+  padding: 8px;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }
