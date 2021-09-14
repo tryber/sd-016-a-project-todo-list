@@ -6,3 +6,7 @@
 .task-item {
   background-color: var(--main-background);
 }
+
+div {
+  display: inline-block;
+}

@@ -38,3 +38,12 @@ document.addEventListener('dblclick', (event) => {
     noDeco.style.textDecoration = 'none';
   }
 });
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'apaga-tudo') {
+    const list = document.querySelectorAll('.task-item');
+    for (let i = 0; i < list.length; i += 1) {
+      list[i].remove();
+    }
+  }
+});
