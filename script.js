@@ -2,13 +2,13 @@
 const taskText = document.querySelector('#texto-tarefa'); // input
 const taskList = document.querySelector('#lista-tarefas'); // ol
 const body = document.querySelector('body'); // o corpo todo
-const createTask = document.querySelector('#criar-tarefa'); //button
-const clearAll = document.querySelector('#apaga-tudo');
-const clearCompleted = document.querySelector('#remover-finalizados');
-const removedSelected = document.querySelector('#remover-selecionado');
+const createTask = document.querySelector('#criar-tarefa'); // button new task
+const clearAll = document.querySelector('#apaga-tudo'); // button clear all
+const clearCompleted = document.querySelector('#remover-finalizados'); // button remove defaced
+const removedSelected = document.querySelector('#remover-selecionado'); // remove selected
 
 // cria uma lista de tarefas
-createTask.addEventListener('click', (event) => { // escuta o button
+createTask.addEventListener('click', () => { // escuta o button
   const newTask = document.createElement('li'); // cria um l1
   newTask.className = 'task'; // add classe
   newTask.innerHTML = taskText.value;
@@ -30,7 +30,7 @@ function changeColor(e) {
 // forListener all tasks
 
 body.addEventListener('click', (e) => {
-  if (e.target.classList.contains('task')) {  //
+  if (e.target.classList.contains('task')) {
     changeColor(e);
   }
 });
@@ -38,7 +38,7 @@ body.addEventListener('click', (e) => {
 // requisito 9 - Guilherme Spinelli nos mostrou como usar o toggle que verifica se a classe está presente, senão adiciona ela.
 
 taskList.addEventListener('dblclick', (event) => {
-  event.target.classList.toggle('completed')
+  event.target.classList.toggle('completed');
 });
 // mark with completed task
 // function changeToCompleted(e) {
@@ -95,6 +95,10 @@ function moveDown() {
   }
 }
 below.addEventListener('click', moveDown);
+
+// requisito 13 - 
+// const upwards = document.querySelector('#mover-cima');
+// const below = document.querySelector('#mover-baixo');
 
 // requisito 14 - Tentei meios outras comparacoes e dava erro, dai vi no código do Guilherme que ele usou o null e excluindo as sem a classe.
 
