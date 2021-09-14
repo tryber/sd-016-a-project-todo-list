@@ -66,10 +66,10 @@ function salvarTarefas() {
   localStorage.setItem('listaCompleta', JSON.stringify(arrayTarefas));
 }
 
-function criandoItemPorArray(tarefa) {
+function criandoItemPorArray([tarefa, classes]) {
   const novaTarefa = document.createElement('li');
-  novaTarefa.innerText = tarefa[0];
-  novaTarefa.classList.value = tarefa[1];
+  novaTarefa.innerText = tarefa;
+  novaTarefa.classList.value = classes;
   novaTarefa.classList.remove('selected');
   novaTarefa.addEventListener('click', adicionarClasseSelecionado);
   novaTarefa.addEventListener('dblclick', adicionarClasseCompleto);
@@ -77,11 +77,13 @@ function criandoItemPorArray(tarefa) {
 }
 
 function trocandoElementosHTML(elemento1, elemento2) {
-  const tarefa1 = [elemento1.innerText, elemento1.classList.value];
-  elemento1.innerText = elemento2.innerText;
-  elemento1.classList.value = elemento2.classList.value;
-  elemento2.innerText = tarefa1[0];
-  elemento2.classList.value = tarefa1[1];
+  const [tarefa1, classe1] = [elemento1.innerText, elemento1.classList.value];
+  const primeiroElemento = elemento1;
+  const segundoElemento = elemento2;
+  primeiroElemento.innerText = elemento2.innerText;
+  primeiroElemento.classList.value = elemento2.classList.value;
+  segundoElemento.innerText = tarefa1;
+  segundoElemento.classList.value = classe1;
 }
 
 function moverTarefaCima() {
@@ -113,6 +115,15 @@ function removerSelecionado() {
   tarefaSelecionada.remove();
 }
 
+function carregarTarefasSalvas() {
+  const tarefasSalvas = JSON.parse(localStorage.getItem('listaCompleta'));
+  if (tarefasSalvas !== null) {
+    tarefasSalvas.forEach((tarefa) => {
+      listaTarefas.appendChild(criandoItemPorArray(tarefa));
+    });
+  }
+}
+
 botaoCriarTarefa.addEventListener('click', adicionarNovaTarefa);
 botaoApagaTudo.addEventListener('click', apagarTodasTarefas);
 botaoRemoveFinalizados.addEventListener('click', removerTarefasFinalizadas);
@@ -120,12 +131,4 @@ botaoSalvarTarefas.addEventListener('click', salvarTarefas);
 botaoMoverCima.addEventListener('click', moverTarefaCima);
 botaoMoverBaixo.addEventListener('click', moverTarefaBaixo);
 botaoRemoverSelecionado.addEventListener('click', removerSelecionado);
-
-window.onload = function() {
-  const tarefasSalvas = JSON.parse(localStorage.getItem('listaCompleta'));
-  if (tarefasSalvas !== null) {
-    tarefasSalvas.forEach((tarefa) => {
-      listaTarefas.appendChild(criandoItemPorArray(tarefa));
-    })
-  }
-}
+window.onload = carregarTarefasSalvas;
