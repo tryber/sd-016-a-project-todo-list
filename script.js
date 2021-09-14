@@ -97,6 +97,15 @@ function moveDownTaskItem() {
   }
 }
 
+function removeSelectedTask() {
+  const removeTask = document.querySelector('.selected');
+  removeTask.remove();
+}
+
+const btnRemveSelectedTask = document.querySelector('#remover-selecionado');
+
+btnRemveSelectedTask.addEventListener('click', removeSelectedTask);
+
 const btnMoveUpItemList = document.querySelector('#mover-cima');
 btnMoveUpItemList.addEventListener('click', moveUpTaskItem);
 
