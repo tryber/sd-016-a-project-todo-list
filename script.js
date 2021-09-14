@@ -14,5 +14,14 @@ function selectListItem(event) {
   event.target.classList.add('selected');
 }
 
+function completedItem(event) {
+  if (event.target.classList.contains('completed') === true) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
 document.querySelector('#criar-tarefa').addEventListener('click', addListItem);
 document.querySelector('ol').addEventListener('click', selectListItem);
+document.querySelector('ol').addEventListener('dblclick', completedItem);
