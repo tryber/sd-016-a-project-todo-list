@@ -24,10 +24,17 @@ function adicionaTarefa (){
     lista.addEventListener('click',selecionarTarefa);
 
     function riscaTarefa (event){
-        if(document.querySelectorAll('.completed').length > 0){
-            document.querySelector('.completed').classList.remove('completed');
-        }
-        event.target.classList.add('completed')
+       for (let key in lista.children){
+           let selecionado = lista.children[key];
+           if (event.target === selecionado){
+               selecionado.classList.toggle('completed');
+               if (selecionado.classList.contains('completed')){
+                   selecionado.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+               } else {
+                   selecionado.style.textDecoration = 'none';
+               }
+           }
+       }        
     };
 
     lista.addEventListener('dblclick', riscaTarefa);
