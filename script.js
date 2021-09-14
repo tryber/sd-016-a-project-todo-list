@@ -23,10 +23,18 @@ function removeSelection() {
 
 function changeColorBg(event) {
   removeSelection();
-  event.target.className = 'selected';
+  event.target.classList.add('selected');
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 const task = document.getElementById('lista-tarefas');
 
 task.addEventListener('click', changeColorBg);
+
+
+function completTasks(event){
+  event.target.classList.toggle('completed');
+}
+
+
+task.addEventListener('dblclick',completTasks)
