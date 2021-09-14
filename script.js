@@ -65,15 +65,22 @@ function apagarFinalizados() {
 
 }
 
+function removeSelecionado(){
+    const remover = document.querySelector(".cor")
+
+    remover.parentElement.removeChild(remover);
+}
 
 function eventos() {
     const botao = document.querySelector("#criar-tarefa");
     const botaoApagar = document.querySelector("#apaga-tudo")
     const botaoApagarFinalizados = document.querySelector("#remover-finalizados");
+    const botaoApagarSelecionado = document.querySelector("#remover-selecionado");
 
     botao.addEventListener("click", criarLista);
     botaoApagar.addEventListener("click", apagarLista);
     botaoApagarFinalizados.addEventListener("click", apagarFinalizados);
+    botaoApagarSelecionado.addEventListener("click", removeSelecionado);
 
 }
 
