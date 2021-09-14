@@ -41,3 +41,10 @@ function eraseCompleted() {
   }
 }
 document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted);
+
+function eraseActive() {
+  document.querySelector('.active').remove()
+}
+document.getElementById('remover-selecionado').addEventListener('click', eraseActive)
+
+

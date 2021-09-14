@@ -13,5 +13,6 @@ button {
 
 .active {
   background-color: rgb(128, 128, 128);
+  padding: 8px;
   font-weight: 900;
 }
