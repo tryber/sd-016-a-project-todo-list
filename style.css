@@ -3,11 +3,11 @@
 }
 
 #selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 body {
-  background-color: #037F8C;
+  background-color: rgb(3 , 127 , 140);
 }
 
 #body {
@@ -20,9 +20,9 @@ body {
 
 button {
   margin-left: 20px;
-  background-color: #F28241 ;
-  border: #F28241;
-  color: #F2CEA2;
+  background-color: rgb(242 , 130 , 65);
+  border: rgb(242 , 130 , 65);
+  color: rgb(242, 206, 162);
 }
 
 p {

@@ -14,19 +14,22 @@ function buttonClearEverything() {
 
 function colorLi(event) {
   const listLi = document.querySelectorAll('li');
+  const eventTarget = event.target;
   for (let index = 0; index < listLi.length; index += 1) {
     const element = listLi[index];
     element.removeAttribute('id');
   }
-  event.target.id = 'selected';
+  eventTarget.id = 'selected';
 }
 
 function addLiListenner(li) {
-  li.addEventListener('dblclick', (evento) => {
-    if (evento.target.className === 'completed') {
-      evento.target.classList.remove('completed');
+  li.addEventListener('click', colorLi);
+  li.addEventListener('dblclick', (event) => {
+    const eventTarget = event.target;
+    if (event.target.className === 'completed') {
+      eventTarget.classList.remove('completed');
     } else {
-      evento.target.className = 'completed';
+      eventTarget.className = 'completed';
     }
   });
 }
@@ -38,7 +41,6 @@ function addNewLi() {
   li.className = 'li';
   li.innerText = inputText.value;
   addLiListenner(li);
-  li.addEventListener('click', colorLi);
   ol.appendChild(li);
   inputText.value = '';
 }
