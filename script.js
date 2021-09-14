@@ -1,11 +1,13 @@
 let botao = document.querySelector('#criar-tarefa');
 let text = document.querySelector('#texto-tarefa');
 let lista = document.querySelector('#lista-tarefas')
+let btnApagar = document.querySelector('#apaga-tudo');
 
 function adicionaTarefa (){ 
    
       let novoItem =  document.createElement("li");
         lista.appendChild(novoItem);
+        novoItem.classList.add('line')
         novoItem.innerText = text.value;
         text.value = "";
 }
@@ -27,6 +29,7 @@ function adicionaTarefa (){
        for (let key in lista.children){
            let selecionado = lista.children[key];
            if (event.target === selecionado){
+               //metodo .toggle copiado do código do Lenny, avisei a ele, metodo que quando tem a classe ele remove e quando não tem ele adiciona.
                selecionado.classList.toggle('completed');
                if (selecionado.classList.contains('completed')){
                    selecionado.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
@@ -38,3 +41,13 @@ function adicionaTarefa (){
     };
 
     lista.addEventListener('dblclick', riscaTarefa);
+
+    function apagarTarefas (){
+        let apagar = document.querySelectorAll('.line')
+         for (let i =0; i < apagar.length; i+=1){
+           let itemApagar = apagar[i];
+           console.log(itemApagar);
+            itemApagar.remove();
+        }
+    }
+    btnApagar.addEventListener('click', apagarTarefas);
