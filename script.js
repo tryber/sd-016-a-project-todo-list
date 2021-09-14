@@ -6,10 +6,11 @@ function clearNotSelectedColor() {
   }
 }
 
+// Tive que usar o arrow function por conta do erro do lint
 function changeBackGroundColor() {
   const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
-    getLi[index].addEventListener('click', function anonimous() {
+    getLi[index].addEventListener('click', () => {
       // Referência do código ao Brunão Turma 16 - Tribo A;
       clearNotSelectedColor();
       getLi[index].style.backgroundColor = 'rgb(128,128,128)';
@@ -17,34 +18,46 @@ function changeBackGroundColor() {
   }
 }
 
-// Referência do código para o Carlos Dal Soler, Turma 16 - Tribo A;
+//  Referência do código para o Carlos Dal Soler, Turma 16 - Tribo A;
+// function changeTextList(event) {
+//   let validate = false;
+//   if (event.target.classList.contains('completed')) {
+//     event.target.classList.remove('completed');
+//     validate = true;
+//   } else if (validate === false) {
+//     event.target.classList.add('completed');
+//     validate = false;
+//   }
+// }
+
 function changeTextList(event) {
-  let validate = false;
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-    validate = true;
-  } else if (validate === false) {
-    event.target.classList.add('completed');
-    validate = false;
+  const eve = event;
+  if (eve.target.classList.contains('completed')) {
+    eve.target.classList.remove('completed');
+    eve.target.style.textDecoration = 'white';
+  } else {
+    eve.target.classList.add('completed');
+    eve.target.style.textDecoration = 'line-through solid black';
   }
 }
 
 function deletedTasks() {
   const getButton = document.querySelector('#apaga-tudo');
   const getLi = document.querySelectorAll('li');
-  getButton.addEventListener('click', function anonimous() {
+  getButton.addEventListener('click', () => {
     for (let index = 0; index < getLi.length; index += 1) {
       getLi[index].remove();
     }
   });
 }
 
-function deleteCompletedTasks() {
+function deleteCompletedTasks(event) {
   const getButtonCompleted = document.querySelector('#remover-finalizados');
   const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
-    getButtonCompleted.addEventListener('click', function anonimous() {
+    getButtonCompleted.addEventListener('click', () => {
       // https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList, referenciando o método contains.
+      //contains compara array e includes compara string
       if (getLi[index].classList.contains('completed')) {
         getLi[index].remove();
       }
@@ -57,12 +70,12 @@ function addList() {
   const getOl = document.querySelector('#lista-tarefas');
   const createLi = document.createElement('li');
   createLi.innerText = getInput.value;
+  // Referência do código para o Carlos Dal Soler, Turma 16 - Tribo A;
+  createLi.addEventListener('dblclick', changeTextList);
   getOl.appendChild(createLi);
   getInput.value = '';
 
   changeBackGroundColor();
-  // Referência do código para o Carlos Dal Soler, Turma 16 - Tribo A;
-  createLi.addEventListener('dblclick', changeTextList);
   deletedTasks();
   deleteCompletedTasks();
 }
