@@ -19,7 +19,6 @@ button.addEventListener('click', addItem);
 function paintList(event) {
   //  Todos os elementos da lista (li) precisam ter PRIMEIRAMENTE um fundo branco.
   const listItem = document.getElementsByTagName('li');
-  console.log(listItem);
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].style.backgroundColor = 'white';
   }
@@ -28,3 +27,13 @@ function paintList(event) {
 }
 // Adicionar o evento click nos itens da lista.
 taskList.addEventListener('click', paintList);
+
+// Código elaborado com a ajuda da Laura Fumagalli, Turma 16 - Tribo A.
+function doubleCLick (event) {
+// Adicionar a classe 'completed' nos elementos da li.
+event.target.classList.toggle('completed');
+// A função toggle nesse caso vai adicionar a classe 'completed' quando o elemento não tiver e vai retirar a classe 'completed' quando o elemento tiver. Obs: só funciona com o classList. Fonte: https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
+}
+// Adicionar o evento de double click nos itens da lista.
+taskList.addEventListener('dblclick', doubleCLick);
+
