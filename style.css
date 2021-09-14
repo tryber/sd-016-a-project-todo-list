@@ -1,13 +1,68 @@
 #texto-tarefa {
-  padding: 5px;
+  font-size: 25px;
+  color: black;
+  padding: 10px;
   background-color: rgb(125 , 140 , 153);
 }
 
 body {
-  background-color: rgb(12 , 93 , 168);
+  background-color: rgb(5, 28, 58);
+font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0 , 0 , 0);
-  background-color: rgb(12 , 93 , 168);
+  background-color: rgb(5, 28, 58);
+}
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: sans-serif;
+  color: rgb(51, 253, 0);
+}
+
+input {
+  padding: 20px;
+  border: solid 2px rgb(229, 236, 227);;
+}
+
+p {
+  text-align: center;
+  color: aliceblue;
+  font-size: 20px;
+}
+
+button {
+  text-align: center;
+  padding: 15px;
+}
+
+#criar-tarefa {
+  font-size: 15px;
+  margin-top: 5px;
+  color: aliceblue;
+  background-color: rgb(5, 126, 45);
+}
+
+#apaga-tudo {
+  font-size: 15px;
+  color: aliceblue;
+  background-color: rgb(138, 10, 10);
+}
+
+#remover-finalizados {
+  font-size: 15px;
+  color: aliceblue;
+  background-color: rgb(146, 73, 14);
+}
+
+ol {
+font-size: 30px;
+  color: aliceblue;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
 }
