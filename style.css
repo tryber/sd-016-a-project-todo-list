@@ -1,14 +1,13 @@
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 #lista-tarefas {
   background-color: white;
-  text-decoration:none;
+  text-decoration: none;
 }
 
-.completed{
- text-decoration: line-through solid rgb(0, 0, 0);
- background-color: white;
-
+.completed {
+  text-decoration: line-through solid black;
+  background-color: white;
 }

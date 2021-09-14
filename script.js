@@ -31,10 +31,8 @@ const task = document.getElementById('lista-tarefas');
 
 task.addEventListener('click', changeColorBg);
 
-
-function completTasks(event){
+function completTasks(event) {
   event.target.classList.toggle('completed');
 }
 
-
-task.addEventListener('dblclick',completTasks)
+task.addEventListener('dblclick', completTasks);
