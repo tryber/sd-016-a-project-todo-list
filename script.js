@@ -6,6 +6,7 @@ const createTask = document.querySelector('#criar-tarefa'); // button new task
 const clearAll = document.querySelector('#apaga-tudo'); // button clear all
 const clearCompleted = document.querySelector('#remover-finalizados'); // button remove defaced
 const removedSelected = document.querySelector('#remover-selecionado'); // remove selected
+const saveTask = document.querySelector("#salvar-tarefas"); // save task on storage
 
 // cria uma lista de tarefas
 createTask.addEventListener('click', () => { // escuta o button
@@ -16,7 +17,7 @@ createTask.addEventListener('click', () => { // escuta o button
   taskText.value = '';
 });
 
-// change background-color - requisito 8 - me baseei na ideia do Guilherme Augusto para resolver esse desafio, ele me apresentou o contains.
+// change background-color - requisito 8 - me baseei na ideia do Guilherme Augusto para resolver esse desafio, ele me apresentou o contains. includes é usado para variáveis.
 
 function changeColor(e) {
   for (let index = 0; index < taskList.children.length; index += 1) {
@@ -73,8 +74,23 @@ function removeCompletedTask() {
 }
 clearCompleted.addEventListener('click', removeCompletedTask);
 
-// requisito 12 - o comando dentro do if faz uma nova sequencia, baseado se tem um elemento antes ou depois.
+// requisito 12 
 
+function saveTaskStorage() {
+  localStorage.setItem('taskListStorage', JSON.stringify(taskList.innerHTML));
+}
+saveTask.addEventListener('click', saveTaskStorage)
+
+function openStorage() {
+  if (localStorage !== null) {
+    let returnTaskHTML = JSON.parse(localStorage.getItem('taskListStorage'));
+    console.log(returnTaskHTML);
+    taskList.innerHTML = returnTaskHTML;
+  }
+}
+window.onload = openStorage();
+
+// requisito 13 - o comando dentro do if faz uma nova sequencia, baseado se tem um elemento antes ou depois.
 const upwards = document.querySelector('#mover-cima');
 const below = document.querySelector('#mover-baixo');
 
@@ -96,16 +112,12 @@ function moveDown() {
 }
 below.addEventListener('click', moveDown);
 
-// requisito 13 - 
-// const upwards = document.querySelector('#mover-cima');
-// const below = document.querySelector('#mover-baixo');
-
 // requisito 14 - Tentei meios outras comparacoes e dava erro, dai vi no código do Guilherme que ele usou o null e excluindo as sem a classe.
 
 function removeSelectedTask() {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask !== null) {
-    taskList.removeChild(selectedTask);
-  }
+  // if (selectedTask !== null) {
+  taskList.removeChild(selectedTask);
+  // }
 }
 removedSelected.addEventListener('click', removeSelectedTask);
