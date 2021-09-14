@@ -1,16 +1,29 @@
 h1 {
-  color: #9932cc;
+  color: darkorchid;
   font-size: 50px;
   font-family: URW Chancery L, cursive;
 }
 .completed {
   text-decoration: line-through;
 }
-
 #funcionamento {
-  color: #32cd32;
+  color: limegreen;
 }
-
+#salvar-tarefas{
+  background-color: yellow;
+  padding: 7px;
+  border-radius: 10%;
+}
+#mover-cima{
+  background-color: crimson;
+  height: 40px;
+  border-radius: 50%;
+}
+#mover-baixo{
+  background-color: crimson;
+  height: 40px;
+  border-radius: 50%;
+}
 #criar-tarefa {
   background-color: orangered;
   border-radius: 10px;
@@ -33,7 +46,7 @@ h1 {
 }
 
 .background-color {
-  background-color: rgb(128,128,128);
+  background-color: rgb(158,140,140);
   width: 60px;
   text-align: center;
   border-radius: 20px;
