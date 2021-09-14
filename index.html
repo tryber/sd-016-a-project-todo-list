@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Projeto To do List</title>
+</head>
+<body>
+  <header id='main-title-container'>
+    <h1 id='main-title'>Minha Lista de Tarefas</h1>
+  </header>
+  <main>
+    <section id='funcionamento-container'>
+      <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+    </section>
+    <section id='texto-tarefa-container'>
+      <input id='texto-tarefa' type="text" placeholder='insira o item a ser adicionado na lista!'>
+      <button id='criar-tarefa' class='botao'>Adicionar</button>
+      <button id='apaga-tudo' class='botao'>Apagar Tudo</button>
+      <button id='remover-finalizados' class='botao'>Apagar Finalizados</button>
+      <button id='salvar-tarefas' class='botao'>Salvar Lista</button>
+      <button id='limpar-lista' class='botao'>Limpar a lista</button>
+    </section>
+    <section id='lista-tarefas-container'>
+      <div id="lista-tarefas-box">
+        <ol id='lista-tarefas'></ol>
+      </div>
+    </section>
+    <section id='move-buttons-container'>
+      <button id='mover-cima' class='botao'>Mover para Cima</button>
+      <button id='mover-baixo' class='botao'>Mover para Baixo</button>
+      <button id='remover-selecionado' class='botao'>Remover Selecionado</button>
+    </section>
+  </main>
+  <footer id='footer-container'>
+    <h2>Site Criado por Bruno Gottschalk Roque</h2>
+  </footer>
+  <script src='./script.js'></script>
+</body>
+</html>
