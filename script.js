@@ -18,20 +18,35 @@ function addTask() {
   let liTags = document.querySelectorAll('li');
   for (let index = 0; index < liTags.length; index += 1) {
    liTags[index].addEventListener('click', addBackgroundColor)
-    console.log('aqui');
   
     function addBackgroundColor() {
       // Requisito 8
       for(let index = 0; index < liTags.length; index += 1) {
-        if (liTags[index].className === 'last-select') {
-          liTags[index].className = ''
+        if (liTags[index].style.backgroundColor === 'rgb(128, 128, 128)') {
           liTags[index].style.backgroundColor = '';
         }
       }
       if (liTags[index].style.backgroundColor === '') {
-        liTags[index].className = 'last-select';
         liTags[index].style.backgroundColor = 'rgb(128, 128, 128)';
       }
+    }
+  }
+  // Requisito 9
+  for (let index = 0; index < liTags.length; index += 1) {
+    liTags[index].addEventListener('dblclick',completeTask)
+
+    function completeTask() {
+      liTags[index].classList.add('completed');
+      // if (liTags[index].className.includes('completed')) {
+      //   liTags[index].classList.remove('completed')
+      // }
+    function removeClass() {
+      if (liTags[index].className === 'completed') {
+        // console.log('aqui')
+        liTags[index].classList.remove('completed');
+      }
+    }
+      liTags[index].addEventListener('dblclick',removeClass)
     }
   }
 }
