@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+  <section id="corpo1">
+    <header>
+      <h1 id="title"><strong>Minha Lista de Tarefas</strong></h1>
+    </header>  
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <form>
+      <input id="texto-tarefa">
+      <button id="criar-tarefa">Adicionar</button>
+    </form>
+  </section>
+  <article>
+    <ol id="lista-tarefas">
+    </ol>
+    <br>
+    <br>
+    <button id="remover-selecionado">x</button>
+    <button id="mover-cima">seta1</button>
+    <button id="mover-baixo">seta2</button>
+    <button id="remover-finalizados">Limpar Completos</button>
+    <button id="apaga-tudo">Limpar Lista</button>
+    <button id="salvar-tarefas">Salvar Lista</button>
+  </article>
+  <script src="./script.js"></script>
+</body>
+</html>
