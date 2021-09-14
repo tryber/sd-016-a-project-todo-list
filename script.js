@@ -44,11 +44,8 @@ function lineThrough(event) {
 }
 document.getElementById(nomeDoId).addEventListener('dblclick', lineThrough);
 
-// Remover tarefas completas
-function removeDone() {
-  const list = document.getElementsByClassName('list-item');
-  while (list.length > 0) {
-    console.log('xablau');
-  }
-}
-document.getElementById('remover-finalizados').addEventListener('click', removeDone);
+// // Remover tarefas completas
+// function removeDone() {
+//   const list = document.getElementsByClassName('list-item');
+// }
+// document.getElementById('remover-finalizados').addEventListener('click', removeDone);
