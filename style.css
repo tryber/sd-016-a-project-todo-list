@@ -1,0 +1,15 @@
+.selected {
+  background-color: grey;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.task {
+  cursor: pointer;
+}
+
+.btn {
+  cursor: pointer;
+}
