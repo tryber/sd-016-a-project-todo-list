@@ -12,13 +12,10 @@ function createTask(){
         let textTask = document.createTextNode(task)
         newTask.appendChild(textTask);
         list.appendChild(newTask)
-
+     
         taskList = []
     }
-    
 }
-
-createTask()
 
 
 function addTask(){
@@ -28,16 +25,27 @@ function addTask(){
 
     createTask()
     removeAllTasks()
-    addSelectMode()
 }
 
 button.addEventListener('click', addTask)
+
+
 function addSelectMode(){
+let lis = list.children
 list.addEventListener('click', function (event){
-    event.target.removeEventListener('click', event)
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'  
-}, { once: true })
+   for (let index = 0; index <lis.length; index+=1){
+       if (event.target != lis[index]){
+           lis[index].classList.remove('selected')
+       }else{
+           event.target.classList.add('selected')
+       }
+   }
+})
 }
+
+
+addSelectMode()
+
 
 
 function addCompletedTasks(){
