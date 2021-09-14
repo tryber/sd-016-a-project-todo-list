@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    background-image: linear-gradient(40deg, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 900px;
+    font-family: 'Pacifico', cursive;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 0px 80px; 
+    text-align: center;
+    border: 1px solid transparent;
+    background-color: white;
+    border-radius: 25px;
+    color: #333;
+    padding: 10px;
+}
+
+#titulo {
+    display: block;
+}
+
+#form {
+    display: inline-block;
+}
+
+#funcionamento {
+    font-size: 1.5em;
+}
+
+
+button {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    border-radius: 25px;
+    border-style: none;
+    background: linear-gradient(40deg,#0072ff,#00d4ff, #5ffbf1);
+    color: white;
+    cursor: pointer;
+}
+
+#lista-tarefas {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.item-lista:hover {
+    cursor: pointer;
+}
+
+.highlighted-item {
+    background-color: rgb(128, 128, 128);
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0,0,0); 
+}
