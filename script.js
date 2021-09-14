@@ -208,3 +208,20 @@ moveSelectedTaskDown();
 
 /* insertBefore retirado do site http://devfuria.com.br/javascript/dom-insert-before/ */
 /* https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore */
+
+function removeSelectedButton() {
+  const rmvSelectedBttn = document.createElement('button');
+  rmvSelectedBttn.id = 'remover-selecionado';
+  rmvSelectedBttn.innerText = 'remover item selecinado';
+  actionButtons.appendChild(rmvSelectedBttn);
+}
+removeSelectedButton();
+
+function removeSelected() {
+  const rmvSelected = document.querySelector('#remover-selecionado');
+  rmvSelected.addEventListener('click', () => {
+    const taskSelected = document.getElementById('selected');
+    taskSelected.remove();
+  });
+}
+removeSelected();
