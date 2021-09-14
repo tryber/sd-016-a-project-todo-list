@@ -9,7 +9,7 @@ function adicionaTexto() {
     newList.className = 'item-da-lista';
     newList.addEventListener('click', colorirItem);
     newList.addEventListener('dblclick', riscaItem);
-    newList.addEventListener('dblclick', removeRisco);
+   /*  newList.addEventListener('dblclick', removeRisco); */
     lista.appendChild(newList);
     newList.innerText = input.value;
     input.value = '';
@@ -31,29 +31,17 @@ function verificaSeSelecionado() {
     }
  verificaSeSelecionado();
 
- // Requisito 9
- function riscaItem() {
-    let itemLista = document.getElementById('lista-tarefas');
-    itemLista.addEventListener('dblclick', function(event){
-       event.target.classList.add('completed');
-     /*   removeRisco(); */
-   })
-}
-
-
-function removeRisco() {
-
-    let itemLista = document.getElementsByClassName('completed');
-    for (let i = 0; i < itemLista.length; i += 1) {
-    itemLista[i].addEventListener('dblclick', function(event){
+// Requisito 9
+function riscaItem(event) {
+    if (event.target.classList.contains('completed')){
         event.target.classList.remove('completed');
-    })
-}
-}
+    } else {
+        event.target.classList.add('completed')
+    }
+}   
 
- 
 // Requisito 10
-function deleteList() {
+    function deleteList() {
     let buttonDelete = document.getElementById('apaga-tudo');
     buttonDelete.addEventListener('click', function() {
         let lista = document.querySelectorAll('li');
@@ -63,8 +51,8 @@ function deleteList() {
     });
 }
 deleteList();
- 
-// Requisito 11 - DÚVIDA
+
+ // Requisito 11 
        function removeItensFinalizados() {
            let buttonRemoveFinalizados = document.getElementById('remover-finalizados');
            buttonRemoveFinalizados.addEventListener('click', function() {
