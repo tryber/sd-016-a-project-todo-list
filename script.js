@@ -21,3 +21,9 @@ function changeBackground(e) {
 
 }
 orderedList.addEventListener('click', changeBackground);
+
+function deleteTasks() {
+  while (orderedList.firstChild) {
+    orderedList.firstChild.remove();
+  }
+}
