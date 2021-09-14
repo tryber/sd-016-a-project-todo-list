@@ -1,4 +1,5 @@
 const getButtonClick = document.getElementById('criar-tarefa');
+const getDeleteButton = document.getElementById('apaga-tudo');
 
 function createTask() {
   const getInputValue = document.getElementById('texto-tarefa');
@@ -42,5 +43,12 @@ function addEventsToTasks() {
     tasks[index].addEventListener('dblclick', lineThrough);
   }
 }
+
+function deleteList() {
+  const taskList = document.getElementById('lista-tarefas');
+  taskList.innerHTML = '';
+}
+
+getDeleteButton.addEventListener('click', deleteList);
 
 addEventsToTasks();
