@@ -103,6 +103,7 @@ function salvarTarefas () {
 
   for (let index = 0 ; index < lista.length ; index += 1){
     localStorage.setItem(listaKeys[index], lista[index].innerHTML);
+    localStorage.setItem('class'+index, lista[index].className);
   };
 };
 
@@ -117,11 +118,12 @@ function generateKeys () {
 
 function recoverList () {
   let lista = document.querySelector('#lista-tarefas');  
-  for (let index = 0 ; index < localStorage.length ; index += 1){
-    let tarefaArmazenada = localStorage.getItem('tarefa'+index)
+  for (let index = 0 ; index < localStorage.length/2 ; index += 1){
+    let tarefaArmazenada = localStorage.getItem('tarefa'+index);
+    let classeArmazenada = localStorage.getItem('class'+index);
     let novaTarefa = document.createElement('li');
     novaTarefa.innerHTML = tarefaArmazenada;
-    novaTarefa.classList.add('lista');
+    novaTarefa.className = classeArmazenada;
     novaTarefa.addEventListener('click', select);
     novaTarefa.addEventListener('dblclick' , crossItem);
     lista.appendChild(novaTarefa);
