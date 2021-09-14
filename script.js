@@ -31,8 +31,49 @@ const task = document.getElementById('lista-tarefas');
 
 task.addEventListener('click', changeColorBg);
 
+// ADD FORAMATAÇÃO A TEREFAS CONCLUIDAS
 function completTasks(event) {
   event.target.classList.toggle('completed');
 }
 
 task.addEventListener('dblclick', completTasks);
+
+
+// ADD EVENTO A BOTÃO DE LIMPAR TODA LISTA DE TAREFAS
+
+const clearButton = document.getElementById('apaga-tudo');
+
+function clearAll (){
+  let allTasks = document.querySelectorAll('.task')
+  for (let index = 0; index < allTasks.length; index += 1) {
+    task.removeChild(allTasks[index]);
+  }
+}
+
+clearButton.addEventListener ('click', clearAll);
+
+// ADD EVENTO A BOTÃO DE LIMPAR TAREFAS FINALIZADAS
+
+const clearButtonFinish = document.getElementById('remover-finalizados');
+
+function clearFinish (){
+  let finishTasks = document.querySelectorAll('.completed')
+  for (let index = 0; index < finishTasks.length; index += 1) {
+    task.removeChild(finishTasks[index]);
+  }
+}
+
+clearButtonFinish.addEventListener ('click', clearFinish);
+
+// ADD EVENTO A BOTÃO DE LIMPAR TAREFAS SELECIONADAS
+
+const clearButtonSelect = document.getElementById('remover-selecionado');
+
+function selectedTask (){
+  let selectTask = document.querySelectorAll('.selected')
+  for (let index = 0; index < selectTask.length; index += 1) {
+    task.removeChild(selectTask[index]);
+  }
+}
+
+clearButtonSelect.addEventListener ('click', selectedTask);
