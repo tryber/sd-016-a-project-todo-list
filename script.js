@@ -88,7 +88,7 @@ function addList() {
 function clearSelectedOl() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
-    taskList[i].style.backgroundColor = 'unset';
+    taskList[i].style.backgroundColor = 'white';
   }
   // unset - deixara indefinoido o background
   // https://developer.mozilla.org/en-US/docs/Web/CSS/unset
@@ -107,13 +107,14 @@ function clickOl() {
 function completeTask() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
-    taskList[i].addEventListener('dblclick', () => {
-      const tasks = getComputedStyle(taskList[i]);
+    const event = taskList[i]
+    event.addEventListener('dblclick', () => {
+      const tasks = getComputedStyle(event);
       const completed = tasks.getPropertyValue('text-decoration-line');
       if (completed === 'none') {
-        taskList[i].style.textDecoration = 'line-through';
-      } else if (completed === 'line-through') {
-        taskList[i].style.textDecoration = 'none';
+        event.style.textDecoration = 'line-through';
+      } else {
+        event.style.textDecoration = 'none';
       }
     });
   }
