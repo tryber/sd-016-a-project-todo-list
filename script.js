@@ -23,8 +23,10 @@ moveDown.addEventListener('click', () => {
     selectElem.nextElementSibling.innerHTML = innerElem;
     selectElem.classList.toggle('selected');
     selectElem.nextElementSibling.classList.toggle('selected');
-    selectElem.classList.toggle('completed');
-    selectElem.nextElementSibling.classList.toggle('completed');
+    if (selectElem.className === 'completed') {
+      selectElem.classList.toggle('completed');
+      selectElem.nextElementSibling.classList.toggle('completed');
+    }
   }
 });
 
@@ -37,8 +39,10 @@ moveUp.addEventListener('click', () => {
     selectElem.previousElementSibling.innerHTML = innerElem;
     selectElem.classList.toggle('selected');
     selectElem.previousElementSibling.classList.toggle('selected');
-    selectElem.classList.toggle('completed');
-    selectElem.nextElementSibling.classList.toggle('completed');
+    if (selectElem.className === 'completed') {
+      selectElem.classList.toggle('completed');
+      selectElem.previousElementSibling.classList.toggle('completed');
+    }
   }
 });
 
