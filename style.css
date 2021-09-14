@@ -1,8 +1,13 @@
 #texto-tarefa {
   padding: 5px;
-  background-color:rgb(125, 140, 153);
+  background-color: rgb(125 , 140 , 153);
 }
 
 body {
-  background-color: rgb(12, 93, 168);
+  background-color: rgb(12 , 93 , 168);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+  background-color: rgb(12 , 93 , 168);
 }
