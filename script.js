@@ -1,3 +1,17 @@
+function buttonClearEverything() {
+  const button = document.querySelector('#apaga-tudo');
+  button.addEventListener('click', () => {
+    const listLi = document.querySelectorAll('li');
+    console.log('vou coletar os lis');
+    console.log(listLi);
+    for (let index = 0; index < listLi.length; index += 1) {
+      console.log('entrei no loop');
+      const element = listLi[index];
+      element.parentNode.removeChild(element);
+    }
+  });
+}
+
 function colorLi(event) {
   const listLi = document.querySelectorAll('li');
   for (let index = 0; index < listLi.length; index += 1) {
@@ -11,7 +25,7 @@ function addLiListenner(li) {
   li.addEventListener('dblclick', (evento) => {
     if (evento.target.className === 'completed') {
       evento.target.classList.remove('completed');
-    }else {
+    } else {
       evento.target.className = 'completed';
     }
   });
@@ -36,4 +50,5 @@ function addButtonListenner() {
 
 window.onload = () => {
   addButtonListenner();
+  buttonClearEverything();
 };

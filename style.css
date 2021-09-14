@@ -3,5 +3,29 @@
 }
 
 #selected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
+}
+
+body {
+  background-color: #037F8C;
+}
+
+#body {
+  background-color: white;
+  width: 800px;
+  height: 350px;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+button {
+  margin-left: 20px;
+  background-color: #F28241 ;
+  border: #F28241;
+  color: #F2CEA2;
+}
+
+p {
+  font-style: italic;
+  color: gray;
 }
