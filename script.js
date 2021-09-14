@@ -33,6 +33,7 @@ function createEventListeners() {
 }
 createEventListeners();
 
+// Referência: https://pt.stackoverflow.com/questions/4605/remover-elemento-da-p%C3%A1gina-com-javascript
 const getButtonClear = document.querySelector('#apaga-tudo');
 const buttonClearTasks = () => {
   const getOrderedList = document.querySelectorAll('li');
@@ -54,3 +55,43 @@ const buttonClearCompletedTasks = () => {
   }
 };
 getButtonClearCompletedTask.addEventListener('click', buttonClearCompletedTasks);
+
+// BÔNUS
+// Referência: https://www.technothirsty.com/difference-between-json-stringify-and-json-parse-in-json-javascript/
+const getButtonSaveTasks = document.querySelector('#salvar-tarefas');
+const saveTasks = () => {
+  const listItems = document.querySelectorAll('li');
+  const array = [];
+  for (let index = 0; index < listItems.length; index += 1) {
+    const current = {
+      text: listItems[index].innerText,
+      isSelected: listItems[index].classList.contains('selected'),
+      isCompleted: listItems[index].classList.contains('completed'),
+    };
+    array.push(current);
+  }
+  localStorage.setItem('lista', JSON.stringify(array));
+};
+getButtonSaveTasks.addEventListener('click', saveTasks);
+
+const onload = () => {
+  const array = JSON.parse(localStorage.getItem('lista'));
+  if (array !== null) {
+    for (let index = 0; index < array.length; index += 1) {
+      const itemSaved = array[index];
+      const listItem = document.createElement('li');
+      listItem.classList.add('list-item');
+      if (itemSaved.isSelected) {
+        listItem.classList.add('selected');
+      }
+      if (itemSaved.isCompleted) {
+        listItem.classList.add('completed');
+      }
+      listItem.innerHTML = itemSaved.text;
+      document.querySelector('#lista-tarefas').appendChild(listItem);
+      listItem.addEventListener('click', changeBackgroundColor);
+      listItem.addEventListener('dblclick', taskCompleted);
+    }
+  }
+};
+window.addEventListener('load', onload);
