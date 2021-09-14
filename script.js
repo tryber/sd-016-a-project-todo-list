@@ -14,12 +14,36 @@ function addLi(selection) {
 }
 
 function changeColorItem(selection) {
-  const li = document.querySelector('li');
+  const li = document.querySelectorAll('li');
 
-  if (selection.target === li) {
-    li.style.backgroundColor = 'rgb(128,128,128)';
+  for (let index = 0; index < li.length; index += 1) {
+    if (selection.target === li[index]) {
+      for (let indexRemove = 0; indexRemove < li.length; indexRemove += 1) {
+        li[indexRemove].classList.remove('selected')
+        li[indexRemove].style.backgroundColor = 'white';
+      }
+
+      li[index].classList.toggle('selected');
+      li[index].style.backgroundColor = 'rgb(128,128,128)';
+    }
+  }
+}
+
+function doubleClick(selection) {
+  const li = document.querySelectorAll('li');
+
+  for (let index = 0; index < li.length; index += 1) {
+    if (selection.target === li[index]) {
+      li[index].classList.toggle('risc');
+      if (li[index].classList.contains('risc')) {
+        li[index].style.textDecoration = 'line-through'
+      } else {
+        li[index].style.textDecoration = 'none';
+      }
+    }
   }
 }
 
 document.addEventListener('click', addLi);
 document.addEventListener('click', changeColorItem);
+document.addEventListener('dblclick', doubleClick);
