@@ -4,7 +4,6 @@ listIten.innerHTML = window.localStorage.items === undefined ? '' : window.local
 function complete(event) {
   let elem = event.target;
   elem.classList.toggle('completed');
-  elem.style.backgroundColor = 'rgb(128,128,128)';
   elem.style.textDecoration = 'line-through';
 }
 function select(event) {
@@ -14,6 +13,7 @@ function select(event) {
     selected.classList.toggle('selected');
   }
   elem.classList.toggle('selected');
+  elem.style.backgroundColor = 'rgb(128,128,128)';
 }
 const removeSelected = document.querySelector('#remover-selecionado');
 removeSelected.addEventListener('click', () => {
