@@ -4,6 +4,12 @@ const todoList = document.querySelector('#lista-tarefas');
 const clearAllButton = document.querySelector('#apaga-tudo');
 const clearTerminatedButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
+const removeSelected = document.querySelector('#remover-selecionado');
+
+removeSelected.addEventListener('click', () => {
+  const selectElem = document.querySelector('.selected');
+  selectElem.remove();
+});
 
 const moveDown = document.querySelector('#mover-baixo');
 const moveUp = document.querySelector('#mover-cima');
