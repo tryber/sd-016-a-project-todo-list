@@ -1,9 +1,15 @@
+const inputField = document.querySelector('#texto-tarefa');
+
 function addsTaskItem() {
-  const taskItem = document.createElement('li');
-  taskItem.className = 'task-item';
-  taskItem.innerText = document.querySelector('#texto-tarefa').value;
-  document.querySelector('#lista-tarefa').appendChild(taskItem);
-  document.querySelector('#texto-tarefa').value = '';
+  if (inputField.value === '') {
+    alert('The input field is Null!');
+  } else {
+    const taskItem = document.createElement('li');
+    taskItem.className = 'task-item';
+    taskItem.innerText = inputField.value;
+    document.querySelector('#lista-tarefas').appendChild(taskItem);
+    inputField.value = '';
+  }
 }
 
 document.querySelector('#criar-tarefa').addEventListener('click', addsTaskItem);
@@ -22,9 +28,9 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('task-item')) {
+  if (event.target.className === 'task-item') {
     const lineThrough = event.target;
-    lineThrough.className = 'completed';
+    lineThrough.className += ' completed';
     lineThrough.style.textDecoration = 'line-through';
   } else if (event.target.classList.contains('completed')) {
     const noDeco = event.target;
