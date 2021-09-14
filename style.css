@@ -28,6 +28,10 @@ section {
   text-align: center;
 }
 
+#buttons {
+  margin-bottom: 50px;
+}
+
 .colors {
   background-color: green;
   color: yellow;
@@ -46,11 +50,11 @@ section {
   padding: 10px;
 }
 
-#criar-tarefa {
+#criar-tarefa, .buttons{
   width: 200px;
   padding: 10px;
   border-radius: 20px;
-  margin: auto 20px;
+  margin: auto 5px;
   font-size: large;
   font-weight: 600;
   text-align: center;

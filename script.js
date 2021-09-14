@@ -3,6 +3,7 @@ const selectOl = document.querySelector('#lista-tarefas');
 const selectButton = document.querySelector('#criar-tarefa');
 const selectInput = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
+const removeButton = document.querySelector('#remover-finalizados');
 let selectLineList = null;
 
 // Função remove cor de fundo das linhas.
@@ -37,11 +38,21 @@ function removeTasksList() {
   }
 }
 
+function removeTaskCompleted() {
+  for (let index = 0; index < selectLineList.length; index += 1) {
+    if (selectLineList[index].classList.contains('completed')) {
+      selectOl.removeChild(selectLineList[index]);
+    }
+  }
+}
+
+// Função Principal, chama todos os escutadores de eventos.
 function generatorMain() {
   for (let index = 0; index < selectLineList.length; index += 1) {
     selectLineList[index].addEventListener('click', paintColorList);
     selectLineList[index].addEventListener('dblclick', addClassCompleted);
     clearButton.addEventListener('click', removeTasksList);
+    removeButton.addEventListener('click', removeTaskCompleted);
   }
 }
 
