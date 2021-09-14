@@ -111,3 +111,16 @@ main {
 #remover-finalizados:active {
   background-color: rgb(180 , 50 , 170);
 }
+
+#salvar-tarefas {
+  border: 2px solid rgb(52 , 194 , 59);
+  margin-left: 45%;
+}
+
+#salvar-tarefas:hover {
+  background-color: rgb(49 , 175 , 55);
+}
+
+#salvar-tarefas:active {
+  background-color: rgb(41 , 150 , 64);
+}

@@ -4,6 +4,7 @@ const addButton = document.getElementById('criar-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const eraseButton = document.getElementById('apaga-tudo');
 const removeCButton = document.getElementById('remover-finalizados');
+const saveTasksButton = document.getElementById('salvar-tarefas');
 
 function createTask() {
   const newTask = document.createElement('li');
@@ -45,6 +46,31 @@ function removeCompleted() {
   }
 }
 
+function saveTasks() {
+  for (let i = 0; i < taskList.children.length; i += 1) {
+    const saveTask = taskList.children[i].outerHTML;
+    sessionStorage.setItem(`task${i}`, JSON.stringify(saveTask));
+  }
+}
+
+function loadTasks() {
+  const allKeys = Object.keys(sessionStorage);
+  // eslint-disable-next-line sonarjs/no-unused-collection
+  const taskKeys = [];
+  for (let i = 0; i < allKeys.length; i += 1) {
+    if (allKeys[i].includes('task')) {
+      taskKeys.push(allKeys[i]);
+    }
+  }
+  taskKeys.sort();
+  for (let i = 0; i < taskKeys.length; i += 1) {
+    const taskKey = document.createElement('div');
+    const task = JSON.parse(sessionStorage.getItem(taskKeys[i]));
+    taskList.appendChild(taskKey);
+    taskKey.outerHTML = task;
+  }
+}
+
 // Listeners
 addButton.addEventListener('click', createTask);
 addInput.addEventListener('keyup', (e) => {
@@ -70,3 +96,8 @@ body.addEventListener('dblclick', (e) => {
 
 eraseButton.addEventListener('click', eraseTasks);
 removeCButton.addEventListener('click', removeCompleted);
+saveTasksButton.addEventListener('click', saveTasks);
+
+window.onload = function load() {
+  loadTasks();
+};
