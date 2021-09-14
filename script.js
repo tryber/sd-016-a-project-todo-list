@@ -5,9 +5,13 @@ const selectInput = document.querySelector('#texto-tarefa');
 const clearButton = document.querySelector('#apaga-tudo');
 const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
 const buttonRemoveSelected = document.querySelector('#remover-selecionado');
-// const saveButton = document.querySelector('#salvar-tarefas');
+const buttonMoveUp = document.querySelector('#mover-cima');
+const buttonMoveDown = document.querySelector('#mover-baixo');
+const buttonSaveTask = document.querySelector('#salvar-tarefas');
+const backgroundColor = 'rgb(128, 128, 128)';
 let selectLineList = null;
 
+// Função Seleciona todas as Li criadas na tarefas.
 function selectorTasks() {
   return document.querySelectorAll('.tasks-line');
 }
@@ -24,7 +28,7 @@ function paintColorList(event) {
   const events = event.target;
   for (let index = 0; index < selectLineList.length; index += 1) {
     removeColorLine();
-    events.style.backgroundColor = 'rgb(128, 128, 128)';
+    events.style.backgroundColor = backgroundColor;
   }
 }
 
@@ -55,24 +59,51 @@ function removeTaskCompleted() {
   selectLineList = selectorTasks();
 }
 
+// Função para remover as tarefas selecionadas.
 function removeTaskSelected() {
   for (let index = 0; index < selectLineList.length; index += 1) {
-    if (selectLineList[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (selectLineList[index].style.backgroundColor === backgroundColor) {
       selectOl.removeChild(selectLineList[index]);
     }
   }
   selectLineList = selectorTasks();
 }
 
-// Função para salvar a lista de tarefas no LocalStorage.
-// function saveTaskList() {
-//   const savesTask = [];
-//   for (let index = 0; index < selectLineList.length; index += 1) {
-//     savesTask.push(selectLineList[index].innerHTML);
-//   }
-//   localStorage.setItem('savesTask', JSON.stringify(savesTask));
-//   storedSaves = JSON.parse(localStorage.getItem('savesTask'));
-// }
+function testConditionPrevious(index) {
+  const sibling = selectLineList[index].previousElementSibling;
+  if (selectLineList[index].previousElementSibling) {
+    return selectOl.insertBefore(selectLineList[index], sibling);
+  }
+}
+
+// Função move Item para cima.
+function moveItemUp() {
+  for (let index = 0; index < selectLineList.length; index += 1) {
+    if (selectLineList[index].style.backgroundColor === backgroundColor) {
+      testConditionPrevious(index);
+    }
+  }
+}
+
+function testConditionNext(index) {
+  const sibling = selectLineList[index].nextElementSibling;
+  if (selectLineList[index].nextElementSibling) {
+    return selectOl.insertBefore(sibling, selectLineList[index]);
+  }
+}
+
+// Função move item para baixo.
+function moveItemDown() {
+  for (let index = 0; index < selectLineList.length; index += 1) {
+    if (selectLineList[index].style.backgroundColor === backgroundColor) {
+      testConditionNext(index);
+    }
+  }
+}
+
+function saveTasksItens() {
+  localStorage.setItem('tasksItem', JSON.stringify(selectOl.innerHTML));
+}
 
 // Função Principal, chama todos os escutadores de eventos.
 function generatorMain() {
@@ -82,10 +113,13 @@ function generatorMain() {
     clearButton.addEventListener('click', removeTasksList);
     buttonRemoveCompleted.addEventListener('click', removeTaskCompleted);
     buttonRemoveSelected.addEventListener('click', removeTaskSelected);
-    // saveButton.addEventListener('click', saveTaskList);
+    buttonMoveUp.addEventListener('click', moveItemUp);
+    buttonMoveDown.addEventListener('click', moveItemDown);
+    buttonSaveTask.addEventListener('click', saveTasksItens);
   }
 }
 
+// Função para criar e adcionar as tarefas.
 function createTasksList() {
   const createtasks = document.createElement('li');
   createtasks.innerHTML = selectInput.value;
@@ -98,15 +132,11 @@ function createTasksList() {
 
 selectButton.addEventListener('click', createTasksList);
 
-// window.onload = () => {
-//   if (storedSaves.length !== 0) {
-//     const createtasks = document.createElement('li');
-//     for (let index = 0; index < storedSaves.length; index += 1) {
-//       createtasks.innerHTML = storedSaves[index];
-//       createtasks.classList.add('tasks-line');
-//       selectOl.appendChild(createtasks);
-//     }
-//   }
-//   selectInput.value = '';
-//   selectLineList = document.querySelectorAll('.tasks-line');
-// };
+window.onload = () => {
+  const returnOl = JSON.parse(localStorage.getItem('tasksItem'));
+  if (returnOl !== null) {
+    selectOl.innerHTML = returnOl;
+  }
+  selectLineList = selectorTasks();
+  generatorMain();
+};

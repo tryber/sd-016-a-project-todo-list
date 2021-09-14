@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  max-width: 60%;
+  max-width: 70%;
   margin: 40px auto;
   border: 2px double black;
   border-radius: 20px;
@@ -17,6 +17,14 @@ main {
 
 header {
   text-align: center;
+}
+
+header h1 {
+  font-size: 35pt;
+}
+
+header p {
+  color: black;
 }
 
 #title , #funcionamento {
@@ -51,7 +59,7 @@ section {
 }
 
 #criar-tarefa , .buttons {
-  width: 200px;
+  width: 130px;
   padding: 10px;
   border-radius: 20px;
   margin: auto 5px;
@@ -71,5 +79,5 @@ section {
 }
 
 .completed {
-  text-decoration: line-through, solid, black;
+  text-decoration: line-through;
 }
