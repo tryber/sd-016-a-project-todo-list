@@ -70,3 +70,28 @@ function moveItemBaixo() {
     }
   }
 }
+
+function salvaTarefas() {
+  let lista = document.querySelectorAll('li');
+  const paiDaLista = document.getElementById('lista-tarefas');
+  localStorage.setItem('listaTarefas', paiDaLista.innerHTML);
+}
+
+window.onload = function carregaTarefas() {
+  let tarefas = localStorage.getItem('listaTarefas');
+  const paiDaLista = document.getElementById('lista-tarefas');
+  paiDaLista.innerHTML = tarefas;
+  const novaTarefa = document.getElementsByTagName('li');
+  for (let y = 0; y < novaTarefa.length; y += 1){
+    novaTarefa[y].addEventListener('click', () => {
+    const lista = document.getElementsByTagName('li');
+      for (let i = 0; i < lista.length; i += 1) {
+        lista[i].style.backgroundColor = '';
+      }
+      novaTarefa[y].style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+    novaTarefa[y].addEventListener('dblclick', () => {
+      novaTarefa[y].classList.toggle('completed');
+    });
+  }
+}
