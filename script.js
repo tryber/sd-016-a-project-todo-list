@@ -31,3 +31,16 @@ function riskTask(event) {
 }
 
 document.querySelector('#lista-tarefas').addEventListener('dblclick', riskTask)
+
+let newButon = document.createElement('button')
+newButon.innerText = 'apagar tudo'
+newButon.id = 'apaga-tudo'
+document.body.appendChild(newButon)
+document.querySelector('#apaga-tudo').addEventListener('click', clearTasks);
+
+function clearTasks () {
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1){
+    document.querySelector('#lista-tarefas').removeChild(listItems[index])
+  }
+}
