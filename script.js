@@ -3,6 +3,7 @@ let text = document.querySelector('#texto-tarefa');
 let lista = document.querySelector('#lista-tarefas')
 let btnApagar = document.querySelector('#apaga-tudo');
 let btnFinalizados = document.querySelector('#remover-finalizados');
+let btnSalvar = document.querySelector('#salvar-tarefas');
 
 function adicionaTarefa (){ 
    
@@ -57,9 +58,16 @@ function adicionaTarefa (){
 
     function excluiFinalizados (){
         let excluiFinalizados = document.querySelectorAll('.completed');
-            for (let key in excluiFinalizados){
-                excluiFinalizados[key].remove();
+        
+            for (let key = 0;key < excluiFinalizados.length; key+=1){
+                let excluir = excluiFinalizados[key];
+                console.log(excluir);
+                excluir.remove();
             }
     }
     btnApagar.addEventListener('click', apagarTarefas);
     btnFinalizados.addEventListener('click', excluiFinalizados);
+
+    function salvarTarefas (){
+
+    }    
