@@ -1,32 +1,46 @@
 const getButtonClick = document.getElementById('criar-tarefa');
 
-getButtonClick.addEventListener('click', function () {
+function createTask() {
   const getInputValue = document.getElementById('texto-tarefa');
-  const getOl = document.getElementById('lista-tarefas');
   const digitedValue = getInputValue.value;
+  const getOl = document.getElementById('lista-tarefas');
   getInputValue.value = '';
   const createLi = document.createElement('li');
   createLi.setAttribute('class', 'item-lista');
-  createLi.appendChild(document.createTextNode(digitedValue));
+  createLi.innerText = digitedValue;
   getOl.appendChild(createLi);
-  highlightElement();
-});
+  createLi.addEventListener('click', highlightElement);
+  createLi.addEventListener('dblclick', lineThrough);
+}
 
-let selected = null;
+getButtonClick.addEventListener('click', createTask);
 
-function highlightElement() {
-  const getLi = document.querySelectorAll('.item-lista');
-  for (let index = 0; index < getLi.length; index += 1) {
-    getLi[index].addEventListener('click', function () {
-      getLi[index].classList.add('highlighted-item');
-    });
+function highlightElement(element) {
+  const clicked = element;
+  const items = document.querySelectorAll('.item-lista');
+  for (let index = 0; index < items.length; index += 1) {
+    items[index].style.backgroundColor = '#FFF';
+    items[index].setAttribute('id', '');
   }
-  for (let j = 0; j < getLi.length; j += 1) {
-    getLi[j].addEventListener('click', function (evt) {
-      for (let i = 0; i < getLi.length; i += 1) {
-        getLi[i].classList.remove('highlighted-item');
-      }
-      evt.target.classList.add('highlighted-item');
-    });
+  clicked.target.id = 'selected';
+  clicked.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+
+function lineThrough(element) {
+  const checked = element;
+  if (checked.target.className.includes('completed')) {
+    checked.target.className = 'item-lista';
+  } else {
+    checked.target.className += ' completed';
   }
 }
+
+function addEventsToTasks() {
+  const tasks = document.querySelectorAll('.item-lista');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].addEventListener('click', highlightElement);
+    tasks[index].addEventListener('dblclick', lineThrough);
+  }
+}
+
+addEventsToTasks();
