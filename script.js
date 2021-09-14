@@ -31,8 +31,18 @@ buttonClearList.addEventListener('click', removeItemList);
 
 function removeItemList () {
 const selectLi = document.querySelectorAll('li');
-  for (let index = 0; index < selectLi.length; index++) {
+  for (let index = 0; index < selectLi.length; index += 1) {
   const list = selectLi[index];
+  listOrder.removeChild(list);
+  }
+}
+const buttonClearListRiscados = document.querySelector('#remover-finalizados');
+buttonClearListRiscados.addEventListener('click', clearListRiscados);
+
+function clearListRiscados () {
+ const listRiscado = document.querySelectorAll('.completed');
+ for (let index = 0; index < listRiscado.length; index += 1) {
+  const list = listRiscado[index];
   listOrder.removeChild(list);
   }
 }
