@@ -63,11 +63,19 @@ function createButInput() {
   button.innerHTML = 'Adicionar';
   section.appendChild(button);
 }
+
+function createButAllClear() {
+  const buttonAllClear = document.createElement('button');
+  const main = document.querySelector('#content-main');
+  buttonAllClear.id = 'apaga-tudo';
+  buttonAllClear.innerHTML = 'Limpar lista';
+  main.appendChild(buttonAllClear);
+}
 createContentInput();
 createInput();
 createButInput();
 createUl();
-
+createButAllClear();
 // funções acima são estrutura HTML fixa
 
 // Usei a base do exercicio do Calendario
@@ -114,6 +122,20 @@ function completeTask() {
     };
   }
 }
+
+function allClear() {
+  const buttonClear = document.querySelector('#apaga-tudo');
+  const listTasks = document.querySelector('#lista-tarefas');
+  buttonClear.addEventListener('click', () => {
+    while (listTasks.firstElementChild) {
+      // while é um loop de repetição de condição verdadeira
+      // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/while
+      listTasks.firstElementChild.remove();
+    }
+  });
+}
+
+allClear();
 
 function allFunction() {
   const button = document.querySelector('#criar-tarefa');
