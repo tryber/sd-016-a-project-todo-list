@@ -47,3 +47,12 @@ document.addEventListener('click', (event) => {
     }
   }
 });
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'remover-finalizados') {
+    const task = document.querySelectorAll('.completed');
+    for (let i = 0; i < task.length; i += 1) {
+      task[i].remove();
+    }
+  }
+});
