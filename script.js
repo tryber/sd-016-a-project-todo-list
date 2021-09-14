@@ -25,9 +25,18 @@ function clearBackgroundColor() {
   }
 }
 
+function clearSelectedId() {
+  let taskListItens = taskList.children;
+  for (const task of taskListItens) {
+    task.removeAttribute('id');
+  }
+}
+
 function changeBackgroundColor(element) {
   clearBackgroundColor();
+  clearSelectedId();
   element.target.style.backgroundColor = 'rgb(128,128,128)';
+  element.target.setAttribute('id', 'selected');
 }
 taskList.addEventListener('click', changeBackgroundColor);
 
@@ -59,3 +68,14 @@ function clearDoneTasks() {
   }
 }
 buttonClearDoneTasks.addEventListener('click', clearDoneTasks);
+
+// Adicione um botão com id="remover-selecionado" que,
+// quando clicado, remove o item selecionado
+const buttonRemoveSelectedTask = document.getElementById('remover-selecionado');
+function removeSelected() {
+  let selectedTask = document.getElementById('selected');
+  if (selectedTask) {
+    selectedTask.remove();
+  }
+}
+buttonRemoveSelectedTask.addEventListener('click', removeSelected);
