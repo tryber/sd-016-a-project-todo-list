@@ -10,3 +10,7 @@
   color: rgb(19, 68, 48);
   margin-top: 10px;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
