@@ -1,5 +1,6 @@
+const lista = document.getElementById('lista-tarefas');
+
 function addPhrase(text) {
-  const lista = document.getElementById('lista-tarefas');
   const listaLi = document.createElement('li');
   listaLi.innerHTML = text.value;
   lista.appendChild(listaLi);
@@ -18,8 +19,6 @@ function buttomAdd() {
 buttomAdd();
 
 function colorListAdd() {
-  const lista = document.getElementById('lista-tarefas');
-
   lista.addEventListener('click', (event) => {
     for (let index = 0; index < lista.children.length; index += 1) {
       lista.children[index].classList.remove('selected');
@@ -31,8 +30,6 @@ function colorListAdd() {
 colorListAdd();
 
 function riskListAdd() {
-  const lista = document.getElementById('lista-tarefas');
-
   lista.addEventListener('dblclick', (event) => {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
@@ -45,7 +42,6 @@ function riskListAdd() {
 riskListAdd();
 
 function buttomRemoveAll() {
-  const lista = document.getElementById('lista-tarefas');
   const removeList = document.getElementById('apaga-tudo');
 
   removeList.addEventListener('click', () => {
@@ -59,7 +55,6 @@ function buttomRemoveAll() {
 buttomRemoveAll();
 
 function buttomRemoveComplete() {
-  const lista = document.getElementById('lista-tarefas');
   const removeComplete = document.getElementById('remover-finalizados');
 
   removeComplete.addEventListener('click', () => {
@@ -75,7 +70,6 @@ buttomRemoveComplete();
 
 function saveList() {
   const buttonSave = document.getElementById('salvar-tarefas');
-  const lista = document.getElementById('lista-tarefas');
 
   buttonSave.addEventListener('click', () => {
     const list = [];
@@ -89,20 +83,23 @@ function saveList() {
 }
 saveList();
 
+function continueRenderization() {
+  const localList = JSON.parse(localStorage.getItem('list'));
+  for (let index = 0; index < localList.length; index += 2) {
+    const listElement = document.createElement('li');
+    listElement.innerText = localList[index];
+    if (localList[index + 1] !== '') {
+      listElement.className = (localList[index + 1]);
+    }
+    lista.appendChild(listElement);
+  }
+}
+
 function initialRenderization() {
-  const lista = document.getElementById('lista-tarefas');
   if (localStorage.getItem('list') === null) {
     localStorage.setItem('list', JSON.stringify([]));
   } else {
-    const localList = JSON.parse(localStorage.getItem('list'));
-    for (let index = 0; index < localList.length; index += 2) {
-      const listElement = document.createElement('li');
-      listElement.innerText = localList[index];
-      if (localList[index + 1] !== '') {
-        listElement.className = (localList[index + 1]);
-      }
-      lista.appendChild(listElement);
-    }
+    continueRenderization();
   }
 }
 
@@ -110,45 +107,55 @@ window.onload = function restart() {
   initialRenderization();
 };
 
+function changeUpContentAndClass() {
+  const phraseSelected = document.getElementsByClassName('selected')[0];
+
+  for (let index = 1; index < lista.children.length; index += 1) {
+    if (lista.children[index].textContent === phraseSelected.textContent) {
+      const auxClass = lista.children[index].className;
+      lista.children[index].className = lista.children[index - 1].className;
+      lista.children[index - 1].className = auxClass;
+      const aux = lista.children[index].textContent;
+      lista.children[index].textContent = lista.children[index - 1].textContent;
+      lista.children[index - 1].textContent = aux;
+    }
+  }
+}
+
 function moveUp() {
   const buttonUp = document.getElementById('mover-cima');
-  const lista = document.getElementById('lista-tarefas');
   buttonUp.addEventListener('click', () => {
     const phraseSelected = document.getElementsByClassName('selected')[0];
     if (phraseSelected !== undefined) {
-      for (let index = 1; index < lista.children.length; index += 1) {
-        if (lista.children[index].textContent === phraseSelected.textContent) {
-          const auxClass = lista.children[index].className;
-          lista.children[index].className = lista.children[index - 1].className;
-          lista.children[index - 1].className = auxClass;
-          const aux = lista.children[index].textContent;
-          lista.children[index].textContent = lista.children[index - 1].textContent;
-          lista.children[index - 1].textContent = aux;
-        }
-      }
+      changeUpContentAndClass();
     }
   });
+}
+
+function changeDownContentAndClass() {
+  const phraseSelected = document.getElementsByClassName('selected')[0];
+
+  for (let index = 0; index < lista.children.length - 1; index += 1) {
+    if (lista.children[index].textContent === phraseSelected.textContent) {
+      const auxClass = lista.children[index].className;
+      lista.children[index].className = lista.children[index + 1].className;
+      lista.children[index + 1].className = auxClass;
+      const aux = lista.children[index].textContent;
+      lista.children[index].textContent = lista.children[index + 1].textContent;
+      lista.children[index + 1].textContent = aux;
+    }
+  }
 }
 
 moveUp();
 
 function moveDown() {
   const buttonDown = document.getElementById('mover-baixo');
-  const lista = document.getElementById('lista-tarefas');
 
   buttonDown.addEventListener('click', () => { 
     const phraseSelected = document.getElementsByClassName('selected')[0];
     if (phraseSelected !== undefined) {
-      for (let index = 0; index < lista.children.length - 1; index += 1) {
-        if (lista.children[index].textContent === phraseSelected.textContent) {
-          const auxClass = lista.children[index].className;
-          lista.children[index].className = lista.children[index + 1].className;
-          lista.children[index + 1].className = auxClass;
-          const aux = lista.children[index].textContent;
-          lista.children[index].textContent = lista.children[index + 1].textContent;
-          lista.children[index + 1].textContent = aux;
-        }
-      }
+      changeDownContentAndClass();
     }
   });
 }
@@ -157,7 +164,6 @@ moveDown();
 
 function removeSelected() {
   const buttonRemoveSelected = document.getElementById('remover-selecionado');
-  const lista = document.getElementById('lista-tarefas');
 
   buttonRemoveSelected.addEventListener('click', () => {
     for (let index = lista.children.length - 1; index >= 0; index -= 1) {
