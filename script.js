@@ -58,13 +58,18 @@ getButton.addEventListener('click', function(){
     })
     
 })
-// const listedItens = document.querySelector('#lista-tarefas').children
-// const clearButton = document.querySelector('#apaga-tudo')
-// clearButton.addEventListener('click', function(){
-//     // const lista = document.getElementsByClassName(lista)
-//     const getOl = document.querySelectorAll('#lista-tarefas')
-//     for(let index = 0; index < getOl.length; index += 1){
-//     listedItens.removeChild(getOl[index])
-//     }
-// })
+
+//https://forums.asp.net/t/1872818.aspx?how+to+remove+all+the+li+inside+the+ul+using+javascript+
+function removeLi() {
+var ol = document.getElementById('lista-tarefas');
+  if (ol) {
+    while (ol.firstChild) {
+      ol.removeChild(ol.firstChild);
+        }
+    }
+}
+
+const clearButton = document.querySelector('#apaga-tudo')
+clearButton.addEventListener('click', removeLi)
+
 
