@@ -20,3 +20,11 @@ function inputBotao() {
     document.querySelector("#lista-tarefas").appendChild(itemLista);
     inputValor.value = "";
 }
+
+//https://www.w3schools.com/howto/howto_js_toggle_class.asp
+
+listItem.addEventListener("dblclick", riscaItem)
+
+function riscaItem(event) {
+    event.target.classList.toggle("completed")
+}
