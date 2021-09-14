@@ -54,5 +54,7 @@ body {
 
 }
 #remover-selecionado {
-    
+    background-color: #a4161a;
+    color: white;
+    padding: 8px;
 }
