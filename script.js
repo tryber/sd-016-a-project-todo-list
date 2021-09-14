@@ -12,7 +12,8 @@ function adicionaTarefa() {
   input.value = '';
   addEvent();
   taskEvent();
-  deleteAllClick()
+  deleteAllClick();
+  deleteSelectedClick();
 }
 
 // Requisito 7 e 8
@@ -43,15 +44,30 @@ function lineTask(event) {
 
 // Requisito 10 - Botão apagar tudo 
 function deleteAllClick() {
-  const buttonDelete = document.getElementById('apaga-tudo')
-  buttonDelete.addEventListener('click', deleteAll);
+  const buttonDeleteAll = document.getElementById('apaga-tudo')
+  buttonDeleteAll.addEventListener('click', deleteAll);
 }
 
 function deleteAll() {
   const task = document.querySelectorAll('.line');
+//  const task2 = document.getElementsByClassName('line');
+//  const task3 = document.getElementsByTagName('li');
   const lista = document.querySelector('#lista-tarefas');
   for (let index = 0; index < task.length; index += 1) {
-    const element = task[index];
-    lista.removeChild(element);
+    lista.removeChild(task[index]);
   }
 }//Dúvida
+
+// Requisito 11
+function deleteSelectedClick() {
+  const buttonDeleteSelected = document.getElementById('remover-finalizados');
+  buttonDeleteSelected.addEventListener('click', deleteSelected);
+}
+
+function deleteSelected() {
+  const lista = document.querySelector('#lista-tarefas');
+  const element = document.querySelectorAll('.completed');
+  for (let index = 0; index < element.length; index += 1) {
+    lista.removeChild(element[index]);
+  }
+}
