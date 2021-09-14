@@ -1,7 +1,64 @@
+body {
+  background-color: royalblue;
+}
+
+h1 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(82, 81, 81);
+}
+
+p {
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(172, 162, 162);
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+#context {
+  margin: 50px;
+  margin-left: 20px;
+  margin-right: 70px;
+  background-color: whitesmoke;
+  padding: 20px;
+  border-radius: 20px;
+}
 .selected {
   background-color: rgb(128, 128, 128);
+  color: rgb(17, 8, 141);
 }
 
 .completed {
   text-decoration: line-through;
+  color: red;
+}
+
+button {
+  padding: 3px;
+  border-radius: 7px;
+  background-color: rgb(136, 15, 15);
+  font-family: fantasy ;
+  font-weight: 700;
+  color: rgb(253, 253, 253);
+  margin-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#criar-tarefa {
+  background-color: rgb(50, 190, 50);
+  margin-left: 5px;
+}
+
+ol {
+  max-width: 30%;
+}
+
+li {
+  border-radius: 6px;
+  color: rgb(3, 61, 61);
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
