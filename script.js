@@ -3,22 +3,21 @@ taskButton.addEventListener('click', addtask);
 const cleanList = document.querySelector('#apaga-tudo');
 cleanList.addEventListener('click', cleanButton);
 
-function selectListColor() {
+
+// com ajdua do Ricardo Magalhães Carvalho - Tribo 16 -A
+function selectListColor(event) {
+  const selecList = document.querySelectorAll('li');
+    for (let i = 0; i < selecList.length; i += 1) {
+    selecList[i].style.backgroundColor = 'unset';
+    }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+
+function newEvent() {
   const selecList = document.querySelectorAll('li');
   for (let i = 0; i < selecList.length; i += 1) {
-    selecList[i].addEventListener('click', function (event) {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    });
-
+    selecList[i].addEventListener('click', selectListColor)
   }
-}
-
-function clickColor() {
-  let colorPalette = document.querySelectorAll('li');;
-  colorPalette.addEventListener('click', (event) => {
-    removeColor();
-    event.target.classList.add('selected')
-  })
 }
 
 function addtask() {
@@ -29,8 +28,8 @@ function addtask() {
   generateList.innerHTML = text
   list.appendChild(generateList);
   taskText.value = '';
-  selectListColor();
-}
+  newEvent();
+ }
 
 function cleanButton() {
   const clean = document.querySelectorAll('li');
@@ -40,3 +39,4 @@ function cleanButton() {
 }
 
 cleanButton();
+
