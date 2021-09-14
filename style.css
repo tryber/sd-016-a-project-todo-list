@@ -1,0 +1,67 @@
+body {
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+}
+
+small {
+  display: block;
+}
+
+header {
+  text-align: center;
+  font-size: 4rem;
+  color: rgba(134, 177, 17);
+  opacity: 0.5;
+  margin: 4rem;
+}
+
+ol {
+  display: block;
+  margin: auto;
+  margin-top: 3rem;
+}
+
+#corpo {
+  text-align: center;
+  display: block;
+}
+
+#cabeçalho {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#texto-tarefa {
+  padding: 0.5rem;
+  width: 400px;
+  font-size: 1.5rem;
+}
+
+#texto-tarefa::placeholder {
+  text-align: center;
+}
+
+#criar-tarefa {
+  padding: 0.5rem;
+  width: auto;
+  display: inline-flex;
+}
+
+.highlight {
+  background-color: rgb(128, 128, 128);
+}
+
+#lista-tarefas {
+  width: 40%;
+  text-align: start;
+}
+
+li {
+  padding: 2px;  
+  background-color: rgba(134, 177, 17, 0.144);
+}
+
+.completed{
+  text-decoration: line-through;
+}
