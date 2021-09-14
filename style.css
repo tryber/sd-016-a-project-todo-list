@@ -55,9 +55,21 @@ p {
   color: rgb(206 , 212 , 218);
 }
 
-li {
+.list-item {
   line-height: 25px;
   font-family: Montserrat, sans-serif;
   margin: 10px auto;
   padding-left: 10px;
+  background-color: rgb(33 , 37 , 41);
+  border-radius: none;
+  color: rgb(206 , 212 , 218);
+  font-size: 18px;
+}
+
+.selected {
+  background-color: gray;
+  border-radius: 4px;
+  color: rgb(235 , 94 , 40);
+  font-weight: 900;
+  font-size: 20px;
 }
