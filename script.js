@@ -35,9 +35,11 @@ createEventListeners();
 
 const getButtonClear = document.querySelector('#apaga-tudo');
 const buttonCreateTasks = () => {
-  const getOrderedList = document.querySelector('ol');
-  if (getOrderedList.parentNode) {
-    getOrderedList.parentNode.removeChild(getOrderedList);
+  const getOrderedList = document.querySelectorAll('li');
+  for (let index = 0; index < getOrderedList.length; index += 1) {
+    if (getOrderedList[index].parentElement) {
+      getOrderedList[index].parentElement.removeChild(getOrderedList[index]);
+    }
   }
 };
 getButtonClear.addEventListener('click', buttonCreateTasks);
