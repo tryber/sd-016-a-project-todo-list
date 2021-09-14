@@ -3,6 +3,9 @@ h1 {
   font-size: 50px;
   font-family: URW Chancery L, cursive;
 }
+.completed {
+    text-decoration: line-through;
+}
 
 #funcionamento {
   color: #32CD32;
@@ -18,9 +21,6 @@ h1 {
     padding: 10px;
     border-radius: 10px;
 }
-
-
-
 
 .background-color {
     background-color: rgb(128, 128, 128);

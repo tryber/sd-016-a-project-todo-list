@@ -6,7 +6,6 @@ buttonCreatTarefa.addEventListener('click', inputButton);
 function inputButton () {
   const inputButton = document.querySelector('#texto-tarefa');
   const creatList = document.createElement('li');
-  creatList.classList.add('color');
   const addText = inputButton.value;
   creatList.innerText = addText
   listOrder.appendChild(creatList);
@@ -21,4 +20,8 @@ function selectBackgroundColor (event) {
     }  
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+listOrder.addEventListener('dblclick', textRiscado);
 
+function textRiscado (event) {
+  event.target.classList.toggle('completed');
+}
