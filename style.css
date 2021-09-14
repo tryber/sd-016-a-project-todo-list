@@ -1,0 +1,7 @@
+:root {
+  --main-background: white;
+}
+
+.task-item {
+  background-color: var(--main-background);
+}
