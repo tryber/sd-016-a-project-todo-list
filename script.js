@@ -33,8 +33,8 @@ function addNewTask() {
   listItem.addEventListener('dblclick', completedTask);
   lisTask.appendChild(listItem);
   inputTask.value = '';
+  inputTask.focus();
 }
-
 // Pegar pegar todos os elmentos LI
 function getListItensTask() {
   const itemListTack = document.querySelectorAll('.item-list');

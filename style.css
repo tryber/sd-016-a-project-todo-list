@@ -6,6 +6,7 @@
 body {
   margin: 0 auto;
   text-align: center;
+  background-color: rgb(209, 208, 208);
 }
 
 header {
@@ -16,28 +17,38 @@ header p {
   margin: 15px 0;
 }
 
-#texto-tarefa {
-  font-size: 16px;
-  padding: 8px;
-}
-
-#criar-tarefa {
-  font-size: 16px;
-  padding: 8px;
-}
-
 main {
   width: 50%;
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
   background-color: seagreen;
+  border-radius: 10px;
+}
+
+#texto-tarefa {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 25px;
+}
+
+#criar-tarefa {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 15px;
 }
 
 #lista-tarefas {
-  width: 200px;
+  width: 320px;
   height: 300px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+
+  padding: 20px 0px 0px 30px;
+  border-radius: 5px;
 }
 
 #options-task {
@@ -47,21 +58,25 @@ main {
 #apaga-tudo {
   font-size: 16px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 #remover-finalizados {
   font-size: 16px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 #remover-selecionado {
   font-size: 16px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 #salvar-tarefas {
   font-size: 16px;
   padding: 8px;
+  border-radius: 5px;
 }
 
 #mover-cima {
@@ -82,4 +97,6 @@ main {
   width: 150px;
   font-size: 20px;
   padding: 5px;
+  color: white;
+  margin-bottom: 5px;
 }
