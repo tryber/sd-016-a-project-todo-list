@@ -68,6 +68,11 @@ main {
   text-decoration: line-through;
 }
 
+#down-buttons {
+  width: max-content;
+  margin: auto;
+}
+
 .down-button {
   padding: 5px 7px;
   border-radius: 10px;
@@ -116,7 +121,6 @@ main {
 
 #salvar-tarefas {
   border: 2px solid rgb(52 , 194 , 59);
-  margin-left: 28%;
 }
 
 #salvar-tarefas:hover {
@@ -130,6 +134,7 @@ main {
 
 #up-n-down {
   margin-left: 20px;
+  margin-right: 20px;
   display: inline-block;
 }
 
@@ -144,4 +149,17 @@ main {
 #mover-cima:active , #mover-baixo:active {
   border-color: rgb(168 , 170 , 36);
   background-color: rgb(168 , 170 , 36);
+}
+
+#remover-selecionado {
+  border: 2px solid rgb(90 , 52 , 194);
+}
+
+#remover-selecionado:hover {
+  background-color: rgb(90 , 52 , 194);
+}
+
+#remover-selecionado:active {
+  border-color: rgb(80 , 46 , 172);
+  background-color: rgb(80 , 46 , 172);
 }
