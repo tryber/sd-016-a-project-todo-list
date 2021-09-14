@@ -56,14 +56,24 @@ function apagarLista() {
     }
 }
 
+function apagarFinalizados() {
+    const todos = document.querySelectorAll(".completed");
+    
+    for (let index = 0; index < todos.length; index++) {
+        todos[index].parentElement.removeChild(todos[index]);
+    }
+
+}
 
 
 function eventos() {
     const botao = document.querySelector("#criar-tarefa");
     const botaoApagar = document.querySelector("#apaga-tudo")
+    const botaoApagarFinalizados = document.querySelector("#remover-finalizados");
 
     botao.addEventListener("click", criarLista);
     botaoApagar.addEventListener("click", apagarLista);
+    botaoApagarFinalizados.addEventListener("click", apagarFinalizados);
 
 }
 
