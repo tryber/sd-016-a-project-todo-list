@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.main {
+  margin: 100px;
+  background-color: rgb(201 , 201 , 201);
+  border-radius: 50px;
+  padding: 50px;
+}
+
+body {
+  background-color: rgb(62 , 181 , 149);
+}
+
+h1 {
+  text-align: left;
+  font-family: Fira Code, sans-serif;
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+#funcionamento {
+  text-align: left;
+  font-size: small;
+  margin-bottom: 30px;
+}
+
+#texto-tarefa {
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  padding-left: 15px;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  outline: none;
+}
+
+#lista-tarefas {
+  width: 80%;
+  padding: 25px;
+  border: solid 2px black;
+  border-radius: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding-left: 40px;
+}
+
+button {
+  background: rgb(26 , 26 , 26);
+  color: rgb(255 , 244 , 71);
+  border-style: outset;
+  border-color: rgb(26 , 26 , 26);
+  font: 12px arial, sans-serif;
+  font-weight: 600;
+  text-shadow: none;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
