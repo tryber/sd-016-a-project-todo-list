@@ -40,3 +40,13 @@ function deleteAll () {
    addList.removeChild(element);
  }
 }
+const buttonRemoveStyle = document.querySelector('#remover-finalizados');
+buttonRemoveStyle.addEventListener('click', removeStyle);
+
+ function removeStyle () {
+  const removeListStyle = document.querySelectorAll('.completed')
+ for (let index = 0; index < removeListStyle.length; index += 1) {
+   const element = removeListStyle[index];
+   addList.removeChild(element);
+ }
+ }
