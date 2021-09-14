@@ -56,3 +56,13 @@ const clearAll = document.querySelector('#apaga-tudo');
 clearAll.addEventListener('click', () => {
   taskList.innerHTML = '';
 });
+
+// requisito 11
+const clearCompleted = document.querySelector('#remover-finalizados');
+function removeCompletedTask() {
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTasks.length; i += 1) {
+    taskList.removeChild(completedTasks[index]);
+  }
+}
+clearCompleted.addEventListener('click', removeCompletedTask);
