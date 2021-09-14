@@ -45,9 +45,39 @@ function createOrderedList() {
   listSection.appendChild(orderedList);
 }
 
+// 5 - Criando botao para adicionar tarefas
+function createTaskButton() {
+  let taskInputSection = document.getElementById('input-section');
+  let taskButton = document.createElement('button');
+  taskButton.id = 'criar-tarefa';
+  taskButton.innerText = 'Criar Tarefa'
+
+  taskInputSection.appendChild(taskButton);
+}
+
+// 5 - Fazendo com que as tarefas seja adicionadas
+function handleTaskButton() {
+  let taskInput = document.getElementById('texto-tarefa');
+  let taskButton = document.getElementById('criar-tarefa');
+  let orderedList = document.getElementById('lista-tarefas');
+
+  taskButton.addEventListener('click', () => {
+    if (taskInput.value === '') {
+      alert('Preencha o campo!');
+    } else {
+      let listItem = document.createElement('li');
+      listItem.innerText = taskInput.value;
+      orderedList.appendChild(listItem);
+      taskInput.value = '';
+    }
+  })
+}
+
 window.onload = () => {
   createTitle();
   createParagraphOperation();
   createTaskInput();
   createOrderedList();
+  createTaskButton();
+  handleTaskButton();
 };
