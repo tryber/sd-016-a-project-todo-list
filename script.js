@@ -97,9 +97,24 @@ function clearSelectedOl() {
 function clickOl() {
   const taskList = document.querySelectorAll('.list');
   for (let i = 0; i < taskList.length; i += 1) {
-    taskList[i].addEventListener('click', () => {    
+    taskList[i].addEventListener('click', () => {
       clearSelectedOl();
       taskList[i].style.backgroundColor = 'rgb(128, 128, 128) ';
+    });
+  }
+}
+
+function completeTask() {
+  const taskList = document.querySelectorAll('.list');
+  for (let i = 0; i < taskList.length; i += 1) {
+    taskList[i].addEventListener('dblclick', () => {
+      const tasks = getComputedStyle(taskList[i]);
+      const completed = tasks.getPropertyValue('text-decoration-line');
+      if (completed === 'none') {
+        taskList[i].style.textDecoration = 'line-through';
+      } else if (completed === 'line-through') {
+        taskList[i].style.textDecoration = 'none';
+      }
     });
   }
 }
@@ -109,6 +124,7 @@ function allFunction() {
   button.addEventListener('click', () => {
     addList();
     clickOl();
+    completeTask();
   });
 }
 
