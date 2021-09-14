@@ -1,9 +1,9 @@
 const buttonCreatTarefa = document.querySelector('#criar-tarefa');
-const listOrder = document.querySelector('#lista-tarefas')
+const listOrder = document.querySelector('#lista-tarefas');
 
 buttonCreatTarefa.addEventListener('click', inputButton);
 
-function inputButton () {
+function inputButton() {
   const inputButton = document.querySelector('#texto-tarefa');
   const creatList = document.createElement('li');
   const addText = inputButton.value;
@@ -14,14 +14,25 @@ function inputButton () {
 listOrder.addEventListener('click', selectBackgroundColor); 
 
 function selectBackgroundColor (event) {
-  const selectLi = document.querySelectorAll('li');
-    for (let index = 0; index < selectLi.length; index += 1) {
-      selectLi[index].style.backgroundColor = 'white';
-    }  
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+const selectLi = document.querySelectorAll('li');
+  for (let index = 0; index < selectLi.length; index += 1) {
+    selectLi[index].style.backgroundColor = 'white';
+  }  
+event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 listOrder.addEventListener('dblclick', textRiscado);
 
 function textRiscado (event) {
-  event.target.classList.toggle('completed');
+event.target.classList.toggle('completed');
+}
+
+const buttonClearList = document.getElementById('apaga-tudo');
+buttonClearList.addEventListener('click', removeItemList);
+
+function removeItemList () {
+const selectLi = document.querySelectorAll('li');
+  for (let index = 0; index < selectLi.length; index++) {
+  const list = selectLi[index];
+  listOrder.removeChild(list);
+  }
 }
