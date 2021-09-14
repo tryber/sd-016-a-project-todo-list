@@ -6,7 +6,7 @@ const clearFinalizados = document.querySelector('#remover-finalizados');
 const up = document.querySelector('#mover-cima');
 const down = document.querySelector('#mover-baixo');
 const removeGraySelected = document.querySelector('#remover-selecionado');
-
+// const save = document.querySelector('#salvar-tarefas');
 
 
 button.addEventListener('click', function () {
@@ -80,8 +80,14 @@ function removeSelect() {
   }
 }
 
+// function savePage() {
+// }
+
+
 
 up.addEventListener('click', moveUp);
 down.addEventListener('click', moveDown);
 clearFinalizados.addEventListener('click', removeFinished);
 removeGraySelected.addEventListener('click', removeSelect);
+// save.addEventListener('click', savePage);
+
