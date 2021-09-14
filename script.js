@@ -69,6 +69,7 @@ function removeTaskSelected() {
   selectLineList = selectorTasks();
 }
 
+// Função testa condição do previousSibling.
 function testConditionPrevious(index) {
   const sibling = selectLineList[index].previousElementSibling;
   if (selectLineList[index].previousElementSibling) {
@@ -85,6 +86,7 @@ function moveItemUp() {
   }
 }
 
+// Função testa condição do nestSibling.
 function testConditionNext(index) {
   const sibling = selectLineList[index].nextElementSibling;
   if (selectLineList[index].nextElementSibling) {
@@ -101,6 +103,7 @@ function moveItemDown() {
   }
 }
 
+// Função para salvar o conteudo HTML da tag OL.
 function saveTasksItens() {
   localStorage.setItem('tasksItem', JSON.stringify(selectOl.innerHTML));
 }
@@ -132,6 +135,7 @@ function createTasksList() {
 
 selectButton.addEventListener('click', createTasksList);
 
+// Função onload, retorna o valor do localStorage e recria o conteudo das listas.
 window.onload = () => {
   const returnOl = JSON.parse(localStorage.getItem('tasksItem'));
   if (returnOl !== null) {
