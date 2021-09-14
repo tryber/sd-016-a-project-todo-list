@@ -6,13 +6,13 @@
 
 .main {
   margin: 100px;
-  background-color: #c9c9c9;
+  background-color: rgb(201, 201, 201);
   border-radius: 50px;
   padding: 50px;
 }
 
 body {
-  background-color: #3eb595;
+  background-color: rgb(62, 181, 149);
 }
 
 h1 {
@@ -50,10 +50,10 @@ h1 {
 }
 
 button {
-  background: #1a1a1a;
-  color: #fff447;
+  background: rgb(26, 26, 26);
+  color: rgb(255, 244, 71);
   border-style: outset;
-  border-color: #1a1a1a;
+  border-color: rgb(26, 26, 26);
   font: 12px arial, sans-serif;
   font-weight: 600;
   text-shadow: none;
