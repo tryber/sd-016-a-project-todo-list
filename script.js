@@ -19,14 +19,14 @@ createTask.addEventListener('click', addItemToList);
 document.addEventListener('click', (event) => {
   const list = document.querySelectorAll('.task-item');
   if (event.target.classList.contains('task-item')) {
-    const color = 128;
-    const white = 255;
+    // const color = 128;
+    // const white = 255;
     const line = event.target;
     for (let i = 0; i < list.length; i += 1) {
-      list[i].style.setProperty(mainBackground, `rgb(${white}, ${white}, ${white})`);
+      // list[i].style.setProperty(mainBackground, `rgb(${white}, ${white}, ${white})`);
       list[i].classList.remove('selected');
     }
-    line.style.setProperty(mainBackground, `rgb(${color}, ${color}, ${color})`);
+    // line.style.setProperty(mainBackground, `rgb(${color}, ${color}, ${color})`);
     line.classList.add('selected');
     localStorage.setItem('bgColor', line.innerText);
   }
@@ -76,13 +76,15 @@ document.addEventListener('click', (event) => {
 });
 
 function movesUp() {
+  const listContainer = document.querySelector('#lista-tarefas');
   const list = document.querySelectorAll('.task-item');
-  let temp;
   for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('selected') && i === 0) {
+      return 1;
+    }
     if (list[i].classList.contains('selected')) {
-      temp = list[i - 1].innerText;
-      list[i - 1].innerText = list[i].innerText;
-      list[i].innerText = temp;
+      const before = list[i - 1];
+      listContainer.insertBefore(list[i], before);
     }
   }
 }
@@ -90,6 +92,26 @@ function movesUp() {
 document.addEventListener('click', (event) => {
   if (event.target.id === 'mover-cima') {
     movesUp();
+  }
+});
+
+function movesDown() {
+  const listContainer = document.querySelector('#lista-tarefas');
+  const list = document.querySelectorAll('.task-item');
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('selected') && i === list.length - 1) {
+      return 1;
+    }
+    if (list[i].classList.contains('selected')) {
+      const before = list[i + 2];
+      listContainer.insertBefore(list[i], before);
+    }
+  }
+}
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-baixo') {
+    movesDown();
   }
 });
 
