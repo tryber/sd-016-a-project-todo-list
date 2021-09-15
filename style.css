@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, .main-content, .main, .head, #lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;   
+}
+
+body {
+  height: 100vh;
+}
+
+.main-content {
+  width: 75%;
+  height: 80vh;
+  border: 1px solid black;
+}
+
+.main {
+  width: 80%;
+}
+
+
+#lista-tarefas {
+  flex-wrap: wrap;
+  height: 20vh;
+  width: 100%;
+}
+
+li {
+  width: auto;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
