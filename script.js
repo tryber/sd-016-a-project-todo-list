@@ -130,7 +130,7 @@ let deleteCompletedTasksButton = document.getElementById('remover-finalizados');
 function deleteCompletedTasks() {
   let completedTasks = orderedList.querySelectorAll('.completed')
 
-  for (let i = 0; i < teste.length; i += 1) {
+  for (let i = 0; i < completedTasks.length; i += 1) {
     completedTasks[i].remove();
   }
 }
