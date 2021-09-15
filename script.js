@@ -95,3 +95,27 @@ const onload = () => {
   }
 };
 window.addEventListener('load', onload);
+
+const getButtonMoveUp = document.querySelector('#mover-cima');
+const moveUp = () => {
+  const getElementSelected = document.querySelector('.selected');
+  if (getElementSelected !== null) {
+    const previousElelement = getElementSelected.previousElementSibling;
+    if (previousElelement) {
+      getElementSelected.parentNode.insertBefore(getElementSelected, previousElelement);
+    }
+  }
+};
+getButtonMoveUp.addEventListener('click', moveUp);
+
+const getButtonMoveDown = document.querySelector('#mover-baixo');
+const moveDown = () => {
+  const getElementSelected = document.querySelector('.selected');
+  if (getElementSelected !== null) {
+    const nextElement = getElementSelected.nextElementSibling;
+    if (nextElement) {
+      getElementSelected.parentNode.insertBefore(nextElement, getElementSelected);
+    }
+  }
+};
+getButtonMoveDown.addEventListener('click', moveDown);

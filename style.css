@@ -95,3 +95,11 @@ p {
   font-family: Montserrat, sans-serif;
   font-weight: 700;
 }
+
+#mover-cima {
+  color: green;
+}
+
+#mover-baixo {
+  color: red;
+}
