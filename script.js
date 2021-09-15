@@ -2,6 +2,7 @@
 const addButton = document.getElementById("criar-tarefa");
 const clearButton = document.getElementById("apaga-tudo");
 const completedButton = document.getElementById("remover-finalizados");
+const saveButton = document.getElementById("salvar-tarefas");
 let todoList = [];
 let nbmrOfTodos = 0;
 
@@ -9,6 +10,7 @@ let nbmrOfTodos = 0;
 addButton.addEventListener("click", addTodo);
 clearButton.addEventListener("click", deleteEverything);
 completedButton.addEventListener("click", deleteCompleted);
+saveButton.addEventListener("click", saveList);
 
 // Funcoes
 function addTodo(){
@@ -70,5 +72,57 @@ function deleteCompleted(){
     const toBeDeleted = document.querySelectorAll(".completed")
     for(let k = 0; k < toBeDeleted.length; k += 1){
         toBeDeleted[k].remove();
+    }
+}
+
+function saveList(){
+    // Criando um array com todos os elementos que estao listados
+    const todosToSave = document.querySelectorAll("li"); 
+
+    // Criando um array para salvar o conteúdo desses li em texto
+    const savedTodoText = [];
+
+    // Colocando os textos dentro desse array
+    for(let t = 0; t < todosToSave.length; t += 1){
+        savedTodoText.push(todosToSave[t].innerHTML);
+    }
+
+    // Botando esse array no localstorage
+    localStorage.setItem("savedTodos", JSON.stringify(savedTodoText));
+}
+
+// Criando funcao para, quando carregar a pagina, montar as li`s
+window.onload = () => {
+    // checando se existem itens salvos no local storage com a key savedTodos
+    if(localStorage.getItem("savedTodos") !== null){
+        //  Caso exista, pegar os valores de dentro dele usando o parse
+        const savedTodoText = JSON.parse(localStorage.getItem("savedTodos"));
+
+        // Criando um for para criar as Li`s dos todos salvos
+        for(let m = 0; m < savedTodoText.length; m += 1){
+            // Pegar o item e o valor do item
+            let caixaDeTexto = document.getElementById("texto-tarefa");
+            let textoTarefa = savedTodoText[m];
+
+            // criando uma li contendo o valor do input
+            const actualTodo = document.createElement("li");
+            actualTodo.innerHTML = textoTarefa;
+
+            // Pegando o OL
+            const orderedList = document.getElementById("lista-tarefas");
+
+            // appendando a li dentro do ol
+            orderedList.appendChild(actualTodo);
+
+            // Adicionando o todo para a lista de todos
+            todoList.push(actualTodo);
+
+            // Adicionando o evento de clicar em cada LI criada
+            todoList[nbmrOfTodos].addEventListener("click", turnGrey);
+            todoList[nbmrOfTodos].addEventListener("dblclick", riskIt);
+
+            // Adicionando todo +1
+            nbmrOfTodos += 1;
+        }
     }
 }
