@@ -66,6 +66,8 @@ function handleTaskButton() {
     orderedList.appendChild(listItem);
     taskInput.value = '';
   }
+
+  saveTasks();
 }
 taskButton.addEventListener('click', handleTaskButton);
 
