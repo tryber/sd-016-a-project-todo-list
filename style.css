@@ -1,10 +1,86 @@
 body {
-  margin: 0;
-  cursor: url('/magic-wand (1).png'), default;
+  cursor: default;
+  display: block;
+  text-align: center;
+  background-image: url('/cartas.jpg');
+  background-size: cover;
+  font-family: monospace;
+}
+
+header {
+  width: 50%;
+  display: inline-block;
+  border-radius: 10px 10px 0px 0px;
+  padding-top: 100px;
+  margin-top: 280px;
+  background-color: #383e56;
+  color: #fb743e;
+  box-shadow: 10px 20px 15px #80808060;
+}
+
+header h1 {
+  font-size: 45px;
+  text-shadow: 2px 5px 5px black;
+}
+
+header p {
+  font-size: 20px;
+  margin-bottom: 50px;
+  text-shadow: 2px 5px 5px black;
+}
+
+main {
+  width: 50%;
+  text-align: center;
+  display: inline-block;
+  background-color: #383e56;
+  box-shadow: 10px 20px 15px #80808060;
+  border-radius: 0px 0px 10px 10px;
+  padding: 50px 0px 100px 0px;
+  margin-bottom: 150px;
+}
+
+ol {
+  color: black;
+  background-color: #ffffa5;
+  text-align: left;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 25px;
+  font-weight: 900;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+li {
+  padding: 5px;
+  border-bottom: 2px solid black;
+}
+
+input {
+  padding: 5px;
+  font-size: 20px;
 }
 
 button {
-  cursor: url('/magic-wand (1).png'), default;
+  cursor: pointer;
+  font-size: 20px;
+  font-size: 900;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+button:hover {
+  background: #383e56;
+  color: #fb743e;
+  font-weight: 900;
+}
+
+header img {
+  margin-top: 30px;
+  width: 155px;
 }
 
 .completed {
@@ -15,4 +91,10 @@ button {
   background-color: rgb(128, 128, 128);
   padding: 8px;
   font-weight: 900;
+}
+
+#pin {
+  src: url('/pin.png');
+  position: absolute;
+  margin-top: -20px;
 }
