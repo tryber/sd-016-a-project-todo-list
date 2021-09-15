@@ -80,12 +80,21 @@ function buttonClearSelected() {
   main.appendChild(butClear);
 }
 
+function ButtonSaveTasks() {
+  const save = document.createElement('button');
+  const main = document.querySelector('#content-main');
+  save.id = 'salvar-tarefas';
+  save.innerHTML = 'Salvar lista';
+  main.appendChild(save);
+}
+
 createContentInput();
 createInput();
 createButInput();
 createUl();
 createButAllClear();
 buttonClearSelected();
+ButtonSaveTasks();
 // funções acima são estrutura HTML fixa
 
 // Usei a base do exercicio do Calendario
@@ -145,9 +154,10 @@ function allClear() {
   });
 }
 
+
 allClear();
 
-function allFunction() {
+function addAllFunction() {
   const button = document.querySelector('#criar-tarefa');
   button.addEventListener('click', () => {
     addList();
@@ -156,12 +166,13 @@ function allFunction() {
   });
 }
 
-allFunction();
+addAllFunction();
 
 function clearCompleted() {
-  const tasksCompleted = document.querySelectorAll('.completed');
-  for (let i = 0; i < tasksCompleted.length; i += 1) {
-    tasksCompleted[i].remove();
+  const tasksCompleted = document.getElementsByClassName('completed');
+  while( tasksCompleted.length > 0) {
+    const listCom = tasksCompleted[0]
+    listCom.parentNode.removeChild(listCom)
   }
 }
 function removeCompleted() {
@@ -169,3 +180,22 @@ function removeCompleted() {
   butClear.addEventListener('click', clearCompleted);
 }
 removeCompleted();
+
+function saveTasks() {
+  const list= document.querySelector('#lista-tarefas')
+  
+  window.localStorage.Tasks = list.innerHTML
+}
+
+function save() {
+  const buttonSave = document.querySelector('#salvar-tarefas');
+  buttonSave.addEventListener('click', saveTasks);
+}
+save()
+
+function printList() {
+  const list= document.querySelector('#lista-tarefas')
+  list.innerHTML = (window.localStorage.Tasks === undefined) ? '' : window.localStorage.Tasks;
+}
+
+printList()
