@@ -13,7 +13,7 @@ function taskList() {
   input.value = '';
 }
 
-//ref: lógica aprendida através de codereview de codigo da turma 13;
+// ref: lógica aprendida através de codereview de codigo da turma 13;
 
 function paintList(event2) {
   const listContent = document.querySelector('.selected');
@@ -25,7 +25,7 @@ function paintList(event2) {
   }
 }
 
-//ref: lógica aprendida através de codereview de codigo da turma 13;
+// ref: lógica aprendida através de codereview de codigo da turma 13;
 
 function taskComplete(event3) {
   if (event3.target.classList.contains('completed') === false) {
@@ -38,16 +38,16 @@ function taskComplete(event3) {
 // ref: https://www.w3schools.com/jsref/met_node_removechild.asp
 
 function apagaTudo() {
-  let lista = document.getElementById('lista-tarefas');
+  const lista = document.getElementById('lista-tarefas');
   while (lista.hasChildNodes()) {
     list.removeChild(list.firstChild);
   }
 }
 
-//ref: lógica aprendida através de codereview de codigo da turma 13;
+// ref: lógica aprendida através de codereview de codigo da turma 13;
 
 function apagaFinalizados() {
-  let finalizados = document.querySelectorAll('.completed');
+  const finalizados = document.querySelectorAll('.completed');
   for (let index = 0; index < finalizados.length; index += 1) {
     if (finalizados[index].classList.contains('completed')) {
       list.removeChild(finalizados[index]);
