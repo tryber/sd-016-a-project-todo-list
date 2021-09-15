@@ -115,6 +115,17 @@ document.addEventListener('click', (event) => {
   }
 });
 
+function removesSelected() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'remover-selecionado') {
+    removesSelected();
+  }
+});
+
 function setsBgColor() {
   const list = document.querySelectorAll('.task-item');
   const item = localStorage.getItem('bgColor');
