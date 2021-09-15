@@ -1,4 +1,5 @@
 let button = document.createElement('button');
+let eraseButton = document.getElementById('apaga-tudo');
 let parentList = document.getElementById('lista-tarefas');
 let parentbutton = document.getElementById('mainList')
 let inputText = document.getElementById('texto-tarefa');
@@ -41,3 +42,13 @@ function completedTasks (event) {
 }
 
 parentList.addEventListener('dblclick', completedTasks);
+
+function removeAll () {
+  let removeList = document.getElementsByClassName('item-list');
+  while (removeList.length > 0) {
+    removeList[0].parentNode.removeChild(removeList[0]);
+  }
+}
+
+eraseButton.addEventListener('click', removeAll);
+
