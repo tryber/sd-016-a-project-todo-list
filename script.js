@@ -86,13 +86,13 @@ riskItens.addEventListener('dblclick', function(event) {
   }
          
 })
-
+//função do botão de remover elementos que possuem a classe completed;
+//codigo usado de referencia https://www.codegrepper.com/code-examples/javascript/remove+element+with+class+name+javascript
 function completedButton(){
-  let completed = document.querySelector('.completed');
-  if (completed){
-    while(completed.firstChild)
-    completed.remove(completed.firstChild)
-  }
+    const completed = document.getcompletedByClassName('completed');
+    while(completed.length > 0){
+        completed[0].parentNode.removeChild(completed[0]);
+    }
 }
 
 let clearCompletedButton = document.querySelector('#remover-finalizados')
