@@ -3,6 +3,9 @@ const list = document.getElementById('lista-tarefas');
 const button = document.getElementById('criar-tarefa');
 const button2 = document.getElementById('apaga-tudo');
 const button3 = document.getElementById('remover-finalizados');
+const button4 = document.getElementById('remover-selecionado');
+const button5 = document.getElementById('salvar-tarefas')
+
 
 function taskList() {
   const listContent = input.value;
@@ -55,11 +58,36 @@ function apagaFinalizados() {
   }
 }
 
+function apagaSelecionados() {
+  const selected = document.querySelectorAll('.selected')
+  for (let index = 0; index < selected.length; index += 1) {
+    if (selected[index].classList.contains('selected')) {
+      list.removeChild(selected[index]);
+    }
+  }
+}
+
+function saveTasks() {
+  const tasksSaved = list.innerHTML;
+  localStorage.setItem('Saved-list', tasksSaved);
+}
+
+function returnTasks() {
+  const savedList = localStorage.getItem('Saved-list');
+  if (savedList !== null) {
+    list.innerHTML = savedList;
+  }
+}
+
+returnTasks();
+
 function addEvents() {
   button.addEventListener('click', taskList);
   list.addEventListener('click', paintList);
   list.addEventListener('dblclick', taskComplete);
   button2.addEventListener('click', apagaTudo);
   button3.addEventListener('click', apagaFinalizados);
+  button4.addEventListener('click', apagaSelecionados);
+  button5.addEventListener('click', saveTasks);
 }
 addEvents();
