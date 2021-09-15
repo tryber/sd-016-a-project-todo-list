@@ -5,14 +5,18 @@ let items = [];
 const clearButton = document.getElementById('apaga-tudo');
 const clearTaskButton = document.getElementById('remover-finalizados');
 const saveButton = document.getElementById('salvar-tarefas');
+const upButton = document.getElementById('mover-cima');
+const downButton = document.getElementById('mover-baixo');
 
 function changeBackground(item) {
   items.forEach((element) => {
     const value = element;
+    value.classList.remove('selected');
     value.style.backgroundColor = '';
   });
   const task = item;
   task.target.style.backgroundColor = 'rgb(128,128,128)';
+  task.target.classList.add('selected');
 }
 
 function lineThrough(item) {
@@ -26,6 +30,27 @@ function lineThrough(item) {
   }
 }
 
+function saveTasks() {
+  const itemArray = [];
+  // source: https://stackoverflow.com/questions/61758780/how-to-set-css-style-to-local-storage-for-dynamically-created-list-using-javascr
+  // usei pra aprender como tratar o json pra receber parâmetros
+  items.forEach((item) => {
+    if (item.classList.contains('completed')) {
+      itemArray.push({
+        name: item.innerText,
+        completed: true,
+      });
+    } else {
+      itemArray.push({
+        name: item.innerText,
+        completed: false,
+      });
+    }
+  });
+  localStorage.setItem('tasks', JSON.stringify(itemArray));
+  alert('Tarefas salvas!');
+}
+
 function getItems() {
   items = document.querySelectorAll('.items');
   items.forEach((item) => {
@@ -33,6 +58,29 @@ function getItems() {
     item.addEventListener('dblclick', lineThrough);
   });
 }
+
+function moveItem(upOrDown = false) {
+  const direction = upOrDown;
+  items.forEach((item) => {
+    if (item.classList.contains('selected')) {
+      if (direction) {
+        lista.insertBefore(item, item.nextSibling.nextSibling);
+      } else if (item.previousSibling) {
+        lista.insertBefore(item, item.previousSibling);
+      }
+    }
+  });
+  getItems();
+}
+
+function moveDown() {
+  moveItem(true);
+}
+
+function moveUp() {
+  moveItem(false);
+}
+
 // source: https://stackoverflow.com/questions/22991871/localstorage-save-array/22992002
 // usei para aprender a transformar em objeto JSON e depois recuperá-lo
 if (localStorage.getItem('tasks')) {
@@ -54,25 +102,6 @@ if (localStorage.getItem('tasks')) {
       getItems();
     }
   });
-}
-
-function saveTasks() {
-  const itemArray = [];
-  items.forEach((item) => {
-    if (item.classList.contains('completed')) {
-      itemArray.push({
-        name: item.innerText,
-        completed: true,
-      });
-    } else {
-      itemArray.push({
-        name: item.innerText,
-        completed: false,
-      });
-    }
-  });
-  localStorage.setItem('tasks', JSON.stringify(itemArray));
-  alert('Tarefas salvas!');
 }
 
 button.addEventListener('click', () => {
@@ -101,3 +130,7 @@ clearTaskButton.addEventListener('click', () => {
 });
 
 saveButton.addEventListener('click', saveTasks);
+
+upButton.addEventListener('click', moveUp);
+
+downButton.addEventListener('click', moveDown);
