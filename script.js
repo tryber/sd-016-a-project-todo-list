@@ -24,11 +24,15 @@ list.addEventListener('click', selectItem);
 
 // marca como item de lista completado
 function completeItem(event) {
-  event.target.classList.add('completed');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed')
+  }
 }
 list.addEventListener('dblclick', completeItem);
 
-//  deleta todos itens de lista 
+//  deleta todos itens de lista
 function deleteAllLi() {
   list.innerHTML = '';
 }
@@ -37,13 +41,13 @@ document.getElementById('apaga-tudo').onclick = deleteAllLi;
 //  remove itens finalizados
 function deletaFinalizados() {
   for (let i = 0; i < 1000; i -= 1) {
-    finalizados[0].remove()
+    finalizados[0].remove();
   }
 }
 document.getElementById('remover-finalizados').onclick = deletaFinalizados;
 
 //  remove item selecionado
-document.getElementById('remover-selecionado').addEventListener('click', function(){
+document.getElementById('remover-selecionado').addEventListener('click', function () {
   const selecionado = document.getElementsByClassName('selected')[0];
-  selecionado.remove(); 
+  selecionado.remove();
 });
