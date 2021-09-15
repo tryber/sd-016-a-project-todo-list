@@ -2,13 +2,7 @@ div {
   vertical-align: top;
 }
 
-#criar-tarefa {
-  width: auto;
-  height: 30px;
-  vertical-align: middle;
-}
-
-#apaga-tudo {
+.buttons {
   width: auto;
   height: 30px;
   vertical-align: middle;
