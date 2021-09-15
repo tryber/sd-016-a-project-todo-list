@@ -1,0 +1,11 @@
+.completed {
+  text-decoration: line-through;
+}
+
+#apaga-tudo {
+  cursor: pointer;
+}
+
+#criar-tarefa {
+  cursor: pointer;
+}
