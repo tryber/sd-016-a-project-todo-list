@@ -2,6 +2,7 @@ const input = document.querySelector('#texto-tarefa');
 const addButton = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 const clearAll = document.querySelector('#apaga-tudo');
+const clearCompleted = document.querySelector('#remover-finalizados');
 
 function clearClass() {
   const allLI = document.getElementsByTagName('li');
@@ -32,6 +33,13 @@ function createItem(expectedText) {
 clearAll.addEventListener('click', () => {
   while (list.firstChild) {
     list.removeChild(list.firstChild);
+  }
+});
+
+clearCompleted.addEventListener('click', () => {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    completed[i].remove();
   }
 });
 
