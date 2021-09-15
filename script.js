@@ -82,6 +82,14 @@ function saveList(){
     // Criando um array para salvar o conteúdo desses li em texto
     const savedTodoText = [];
 
+    // Criando um array para salvar se os conteúdos desses li estao completos ou nao
+    const todosCompleted = [];
+
+    // Colocando as classes dentro desse array
+    for (let n = 0; n < todosToSave.length; n += 1){
+        todosCompleted.push(todosToSave[n].className);
+    }
+
     // Colocando os textos dentro desse array
     for(let t = 0; t < todosToSave.length; t += 1){
         savedTodoText.push(todosToSave[t].innerHTML);
@@ -89,6 +97,9 @@ function saveList(){
 
     // Botando esse array no localstorage
     localStorage.setItem("savedTodos", JSON.stringify(savedTodoText));
+
+    // BOtando o arrya de classe no localstorage
+    localStorage.setItem("todosClasses", JSON.stringify(todosCompleted));
 }
 
 // Criando funcao para, quando carregar a pagina, montar as li`s
@@ -97,6 +108,9 @@ window.onload = () => {
     if(localStorage.getItem("savedTodos") !== null){
         //  Caso exista, pegar os valores de dentro dele usando o parse
         const savedTodoText = JSON.parse(localStorage.getItem("savedTodos"));
+
+        // pegar os valores das classes
+        const todosClasses = JSON.parse(localStorage.getItem("todosClasses"));
 
         // Criando um for para criar as Li`s dos todos salvos
         for(let m = 0; m < savedTodoText.length; m += 1){
@@ -123,6 +137,9 @@ window.onload = () => {
 
             // Adicionando todo +1
             nbmrOfTodos += 1;
+
+            // Adicionando as classes aos elementos
+            actualTodo.className = todosClasses[m];
         }
     }
 }
