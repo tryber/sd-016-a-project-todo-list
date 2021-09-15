@@ -5,7 +5,14 @@ header {
 
 }
 
-
 #criar-tarefa {
   padding: 5px;
+}
+
+.uncompleted {
+  text-decoration: none;
+}
+
+.completed {
+  text-decoration: line-through;
 }
