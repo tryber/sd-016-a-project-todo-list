@@ -1,5 +1,6 @@
 let button = document.createElement('button');
 let eraseButton = document.getElementById('apaga-tudo');
+let eraseDoneButton = document.getElementById('remover-finalizados');
 let parentList = document.getElementById('lista-tarefas');
 let parentbutton = document.getElementById('mainList')
 let inputText = document.getElementById('texto-tarefa');
@@ -43,6 +44,7 @@ function completedTasks (event) {
 
 parentList.addEventListener('dblclick', completedTasks);
 
+// Função removeAll com *while* feita com base na fonte StackOverflow link: https://stackoverflow.com/questions/4777077/removing-elements-by-class-name //
 function removeAll () {
   let removeList = document.getElementsByClassName('item-list');
   while (removeList.length > 0) {
@@ -52,3 +54,11 @@ function removeAll () {
 
 eraseButton.addEventListener('click', removeAll);
 
+function removeListDone () {
+  let removeDone = document.getElementsByClassName('completed');
+  while (removeDone.length > 0) {
+    removeDone[0].parentNode.removeChild(removeDone[0]);
+  }
+}
+
+eraseDoneButton.addEventListener('click',removeListDone);
