@@ -1,0 +1,59 @@
+body {
+    background-color: #347d39;
+}
+
+#principal {
+    background-color: blanchedalmond;
+    margin: 100px 30px;
+    border-radius: 10px;
+}
+
+header {
+    padding-top: 20px;
+    margin-left: 50px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+#funcionamento {
+    margin-left: 50px;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    color: gray;
+}
+
+#texto-tarefa {
+    margin-left: 50px;
+    border-radius: 4px;
+    height: 20px;
+}
+
+input:focus {
+    outline: none !important;
+    border-color: #1066c2;
+    box-shadow: 30px #1066c2;
+}
+
+#criar-tarefa {
+    background-color: #1066c2;
+    border-radius: 10px;
+    border: none;
+    height: 25px;
+    margin-left: 15px;
+    width: 100px;
+    color: whitesmoke;
+}
+
+li {
+    margin-left: 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.liGray {
+    background-color: rgb(128, 128, 128);
+    color: whitesmoke;
+}
