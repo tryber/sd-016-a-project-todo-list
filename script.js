@@ -92,6 +92,7 @@ function completedTask(event) {
 }
 orderedList.addEventListener('dblclick', completedTask);
 
+// 10 - Criando o botao que sera usado na proxima funcao para apagar todos os itens
 function createDeleteTasksButton() {
   let taskInputSection = document.getElementById('input-section');
   let deleteTasksButton = document.createElement('button');
@@ -102,12 +103,35 @@ function createDeleteTasksButton() {
 }
 createDeleteTasksButton();
 
+// 10 - Fazendo com o que o botao apague todos os itens da lista
 let deleteTasksButton = document.getElementById('apaga-tudo');
-function deleteTasks() {  
+function deleteAllTasks() {  
   // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
   // Utilizando while para verificar enquanto a lista estiver um elemento, ele ira remover (ultimo), ate a lista ficar vazia
   while (orderedList.lastElementChild) {
     orderedList.removeChild(orderedList.lastElementChild);
   }
 }
-deleteTasksButton.addEventListener('click', deleteTasks);
+deleteTasksButton.addEventListener('click', deleteAllTasks);
+
+// 11 - Criando o botao que sera usado na proxima funcao para apagar todos os itens completados
+function createDeleteTasksComplete() {
+  let taskInputSection = document.getElementById('input-section');
+  let deleteCompletedTasksButton = document.createElement('button');
+  deleteCompletedTasksButton.id = 'remover-finalizados';
+  deleteCompletedTasksButton.innerText = 'Apagar Completados';
+
+  taskInputSection.appendChild(deleteCompletedTasksButton);
+}
+createDeleteTasksComplete();
+
+// 11 - Apagando os itens marcados como completo
+let deleteCompletedTasksButton = document.getElementById('remover-finalizados');
+function deleteCompletedTasks() {
+  let completedTasks = orderedList.querySelectorAll('.completed')
+
+  for (let i = 0; i < teste.length; i += 1) {
+    completedTasks[i].remove();
+  }
+}
+deleteCompletedTasksButton.addEventListener('click', deleteCompletedTasks);
