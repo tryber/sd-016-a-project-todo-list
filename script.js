@@ -4,22 +4,13 @@ const input = document.querySelector('#texto-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 const buttonAdc = document.querySelector('#criar-tarefa');
 const buttonClear = document.querySelector('#apaga-tudo');
-
-
-
-
+const lis = document.querySelector('li');
 ///Área para chamar funções %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 createLi()
 removeList()
 styles()
-
-
 ///Área para criar funções %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function createLi (){
-  
-  
-  
-  
   //Ao clicar no botão "Criar tarefa" Cria Li com texto do imput
   buttonAdc.addEventListener('click', function() {
     let linha = ol.childNodes.length + 1;
@@ -29,15 +20,6 @@ function createLi (){
       li.innerHTML = input.value;
       li.id = idLine;
       ol.appendChild(li)
-
-      li.addEventListener('click', () => {
-        if (li.style.backgroundColor != "rgb(128,128,128)") {
-          li.style.backgroundColor = "rgb(128,128,128)"
-        } else if (li.style.backgroundColor = "rgb(128,128,128)") {
-          li.style.backgroundColor = " "
-        }
-      })
-
       input.value = '';
     }
     }
@@ -57,9 +39,6 @@ function removeList() {
   }
   )
 }
-
-
-
 //Área para estilizar a página usando Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 function styles (){
@@ -72,16 +51,19 @@ buttonAdc.style.backgroundColor = "black";
 buttonAdc.style.color = "white";
 buttonAdc.style.fontSize = '20px';
 }
-
-// let linha = 1;
-// let classe = 'tarefa' + linha;
-// linha +=1;
-// console.log(classe)
-
-
-// li.addEventListener('click', function(){
-//   let evennt = ol.childNodes[childNodes.length]
-//   if (evennt.style.backgroundColor != 'rgb(128,128,128)') {
-//     evennt.style.backgroundColor = 'rgb(128,128,128)'
-//   } else {evennt.style.backgroundColor = ''}
-// })
+function painttask () {
+ ol.addEventListener('click', (event) => {
+     
+     if (event.target.style.backgroundColor === 'rgb(128, 128, 128)' ) {
+        event.target.style.backgroundColor = 'rgb( 150, 150, 150)';
+ } else {
+  for (let ind = 0 ; ind < ol.childNodes.length ; ind += 1) {
+    document.getElementsByTagName('li')[ind].style.backgroundColor = "rgb( 150, 150, 150)"
+  }
+   event.target.style.backgroundColor = "rgb(128, 128, 128)"
+  
+ }
+}
+ )
+}
+painttask()
