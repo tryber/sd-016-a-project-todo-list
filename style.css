@@ -6,24 +6,24 @@
 }
 
 body {
-  background-color: rgb(5, 28, 58);
+  background-color: rgb(5 , 28 , 58);
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0 , 0 , 0);
-  background-color: rgb(5, 28, 58);
+  background-color: rgb(5 , 28 , 58);
 }
 h1 {
   text-align: center;
   font-size: 50px;
   font-family: sans-serif;
-  color: rgb(51, 253, 0);
+  color: rgb(51 , 253 , 0);
 }
 
 input {
   padding: 20px;
-  border: solid 2px rgb(229, 236, 227);;
+  border: solid 2px rgb(229 , 236 , 227);;
 }
 
 p {
@@ -41,19 +41,19 @@ button {
   font-size: 15px;
   margin-top: 5px;
   color: aliceblue;
-  background-color: rgb(5, 126, 45);
+  background-color: rgb(5 , 126 , 45);
 }
 
 #apaga-tudo {
   font-size: 15px;
   color: aliceblue;
-  background-color: rgb(138, 10, 10);
+  background-color: rgb(138 , 10 , 10);
 }
 
 #remover-finalizados {
   font-size: 15px;
   color: aliceblue;
-  background-color: rgb(146, 73, 14);
+  background-color: rgb(146 , 73 , 14);
 }
 
 ol {

@@ -45,7 +45,7 @@ function clearAll() {
 };
 clearAll();
 
-// requisito 10.
+// requisito 11.
 function clearCompleted() {
   const remove = document.getElementById('remover-finalizados');
   remove.addEventListener('click', () => {
