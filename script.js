@@ -16,11 +16,22 @@ adicionarTarefa.addEventListener('click', function () {
   }
 });
 
-
 function selectItem(event) {
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].classList.remove('select_list_item');
   }
   event.target.classList.add('select_list_item');
 }
+
 myList.addEventListener('click', selectItem);
+
+
+function done(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');    
+  } else {
+    event.target.classList.add('completed');
+  }
+}
+
+myList.addEventListener('dblclick', done);
