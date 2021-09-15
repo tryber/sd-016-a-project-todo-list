@@ -65,10 +65,28 @@ body {
     cursor: pointer;
 }
 
-#salva-tarefas {
+#salvar-tarefas {
     background-color: green
 }
 
-#salva-tarefas:hover {
+#salvar-tarefas:hover {
+    cursor:pointer
+}
+
+#mover-cima {
+    background-color: orange
+
+}
+
+#mover-cima:hover {
+    cursor: pointer
+}
+
+#mover-baixo {
+    background-color: orange;
+    margin-right: 10px;
+}
+
+#mover-baixo:hover {
     cursor:pointer
 }

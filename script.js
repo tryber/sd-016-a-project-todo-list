@@ -23,10 +23,14 @@ eventCreateTarefa();
 
 function colorLi(event) {
     let li = document.querySelector('#lista-tarefas').children
-    // let li = unorderedList.children;
     for (let index = 0; index < li.length; index += 1) {
         li[index].style.backgroundColor = "rgb(255, 255, 255)"
+        // ou deixar vazio para não confudir demais
+        li[index].id = 'not-selected'
     }
+    // add Id para confirmar a seleção e para dps fazer o lance do botão
+    // usar o mesmo conceito inicialmente do backgroundColor -> add para um e remove/add outro a outro
+    event.target.id = 'selected'
     event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
 
@@ -44,7 +48,8 @@ function completedTarefa(event) {
     // usando o contains seguindo o indicado no seguinte link
     // https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
     if (event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed')        
+        event.target.classList.remove('completed')    
+        // talvez add um " " ao class para nao ficar vazio    
     } else {
       event.target.classList.add('completed')
     }
@@ -88,3 +93,48 @@ function removeCompletedButton() {
     removeCompletedButton.addEventListener('click', removerCompleted)
 }
 removeCompletedButton()
+
+function moveToPrevious () {
+    // quem move é cinza -> o selected
+    // o outerHTML pegar o fragmento html e pode substituir o html
+    // https://w3schools.unlockfuture.com/jsref/prop_html_outerhtml.html
+    let selectedElement = document.querySelector("#selected").outerHTML;
+    let notSelectedElement = document.querySelector('#not-selected').outerHTML
+    // as infos contidas em selectedElement tem de migrar para os not-selected
+    // comparar se as infos de selectedElemente existem ou nao no not-selected -- são diferentes
+    if (selectedElement !== notSelectedElement) {
+        // então mandar os dados para o proximo e o previo
+        // pega o elemento previo -- seta para cima -- que irá receber as infos do irmao previamente selecionado
+        document.querySelector('#selected').previousSibling.outerHTML = selectedElement
+        // pega o elemento inicialmente selecionado, que irá receber o not selected pq a seta subiu quando selected vai para o irmão de cima
+        document.querySelector('#selected').nextSibling.outerHTML = notSelectedElement
+    }
+}
+
+function eventMoveToPrevious() {
+    let moveUpButton = document.querySelector('#mover-cima')
+    moveUpButton.addEventListener('click', moveToPrevious)
+}
+eventMoveToPrevious()
+
+function moveToNext() {
+    // mesmo esquema do moveToPrevious;
+    let selectedElement = document.querySelector("#selected").outerHTML;
+    let notSelectedElement = document.querySelector('#not-selected').outerHTML
+    if (selectedElement !== notSelectedElement) {
+        // a lógica muda pq está descendo
+        // como esta descendo, o next precisa receber o outerHTML do selected
+        document.querySelector('#selected').nextSibling.outerHTML = selectedElement
+        // como o selected esta descendo, o elemento previamente selecionado precisa ficar com o not-selected
+        // remover o previous pq assim o selected ficou mantido e dois ficam coloridos; com outerHTML vai logo substituir o selecteed
+        // document.querySelector('#selected').previousSibling.outerHTML = notSelectedElement
+        document.querySelector('#selected').outerHTML = notSelectedElement
+    }
+
+}
+
+function eventMoveToNext() {
+    let moveDownButton = document.querySelector('#mover-baixo')
+    moveDownButton.addEventListener('click', moveToNext)
+}
+eventMoveToNext();
