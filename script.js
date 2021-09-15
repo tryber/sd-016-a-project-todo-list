@@ -42,69 +42,33 @@ function appearItem() {
     workButton.addEventListener('click', function() {
         const getList = document.createElement('li');
         getList.addEventListener('click', changeColor);
-        getList.addEventListener('dblclick', scratchTask);  // evento junto com a função anterior para mudança e remoção de cor, indicando seleção
+        getList.addEventListener('dblclick', scratchTask);  // evento junto com a função anterior para mudança e remoção de cor, indicando seleção//
         getList.innerText = addInput.value;
+        getList.classList.add("listaUm");
         createList.appendChild(getList);
         addInput.value = '';
     });
 }
 
+
 appearItem()
 
-//function riscarTarefa () {
-  //  const scratcTask = document.getElementsByClassName('.completed');
-   //const readyTask = document.querySelectorAll('li')
 
-  //  readyTask.addEventListener('dblclick', function(){
-    //    for (let index = 0; index < scratcTask; index += 1) {
-            
-   // }
-
-
-
-
-
-
-
-/*function changeClearBackground() {
-    let getClearButton = document.querySelector("#apaga-tudo");
-    let getClear = document.querySelectorAll('.pixel');
-
-    getClearButton.addEventListener('click', function(){
-        for (let index = 0; index < getClear.length; index += 1) {
-            if (getClear[index].style.backgroundColor === 'white') {
-            }else{
-                getClear[index].style.backgroundColor = 'white';
-            }
-        }
-    })
-}*/
+// Função para fazer o botão de apagar tudo funcionar;
+// Quesito feito com o auxílio do Rafael e do Emerson - Turma 16 - A
+const getClearButton = document.getElementById('apaga-tudo');
+getClearButton.addEventListener('click', function(){
+    const getClear = document.querySelectorAll('li');
+    
+       for (let index = 0; index < getClear.length; index += 1) {
+        createList.removeChild(getClear[index]);
+       }
+    });
 
 
 
+//let getClearButton = document.querySelector('button'));
+   // let getClear = document.querySelectorAll('li');
 
-
-
-
-
-
-
-
-
-//*function adicionarItem () {
-
-//const lista = document.createElement('li');
-//lista.innerText = addInput.value;
-//createList.appendChild(lista);
-//addInput.value = '';
-//};
 
    
-   // workButton.addEventListener('click', adicionarItem);
-//requisito 5 e 6, acima, feito com o auxilio do Leandro, Bruno, Cristiane, Priscila, Pedro e Brunão - T 16 / A
-
-//function corDeFundo () {
-//createList.addEventListener('click', function(event) {
-//event.target.style.background = "rgb(128,128,128)";
-//});
-
