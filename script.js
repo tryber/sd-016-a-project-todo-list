@@ -1,4 +1,5 @@
 const btnCreateTask = document.querySelector('#criar-tarefa');
+const btnDeleteAll = document.querySelector('#apaga-tudo');
 const list = document.querySelector('#lista-tarefas');
 
 function markTaskItem(event) {
@@ -32,4 +33,12 @@ function createTask() {
   list.appendChild(listItem);
 }
 
+function deleteAllTasks() {
+  const taskList = document.querySelectorAll('.listItem');
+  for (let i = 0; i < taskList.length; i += 1) {
+    taskList[i].remove('li');
+  }
+}
+
 btnCreateTask.addEventListener('click', createTask);
+btnDeleteAll.addEventListener('click', deleteAllTasks);

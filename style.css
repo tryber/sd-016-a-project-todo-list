@@ -3,7 +3,13 @@ div {
 }
 
 #criar-tarefa {
-  width: 50px;
+  width: auto;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#apaga-tudo {
+  width: auto;
   height: 30px;
   vertical-align: middle;
 }
