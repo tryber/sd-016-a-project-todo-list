@@ -1,5 +1,5 @@
 const main = document.getElementsByTagName('main');
-const inputTasks = document.getElementById('texto-tarefa');
+const inputText = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 const btnClear = document.getElementById('apaga-tudo');
 const btnAllClear = document.createElement('remover-finalizados');
@@ -36,9 +36,9 @@ btnAllClear.addEventListener('click', () => {
 btnAdd.addEventListener('click', () => {
   const newItem = document.createElement('li');
   newItem.classList.add('clickItem');
-  newItem.innerHTML = inputTasks.value;
+  newItem.innerHTML = inputText.value;
   orderedList.appendChild(newItem);
-  inputTasks.value = '';
+  inputText.value = '';
 });
 
 orderedList.addEventListener('click', (event) => {
