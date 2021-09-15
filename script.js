@@ -4,8 +4,7 @@ const button = document.getElementById('criar-tarefa');
 const button2 = document.getElementById('apaga-tudo');
 const button3 = document.getElementById('remover-finalizados');
 const button4 = document.getElementById('remover-selecionado');
-const button5 = document.getElementById('salvar-tarefas')
-
+const button5 = document.getElementById('salvar-tarefas');
 
 function taskList() {
   const listContent = input.value;
@@ -59,7 +58,7 @@ function apagaFinalizados() {
 }
 
 function apagaSelecionados() {
-  const selected = document.querySelectorAll('.selected')
+  const selected = document.querySelectorAll('.selected');
   for (let index = 0; index < selected.length; index += 1) {
     if (selected[index].classList.contains('selected')) {
       list.removeChild(selected[index]);
