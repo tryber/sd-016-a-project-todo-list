@@ -1,8 +1,6 @@
+const myList = document.getElementById('lista-tarefas');
+const listItem = document.getElementsByTagName('li');
 const adicionarTarefa = document.getElementById('criar-tarefa');
-const myList = document.querySelector('ol').childNodes;
-// const lista = document.getElementsByTagName('li');
-
-// console.log(myList, lista);
 
 adicionarTarefa.addEventListener('click', function () {
   const node = document.createElement('li');
@@ -19,17 +17,10 @@ adicionarTarefa.addEventListener('click', function () {
 });
 
 
-function selecionaItem(alvo) {
-  for (let i = 0; i < myList.length; i += 1) {
-    myList[i].classList.remove('select_list_item');
+function selectItem(event) {
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].classList.remove('select_list_item');
   }
-  alvo.target.classList.add('select_list_item');
+  event.target.classList.add('select_list_item');
 }
-
-function adicionarEscutador() {
-  for (let i = 0; i< myList.length; i += 1) {
-    myList[i].addEventListener('click', selecionaItem);
-  }
-}
-
-adicionarEscutador();
+myList.addEventListener('click', selectItem);
