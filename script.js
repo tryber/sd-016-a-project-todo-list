@@ -24,8 +24,10 @@ document.addEventListener('click', (event) => {
     const line = event.target;
     for (let i = 0; i < list.length; i += 1) {
       list[i].style.setProperty(mainBackground, `rgb(${white}, ${white}, ${white})`);
+      list[i].classList.remove('selected');
     }
     line.style.setProperty(mainBackground, `rgb(${color}, ${color}, ${color})`);
+    line.classList.add('selected');
     localStorage.setItem('bgColor', line.innerText);
   }
 });
@@ -70,6 +72,24 @@ document.addEventListener('click', (event) => {
       index = i;
     }
     localStorage.setItem('index', index);
+  }
+});
+
+function movesUp() {
+  const list = document.querySelectorAll('.task-item');
+  let temp;
+  for (let i = 0; i < list.length; i += 1) {
+    if (list[i].classList.contains('selected')) {
+      temp = list[i - 1].innerText;
+      list[i - 1].innerText = list[i].innerText;
+      list[i].innerText = temp;
+    }
+  }
+}
+
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'mover-cima') {
+    movesUp();
   }
 });
 
