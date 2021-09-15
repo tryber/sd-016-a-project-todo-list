@@ -105,8 +105,16 @@ function moveItemDown() {
 
 // Função para salvar o conteudo HTML da tag OL.
 function saveTasksItens() {
-  // Função criada com a ajuda do @Emmerson Moreira.
-  localStorage.setItem('tasksItem', JSON.stringify(selectOl.innerHTML));
+  // Função criada com a ajuda do @Vitor Faria e Rod
+  for (let index = 0; index < selectLineList.length; index += 1) {
+    const listItens = {
+      text: selectLineList[index].innerText,
+      class: selectLineList[index].className,
+      style: selectLineList[index].style.backgroundColor,
+    };
+    localStorage.setItem(`task${index}`, JSON.stringify(listItens));
+    localStorage.setItem('countTask', selectLineList.length);
+  }
 }
 
 // Função Principal, chama todos os escutadores de eventos.
@@ -138,10 +146,17 @@ selectButton.addEventListener('click', createTasksList);
 
 // Função onload, retorna o valor do localStorage e recria o conteudo das listas.
 window.onload = () => {
-  // Função criada com a ajuda do @Emmerson Moreira.
-  const returnOl = JSON.parse(localStorage.getItem('tasksItem'));
-  if (returnOl !== null) {
-    selectOl.innerHTML = returnOl;
+  // Função criada com a ajuda do @Vitor Faria e Rod
+  const countStorage = localStorage.getItem('countTask') || -1;
+  for (let index = 0; index < countStorage; index += 1) {
+    const returnLi = JSON.parse(localStorage.getItem(`task${index}`));
+    console.log(returnLi);
+    const createtasks = document.createElement('li');
+    createtasks.innerHTML = returnLi.text;
+    createtasks.className = returnLi.class;
+    createtasks.style.backgroundColor = returnLi.style;
+    selectOl.appendChild(createtasks);
+    selectInput.value = '';
   }
   selectLineList = selectorTasks();
   generatorMain();
