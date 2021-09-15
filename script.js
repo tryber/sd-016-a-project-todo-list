@@ -66,10 +66,10 @@ function createButInput() {
 
 function createButAllClear() {
   const buttonAllClear = document.createElement('button');
-  const main = document.querySelector('#content-main');
+  const content = document.querySelector('main');
   buttonAllClear.id = 'apaga-tudo';
   buttonAllClear.innerHTML = 'Limpar lista';
-  main.appendChild(buttonAllClear);
+  content.appendChild(buttonAllClear);
 }
 
 function buttonClearSelected() {
@@ -81,11 +81,11 @@ function buttonClearSelected() {
 }
 
 function ButtonSaveTasks() {
-  const save = document.createElement('button');
+  const ButtonSave = document.createElement('button');
   const main = document.querySelector('#content-main');
-  save.id = 'salvar-tarefas';
-  save.innerHTML = 'Salvar lista';
-  main.appendChild(save);
+  ButtonSave.id = 'salvar-tarefas';
+  ButtonSave.innerHTML = 'Salvar lista';
+  main.appendChild(ButtonSave);
 }
 
 createContentInput();
@@ -100,12 +100,12 @@ ButtonSaveTasks();
 // Usei a base do exercicio do Calendario
 function addList() {
   const input = document.querySelector('#texto-tarefa');
-  const ol = document.querySelector('#lista-tarefas');
+  const lT = document.querySelector('ol');
   if (input.value.length > 0) {
     const addLi = document.createElement('li');
     addLi.classList.add('list');
     addLi.innerHTML = input.value;
-    ol.appendChild(addLi);
+    lT.appendChild(addLi);
     input.value = '';
   }
 }
@@ -144,7 +144,7 @@ function completeTask() {
 
 function allClear() {
   const buttonClear = document.querySelector('#apaga-tudo');
-  const listTasks = document.querySelector('#lista-tarefas');
+  const listTasks = document.querySelector('ol');
   buttonClear.addEventListener('click', () => {
     while (listTasks.firstElementChild) {
       // while é um loop de repetição de condição verdadeira
@@ -153,7 +153,6 @@ function allClear() {
     }
   });
 }
-
 
 allClear();
 
@@ -170,9 +169,9 @@ addAllFunction();
 
 function clearCompleted() {
   const tasksCompleted = document.getElementsByClassName('completed');
-  while( tasksCompleted.length > 0) {
-    const listCom = tasksCompleted[0]
-    listCom.parentNode.removeChild(listCom)
+  while (tasksCompleted.length > 0) {
+    const listCom = tasksCompleted[0];
+    listCom.parentNode.removeChild(listCom);
   }
 }
 function removeCompleted() {
@@ -182,20 +181,19 @@ function removeCompleted() {
 removeCompleted();
 
 function saveTasks() {
-  const list= document.querySelector('#lista-tarefas')
-  
-  window.localStorage.Tasks = list.innerHTML
+  const list = document.querySelector('#lista-tarefas');
+  window.localStorage.Tasks = list.innerHTML;
 }
 
 function save() {
   const buttonSave = document.querySelector('#salvar-tarefas');
   buttonSave.addEventListener('click', saveTasks);
 }
-save()
+save();
 
 function printList() {
-  const list= document.querySelector('#lista-tarefas')
+  const list = document.querySelector('#lista-tarefas');
   list.innerHTML = (window.localStorage.Tasks === undefined) ? '' : window.localStorage.Tasks;
 }
 
-printList()
+printList();
