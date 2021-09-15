@@ -1,0 +1,19 @@
+header {
+  font-size: 20px;
+  font-weight: 600;
+  background-color: red;
+
+}
+
+.click {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.uncompleted {
+  text-decoration: none;
+}
+
+.completed {
+  text-decoration: line-through;
+}
