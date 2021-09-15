@@ -1,39 +1,40 @@
 window.onload = function() {
-    const createLIst = document.querySelector('#criar-tarefas')
     const list = document.querySelector('#lista-tarefas')
     const AddTarefa = document.querySelector('#criar-tarefa')
     const entrada = document.querySelector('#texto-tarefa')
     
-    
 
+    function tt(event){
+        let itenLIs = document.querySelectorAll('#fii')
+        
+        for(let i = 0; i < itenLIs.length; i=i+1){
+            console.log(itenLIs[i])
+            console.log("ssss"+itenLIs[i].style.backgroundColor)
+            if(itenLIs[i].style.backgroundColor=="rgb(128, 128, 128)"){
+                itenLIs[i].style.backgroundColor="white";                
+            }
+            
+        }
+        event.target.style.backgroundColor="rgb(128, 128, 128)"
+    }
     
     AddTarefa.addEventListener('click',function(){     
         let addli = document.createElement('li')
-        let fii = list.appendChild(addli)   
-        fii.innerHTML=entrada.value
-        fii.className='fii';
-        let itenLIs = document.querySelectorAll('.fii')
+        list.appendChild(addli) 
+        //consolelet fii = list.appendChild(addli)   
+        addli.innerHTML=entrada.value
+        addli.id='fii';      
+        
         entrada.value = ''
-        //console.log(itenLIs.length)
-        addli.addEventListener('click',function(event){
-            //console.log(elementos.style.backgroundColor.includes('rgb(128, 128, 128)'))            
-            for(let i = 0; i < itenLIs.length; i=i+1){
-                let elementos = itenLIs[i]
-                console.log(elementos.style.backgroundColor.includes('white'))
-                if(elementos.style.backgroundColor='rgb(128, 128, 128)'){
-                    
-                    console.log(elementos+"dsdsd")
-                    elementos.style.backgroundColor="red";                
-                }
-            }
-            event.target.style.backgroundColor='rgb(128, 128, 128)';
-           
-            
-                
+        addli.addEventListener('click',function(event){  
+                      
+            tt(event)           
+            event.target.style.backgroundColor='rgb(128, 128, 128)';          
+                           
         })
-    })
-
-    
-
-    
+        addli.addEventListener('dblclick',function(event){
+            event.target.className='completed';
+            event.target.style.textDecoration='line-through solid rgb(0, 0, 0)';
+        })
+    })   
 }
