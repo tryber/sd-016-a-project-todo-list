@@ -1,3 +1,10 @@
+:root {
+
+  --colorTrybe: rgb(84 , 165 , 135);
+
+  --postItColor: rgb(255 , 255 , 165);
+}
+
 html {
   max-width: 100vw;
   max-height: 100vh;
@@ -6,66 +13,156 @@ html {
   padding: 0;
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  margin-inline: auto;
+body {
   width: 100%;
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-#containerInput {
+header {
   width: 100%;
-  height: 80%;
+  height: 30%;
+  margin: 0;
+  padding: 0;
+  background-image: url('./img/pexels-pixabay-235985.jpg');
+  background-position: center;
 }
 
 #texto-tarefa {
-  width: 26vw;
+  width: 20vw;
   margin-inline: auto;
-  border-radius: 5px 0 0 5px;
-  box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
-  margin-left: 20%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px black;
+  margin-left: 12%;
+  user-select: none;
 }
 
 #texto-tarefa:hover {
   cursor: text;
 }
 
-#criar-tarefa {
-  text-transform: uppercase;
-  font-weight: 900;
-  background-color: rgb(47 , 193 , 140);
-  color: white;
-  border-radius: 0 5px 5px 0;
-  box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
-  cursor: pointer;
+
+h1 {
+  height: 80px;
+  margin: 0;
+  padding: 5px;
+  user-select: none;
+  color: var(--colorTrybe);
+  text-shadow: 2px 2px 8px black;
 }
 
-#apaga-tudo {
-  border-radius: 5px;
-  margin-left: 15px;
-  background-color: rgb(47 , 193 , 140);
-  color: white;
-  box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
-  text-transform: uppercase;
-  font-weight: 900;
+h4 {
+  position: relative;
+  bottom: 25px;
+  margin: 0;
+  padding: 0;
+  color: var(--colorTrybe);
+  text-shadow: 2px 2px 8px black;
 }
 
-#remover-finalizados {
-  background-color: rgb(47 , 193 , 140);
-  color: white;
-  box-shadow: 2px 2px 8px rgba(0 , 0 , 0);
-  text-transform: uppercase;
-  font-weight: 900;
-  margin-left: 15px;
-  border-radius: 5px;
+main {
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url('./img/pexels-pixabay-235985.jpg');
+  background-position: center;
+  margin-inline: center;
+  width: 100%;
+  height: 10vh;
 }
 
-#criar-tarefa:hover , #apaga-tudo:hover , #remover-finalizados:hover {
-  background-color: white;
-  color: rgb(47 , 193 , 140);
+#containerInput {
+  width: 100%;
+  height: 80%;
+  margin-top: 50px;
+  background-image: url('./img/pexels-pixabay-235985.jpg');
+  background-position: center;
 }
 
 .completed {
-  text-decoration: line-through solid rgba(0 , 0 , 0);
+  text-decoration: line-through solid black;
+}
+
+#criar-tarefa , #salvar-tarefas {
+  text-transform: uppercase;
+  font-weight: 900;
+  color: white;
+  background-color: var(--colorTrybe);
+  margin-left: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px black;
+}
+
+#remover-selecionado , #apaga-tudo , #remover-finalizados {
+  text-transform: uppercase;
+  font-weight: 900;
+  color: white;
+  background-color: var(--colorTrybe);
+  margin-left: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px black;
+}
+
+
+#criar-tarefa:hover {
+  cursor: url('./img/icons8-plus-math-24.png'), default;
+  background-color: white;
+  color: var(--colorTrybe);
+}
+
+#apaga-tudo:hover , #remover-selecionado:hover {
+  cursor: url('./img/icons8-broom-30.png'), default;
+}
+
+#remover-finalizados:hover {
+  cursor: url('./img/icons8-checkmark-24.png'), default;
+}
+
+#salvar-tarefas {
+  cursor: url('./img/icons8-save-24.png'), default;
+}
+
+#apaga-tudo:hover , #remover-finalizados:hover {
+  background-color: white;
+  color: var(--colorTrybe);
+}
+
+#salvar-tarefas:hover , #remover-selecionado:hover {
+  background-color: white;
+  color: var(--colorTrybe);
+}
+
+#lista-tarefas {
+  display: flex;
+  flex-flow: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 540px;
+  background-image: url('./img/pexels-pixabay-235985.jpg');
+  background-position: center;
+  margin: 0;
+}
+
+.clickItem {
+  width: 150px;
+  height: 150px;
+  list-style: none;
+  margin-top: 5px;
+  text-align: center;
+  box-shadow: 1px 1px 2px white;
+  background-color: rgb(253 , 77 , 176);
+}
+
+li:hover {
+  cursor: url('./img/icons8-pin-24.png'), default;
+}
+
+.my-icon-footer {
+  width: 70px;
+  transition: all 0.2s;
+}
+
+.my-icon-footer:hover {
+  transform: scaleX(0.7) scaleY(0.7);
+  cursor: pointer;
 }
