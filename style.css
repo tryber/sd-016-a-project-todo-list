@@ -145,9 +145,9 @@ main p {
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
-  height: 500px;
+  height: 350px;
   margin: 0;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .clickItem {
