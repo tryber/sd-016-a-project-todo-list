@@ -1,6 +1,7 @@
 const input = document.querySelector('#texto-tarefa');
 const addButton = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
+const clearAll = document.querySelector('#apaga-tudo');
 
 function clearClass() {
   const allLI = document.getElementsByTagName('li');
@@ -27,5 +28,11 @@ function createItem(expectedText) {
     });
   }
 }
+
+clearAll.addEventListener('click', () => {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+});
 
 document.addEventListener('click', createItem);
