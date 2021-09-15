@@ -1,12 +1,12 @@
 // Requisito 7 e 8
-function taskColor(origin) {
+function taskColor(event) {
   const tasks = document.getElementsByTagName('li');
   for (let index = 0; index < tasks.length; index += 1) {
     tasks[index].style.backgroundColor = 'white';
     tasks[index].classList.remove('color');
   }
-  origin.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  origin.target.classList.add('color');
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('color');
 }
 
 function addEvent() {
@@ -28,19 +28,19 @@ function taskEvent() {
   }
 }
 
-// Requisito 10 - Botão apagar tudo 
+// Requisito 10 - Botão apagar tudo
 function deleteAll() {
   const task = document.querySelectorAll('.line');
-//  const task2 = document.getElementsByClassName('line');
-//  const task3 = document.getElementsByTagName('li');
+  //  const task2 = document.getElementsByClassName('line');
+  //  const task3 = document.getElementsByTagName('li');
   const lista = document.querySelector('#lista-tarefas');
   for (let index = 0; index < task.length; index += 1) {
     lista.removeChild(task[index]);
   }
-}//Dúvida
+}// Dúvida
 
 function deleteAllClick() {
-  const buttonDeleteAll = document.getElementById('apaga-tudo')
+  const buttonDeleteAll = document.getElementById('apaga-tudo');
   buttonDeleteAll.addEventListener('click', deleteAll);
 }
 
@@ -60,19 +60,18 @@ function deleteCompletedClick() {
 }
 
 // Requisito 14
- function deleteSelected() {
-   const lista = document.querySelector('#lista-tarefas');
-   const completed = document.querySelectorAll('.color');
-   console.log('teste');
-   for (let index = 0; index < completed.length; index += 1) {
-     lista.removeChild(completed[index]);
-   }
- }
+function deleteSelected() {
+  const lista = document.querySelector('#lista-tarefas');
+  const completed = document.querySelectorAll('.color');
+  for (let index = 0; index < completed.length; index += 1) {
+    lista.removeChild(completed[index]);
+  }
+}
 
- function deleteSelectedClick() {
-   const taskCompleted = document.getElementById('remover-selecionado');
-   taskCompleted.addEventListener('click', deleteSelected);
- }
+function deleteSelectedClick() {
+  const taskCompleted = document.getElementById('remover-selecionado');
+  taskCompleted.addEventListener('click', deleteSelected);
+}
 
 // Requisito 4,5,6
 const button = document.getElementById('criar-tarefa');
@@ -90,16 +89,6 @@ function adicionaTarefa() {
   taskEvent();
   deleteAllClick();
   deleteCompletedClick();
-  deleteSelectedClick()
+  deleteSelectedClick();
 }
 button.addEventListener('click', adicionaTarefa);
-
-
-
-
-
-
-
-
-
-
