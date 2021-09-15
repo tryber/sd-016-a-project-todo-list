@@ -25,10 +25,9 @@ function selectItem(event) {
 
 myList.addEventListener('click', selectItem);
 
-
 function done(event) {
   if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');    
+    event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
