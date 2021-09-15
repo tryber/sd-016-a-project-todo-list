@@ -11,3 +11,7 @@ div {
 #texto-tarefa {
   height: 30px;
 }
+
+.completed {
+  text-decoration: line-through;
+}

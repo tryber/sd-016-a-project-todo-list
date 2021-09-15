@@ -11,12 +11,22 @@ function markTaskItem(event) {
   taskItem.target.style.backgroundColor = backgroundColor;
 }
 
+function finishTaskItem(event) {
+  const taskItem = event.target;
+  if (taskItem.className.includes('completed')) {
+    taskItem.classList.remove('completed');
+  } else {
+    taskItem.classList.add('completed');
+  }
+}
+
 function createTask() {
   const listItem = document.createElement('li');
-  listItem.className = 'listItem';
+  listItem.classList.add('listItem');
   const contentInput = document.querySelector('#texto-tarefa').value;
   listItem.innerHTML = contentInput;
   listItem.addEventListener('click', markTaskItem);
+  listItem.addEventListener('dblclick', finishTaskItem);
   document.querySelector('#texto-tarefa').value = '';
   console.log(`valor input = ${contentInput}`);
   list.appendChild(listItem);
