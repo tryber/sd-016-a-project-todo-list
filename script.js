@@ -1,5 +1,7 @@
 const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
+const clearButton = document.querySelector('#apaga-tudo');
+const removeButton = document.querySelector('#remover-finalizados');
 
 function listElementHilight(event) {
   const hilightElement = document.querySelector('.hilight');
@@ -32,3 +34,21 @@ function createListElement() {
 }
 
 button.addEventListener('click', createListElement);
+
+function clearAll() {
+  const listElement = document.querySelectorAll('li');
+  for (let index = 0; index < listElement.length; index += 1) {
+    list.removeChild(listElement[index]);
+  }
+}
+
+clearButton.addEventListener('click', clearAll);
+
+function removeFinished() {
+  const listElement = document.querySelectorAll('.completed');
+  for (let index = 0; index < listElement.length; index += 1) {
+    list.removeChild(listElement[index]);
+  }
+}
+
+removeButton.addEventListener('click', removeFinished);
