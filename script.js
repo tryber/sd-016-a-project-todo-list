@@ -13,10 +13,19 @@ function listElementHilight(event) {
   }
 }
 
+function riskElement(event) {
+  if (event.target.classList.contains('completed') === false) {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+}
+
 function createListElement() {
   const input = document.querySelector('#texto-tarefa');
   const listElement = document.createElement('li');
   listElement.addEventListener('click', listElementHilight);
+  listElement.addEventListener('dblclick', riskElement);
   listElement.innerText = input.value;
   list.appendChild(listElement);
   input.value = '';
