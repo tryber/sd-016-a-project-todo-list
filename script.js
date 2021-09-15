@@ -1,35 +1,53 @@
 const inputList = document.querySelector('#texto-tarefa');
 const buttonInput = document.querySelector('#criar-tarefa');
-let list = document.querySelector('#lista-tarefa');
+const button = document.querySelector('#apaga-tudo');
+let list = document.querySelector('#lista-tarefas');
+let text = null
 
-// Implantei timeout no evento atraves de uma pesquisa onde encontrei em https://schier.co/blog/wait-for-user-to-stop-typing-using-javascript a função dentro do EventListener
-function getText(){
-  let timeout = null;
+function getText(){  
   inputList.addEventListener('keyup', function (e) {
-    clearTimeout(timeout);
-    timeout = setTimeout(function () {
-      let text = e.target.value;
-      if (e.target.value === null) {
-        return
-      }
-      insertList(text)
-      console.log(text) 
-    }, 1000)    
+      text = e.target.value;
+      console.log(text)
+      return text
   });
 }
 getText()
 
-function insertList(text) {
-  let inputText = text;
-  console.log(inputText)
+function insertList() {
   buttonInput.addEventListener('click', function () {
-    if (inputText === null) {
+    let assignment = document.createElement('li');
+    assignment.className = 'tarefas'
+    assignment.innerText = text;
+    if (assignment.innerText === '') {
       alert('Desculpe, não pode acrescentar um item vazio!')
       return
     }
-    let assignment = document.createElement('li');
-    assignment.innerText = inputText;
     list.appendChild(assignment);
-    inputText = null;
-  })
+    inputList.value = '';
+    assignment.removeAttribute('innerText');
+    text = '';
+    selectItemsList()
+    return text
+  });
 }
+insertList()
+
+function selectItemsList() {
+  let itemsList = document.querySelectorAll('li')
+  console.log(itemsList)
+  itemsList.forEach( ev => ev.addEventListener('click', function () {
+    for (index = 0; index < itemsList.length; index += 1) {
+      itemsList[index].style.backgroundColor = 'white';
+    }
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  }));
+}
+
+function cleanList() {
+  let itemsList = document.querySelectorAll('li');
+  button.addEventListener('click', function () {
+    itemsList = []
+    })
+    return itemsList;
+}
+cleanList()
