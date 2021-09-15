@@ -6,6 +6,7 @@
   <title>Todo-List</title>
 </head>
 <body>
+  <div id="layout">
   <header id="title">
     Minha Lista de Tarefas
   </header>
@@ -16,8 +17,11 @@
     <div>
       <ol id="lista-tarefas"></ol>
       <input id="texto-tarefa" placeholder= "Adicione tarefa" type="text"> 
-      <button id="criar-tarefa">Adicionar</button> 
+      <button id="criar-tarefa" class="button">Adicionar</button>
+      <button id="apaga-tudo" class="button">Apaga Lista</button>
+      <button id="remover-finalizados" class="button">Apaga Finalizados</button>
     </div>
+  </div>
   </section>
   <script src="script.js"></script>
 </body>
