@@ -33,8 +33,18 @@ window.onload = function() {
                            
         })
         addli.addEventListener('dblclick',function(event){
-            event.target.className='completed';
+            
+            if(event.target.className=="completed"){
+                               console.log("rerere")
+                event.target.style.textDecoration='';
+                event.target.className='nocompleted'
+                
+            } else if(event.target.className!="completed"){
+
+                event.target.className='completed';
             event.target.style.textDecoration='line-through solid rgb(0, 0, 0)';
+            }
+            
         })
     })   
 }
