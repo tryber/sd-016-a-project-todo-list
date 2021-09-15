@@ -135,3 +135,51 @@ function deleteCompletedTasks() {
   }
 }
 deleteCompletedTasksButton.addEventListener('click', deleteCompletedTasks);
+
+// BÔNUS
+// 11 - Criando botao que sera usado para salvar
+function createSaveTasksButton() {
+  let taskInputSection = document.getElementById('input-section');
+  let saveTasksButton = document.createElement('button');
+  saveTasksButton.id = 'salvar-tarefas';
+  saveTasksButton.innerText = 'Salvar';
+
+  taskInputSection.appendChild(saveTasksButton);
+}
+createSaveTasksButton();
+
+// 11 - Salvando o conteudo da litsta (inner html das 'li') no local storage
+let saveTasksButton = document.getElementById('salvar-tarefas');
+function saveTasks() {
+  for (let i = 0; i < orderedList.children.length; i += 1) {
+    let saveTask = orderedList.children[i].innerHTML;
+    localStorage.setItem(`task${i}`, JSON.stringify(saveTask));
+  }
+}
+
+// 11 - Carregando o conteudo do localstorage
+function loadTasks() {
+  let allKeys = Object.keys(localStorage);
+  let taskKeys = [];
+
+  for (let i = 0; i < allKeys.length; i += 1) {
+    if (allKeys[i].includes('task')) {
+      taskKeys.push(allKeys[i]);
+    }
+  }
+  taskKeys.sort();
+
+  for (let i = 0; i < taskKeys.length; i += 1) {
+    let savedTasks = JSON.parse(localStorage.getItem(taskKeys[i]));
+    let listItem = document.createElement('li');
+    listItem.className = 'item-task';
+    listItem.innerText = savedTasks;
+    orderedList.appendChild(listItem);
+  }
+}
+
+saveTasksButton.addEventListener('click', saveTasks);
+
+window.onload = () => {
+  loadTasks();
+}
