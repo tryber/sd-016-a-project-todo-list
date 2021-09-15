@@ -1,0 +1,14 @@
+div {
+  /* border: 1px solid black; */
+  vertical-align: top;
+}
+
+#criar-tarefa {
+  width: 50px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#texto-tarefa {
+  height: 30px;
+}
