@@ -5,6 +5,7 @@
 
 .task-item {
   background-color: white;
+  text-decoration: none;
 }
 
 div {
@@ -13,10 +14,6 @@ div {
 
 .bGGrey {
   background-color: rgb(128, 128, 128);
-}
-
-.task-item {
-  text-decoration: none;
 }
 
 .completed {
