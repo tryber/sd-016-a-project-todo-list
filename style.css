@@ -29,8 +29,7 @@ p {
 }
 
 .completed {
-  text-decoration: line-through;
-  color: red;
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
 button {

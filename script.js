@@ -40,7 +40,8 @@ document.getElementById('apaga-tudo').onclick = deleteAllLi;
 
 //  remove itens finalizados
 function deletaFinalizados() {
-  for (let i = 0; i < 1000; i -= 1) {
+  let num = finalizados.length;
+  for (let i = 0; i < num; i += 1) {
     finalizados[0].remove();
   }
 }
