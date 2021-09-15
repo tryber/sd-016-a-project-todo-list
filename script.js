@@ -42,7 +42,7 @@ function appearItem() {
     workButton.addEventListener('click', function() {
         const getList = document.createElement('li');
         getList.addEventListener('click', changeColor);
-        getList.addEventListener('dblclick', scratchTask);  // evento junto com a função anterior para mudança e remoção de cor, indicando seleção//
+        getList.addEventListener('dblclick', scratchTask);  // evento de duplo click junto com a função anterior para mudança e remoção de cor, indicando seleção//
         getList.innerText = addInput.value;
         getList.classList.add("listaUm");
         createList.appendChild(getList);
@@ -66,6 +66,15 @@ getClearButton.addEventListener('click', function(){
     });
 
 
+// Função para fazer o botão de apagar todas as tarefas finalizadas (riscadas);
+    const getEndButton = document.getElementById('remover-finalizados'); // adicionando o botão em uma constante para dar segmento a função
+    getEndButton.addEventListener('click', function(){ // adicionando evento de clique no botão;
+        const getEndTask = document.querySelectorAll('.completed'); //(completed) -> classe das riscadas pq tão tarefas finalizadas;
+        
+           for (let index = 0; index < getEndTask.length; index += 1) { // 'for' pra percorrer todas tarefas finalizadas de uma em uma(riscadas);
+            createList.removeChild(getEndTask[index]); // removendo getEndTask (todas as tarefas finalizadas (riscadas) que eu adicionei na linha 72) de createList que é minha 'ol' (lista)
+           }
+        });
 
 //let getClearButton = document.querySelector('button'));
    // let getClear = document.querySelectorAll('li');
