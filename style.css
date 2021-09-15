@@ -11,10 +11,13 @@
 .main {
     display: inline-block;
     background-color: whitesmoke;
-    width: 50%;
-    height:350px;
+    width: auto;
+    height:auto;
     margin-top: 30px;
-
+    padding-right: 400px;
+    padding-left: 400px;
+    padding-bottom: 20px;
+    border-radius: 50px;
 }
 
 body {
@@ -37,6 +40,7 @@ body {
     padding: 8px;
     border-radius: 10px;
     font-weight: bold;
+    margin-left: 10px;
 }
 
 .insert-area button:hover {
@@ -54,8 +58,17 @@ body {
 
 #remover-finalizados {
     background-color: grey;
+    margin-right: 10px;
 }
 
 #remover-finalizados:hover{
     cursor: pointer;
+}
+
+#salva-tarefas {
+    background-color: green
+}
+
+#salva-tarefas:hover {
+    cursor:pointer
 }
