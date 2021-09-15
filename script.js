@@ -1,20 +1,34 @@
-function getItemFromStorage() {
-  const colectedItem = localStorage.getItem('lista1');
-  const parentElement = document.getElementById('lista-tarefas')
-  const array = colectedItem.split(',');
-  const savedItems = document.createElement('li')
 
-  JSON.stringify
-
-  for (let index = 0; index < array.length; index += 1) {
-    savedItems.innerText = array[index];
-    savedItems.className = 'list-item';
-    // savedItems[index].className = 'list-item';
-    parentElement.appendChild(savedItems);
-  }
-  createPin();
+const parentElement = document.querySelector('#lista-tarefas')
+if (localStorage.getItem('list')) {
+  const storage = JSON.parse(localStorage.getItem('list'))
+  storage.forEach(task => {
+    if (task.completed) {
+      const newList = document.createElement('li');
+      newList.innerText = task.text;
+      parentElement.appendChild(newList);
+      newList.classList.add('list-item');
+      newList.classList.add('completed');
+      newList.addEventListener('dblclick', completedTasks);
+      newList.addEventListener('click', activeTask);
+    } else {
+      const newList = document.createElement('li');
+      newList.innerText = task.text;
+      parentElement.appendChild(newList);
+      newList.classList.add('list-item');
+      newList.addEventListener('click', activeTask);
+      newList.addEventListener('dblclick', completedTasks);
+    }
+  });
 }
-getItemFromStorage();
+
+function pinWithStorage() {
+  const temLista = document.querySelectorAll('.list-item');
+  if(temLista.length > 0) {
+    createPin();
+  }
+}
+pinWithStorage();
 
 function completedTasks(doubleClick) {
   doubleClick.target.classList.toggle('completed');
@@ -22,6 +36,7 @@ function completedTasks(doubleClick) {
 
 function activeTask(click) {
   const listItem = document.querySelectorAll('.list-item');
+  console.log(listItem.length)
 
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].classList.remove('active');
@@ -55,32 +70,30 @@ btnEraseAll.addEventListener('click', eraseAll);
 
 function eraseCompleted() {
   const listCompletedItems = document.querySelectorAll('.completed');
-
   for (let index = 0; index < listCompletedItems.length; index += 1) {
     listCompletedItems[index].remove();
+  }
+
+  const temLista = document.querySelectorAll('.list-item');
+  if (temLista.length < 1) {
+    erasePin();
   }
 }
 document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted);
 
 function eraseActive() {
   document.querySelector('.active').remove()
+
+  const temLista = document.querySelectorAll('.list-item');
+  if (temLista.length < 1) {
+    erasePin();
+  }
 }
 document.getElementById('remover-selecionado').addEventListener('click', eraseActive)
 
-function storage() {
-  const lista = document.querySelectorAll('.list-item');
-  let key = 'lista1'
-  let array = [];
-  for (let index = 0; index < lista.length; index += 1) {
-    array.push(lista[index].innerHTML)
-  }
-  localStorage.setItem(key, array);
-} 
-document.querySelector('#salvar-tarefas').addEventListener('click', storage)
-
 function createPin() {
-  const pin = document.querySelector('#pin')
-  pin.src = '/pin.png'
+  const pin = document.querySelector('#pin');
+  pin.src = '/pin.png';
 }
 btnCreateTask.addEventListener('click', createPin);
 
@@ -93,7 +106,7 @@ btnEraseAll.addEventListener('click', erasePin);
 function moveUp() {
   const activeItem = document.querySelector('.active');
   const elementBefore = document.querySelector('.active').previousElementSibling;
-    
+
   activeItem.parentNode.insertBefore(elementBefore, activeItem);
   elementBefore.parentNode.insertBefore(activeItem, elementBefore);
 }
@@ -107,3 +120,24 @@ function moveDown() {
   elementNext.parentNode.insertBefore(elementNext, activeItem);
 }
 document.querySelector('#mover-baixo').addEventListener('click', moveDown);
+
+function storage() {
+  const listItems = document.querySelectorAll('.list-item');
+  const itemArray = [];
+
+  for (let index = 0; index < listItems.length; index += 1) {
+    if(listItems[index].classList.contains('completed')) {
+    itemArray.push({
+      text: listItems[index].innerText,
+      completed: true
+      }) 
+    } else {
+    itemArray.push({
+      text: listItems[index].innerText,
+      completed: false
+      })
+    }
+  localStorage.setItem('list', JSON.stringify(itemArray))
+  }
+}
+document.querySelector('#salvar-tarefas').addEventListener('click', storage);
