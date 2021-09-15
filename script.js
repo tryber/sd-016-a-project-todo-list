@@ -8,3 +8,11 @@ botao.addEventListener('click', () => {
   lista.appendChild(itemLista);
   textInput.value = '';
 });
+
+function colorItem() {
+  const lista = document.querySelector('ol');
+  lista.addEventListener('click', (event) => {
+    event.target.classList.add('itemColor');
+  });
+}
+colorItem();
