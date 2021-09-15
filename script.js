@@ -2,6 +2,10 @@ const btnCreateTask = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 
 function markTaskItem(event) {
+  const taskList = document.querySelectorAll('.listItem');
+  for (let i = 0; i < taskList.length; i += 1) {
+    taskList[i].style.backgroundColor = '';
+  }
   const backgroundColor = 'rgb(128, 128, 128)';
   const taskItem = event;
   taskItem.target.style.backgroundColor = backgroundColor;
