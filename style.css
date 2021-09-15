@@ -90,3 +90,12 @@ body {
 #mover-baixo:hover {
     cursor:pointer
 }
+
+#remover-selecionado {
+    background-color: grey;
+    margin-right: 10px;
+}
+
+#remover-selecionado:hover {
+    cursor: pointer;
+}

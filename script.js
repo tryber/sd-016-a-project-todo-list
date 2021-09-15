@@ -117,6 +117,9 @@ function eventMoveToPrevious() {
 }
 eventMoveToPrevious()
 
+// nos exercicos abaixo mudam-se os elementos de posição, e não o fundo como está sendo agora;
+// ele tb esta reclamando que quando chega no topo ou fim da lista, ele nao consegue ler o outerhtml
+
 function moveToNext() {
     // mesmo esquema do moveToPrevious;
     let selectedElement = document.querySelector("#selected").outerHTML;
@@ -138,3 +141,16 @@ function eventMoveToNext() {
     moveDownButton.addEventListener('click', moveToNext)
 }
 eventMoveToNext();
+
+function removeSelected() {
+    // só há um selected por vez
+    let selectedElement = document.querySelector("#selected")
+    // conceito parecido com o removercompleted
+    selectedElement.parentElement.removeChild(selectedElement)
+}
+
+function eventRemoveSelected() {
+    let removeSelectedButton = document.querySelector('#remover-selecionado')
+    removeSelectedButton.addEventListener('click', removeSelected)
+}
+eventRemoveSelected();
