@@ -1,0 +1,25 @@
+:root {
+
+  --main-background: white;
+}
+
+.task-item {
+  background-color: white;
+  text-decoration: none;
+}
+
+div {
+  display: inline-block;
+}
+
+.bGGrey {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
