@@ -12,7 +12,6 @@ function createTask() {
     orderList.appendChild(itemList);
     getInput.value = '';
   }
-  
 }
 
 const buttonCreate = document.querySelector('#criar-tarefa');
@@ -95,8 +94,8 @@ function moveUp (){
     let taskBefore = document.querySelector('.selected').previousElementSibling
     orderList.insertBefore(taskContent,taskBefore )
   }
-
 }
+
 function moveDown (){
   const orderList = document.querySelector('#lista-tarefas');
   let taskContent = document.querySelector('.selected')
@@ -119,3 +118,28 @@ const upDwn = document.getElementById('mover-baixo');
 
 upBnt.addEventListener('click', moveUp);
 upDwn.addEventListener('click', moveDown);
+
+// ADD FUNÇÃO AO BOTÃO DE SALVAR LISTA
+let btnSave = document.querySelector('#salvar-tarefas')
+
+function saveTasks() {
+const lisTask = document.querySelector('#lista-tarefas');
+
+  localStorage.setItem('taskList', JSON.stringify(lisTask.innerHTML));
+
+}
+window.onload = () => {
+  const orderList = document.querySelector('#lista-tarefas');
+
+  const restoreList = JSON.parse(localStorage.getItem('taskList'));
+  if (restoreList !== null) {
+    orderList.innerHTML = restoreList;
+    // for (let index = 0; index < orderList.children.length; index += 1) {
+    //   orderList.children[index].addEventListener('click', changeColorBg);
+    //   orderList.children[index].addEventListener('dblclick', completTasks);
+    // }
+  }
+};
+
+
+btnSave.addEventListener('click', saveTasks )
