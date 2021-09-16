@@ -25,8 +25,13 @@ document.addEventListener('dblclick', function (event) {
 
 
 
-// para remover as tarefas finalizadas da lista
-
+// para remover as tarefas finalizadas da lista  - referencia: https://qastack.com.br/programming/4777077/removing-elements-by-class-name
+function removeCompletedTasks(className){
+  var tasks = document.getElementsByClassName('completed');
+  while(tasks.length > 0){
+      tasks[0].parentNode.removeChild(tasks[0]);
+  }
+}
 
 // para remover todas as tarefas da lista - referencia: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
 function removeTasks() {
