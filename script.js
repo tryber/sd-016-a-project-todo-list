@@ -12,8 +12,7 @@ function taskInsert() {
 }
 }
 
-// para sublinhar as tarefas finalizadas
-
+// para sublinhar as tarefas finalizadas - referencia: https://gomakethings.com/attaching-multiple-elements-to-a-single-event-listener-in-vanilla-js/
 document.addEventListener('dblclick', function (event) {
   if ( event.target.classList.contains('completed') ) {
       event.target.classList.remove('completed');
@@ -26,8 +25,15 @@ document.addEventListener('dblclick', function (event) {
 
 
 
+// para remover as tarefas finalizadas da lista
 
-// para remover as tarefas da lista
 
+// para remover todas as tarefas da lista - referencia: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
+function removeTasks() {
+  let taskList = document.getElementById("lista-tarefas");
+while (taskList.firstChild) {
+  taskList.removeChild(taskList.firstChild);
+}
+}
 
 
