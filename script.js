@@ -7,11 +7,14 @@ function clearInput() {
 
 function addListItem() {
   const inputValue = document.getElementById('texto-tarefa').value;
-  const listItem = document.createElement('li');
-  listItem.innerText = inputValue;
+  if (inputValue === '') alert('Não é possível adicionar tarefa sem nome');
+  else {
+    const listItem = document.createElement('li');
+    listItem.innerText = inputValue;
 
-  list.appendChild(listItem);
-  clearInput();
+    list.appendChild(listItem);
+    clearInput();
+  }
 }
 
 function selectListItem(evt) {
@@ -32,11 +35,21 @@ function clearList() {
   list.innerText = '';
 }
 
+function clearCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    list.removeChild(completed[i]);
+  }
+}
+
 const createItemButton = document.getElementById('criar-tarefa');
 createItemButton.addEventListener('click', addListItem);
 
 const clearListButton = document.getElementById('apaga-tudo');
 clearListButton.addEventListener('click', clearList);
+
+const clearCompletedButton = document.getElementById('remover-finalizados');
+clearCompletedButton.addEventListener('click', clearCompleted);
 
 list.addEventListener('click', selectListItem);
 list.addEventListener('dblclick', completedItem);
