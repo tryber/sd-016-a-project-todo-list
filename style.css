@@ -1,0 +1,78 @@
+body {
+  font-family: sans-serif;
+  background-color: whitesmoke;
+  margin: 0;
+}
+
+small {
+  display: block;
+}
+
+#botao-extra {
+  margin-top: 10px;
+  align-items: baseline;
+}
+
+header {
+  text-align: center;
+  font-size: 4rem;
+  color: rgba(134 , 177 , 17);
+  opacity: 0.5;
+  margin: 4rem;
+}
+
+ol {
+  display: block;
+  margin-top: 3rem;
+  margin-left: 7px;
+  border: 1px solid rgb(229 , 229 , 229);
+  padding: 1rem 2rem;
+}
+
+#corpo {
+  text-align: center;
+  display: block;
+}
+
+#cabeçalho {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#texto-tarefa {
+  padding: 0.5rem;
+  width: 400px;
+  font-size: 1.5rem;
+}
+
+#texto-tarefa::placeholder {
+  text-align: center;
+}
+
+#criar-tarefa {
+  padding: 0.5rem;
+  width: auto;
+  display: inline;
+  position: fixed;
+  margin: 1rem 2rem;
+}
+
+.highlight {
+  background-color: gray;
+}
+
+#lista-tarefas {
+  width: 40%;
+  text-align: start;
+}
+
+li {
+  padding: 5px;
+  background-color: white;
+  border: 1px solid rgb(229 , 229 , 229);
+  border-radius: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
