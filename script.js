@@ -2,6 +2,7 @@ const myList = document.getElementById('lista-tarefas');
 const listItem = document.getElementsByTagName('li');
 const adicionarTarefa = document.getElementById('criar-tarefa');
 const clearAll = document.getElementById('apaga-tudo');
+const clearDoneList = document.getElementById('remover-finalizados');
 
 adicionarTarefa.addEventListener('click', function () {
   const node = document.createElement('li');
@@ -36,7 +37,6 @@ function done(event) {
 
 myList.addEventListener('dblclick', done);
 
-
 function apagaTudo() {
  if( document.querySelectorAll('li').length === 0 ){
    alert('Para apagar a lista é preciso ter uma tarefa adicionada');
@@ -44,7 +44,23 @@ function apagaTudo() {
    myList.innerHTML = '';
  }   
 }
+clearAll.addEventListener('click', apagaTudo);  
 
-clearAll.addEventListener('click', apagaTudo);
 
+function apagaFeitos() {
+  const clearCompleted = document.getElementsByClassName('completed');
+
+  if( document.querySelectorAll('li').length === 0 ){
+    alert('A Lista esta vazia e não há Itens definidos como Feitos.');
+  }
+
+  if ( clearCompleted.length === 0) {
+    alert('Não há Itens definidos como Feitos.');
+  }
   
+  for(var i = clearCompleted.length - 1; i >= 0; i--) {
+    clearCompleted[i].remove()
+  }
+  
+}
+clearDoneList.addEventListener('click', apagaFeitos);
