@@ -14,6 +14,7 @@ function createTask(){
         list.appendChild(newTask)
      
         taskList = []
+        saveList()
     }
 }
 
@@ -52,6 +53,7 @@ function addCompletedTasks(){
 list.addEventListener('dblclick', function (event){
     event.target.classList.toggle('completed')
     removeFinished()
+    saveList()
 })
 }
 addCompletedTasks()
@@ -106,6 +108,26 @@ function removeFinished(){
 }
 
 
+function saveListButton(){
+    let sec1 = document.querySelector('#sec1');
+    let button = document.createElement('button');
+    button.id = 'salvar-tarefas'
+    button.innerHTML = 'Salvar'
+    sec1.appendChild(button)
+}
+saveListButton()
+
+function saveList(){
+    let button = document.querySelector('#salvar-tarefas');
+    button.addEventListener('click', function(){
+        localStorage.setItem('save-tasks', list.innerHTML)
+    })
+}
+
+let saved = localStorage.getItem('save-tasks')
+if (saved){
+    list.innerHTML = saved
+}
 
 
 
