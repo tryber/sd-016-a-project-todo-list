@@ -1,3 +1,11 @@
+.list-content ol {
+  margin: 0 auto;
+}
+
 .selected {
   background-color: rgb(128,128,128);
+}
+
+.completed {
+  text-decoration: line-through;
 }

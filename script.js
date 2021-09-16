@@ -21,8 +21,15 @@ function selectListItem(evt) {
   item.classList.add('selected');
 }
 
+function completedItem(evt) {
+  const item = evt.target;
+  if (item.classList.contains('completed')) item.classList.remove('completed');
+  else item.classList.add('completed');
+}
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addListItem);
 
 const list = document.getElementById('lista-tarefas');
 list.addEventListener('click', selectListItem);
+list.addEventListener('dblclick', completedItem);
