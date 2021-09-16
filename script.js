@@ -13,5 +13,16 @@ function addListItem() {
   clearInput();
 }
 
+function selectListItem(evt) {
+  const list = document.querySelector('.selected');
+  if (list) list.classList.remove('selected');
+
+  const item = evt.target;
+  item.classList.add('selected');
+}
+
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addListItem);
+
+const list = document.getElementById('lista-tarefas');
+list.addEventListener('click', selectListItem);
