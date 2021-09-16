@@ -35,3 +35,17 @@ document.addEventListener('click',(e) =>{
 });
 
 document.querySelector('#criar-tarefa').addEventListener('click', addTasks);
+
+
+/*_________________________________________________________________________________________________________*/
+/*                                          Requisito10                                                    */
+const clearButton = document.getElementById('apaga-tudo');
+
+
+clearButton.addEventListener('click',() => {
+  let lis = document.querySelectorAll('li');
+  
+  for(let i = 0; i < lis.length; i += 1){
+    document.querySelector('#lista-tarefas').removeChild(lis[i])
+  }
+});
