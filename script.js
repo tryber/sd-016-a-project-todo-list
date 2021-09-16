@@ -1,3 +1,22 @@
+function buttonSave() {
+  const button = document.querySelector('#salvar-tarefas');
+  const list = document.querySelector('ol');
+  button.addEventListener('click', () => {
+    // JSON.stringify transforma o conteúdo que vc esta jogando dentro dele em string
+    localStorage.setItem('lis', JSON.stringify(list.innerHTML));
+  });
+}
+
+function getLis() {
+  // JSON.parse transforma sua string no conteúdo de volta (original) (objt em objt)
+  const storage = JSON.parse(localStorage.getItem('lis'));
+  if (storage === null) {
+    return false;
+  }
+  const list = document.querySelector('ol');
+  list.innerHTML = storage;
+}
+
 function buttonClearSelected() {
   const button = document.querySelector('#remover-selecionado');
   button.addEventListener('click', () => {
@@ -67,8 +86,10 @@ function addButtonListenner() {
 }
 
 window.onload = () => {
+  getLis();
   addButtonListenner();
   buttonClearEverything();
   buttonClearFineshed();
   buttonClearSelected();
+  buttonSave();
 };
