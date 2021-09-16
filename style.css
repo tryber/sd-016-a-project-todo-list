@@ -1,0 +1,13 @@
+* {
+  padding: 5px;
+  margin: 5px;
+}
+
+body {
+  width: 30%;
+  margin: auto;
+}
+
+li {
+  width: 50%;
+}
