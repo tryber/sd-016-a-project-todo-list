@@ -53,7 +53,26 @@ li {
     font-style: italic;
 }
 
-.liGray {
+.li-Gray {
     background-color: rgb(128, 128, 128);
-    color: whitesmoke;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+ol {
+    padding: 30px;
+}
+
+#apaga-tudo {
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    width: 50px;
+    height: 40px;
+    font-size: large;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    border-style: none;
 }
