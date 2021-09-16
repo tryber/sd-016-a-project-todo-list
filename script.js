@@ -44,3 +44,28 @@ function clearTasks () {
     document.querySelector('#lista-tarefas').removeChild(listItems[index])
   }
 }
+
+// Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
+
+let buttonNew = document.createElement('button')
+buttonNew.id = 'remover-finalizados';
+buttonNew.innerText = 'remove finalizados';
+document.body.appendChild(buttonNew)
+
+
+document.getElementById('remover-finalizados').addEventListener('click', function (event){
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1){
+    if (listItems[index].className === "completed") {
+      listItems[index].remove(); // Danielle Silva tribo B e Julia Barcelos
+    }
+  }
+})
+
+// - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
+// O que será verificado:
+
+// Será verificado que existe um elemento button com o id remover-finalizados
+
+// Será verificado que, ao clicar no botão, todos os elementos marcados como feitos são removidos da lista
+
