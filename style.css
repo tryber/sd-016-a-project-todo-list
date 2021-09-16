@@ -4,7 +4,7 @@
 
   --defaultColor: rgb(17 , 9 , 88);
 
-  --btnColor: rgb(121 , 44 , 235);
+  --btnColor: rgb(112 , 79 , 160);
 
   --postItColor: rgb(255 , 255 , 165);
 }
@@ -145,7 +145,7 @@ main p {
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
-  background-image: url(./img/pexels-eva-elijas-5988420.jpg);
+  background-image: url('./img/pexels-eva-elijas-5988420.jpg');
   background-position: center;
   width: 90%;
   height: 350px;
@@ -173,7 +173,6 @@ main p {
 
 .clickItem:hover {
   transform: scale(1) rotate(0deg);
-
 }
 
 li:hover {
