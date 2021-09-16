@@ -2,18 +2,14 @@
 function createTask() {
   const orderList = document.querySelector('#lista-tarefas');
   const getInput = document.querySelector('#texto-tarefa');
+
   const itemList = document.createElement('li');
-  if (getInput.value === '') {
-    alert ('Descreva a Tarefa')
-    return
-  } else{
-    itemList.innerText = getInput.value;
-    itemList.className = 'task';
-    orderList.appendChild(itemList);
-    getInput.value = '';
-  }
-  
+  itemList.innerText = getInput.value;
+  itemList.className = 'task';
+  orderList.appendChild(itemList);
+  getInput.value = '';
 }
+
 
 const buttonCreate = document.querySelector('#criar-tarefa');
 buttonCreate.addEventListener('click', createTask);
@@ -22,7 +18,7 @@ buttonCreate.addEventListener('click', createTask);
 function removeSelection() {
   const selectItem = document.querySelectorAll('.selected');
   for (let index = 0; index < selectItem.length; index += 1) {
-    selectItem[index].style.backgroundColor = 'rgb(248, 219, 140)';
+    selectItem[index].style.backgroundColor = 'rgb(255, 255, 255)';
     selectItem[index].classList.remove ('selected');
   }
 }
@@ -46,6 +42,7 @@ task.addEventListener('dblclick', completTasks);
 
 
 // ADD EVENTO A BOTÃO DE LIMPAR TODA LISTA DE TAREFAS
+
 const clearButton = document.getElementById('apaga-tudo');
 
 function clearAll (){
@@ -58,6 +55,7 @@ function clearAll (){
 clearButton.addEventListener ('click', clearAll);
 
 // ADD EVENTO A BOTÃO DE LIMPAR TAREFAS FINALIZADAS
+
 const clearButtonFinish = document.getElementById('remover-finalizados');
 
 function clearFinish (){
@@ -70,6 +68,7 @@ function clearFinish (){
 clearButtonFinish.addEventListener ('click', clearFinish);
 
 // ADD EVENTO A BOTÃO DE LIMPAR TAREFAS SELECIONADAS
+
 const clearButtonSelect = document.getElementById('remover-selecionado');
 
 function selectedTask (){
@@ -96,6 +95,7 @@ function moveUp (){
     orderList.insertBefore(taskContent,taskBefore )
   }
 
+  
 }
 function moveDown (){
   const orderList = document.querySelector('#lista-tarefas');

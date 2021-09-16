@@ -1,13 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+   background:rgb(221, 221, 221);
+   background-size: cover;
+ }
+
+main {
+  width: 80%;
+  margin: 40px auto;
+  padding: 30px;
+  background: url(img/cortice.jpg);
+  border: 10px  ridge rgb(128, 93, 48);
+  text-align: center;
+}
+
+button, input {
+  padding: 5px;
+  margin: 0;
+  font-family: 'Architects Daughter', cursive;
+
+}
+
+h1 {
+  font-family: 'Architects Daughter', cursive;
+  background-color: rgb(140, 248, 248);
+  padding: 20px;
+  max-width: max-content;
+  margin: 0 auto 15px auto;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.5);
+}
+
+#funcionamento, #add-task {
+  background-color: azure;
+  padding: 10px;
+  max-width: max-content;
+  margin: 15px auto;
+}
+
+.task {
+  box-sizing: border-box;
+  font-family: 'Architects Daughter', cursive;
+  background-color: rgb(248, 219, 140);
+  padding: 20px 20px 30px;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  box-shadow: 5px 5px 7px rgba(33,33,33,.5);
+  display: inline-flex;
+  align-content: start;
+  text-transform: uppercase;
+  pointer-events: all;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+ol {
+  text-decoration: none;
+  background-color:transparent;
+  pointer-events: none;   /* Propriedade vista na documentação */
+}
+
 .selected {
   background-color: gray;
 }
 
 #lista-tarefas {
-  background-color: white;
   text-decoration: none;
 }
 
-.completed {
-  text-decoration: line-through solid black;
-  background-color: white;
+#controls {
+  margin: 40px 0 0 0;
 }
