@@ -8,13 +8,26 @@ function taskInsert() {
   document.getElementById('texto-tarefa').value = ''; // zerar valor do input
   let tasks = document.querySelectorAll("li"); // definir id 'task' para as tarefas criadas
   for (let index = 0; index < tasks.length; index++) {
-  tasks[index].id = 'task';
+  tasks[index].classList.add('task');
 }
 }
+
+// para sublinhar as tarefas finalizadas
+
+document.addEventListener('dblclick', function (event) {
+  if ( event.target.classList.contains('completed') ) {
+      event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+});
 
 // para selecionar as tarefas criadas
 
 
+
+
 // para remover as tarefas da lista
+
 
 
