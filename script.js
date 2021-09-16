@@ -1,6 +1,5 @@
 const btn = document.getElementById('criar-tarefa');
 const tarefaTxt = document.getElementById('texto-tarefa');
-const selected = document.querySelector('.highlight');
 const tarefaList = document.getElementById('lista-tarefas');
 const allList = document.getElementsByTagName('li');
 const delAll = document.getElementById('apaga-tudo');
@@ -78,6 +77,7 @@ saveTarefas.addEventListener('click', () => {
 });
 
 moveUp.addEventListener('click', () => {
+  const selected = document.querySelector('.highlight');
   if (selected !== null) {
     const txtAtual = selected.outerHTML;
     const anterior = selected.previousSibling;
@@ -90,6 +90,7 @@ moveUp.addEventListener('click', () => {
 });
 
 moveDown.addEventListener('click', () => {
+  const selected = document.querySelector('.highlight');
   if (selected !== null) {
     const txtAtual = selected.outerHTML;
     const proximo = selected.nextSibling;
@@ -103,6 +104,7 @@ moveDown.addEventListener('click', () => {
 });
 
 removSelected.addEventListener('click', () => {
+  const selected = document.querySelector('#selecionado');
   if (selected !== null) {
     selected.parentNode.removeChild(selected);
   }
