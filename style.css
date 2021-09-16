@@ -15,8 +15,8 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-image: url('./img/pexels-pixabay-235985.jpg');
-  background-position: center;
+  background-image: url('./img/wallBrick.jpg');
+  background-position: cover;
   font-family: Montserrat, Helvetica, sans-serif;
 }
 
@@ -145,23 +145,35 @@ main p {
   display: flex;
   flex-flow: column;
   flex-wrap: wrap;
+  background-image: url(./img/pexels-eva-elijas-5988420.jpg);
+  background-position: center;
+  width: 90%;
   height: 350px;
   margin: 0;
+  margin-left: 2%;
   overflow: auto;
+  border: 10px groove rgb(80 , 41 , 0);
 }
 
 .clickItem {
   display: flex;
   flex-wrap: wrap;
   width: fit-content;
-  height: 13vh;
+  height: fit-content;
   list-style: none;
-  padding: 5px;
+  padding: 30px;
   margin-top: 28px;
   text-align: center;
   box-shadow: 2px 0 6px black;
   background-color: var(--postItColor);
   transform: rotate(20deg);
+  transition: all 0.1s linear;
+  user-select: none;
+}
+
+.clickItem:hover {
+  transform: scale(1) rotate(0deg);
+
 }
 
 li:hover {
@@ -175,9 +187,11 @@ li:hover {
 footer {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 50px;
 }
 
 .my-icon-footer {
+  margin-top: 15;
   width: 70px;
   transition: all 0.2s;
 }
