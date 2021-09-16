@@ -1,3 +1,5 @@
+const list = document.getElementById('lista-tarefas');
+
 function clearInput() {
   const input = document.getElementById('texto-tarefa');
   input.value = '';
@@ -5,7 +7,6 @@ function clearInput() {
 
 function addListItem() {
   const inputValue = document.getElementById('texto-tarefa').value;
-  const list = document.getElementById('lista-tarefas');
   const listItem = document.createElement('li');
   listItem.innerText = inputValue;
 
@@ -14,8 +15,8 @@ function addListItem() {
 }
 
 function selectListItem(evt) {
-  const list = document.querySelector('.selected');
-  if (list) list.classList.remove('selected');
+  const listItems = document.querySelector('.selected');
+  if (listItems) listItems.classList.remove('selected');
 
   const item = evt.target;
   item.classList.add('selected');
@@ -27,9 +28,15 @@ function completedItem(evt) {
   else item.classList.add('completed');
 }
 
-const button = document.getElementById('criar-tarefa');
-button.addEventListener('click', addListItem);
+function clearList() {
+  list.innerText = '';
+}
 
-const list = document.getElementById('lista-tarefas');
+const createItemButton = document.getElementById('criar-tarefa');
+createItemButton.addEventListener('click', addListItem);
+
+const clearListButton = document.getElementById('apaga-tudo');
+clearListButton.addEventListener('click', clearList);
+
 list.addEventListener('click', selectListItem);
 list.addEventListener('dblclick', completedItem);
