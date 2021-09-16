@@ -6,24 +6,26 @@ function createTask() {
   const itemList = document.createElement('li');
   itemList.innerText = getInput.value;
   itemList.className = 'task';
-  orderList.append(itemList);
+  orderList.appendChild(itemList);
   getInput.value = '';
 }
+
 
 const buttonCreate = document.querySelector('#criar-tarefa');
 buttonCreate.addEventListener('click', createTask);
 
 // MUDA COR QUANDO SELECIONADO
-const selectItem = document.getElementsByClassName('selected');
 function removeSelection() {
+  const selectItem = document.querySelectorAll('.selected');
   for (let index = 0; index < selectItem.length; index += 1) {
     selectItem[index].style.backgroundColor = 'rgb(255, 255, 255)';
+    selectItem[index].classList.remove ('selected');
   }
 }
 
 function changeColorBg(event) {
   removeSelection();
-  event.target.classList.add('selected');
+  event.target.classList.add ('selected');
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
@@ -77,3 +79,42 @@ function selectedTask (){
 }
 
 clearButtonSelect.addEventListener ('click', selectedTask);
+
+// ADD FUNÇÃO QUE MOVE AS TAREFAS
+function moveUp (){
+  const orderList = document.querySelector('#lista-tarefas');
+  let taskContent = document.querySelector('.selected')
+  let taskList = document.querySelectorAll('.task')
+
+  if (taskContent === null) {
+    return
+  } else  if (taskContent === taskList[0] ) {
+    return
+  } else{
+    let taskBefore = document.querySelector('.selected').previousElementSibling
+    orderList.insertBefore(taskContent,taskBefore )
+  }
+
+}
+function moveDown (){
+  const orderList = document.querySelector('#lista-tarefas');
+  let taskContent = document.querySelector('.selected')
+  let taskList = document.querySelectorAll('.task')
+
+  if (taskContent === null) {
+    return
+  } else  if (taskContent === taskList[taskList.length -1] ) {
+    return
+  } else {
+    let taskBefore = document.querySelector('.selected').nextElementSibling
+
+    orderList.insertBefore(taskContent,taskBefore.nextSibling )
+  }
+
+}
+
+const upBnt = document.getElementById('mover-cima');
+const upDwn = document.getElementById('mover-baixo');
+
+upBnt.addEventListener('click', moveUp);
+upDwn.addEventListener('click', moveDown);
