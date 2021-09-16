@@ -14,13 +14,19 @@ function changeBackground(e) {
   const list = document.querySelectorAll('.list');
   for (let i = 0; i < list.length; i += 1) {
     list[i].style.backgroundColor = '';
-    list[i].className = 'list';
+    list[i].id = '';
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  e.target.className = 'list selected';
+  e.target.id = 'selected';
 
 }
 orderedList.addEventListener('click', changeBackground);
+
+function changeRisk(e) {
+  e.target.classList.toggle('completed');
+}
+orderedList.addEventListener('dblclick', changeRisk);
+
 
 function deleteTasks() {
   while (orderedList.firstChild) {
