@@ -1,6 +1,7 @@
 const myList = document.getElementById('lista-tarefas');
 const listItem = document.getElementsByTagName('li');
 const adicionarTarefa = document.getElementById('criar-tarefa');
+const clearAll = document.getElementById('apaga-tudo');
 
 adicionarTarefa.addEventListener('click', function () {
   const node = document.createElement('li');
@@ -34,3 +35,16 @@ function done(event) {
 }
 
 myList.addEventListener('dblclick', done);
+
+
+function apagaTudo() {
+ if( document.querySelectorAll('li').length === 0 ){
+   alert('Para apagar a lista é preciso ter uma tarefa adicionada');
+ } else {
+   myList.innerHTML = '';
+ }   
+}
+
+clearAll.addEventListener('click', apagaTudo);
+
+  
