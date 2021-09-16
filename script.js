@@ -1,6 +1,16 @@
 const button = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const listItems = document.querySelector('#lista-tarefas').children;
+const clearAll = document.querySelector('#apaga-tudo');
+
+function clear() {
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].remove();
+    index -= 1;
+  }
+}
+
+clearAll.addEventListener('click', clear);
 
 function changeBgColor(event) {
   const elementSelected = event.target.style;
