@@ -21,9 +21,30 @@
 }
 
 #criar-tarefa {
-  background-color: #4cb944;
+  background-color: #2660A4;
+  color: white;
 }
 
 .content.lista-tarefas {
   width: fit-content;
+}
+
+.item {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 5px;
+  background-color: #f03a47;
+  padding: 5px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+  background-color: #bcf47c;
+}
+
+#apaga-tudo {
+  background-color: #fde0e6;
+  color: #f03a47;
 }
