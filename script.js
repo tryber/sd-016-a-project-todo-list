@@ -1,25 +1,25 @@
 function createTarefa() {
-// chamar texto dentro do input
-const inputValue = document.querySelector('#texto-tarefa');
-const tarefaInput = inputValue.value;
-// chama a ol pai vazia
-const unorderedList = document.querySelector('#lista-tarefas');
-// cria as li que serão adicionadas ao ol pai
-const tarefaLi = document.createElement('li');
-// a cada li vai entrar o nome da tarefa do input
-tarefaLi.innerHTML = tarefaInput;
-unorderedList.appendChild(tarefaLi);
-// zerar o valor do input para a proxima tarefa
-inputValue.value = '';
+	// chamar texto dentro do input
+	const inputValue = document.querySelector('#texto-tarefa');
+	const tarefaInput = inputValue.value;
+	// chama a ol pai vazia
+	const unorderedList = document.querySelector('#lista-tarefas');
+	// cria as li que serão adicionadas ao ol pai
+	const tarefaLi = document.createElement('li');
+	// a cada li vai entrar o nome da tarefa do input
+	tarefaLi.innerHTML = tarefaInput;
+	unorderedList.appendChild(tarefaLi);
+	// zerar o valor do input para a proxima tarefa
+	inputValue.value = '';
 eventColorLi();
 eventCompletedTarefa();
-};
+}
 
 function eventCreateTarefa() {
-	let createButton = document.getElementById('criar-tarefa');
-  createButton.addEventListener('click', createTarefa);
+	const createButton = document.getElementById('criar-tarefa');
+	createButton.addEventListener('click', createTarefa);
 }
-eventCreateTarefa();
+eventCreateTarefa()
 
 function colorLi(event) {
   const li = document.querySelector('#lista-tarefas').children;
@@ -39,7 +39,7 @@ function eventColorLi() {
   for (let index = 0; index < li.length; index += 1) {
 		li[index].addEventListener('click', colorLi);
   }
-};
+}
 
 function completedTarefa(event) {
 	// let li = document.querySelector('#lista-tarefas').children;
@@ -49,8 +49,8 @@ function completedTarefa(event) {
   // https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
   if (event.target.classList.contains('completed')) {
 		event.target.classList.remove('completed');    
-  	// talvez add um " " ao class para nao ficar vazio    
-  } else {
+  	// talvez add um " " ao class para nao ficar vazio
+	} else {
     event.target.classList.add('completed');
   }
 }
@@ -65,7 +65,7 @@ function eventCompletedTarefa() {
 function removeAllTarefas() {
   // fonte para o código abaixo foi encontrada e baseado na seguinte página, na resposta de Gibolt
   // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
-  let tarefaList = document.querySelector('#lista-tarefas');
+  const tarefaList = document.querySelector('#lista-tarefas');
   while (tarefaList.firstChild) {
 		// remove filho enquanto houver algum firschild na ul
     // assim evita que tenha de apagar um por vez pq no loop pegava cada elemento por vez na posicao index;
@@ -74,14 +74,14 @@ function removeAllTarefas() {
 }
 
 function removeAllButton() {
-  let removeButton = document.querySelector('#apaga-tudo');
+  const removeButton = document.querySelector('#apaga-tudo');
   removeButton.addEventListener('click', removeAllTarefas);
 }
 removeAllButton();
 
 function removerCompleted() {
   //chama as li filhas do ol -- partindo do principio que havera tarefas completed
-  let tarefaList = document.querySelectorAll('.completed');
+  const tarefaList = document.querySelectorAll('.completed');
   for (let index = 0; index < tarefaList.length; index += 1) {
   //chama o pai ol para deletar as filhas li completed na posicao index
     tarefaList[index].parentElement.removeChild(tarefaList[index]);
@@ -89,7 +89,7 @@ function removerCompleted() {
 }
 
 function removeCompletedButton() {
-  let removeCompletedButton = document.querySelector('#remover-finalizados');
+  const removeCompletedButton = document.querySelector('#remover-finalizados');
   removeCompletedButton.addEventListener('click', removerCompleted);
 }
 removeCompletedButton();
@@ -123,7 +123,7 @@ eventMoveToPrevious();
 function moveToNext() {
   // Essa funcao tambem foi criada baseada no apresentado pelo Humberto
   // mesmo esquema do moveToPrevious;
-  const selectedElement = document.querySelector("#selected").outerHTML;
+  const selectedElement = document.querySelector('#selected').outerHTML;
   const notSelectedElement = document.querySelector('#not-selected').outerHTML;
   if (selectedElement !== notSelectedElement) {
     // a lógica muda pq está descendo
@@ -144,7 +144,7 @@ eventMoveToNext();
 
 function removeSelected() {
   // só há um selected por vez
-  const selectedElement = document.querySelector("#selected");
+  const selectedElement = document.querySelector('#selected');
   // conceito parecido com o removercompleted
   selectedElement.parentElement.removeChild(selectedElement);
 }
