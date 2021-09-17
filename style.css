@@ -25,7 +25,7 @@
   color: white;
 }
 
-.content.lista-tarefas {
+.content.lista-tarefas-container {
   width: fit-content;
 }
 
@@ -47,4 +47,9 @@
 #apaga-tudo {
   background-color: #fde0e6;
   color: #f03a47;
+}
+
+#remover-finalizados {
+  background-color: #fef0d8;
+  color: #f6a713;
 }

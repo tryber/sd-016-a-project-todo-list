@@ -11,17 +11,19 @@ function adicionaTarefa() {
 }
 
 function checaSelecionados(remover) {
-  let corDeFundo;
-  const itensLista = document.getElementById('lista-tarefas').children;
-  for (let index = 0; index < itensLista.length; index += 1) {
-    corDeFundo = window.getComputedStyle(itensLista[index], null).getPropertyValue('background-color');
-    if (corDeFundo = 'rgb(128, 128, 128)') {
-      if (remover === true) {
-        itensLista[index].style.backgroundColor = '';
+  let estiloCSS;
+  let listaTarefas = document.getElementById('lista-tarefas');
+  let itensLista = listaTarefas.children;
+  let tamanhoLista = itensLista.length;
+  for (let index = 0; index < tamanhoLista; index += 1) {
+    if (remover === true){
+        estiloCSS = window.getComputedStyle(itensLista[index], null).getPropertyValue('background-color');
+        if (estiloCSS === 'rgb(128, 128, 128)') {
+            itensLista[index].style.backgroundColor = '';
+          }
       } else if (remover === false) {
           return itensLista[index];
       }
-    }
   }
 }
 
@@ -53,10 +55,18 @@ function limpaLista() {
   } 
 }
 
+function removeFinalizados() {
+  let completos = document.querySelectorAll('.completed');
+  for (let index = 0; index < completos.length; index++) {
+    completos[index].remove();
+  }
+}
+
 window.onload = function () {
   document.getElementById('criar-tarefa').addEventListener('click', adicionaTarefa);
   document.addEventListener('click', selecionaItem);
   document.addEventListener('dblclick', completaTarefa);
-  document.querySelector('.box').addEventListener('click', function() {checaSelecionados(true);});
+  document.querySelector('.box').addEventListener('click', function () {checaSelecionados(true);});
   document.getElementById('apaga-tudo').addEventListener('click', limpaLista);
+  document.getElementById('remover-finalizados').addEventListener('click', removeFinalizados);
 }
