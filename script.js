@@ -9,59 +9,87 @@ function html1() {
   // cria o paragrafo <p>.
   const paragrafo = document.createElement('p');
   section.appendChild(paragrafo);
-  document.querySelector('p').id = 'funcionamento';
-  document.querySelector('p').innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+  const p = document.querySelector('p');
+  p.id = 'funcionamento';
+  p.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
 }
 
 function nav() {
-  //constantes Pai.
-  const nav = document.querySelector('nav');
+  // constantes Pai.
+  const tasks = document.querySelector('nav');
   const ol = document.createElement('ol');
   // cria o input.
   const input = document.createElement('input');
-  nav.appendChild(input);
+  tasks.appendChild(input);
   document.querySelector('input').id = 'texto-tarefa';
   // cria lista ordenada.
-  nav.appendChild(ol);
+  tasks.appendChild(ol);
   ol.id = 'lista-tarefas';
-  //constantes Filho.
-   const olAcess = document.querySelector('ol');
-   const inputText = document.querySelector('#texto-tarefa');
   // cria o botão Na Página.
   const btn = document.createElement('button');
-  nav.appendChild(btn);
+  tasks.appendChild(btn);
   document.querySelector('button').id = 'criar-tarefa';
   document.querySelector('button').innerText = 'Create';
-  // acessa o botão
-  const btnAcess = document.querySelector('#criar-tarefa');
-  // mensagem de erro! 
-  const error = document.createElement('p');
-  nav.appendChild(error);
-  // funçao do botão.
+}
 
-  btnAcess.addEventListener('click', function (){
-   
+function defaultColorWhite() {
+  const colorWhite = document.querySelectorAll('li');
+  for (let i = 0; i < colorWhite.length; i += 1) {
+    colorWhite[i].style.backgroundColor = 'white';
+  }
+}
+
+function selectColorGray() {
+  const colorGray = document.querySelectorAll('li');
+  for (let i = 0; i < colorGray.length; i += 1) {
+    colorGray[i].addEventListener('click', function () {
+      defaultColorWhite();
+      colorGray[i].style.backgroundColor = 'gray';
+    });
+  }
+}
+
+function itemCompleted() {
+  const items = document.querySelectorAll('li');
+  for (let i = 0; i < items.length; i += 1) {
+    items[i].addEventListener('dblclick', function () {
+      items[i].classList.add('completed');
+      const itemsProperties = items[i].classList.value;
+      if (itemsProperties === 'task completed') {
+        items[i].addEventListener('dblclick', function () {
+          items[i].classList.remove('completed');
+        });
+      }
+    });
+  }
+}
+
+function btnCreate() {
+  nav();
+  const olAcess = document.querySelector('ol');
+  const inputText = document.querySelector('#texto-tarefa');
+  const btnAcess = document.querySelector('#criar-tarefa');
+  const error = document.createElement('p');
+  const div = document.querySelector('div');
+  div.appendChild(error);
+  error.id = 'errorMsg';
+  btnAcess.addEventListener('click', function () {
     if (inputText.value !== '') {
       const li = document.createElement('li');
       li.innerText = inputText.value;
       li.classList.add('task');
       olAcess.appendChild(li);
       inputText.value = '';
-      // limpa mensagem de erro ao criar uma tarefa.
-      document.querySelector('nav p').innerText = ''; 
-
-      const grayList = document.querySelector('li');
-      grayList.addEventListener('click', function(){
-        li.style.backgroundColor = 'gray';
-      });
-
-      } else {
-        error.innerText = 'erro: Digite uma lista de tarefa !';
-        error.style.color = 'red';
-        console.log('erro: Digite uma lista de tarefa !');
-      }
+      document.querySelector('#errorMsg').innerText = '';
+      selectColorGray();
+      itemCompleted();
+    } else {
+      error.innerText = 'erro: Digite uma lista de tarefa !';
+      error.style.color = 'red';
+    }
+    console.log(document.querySelector('p'));
   });
 }
 
 html1();
-nav();
+btnCreate();
