@@ -64,6 +64,23 @@ function itemCompleted() {
   }
 }
 
+function btnClear() {
+  const btn = document.createElement('button');
+  const navAcess = document.querySelector('nav');
+  navAcess.appendChild(btn);
+  btn.classList.add('btnClear');
+  btn.innerText = 'Limpar';
+  btn.id = 'apaga-tudo';
+  const btnAcess = document.querySelectorAll('button')[1];
+  btnAcess.addEventListener('click', function () {
+    const ol = document.querySelector('ol');
+    const li = document.querySelectorAll('li');
+    for (let i = 0; i < li.length; i += 1) {
+      ol.removeChild(li[i]);
+    }
+  });
+}
+
 function btnCreate() {
   nav();
   const olAcess = document.querySelector('ol');
@@ -87,8 +104,8 @@ function btnCreate() {
       error.innerText = 'erro: Digite uma lista de tarefa !';
       error.style.color = 'red';
     }
-    console.log(document.querySelector('p'));
   });
+  btnClear();
 }
 
 html1();
