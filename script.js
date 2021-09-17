@@ -8,9 +8,15 @@ function createTask() {
   addList.appendChild(createListElement)
   createListElement.className="list-item";
   input.value = "";
-  createListElement.addEventListener('click', function(){
-    createListElement.style.backgroundColor="rgb(128,128,128)";
-  })
 }
 
+function changeBackgroundColor(e) {
+const listItem = addList.children;
+  for (let i = 0; i < listItem.length; i += 1) {
+    listItem[i].className = 'default-background';
+    e.target.className = 'selected-item-background';
+  }
+}
+
+addList.addEventListener('click', changeBackgroundColor);
 createButton.addEventListener('click', createTask);
