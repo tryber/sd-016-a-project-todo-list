@@ -1,0 +1,62 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, Ubuntu, Helvetica Neue, sans-serif;
+  cursor: pointer;
+}
+
+.h1 {
+  color: forestgreen;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin: 1% 20% 5%;
+}
+
+#funcionamento {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+#texto-tarefa {
+  color: indigo;
+  border: 2px solid black;
+  background: blanchedalmond;
+  border-radius: 5px;
+  margin-bottom: 1%;
+}
+
+#lista-tarefas {
+  background: gold;
+  color: black;
+  width: 500px;
+  height: auto;
+  border: 2px solid brown;
+  border-radius: 8px;
+}
+
+#criar-tarefa {
+  background: green;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+#apaga-tudo {
+  background: red;
+  color: black;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+#remover-finalizados {
+  background: blue;
+  color: yellow;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+}
