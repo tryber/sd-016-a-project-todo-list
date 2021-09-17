@@ -11,4 +11,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
     }
     newItem.classList.add('selected');
   });
+
+  newItem.addEventListener('dblclick', () => {
+    newItem.classList.toggle('completed');
+  });
 });
