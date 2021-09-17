@@ -7,7 +7,7 @@ body {
   
   #titulo{
     font-family: 'Montserrat', courier;
-    font-size:180%;
+    font-size:80%;
     margin: 0 auto;
     margin-left: 10%;
     max-width: 450px;
@@ -15,13 +15,24 @@ body {
   }
 
   #funcionamento {
-    margin: 10px 10px 10px;
+    margin:10px 10px 10px;
     font-size:75%;
-    margin-left: 50px;
+    margin-left:50px;
+  }
+
+  #texto-tarefa {
+    margin:10px 10px 10px;
+    background-color: rgba(100, 148, 237, 0.11);
+    margin-left:50px;
+  }
+
+  #criar-tarefa, #lista-tarefas {
+    margin:10px 10px 10px;
+    margin-left:50px;
   }
   
-  #texto-tarefa {
-
+  .completed {
+    text-decoration:line-through solid rgb(0, 0, 0);
   }
 
   
