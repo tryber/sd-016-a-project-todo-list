@@ -21,11 +21,13 @@ list.addEventListener('dblclick', (event) => {
 // --------------------------------------------------------------------------------------------
 function cleanList() {
   const btn = document.querySelector('#apaga-tudo');
-  btn.addEventListener('click', () => {
-    for (let i = 0; i < generic.length; i += 1) {
-      generic[i].parentNode.removeChild(generic[i]);
-    }
-  });
+  const item = document.querySelectorAll('.item');
+  for (let i = 0; i < item.length; i += 1) {
+
+    item[i].parentNode.removeChild(item[i])
+
+  }
+  btn.addEventListener('click', cleanList);
 }
 // --------------------------------------------------------------------------------------------
 function addNewTask() {
