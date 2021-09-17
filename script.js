@@ -156,3 +156,48 @@ function eventRemoveSelected() {
 eventRemoveSelected();
 
 // ainda está faltando a função para salvar a lista, mas ela foi comentada nas monitorias -- check anotações -- a aula ainda esta atrasada --
+// sugestão do Sumo de fazer o bonus do local storage
+
+// função feita com base no exercicio do course
+// function saveTask() {
+//   // chama os filhos da ol onde estao as tarefas
+//   const tarefas = document.querySelector('ol').children;
+//   // pegando o value inserido em cada tarefa
+//   // const tarefaText = tarefas.value --> podendo ser mais de uma pode vir em lista, entao coloquei logo no for de baixo
+//   // lista que ficará salva -- inicialmente esta vazia para receber os dados
+//   const listTarefas = [];
+//   for (let index = 0; index < tarefas.length; index += 1) {
+//     listTarefas.push(tarefas[index].value)
+//   }
+//   // setItem funciona como key, value
+//   // https://blog.logrocket.com/localstorage-javascript-complete-guide/
+//   localStorage.setItem('lista-tarefas', JSON.stringify(listTarefas));
+// };
+
+// function eventSaveTask() {
+//   const saveButton = document.querySelector('#salvar-tarefas');
+//   saveButton.addEventListener('click', saveTask)
+// }
+// eventSaveTask();
+
+// // chamar o localstorage para carregar
+// // com base no course
+// function carregarListaSalva() {
+//   if (localStorage.getItem('lista-tarefas') === null) {
+//     localStorage.setItem('lista-tarefas', JSON.stringify([]));
+//   } 
+//   // aparentemente está dando erro de carregamento das li -> entao loop para carregar as li e append elas
+//   let tarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
+//   for (let index = 0; index <= tarefas.length; index +=1) {
+//     // criar as li
+//     const tarefasLi = document.createElement('li');
+//     tarefasLi.innerText = tarefas[index];
+//     // append na ol pai
+//     const olPai = document.querySelector('#lista-tarefas')
+//     olPai.appendChild(tarefasLi)
+//   }
+// }
+
+// window.onload = function() {
+//   carregarListaSalva()
+// }
