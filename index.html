@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do List</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <div class="box">
+                <header class="title">Minha Lista de Tarefas</header>
+                <p id="funcionamento" class="subtitle is-6"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+                <section id="inputs-container" class="container">
+                    <div class="columns is-mobile">
+                        <div class="column is-narrow">
+                            <input type="text" id="texto-tarefa" class="input is-focused" placeholder="Ex.: Estudar conteúdo do dia">
+                        </div>
+                        <div class="column">
+                            <button id="criar-tarefa" class="button is-rounded is-hovered is-focused">Adicionar</button>
+                        </div>
+                    </div>
+                </section>
+                <div class="content lista-tarefas-container has-text-centered">
+                    <ol id="lista-tarefas" type="1"></ol>
+                </div>
+                <footer id="buttons-container" class="buttons">
+                    <div class="columns is-variable is-1">
+                        <div class="column">
+                            <button id="apaga-tudo" class="button is-rounded">Apagar Lista</button>
+                        </div>
+                        <div class="column">
+                            <button id="remover-finalizados" class="button is-rounded">Remover Finalizados</button>
+                        </div>
+                        <div class="column">
+                            <button id="salvar-tarefas" class="button is-rounded">Salvar Lista</button>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

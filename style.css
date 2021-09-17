@@ -1,0 +1,60 @@
+* {
+
+  /* border: 1px solid green; */
+}
+
+.title {
+  color: #121212;
+}
+
+.hero {
+  background-color: #121212;
+}
+
+.box {
+  background-color: #a4aacc;
+}
+
+#lista-tarefas {
+  margin-top: 1rem;
+  color: #121212;
+}
+
+#criar-tarefa {
+  background-color: #2660A4;
+  color: white;
+}
+
+.content.lista-tarefas-container {
+  width: fit-content;
+}
+
+.item {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 5px;
+  background-color: #f03a47;
+  padding: 5px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+  background-color: #bcf47c;
+}
+
+#apaga-tudo {
+  background-color: #fde0e6;
+  color: #f03a47;
+}
+
+#remover-finalizados {
+  background-color: #fef0d8;
+  color: #f6a713;
+}
+
+#salvar-tarefas {
+  background-color: #e2f4e2;
+  color: #4cb944;
+}
