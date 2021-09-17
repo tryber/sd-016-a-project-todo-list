@@ -96,6 +96,7 @@ removeCompletedButton()
 
 function moveToPrevious () {
     // quem move é cinza -> o selected
+    // o uso do outerHTML foi baseado no código do Humberto Castro, e confirmado no link abaixo
     // o outerHTML pegar o fragmento html e pode substituir o html
     // https://w3schools.unlockfuture.com/jsref/prop_html_outerhtml.html
     let selectedElement = document.querySelector("#selected").outerHTML;
@@ -117,10 +118,10 @@ function eventMoveToPrevious() {
 }
 eventMoveToPrevious()
 
-// nos exercicos abaixo mudam-se os elementos de posição, e não o fundo como está sendo agora;
-// ele tb esta reclamando que quando chega no topo ou fim da lista, ele nao consegue ler o outerhtml
+// aparentemente o problema agora ta focado no primeiro e ultimo item da lista, e algo relacionado a mudança dos nomes internos (?)
 
 function moveToNext() {
+    // Essa funcao tambem foi criada baseada no apresentado pelo Humberto
     // mesmo esquema do moveToPrevious;
     let selectedElement = document.querySelector("#selected").outerHTML;
     let notSelectedElement = document.querySelector('#not-selected').outerHTML
@@ -129,8 +130,8 @@ function moveToNext() {
         // como esta descendo, o next precisa receber o outerHTML do selected
         document.querySelector('#selected').nextSibling.outerHTML = selectedElement
         // como o selected esta descendo, o elemento previamente selecionado precisa ficar com o not-selected
-        // remover o previous pq assim o selected ficou mantido e dois ficam coloridos; com outerHTML vai logo substituir o selecteed
-        // document.querySelector('#selected').previousSibling.outerHTML = notSelectedElement
+        // remover o previous pq na lista o selected ficou mantido e dois ficam coloridos; com outerHTML vai logo substituir o selecteed
+        // document.querySelector('#selected').previousSibling.outerHTML = notSelectedElement --> ruminar mais isso aqui para entender melhor
         document.querySelector('#selected').outerHTML = notSelectedElement
     }
 
@@ -154,3 +155,5 @@ function eventRemoveSelected() {
     removeSelectedButton.addEventListener('click', removeSelected)
 }
 eventRemoveSelected();
+
+// ainda está faltando a função para salvar a lista, mas ela foi comentada nas monitorias -- check anotações -- a aula ainda esta atrasada --
