@@ -1,14 +1,42 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <title>To-Do List</title>
 </head>
 <body>
-    <header class="container">
-        <h1>Minha Lista de Tarefas</h1>
-    </header>
+    <section class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <div class="box">
+                <header class="title">Minha Lista de Tarefas</header>
+                <p id="funcionamento" class="subtitle is-6"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+                <section id="inputs-container" class="container">
+                    <div class="columns">
+                        <div class="column is-one-third">
+                            <div class="control">
+                                <input type="text" id="texto-tarefa" class="input is-focused" placeholder="Ex.: Estudar conteúdo do dia">
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="control">
+                                <button id="criar-tarefa" class="button">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="content">
+                    <ol id="lista-tarefas" type="1">
+                        <li>teste</li>
+                    </ol>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
 </body>
 </html>

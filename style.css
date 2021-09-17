@@ -1,8 +1,15 @@
 * {
-    border: 2px solid red;
+    /* border: 1px solid green; */
 }
 
-body {
-    background-color: grey;
-    margin: 0;
+.hero {
+    background-color: #121212;
+}
+
+.box {
+    background-color: #a4aacc;
+}
+
+#lista-tarefas {
+    margin-top: 1rem;
 }
