@@ -9,10 +9,19 @@ botao.addEventListener('click', () => {
   textInput.value = '';
 });
 
+/* function selectListItem(evt) {
+  const list = document.querySelector('.selected');
+  if (list) list.classList.remove('selected');
+
+} */
+
 function colorItem() {
   const lista = document.querySelector('ol');
   lista.addEventListener('click', (event) => {
-    event.target.classList.add('itemColor');
+    const list = document.querySelector('.itemColor');
+    if (list) list.classList.remove('itemColor');
+    const itemLista = event.target;
+    itemLista.classList.add('itemColor');
   });
 }
 colorItem();
