@@ -6,10 +6,10 @@ function changeBGColor(event) {
   for (let i = 0; i < bgColor.length; i += 1) {
     bgColor[i].style.background = '';
   }
-  event.target.style.background = 'rgb(128, 128, 128)';
+  const evento = event.target.style.background = 'rgb(128, 128, 128)';
 }
 function clickToChange() {
-  const btn = document.querySelectorAll('#lista-tarefas');
+  const btn = document.querySelectorAll('.item');
   for (let i = 0; i < btn.length; i += 1) {
     btn[i].addEventListener('click', changeBGColor);
   }
