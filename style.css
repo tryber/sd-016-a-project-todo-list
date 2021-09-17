@@ -1,0 +1,114 @@
+body {
+  background-color: rgb(33 , 37 , 41);
+  font-family: Dancing Script, cursive;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 500;
+  color: rgb(173 , 181 , 189);
+}
+
+p {
+  color: rgb(206 , 212 , 218);
+  font-size: 21px;
+  margin: 21px auto 30px;
+}
+
+#input-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#texto-tarefa {
+  width: 20em;
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: 1px solid rgb(33 , 37 , 41);
+  background-color: rgb(206 , 212 , 218);
+  color: black;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+#criar-tarefa {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(33 , 37 , 41);
+  background-color: rgb(173 , 181 , 189);
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+#to-do-list {
+  margin: auto;
+  max-width: 400px;
+}
+
+#lista-tarefas {
+  color: rgb(206 , 212 , 218);
+}
+
+.list-item {
+  line-height: 25px;
+  font-family: Montserrat, sans-serif;
+  margin: 10px auto;
+  padding-left: 10px;
+  background-color: rgb(33 , 37 , 41);
+  border-radius: none;
+  color: rgb(206 , 212 , 218);
+  font-size: 18px;
+}
+
+.selected {
+  background-color: gray;
+  border-radius: 4px;
+  color: rgb(235 , 94 , 40);
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.buttons-container {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  display: inline-block;
+}
+
+.button {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(33 , 37 , 41);
+  background-color: rgb(235 , 94 , 40);
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+}
+
+#mover-cima {
+  color: green;
+}
+
+#mover-baixo {
+  color: red;
+}
+
+.button-save {
+  background-color: rgb(56 , 176 , 0);
+}
+
+.btn-move {
+  background-color: rgb(33 , 37 , 41);
+  border: 1px solid rgb(208 , 244 , 222);
+}
