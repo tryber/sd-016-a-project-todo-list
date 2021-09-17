@@ -1,5 +1,6 @@
 * {
   font-family: -apple-system, BlinkMacSystemFont, Ubuntu, Helvetica Neue, sans-serif;
+  cursor: pointer;
 }
 
 .h1 {
@@ -24,7 +25,8 @@
 }
 
 #lista-tarefas {
-  color: seagreen;
+  background: gold;
+  color: black;
   width: 500px;
   height: auto;
   border: 2px solid brown;
@@ -37,4 +39,8 @@
   font-weight: 600;
   font-size: 15px;
   border-radius: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
 }
