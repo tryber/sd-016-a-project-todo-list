@@ -78,9 +78,9 @@ p {
   text-decoration: line-through solid black;
 }
 
-#buttons-container {
+.buttons-container {
   text-align: center;
-  margin: auto;
+  margin: 20px auto auto;
   width: 100%;
   display: inline-block;
 }
@@ -102,4 +102,8 @@ p {
 
 #mover-baixo {
   color: red;
+}
+
+.button-save {
+  background-color: rgb(208, 244, 222);
 }
