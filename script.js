@@ -1,12 +1,12 @@
 // --------------------------------------------------------------------------------------------
 const list = document.querySelector('#lista-tarefas');
+const generic = document.getElementsByTagName('li');
 // --------------------------------------------------------------------------------------------
 function changeBGColor(event) {
-  const bgColor = document.getElementsByTagName('li');
-  for (let i = 0; i < bgColor.length; i += 1) {
-    bgColor[i].style.background = '';
+  for (let i = 0; i < generic.length; i += 1) {
+    generic[i].style.background = '';
   }
-  const evento = event.target.style.background = 'rgb(128, 128, 128)';
+  event.target.style.background = 'rgb(128, 128, 128)';
 }
 function clickToChange() {
   const btn = document.querySelectorAll('.item');
@@ -18,6 +18,15 @@ function clickToChange() {
 list.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
 });
+// --------------------------------------------------------------------------------------------
+function cleanList() {
+  const btn = document.querySelector('#apaga-tudo');
+  btn.addEventListener('click', () => {
+    for (let i = 0; i < generic.length; i += 1) {
+      generic[i].parentNode.removeChild(generic[i]);
+    }
+  });
+}
 // --------------------------------------------------------------------------------------------
 function addNewTask() {
   const button = document.querySelector('#criar-tarefa');
@@ -33,3 +42,4 @@ function addNewTask() {
   });
 }
 addNewTask();
+cleanList();

@@ -44,3 +44,11 @@
 .completed {
   text-decoration: line-through;
 }
+
+#apaga-tudo {
+  background: red;
+  color: black;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+}
