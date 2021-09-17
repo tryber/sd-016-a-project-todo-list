@@ -1,8 +1,9 @@
 // --------------------------------------------------------------------------------------------
 const list = document.querySelector('#lista-tarefas');
 const generic = document.getElementsByTagName('li');
+const btn = document.querySelector('#remover-finalizados');
 // --------------------------------------------------------------------------------------------
-function changeBGColor(event) {
+function changeBGColor() {
   for (let i = 0; i < generic.length; i += 1) {
     generic[i].style.background = '';
   }
@@ -14,6 +15,13 @@ function clickToChange() {
     btn[i].addEventListener('click', changeBGColor);
   }
 }
+function removeCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    completed[i].parentElement.removeChild(completed[i]);
+  }
+}
+btn.addEventListener('click', removeCompleted);
 // --------------------------------------------------------------------------------------------
 list.addEventListener('dblclick', (event) => {
   event.target.classList.toggle('completed');
@@ -23,9 +31,7 @@ function cleanList() {
   const btn = document.querySelector('#apaga-tudo');
   const item = document.querySelectorAll('.item');
   for (let i = 0; i < item.length; i += 1) {
-
-    item[i].parentNode.removeChild(item[i])
-
+    item[i].parentNode.removeChild(item[i]);
   }
   btn.addEventListener('click', cleanList);
 }

@@ -34,8 +34,8 @@
 }
 
 #criar-tarefa {
-  background: steelblue;
-  color: goldenrod;
+  background: green;
+  color: white;
   font-weight: 600;
   font-size: 15px;
   border-radius: 5px;
@@ -48,6 +48,14 @@
 #apaga-tudo {
   background: red;
   color: black;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+#remover-finalizados {
+  background: blue;
+  color: yellow;
   font-weight: 600;
   font-size: 15px;
   border-radius: 5px;
