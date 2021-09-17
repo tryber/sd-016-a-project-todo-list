@@ -1,19 +1,29 @@
 * {
-    /* border: 1px solid green; */
+
+  /* border: 1px solid green; */
+}
+
+.title {
+  color: #121212;
 }
 
 .hero {
-    background-color: #121212;
+  background-color: #121212;
 }
 
 .box {
-    background-color: #a4aacc;
+  background-color: #a4aacc;
 }
 
 #lista-tarefas {
-    margin-top: 1rem;
+  margin-top: 1rem;
+  color: #121212;
 }
 
 #criar-tarefa {
-    background-color: #4cb944;
+  background-color: #4cb944;
+}
+
+.content.lista-tarefas {
+  width: fit-content;
 }
