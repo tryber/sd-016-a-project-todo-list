@@ -27,9 +27,15 @@ function changeRisk(e) {
 }
 orderedList.addEventListener('dblclick', changeRisk);
 
-
 function deleteTasks() {
   while (orderedList.firstChild) {
     orderedList.firstChild.remove();
+  }
+}
+
+function removeFinished() {
+  let finished = document.querySelectorAll('.completed');
+  for (child of finished) {
+    child.remove();
   }
 }
