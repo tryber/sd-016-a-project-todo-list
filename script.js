@@ -16,3 +16,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
     newItem.classList.toggle('completed');
   });
 });
+
+document.querySelector('#apaga-tudo').addEventListener('click', () => {
+  const deleteOl = document.querySelector('#lista-tarefas');
+  deleteOl.innerHTML = '';
+});
