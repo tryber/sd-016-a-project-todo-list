@@ -119,3 +119,12 @@ const moveDown = () => {
   }
 };
 getButtonMoveDown.addEventListener('click', moveDown);
+
+const getElementSelected = document.querySelector('#remover-selecionado');
+const buttonClearSelectedTask = () => {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem !== null) {
+    selectedItem.remove();
+  }
+};
+getElementSelected.addEventListener('click', buttonClearSelectedTask);
