@@ -80,7 +80,7 @@ p {
 
 .buttons-container {
   text-align: center;
-  margin: 20px auto auto;
+  margin: auto;
   width: 100%;
   display: inline-block;
 }
@@ -90,7 +90,7 @@ p {
   margin-left: 10px;
   border-radius: 8px;
   border: 1px solid rgb(33 , 37 , 41);
-  background-color: rgb(203 , 153 , 126);
+  background-color: rgb(235 , 94 , 40);
   cursor: pointer;
   font-family: Montserrat, sans-serif;
   font-weight: 700;
@@ -105,5 +105,10 @@ p {
 }
 
 .button-save {
-  background-color: rgb(208, 244, 222);
+  background-color: rgb(56 , 176 , 0);
+}
+
+.btn-move {
+  background-color: rgb(33 , 37 , 41);
+  border: 1px solid rgb(208 , 244 , 222);
 }
