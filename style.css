@@ -6,3 +6,7 @@ li {
   width: fit-content;
   padding: 2px;
 }
+
+.completed {
+  text-decoration: line-through;
+}

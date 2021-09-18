@@ -10,8 +10,17 @@ function changeColor(event) {
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].style.backgroundColor = 'white';
   }
-  // o event vai receber a cor nova e se não for event entra no FOR acima para ter outro BG
+  // o event vai receber a cor nova e se não for event entra no FOR acima para ter BG branco
   selectedItem.style.backgroundColor = colorBg;
+}
+
+function completedTask(event) {
+  const selectedItem = event.target;
+  if (selectedItem.classList.contains('completed')) {
+    selectedItem.classList.remove('completed');
+    return;
+  }
+  selectedItem.classList.add('completed');
 }
 
 function addNewTask() {
@@ -23,6 +32,7 @@ function addNewTask() {
     inputText.value = '';
     for (let i = 0; i < listItem.length; i += 1) {
       listItem[i].addEventListener('click', changeColor);
+      listItem[i].addEventListener('dblclick', completedTask);
     }
   });
 } addNewTask();
