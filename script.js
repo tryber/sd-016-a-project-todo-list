@@ -8,15 +8,14 @@ selectbutton.addEventListener('click', function() {
     return alert ("Nenhum intem encontrado");
   }
   const createli = document.createElement('li');
+  createli.classList.add('listAdd');
   createli.innerText = inputFrase.value;
   document.querySelector('#lista-tarefas').appendChild(createli);
   inputFrase.value = '';
 })
 
-const selectorOl = document.querySelector('#lista-tarefas');
-
 function MudaBackground() {
-  const selectorColor = document.querySelectorAll('li');
+  const selectorColor = document.querySelectorAll('.listAdd');
   for (let index = 0; index < selectorColor.length; index += 1){
     selectorColor[index].addEventListener('click', function(){
       for (let index = 0; index < selectorColor.length; index += 1){
@@ -27,4 +26,4 @@ function MudaBackground() {
   }
 }
 
-selectorOl.addEventListener('click', MudaBackground);
+selectbutton.addEventListener('click', MudaBackground);
