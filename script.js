@@ -105,19 +105,27 @@ btnEraseAll.addEventListener('click', erasePin);
 
 function moveUp() {
   const activeItem = document.querySelector('.active');
-  const elementBefore = document.querySelector('.active').previousElementSibling;
-
-  activeItem.parentNode.insertBefore(elementBefore, activeItem);
-  elementBefore.parentNode.insertBefore(activeItem, elementBefore);
+  
+  if (activeItem) {
+    const elementBefore = document.querySelector('.active').previousElementSibling;
+    if (elementBefore !== null) {
+      activeItem.parentNode.insertBefore(elementBefore, activeItem);
+      elementBefore.parentNode.insertBefore(activeItem, elementBefore);
+    }
+  }
 }
 document.querySelector('#mover-cima').addEventListener('click', moveUp);
 
 function moveDown() {
   const activeItem = document.querySelector('.active');
-  const elementNext = document.querySelector('.active').nextElementSibling;
-
-  activeItem.parentNode.insertBefore(activeItem, elementNext);
-  elementNext.parentNode.insertBefore(elementNext, activeItem);
+  
+  if (activeItem) {
+    const elementNext = document.querySelector('.active').nextElementSibling;
+    if(elementNext !== null) {
+      activeItem.parentNode.insertBefore(activeItem, elementNext);
+      elementNext.parentNode.insertBefore(elementNext, activeItem);
+    } 
+  }
 }
 document.querySelector('#mover-baixo').addEventListener('click', moveDown);
 
