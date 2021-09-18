@@ -9,3 +9,8 @@ function formulary() {
 }
 
 theButton.addEventListener('click', formulary);
+
+function bgList(Event) {
+  Event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+tasklist.addEventListener('click', bgList);
