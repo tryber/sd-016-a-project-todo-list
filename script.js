@@ -50,3 +50,14 @@ function addTask() {
     }
   }
 }
+
+//  Requisito 10
+let buttonClean = document.querySelector('#apaga-tudo');
+function removeAll() {
+  let ol = document.querySelector('ol');
+  let li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    ol.removeChild(li[index]);
+  }
+}
+buttonClean.addEventListener('click', removeAll);
