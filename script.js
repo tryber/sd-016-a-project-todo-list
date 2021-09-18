@@ -1,7 +1,6 @@
 const buttonCreatTarefa = document.querySelector('#criar-tarefa');
 const listOrder = document.querySelector('#lista-tarefas');
-
-buttonCreatTarefa.addEventListener('click', inputOfButton);
+// const selectLi = document.querySelectorAll('li');
 
 function inputOfButton() {
   const inputButton = document.querySelector('#texto-tarefa');
@@ -11,24 +10,26 @@ function inputOfButton() {
   listOrder.appendChild(creatList);
   inputButton.value = '';
 }
-listOrder.addEventListener('click', selectBackgroundColor); 
+
+buttonCreatTarefa.addEventListener('click', inputOfButton);
 
 function selectBackgroundColor(event) {
-const selectLi = document.querySelectorAll('li');
+  const selectLi = document.querySelectorAll('li');
   for (let index = 0; index < selectLi.length; index += 1) {
     selectLi[index].style.backgroundColor = 'white';
-  }  
-event.target.style.backgroundColor = 'grey';
-// event.target.classList.add('move');
+  }
+  event.target.style.backgroundColor = 'grey';
+  // event.target.classList.add('move');
 }
+
+listOrder.addEventListener('click', selectBackgroundColor);
+
+function textRiscado(event) {
+  event.target.classList.toggle('completed');
+}
+
 listOrder.addEventListener('dblclick', textRiscado);
-
-function textRiscado (event) {
-event.target.classList.toggle('completed');
-}
-
 const buttonClearList = document.getElementById('apaga-tudo');
-buttonClearList.addEventListener('click', removeItemList);
 
 function removeItemList() {
   const selectLi = document.querySelectorAll('li');
@@ -37,16 +38,19 @@ function removeItemList() {
     listOrder.removeChild(list);
   }
 }
-const buttonClearListRiscados = document.querySelector('#remover-finalizados');
-buttonClearListRiscados.addEventListener('click', clearListRiscados);
 
-function clearListRiscados () {
- const listRiscado = document.querySelectorAll('.completed');
+buttonClearList.addEventListener('click', removeItemList);
+const buttonClearListRiscados = document.querySelector('#remover-finalizados');
+
+function clearListRiscados() {
+  const listRiscado = document.querySelectorAll('.completed');
   for (let index = 0; index < listRiscado.length; index += 1) {
-  const list = listRiscado[index];
-  listOrder.removeChild(list);
+    const list = listRiscado[index];
+    listOrder.removeChild(list);
   }
 }
+
+buttonClearListRiscados.addEventListener('click', clearListRiscados);
 
 // const selectLi = document.querySelectorAll('li');
 // const classMove = document.querySelector('.move');
@@ -60,4 +64,4 @@ function clearListRiscados () {
 //     const element = classMove[index];
 //     element = element + 1;
 //   }
-// }  
+// }
