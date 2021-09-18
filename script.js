@@ -12,3 +12,14 @@ selectbutton.addEventListener('click', function() {
   document.querySelector('#lista-tarefas').appendChild(createli);
   inputFrase.value = '';
 })
+
+const selectorOl = document.querySelector('#lista-tarefas');
+
+function MudaBackground() {
+  const selectorColor = document.querySelectorAll('li');
+  for (let index = 0; index < selectorColor.length; index += 1){
+    selectorColor[index].style.backgroundColor = "white";
+  }
+}
+
+selectorOl.addEventListener('click', MudaBackground);
