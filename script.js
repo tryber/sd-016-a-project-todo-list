@@ -166,19 +166,21 @@ function saveTasks() {
 saveTasksButton.addEventListener('click', saveTasks);
 
 // 11 - Carregando o conteudo do localstorage
-function loadTasks() {
-  const tasks = JSON.parse(localStorage.getItem('Task'));
-  let taskKeys = [];
-  let stringTaskKeys = '';
-
+const tasks = JSON.parse(localStorage.getItem('Task'));
+let taskKeys = [];
+let stringTaskKeys = '';
+function handleLoadTasks() {
   if (tasks === null) return;
 
   for (let i = 0; i < tasks.length; i += 1) {
     taskKeys.push(tasks[i]);
   }
-
   stringTaskKeys = JSON.stringify(taskKeys);
 
+  loadTask();
+}
+
+function loadTask() {
   for (let i = 0; i < taskKeys.length; i += 1) {
     if (taskKeys[i].completed === true) {
       let listItem = document.createElement('li');
@@ -194,6 +196,69 @@ function loadTasks() {
   }
 }
 
-window.onload = () => {
-  loadTasks();
+// 13 - Criando botoes para mover para cima e baixo
+function createMovesButton() {
+  let taskInputSection = document.getElementById('input-section');
+  let moveUpButton = document.createElement('button');
+  let moveDownButton = document.createElement('button');
+
+  moveUpButton.id = 'mover-cima';
+  moveUpButton.innerText = 'Mover Para Cima';
+
+  moveDownButton.id = 'mover-baixo';
+  moveDownButton.innerText = 'Mover Para Baixo';
+
+  taskInputSection.appendChild(moveUpButton);
+  taskInputSection.appendChild(moveDownButton); 
 }
+createMovesButton();
+
+// 13 - Movimentando o item selecionado para cima ou para baixo
+let moveUpButton = document.getElementById('mover-cima');
+let moveDownButton = document.getElementById('mover-baixo');
+function moveTaskUp() {
+  let listItem = document.querySelectorAll('li');
+  let taskSelected = document.querySelector('.selected');
+
+  if (listItem[0] === taskSelected || listItem[length - 1] === taskSelected) return;
+
+  for (let i = 0; i < listItem.length; i += 1) {
+    if (listItem[i] === taskSelected) {
+      let itemTask = listItem[i].innerText;
+      let auxItemTask = listItem[i - 1].innerText;
+
+      listItem[i - 1].innerText = itemTask;
+      listItem[i].innerText = auxItemTask;
+
+      listItem[i - 1].classList.add('selected');
+      listItem[i].classList.remove('selected');
+    }
+  }
+}
+
+function moveTaskDown() {
+  let listItem = document.querySelectorAll('li');
+  let taskSelected = document.querySelector('.selected');
+
+  if (listItem[length + 1] === taskSelected) return;
+
+  for (let i = 0; i < listItem.length; i += 1) {
+    if (listItem[i] === taskSelected) {
+      let itemTask = listItem[i].innerText;
+      let auxItemTask = listItem[i + 1].innerText;
+
+      listItem[i + 1].innerText = itemTask;
+      listItem[i].innerText = auxItemTask;
+
+      listItem[i + 1].classList.add('selected');
+      listItem[i].classList.remove('selected');
+    }
+  }
+}
+
+moveUpButton.addEventListener('click', moveTaskUp);
+moveDownButton.addEventListener('click', moveTaskDown);
+
+window.onload = () => {
+  handleLoadTasks();
+};
