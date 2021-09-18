@@ -18,7 +18,12 @@ const selectorOl = document.querySelector('#lista-tarefas');
 function MudaBackground() {
   const selectorColor = document.querySelectorAll('li');
   for (let index = 0; index < selectorColor.length; index += 1){
-    selectorColor[index].style.backgroundColor = "white";
+    selectorColor[index].addEventListener('click', function(){
+      for (let index = 0; index < selectorColor.length; index += 1){
+        selectorColor[index].style.backgroundColor = "";
+      }
+      selectorColor[index].style.backgroundColor = "rgb(128, 128, 128)";
+    })
   }
 }
 

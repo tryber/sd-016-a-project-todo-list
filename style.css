@@ -6,3 +6,7 @@ body {
   background-color: #A9A9A9;
   padding: 25px;
 }
+
+.completed{
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
