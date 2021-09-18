@@ -9,12 +9,6 @@ botao.addEventListener('click', () => {
   textInput.value = '';
 });
 
-/* function selectListItem(evt) {
-  const list = document.querySelector('.selected');
-  if (list) list.classList.remove('selected');
-
-} */
-
 function colorItem() {
   const lista = document.querySelector('ol');
   lista.addEventListener('click', (event) => {
@@ -25,3 +19,12 @@ function colorItem() {
   });
 }
 colorItem();
+
+function completeItem() {
+  const lista = document.querySelector('ol');
+  lista.addEventListener('dblclick', (event) => {
+    const itemLista = event.target;
+    itemLista.classList.toggle('completed');
+  });
+}
+completeItem();
