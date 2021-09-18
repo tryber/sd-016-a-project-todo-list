@@ -2,7 +2,19 @@ window.onload = function() {
     const list = document.querySelector('#lista-tarefas')
     const AddTarefa = document.querySelector('#criar-tarefa')
     const entrada = document.querySelector('#texto-tarefa')
+    const apagarTudo = document.querySelector('#apaga-tudo')
     
+    
+
+    apagarTudo.addEventListener('click',function() {
+       //let liste = document.getElementsByName('ol')
+       let item = document.querySelectorAll('#fii')
+       console.log(item)
+       //list.removeChild(item)
+       for (let i = 0; i < item.length; i=i+1){
+        list.removeChild(item[i])
+       }            
+    })    
 
     function tt(event){
         let itenLIs = document.querySelectorAll('#fii')
