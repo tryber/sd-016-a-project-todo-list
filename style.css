@@ -1,0 +1,30 @@
+* {
+  margin: 0 auto;
+}
+
+#header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#input-section {
+  width: 100%;
+  text-align: center;
+}
+
+#input-section * {
+  margin: 10px;
+}
+
+#list-section {
+  width: 45%;
+  margin-top: 20px;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
