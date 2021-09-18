@@ -1,10 +1,11 @@
 function addItem(select) {
-  const ol = document.querySelector('ol');
-  const textoTarefa = document.querySelector('#texto-tarefa');
   const criarTarefa = document.querySelector('#criar-tarefa');
+  const textoTarefa = document.querySelector('#texto-tarefa');
 
   if (select.target === criarTarefa && textoTarefa.value !== '') {
     const li = document.createElement('li');
+    const ol = document.querySelector('#lista-tarefas');
+
     li.classList.add('itemList');
     ol.appendChild(li).innerHTML = textoTarefa.value;
     textoTarefa.value = '';
@@ -12,9 +13,9 @@ function addItem(select) {
 }
 
 function selectItem(select) {
-  const li = document.querySelectorAll('li');
-
   if (select.target.classList.contains('itemList')) {
+    const li = document.querySelectorAll('li');
+
     li.forEach((items) => {
       const item = items;
       item.classList.remove('selected');
@@ -49,47 +50,42 @@ function completedItem(select) {
 
 function moveItemSelectedUp(select) {
   // João Spinelli(T16) me ajudou a chegar nesse resultado com o insertBefore.
-  const ol = document.querySelector('ol');
-  const selected = document.querySelector('.selected');
   const moveUp = document.querySelector('#mover-cima');
-  const { previousElementSibling } = document.querySelector('.selected');
+  const selected = document.querySelector('.selected');
 
-  if (select.target === moveUp) {
+  if (select.target === moveUp && selected !== null) {
+    const { previousElementSibling } = document.querySelector('.selected');
     if (previousElementSibling !== null) {
+      const ol = document.querySelector('ol');
       ol.insertBefore(previousElementSibling, selected);
       ol.insertBefore(selected, previousElementSibling);
-    } else {
-      ol.insertBefore(selected, ol.lastChild);
-      ol.insertBefore(ol.lastChild, selected);
     }
   }
 }
 
 function moveItemSelectedDown(select) {
   // João Spinelli(T16) me ajudou a chegar nesse resultado com o insertBefore.
-  const ol = document.querySelector('ol');
   const selected = document.querySelector('.selected');
   const moveDown = document.querySelector('#mover-baixo');
-  const { nextElementSibling } = document.querySelector('.selected');
 
-  if (select.target === moveDown) {
+  if (select.target === moveDown && selected !== null) {
+    const { nextElementSibling } = document.querySelector('.selected');
     if (nextElementSibling !== null) {
+      const ol = document.querySelector('ol');
       ol.insertBefore(selected, nextElementSibling);
       ol.insertBefore(nextElementSibling, selected);
-    } else {
-      ol.insertBefore(selected, ol.firstChild);
-      ol.insertBefore(ol.firstChild, selected);
     }
   }
 }
 
 function saveList(select) {
   // João Spinelli(T16) me ajudou a chegar nesse resultado para salvar o conteúdo das listas.
-  const arrayObjectList = [];
-  const li = document.querySelectorAll('li');
   const salvarTarefas = document.querySelector('#salvar-tarefas');
 
   if (select.target === salvarTarefas) {
+    const arrayObjectList = [];
+    const li = document.querySelectorAll('li');
+
     li.forEach((items) => {
       if (items.classList.contains('completed')) {
         arrayObjectList.push({ item: items.innerHTML, completed: true });
@@ -104,10 +100,10 @@ function saveList(select) {
 
 function loadList() {
   // João Spinelli(T16) me ajudou a chegar nesse resultado para mostrar o conteúdo das listas.
-  const ol = document.querySelector('ol');
-  const storage = JSON.parse(localStorage.getItem('items'));
-
   if (localStorage.getItem('items')) {
+    const ol = document.querySelector('ol');
+    const storage = JSON.parse(localStorage.getItem('items'));
+
     storage.forEach((items) => {
       const li = document.createElement('li');
       if (items.completed) {
@@ -124,10 +120,11 @@ function loadList() {
 }
 
 function cleanAll(select) {
-  const li = document.querySelectorAll('li');
   const apagaTudo = document.querySelector('#apaga-tudo');
 
   if (select.target === apagaTudo) {
+    const li = document.querySelectorAll('li');
+
     li.forEach((items) => {
       items.remove();
     });
@@ -135,10 +132,11 @@ function cleanAll(select) {
 }
 
 function cleanComplete(select) {
-  const li = document.querySelectorAll('li');
   const removerFinalizados = document.querySelector('#remover-finalizados');
 
   if (select.target === removerFinalizados) {
+    const li = document.querySelectorAll('li');
+
     li.forEach((items) => {
       if (items.classList.contains('completed')) {
         items.remove();
@@ -148,10 +146,11 @@ function cleanComplete(select) {
 }
 
 function cleanSelected(select) {
-  const li = document.querySelectorAll('li');
   const removerSelecionado = document.querySelector('#remover-selecionado');
 
   if (select.target === removerSelecionado) {
+    const li = document.querySelectorAll('li');
+
     li.forEach((items) => {
       if (items.classList.contains('selected')) {
         items.remove();
@@ -164,8 +163,8 @@ window.onload = function init() {
   loadList();
 
   document.addEventListener('click', addItem);
-  document.addEventListener('click', saveList);
   document.addEventListener('click', cleanAll);
+  document.addEventListener('click', saveList);
   document.addEventListener('click', selectItem);
   document.addEventListener('click', cleanComplete);
   document.addEventListener('click', cleanSelected);
