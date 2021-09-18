@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('images/agenda.jpg');
+}
+
+main {
+  width: 800px;
+  padding: 20px;
+  margin: 200px auto 0;
+  border-radius: 20px;
+  border: 10px solid black;
+  background-color: rgb(93 , 93 , 93);
+}
+
+header {
+  font-size: 35px;
+}
+
+#funcionamento {
+  font-size: 20px;
+  font-style: italic;
+}
+
+#texto-tarefa {
+  height: 30px;
+  border-radius: 10px;
+  background-color: gray;
+  border: 5px solid black;
+}
+
+#buttons-down {
+  display: flex;
+}
+
+#mover-cima , #mover-baixo {
+  width: 50px;
+  height: 40px;
+  font-size: 25px;
+  margin: 10px 0 0 10px;
+  border-radius: 30px;
+  border: 5px solid rgb(17 , 129 , 129);
+  background-color: rgb(40 , 184 , 184);
+}
+
+#criar-tarefa , #salvar-tarefas {
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  margin: 10px 0 0 10px;
+  border-radius: 30px;
+  background-color: green;
+  border: 6px solid darkgreen;
+}
+
+#apaga-tudo , #remover-finalizados , #remover-selecionado {
+  width: 150px;
+  height: 40px;
+  font-size: 14px;
+  margin: 10px 0 0 10px;
+  border-radius: 30px;
+  background-color: red;
+  border: 5px solid darkred;
+}
