@@ -57,3 +57,9 @@ function clearCompleted() {
   })
 };
 clearCompleted();
+
+// requisito  12 (bonûs)
+function saveList() {
+  const save = document.getElementById('texto-tarefa');
+  save
+}
