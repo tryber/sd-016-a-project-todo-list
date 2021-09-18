@@ -26,4 +26,14 @@ function MudaBackground() {
   }
 }
 
+function ClickComplete(){
+  const selectCom = document.querySelectorAll('.listAdd');
+  for (let index = 0; index < selectCom.length; index += 1){
+    selectCom[index].ondblclick = () => {
+      selectCom[index].classList.toggle('completed');
+    }
+  }
+}
+
 selectbutton.addEventListener('click', MudaBackground);
+selectbutton.addEventListener('click', ClickComplete);

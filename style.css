@@ -1,12 +1,29 @@
-body {
-  background-color: #87CEEB;
+body{
+  background-color: #58D68D ;
 }
 
 .contener{
-  background-color: #A9A9A9;
+  background-color: #EB984E;
   padding: 25px;
+  border-radius: 10px;
 }
 
 .completed{
   text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#criar-tarefa{
+  padding: 7px;
+  background-color: #145A32;
+  border: 0;
+  color: #EBEDEF;
+  font-weight: 600;
+}
+
+#apaga-tudo{
+  padding: 7px;
+  background-color: #E51C1C;
+  border: 0;
+  color: #EBEDEF;
+  font-weight: 600;
 }
