@@ -66,8 +66,6 @@ function handleTaskButton() {
     orderedList.appendChild(listItem);
     taskInput.value = '';
   }
-
-  saveTasks();
 }
 taskButton.addEventListener('click', handleTaskButton);
 
@@ -153,34 +151,48 @@ createSaveTasksButton();
 // 11 - Salvando o conteudo da litsta (inner html das 'li') no local storage
 let saveTasksButton = document.getElementById('salvar-tarefas');
 function saveTasks() {
-  for (let i = 0; i < orderedList.children.length; i += 1) {
-    let saveTask = orderedList.children[i].innerHTML;
-    localStorage.setItem(`task${i}`, JSON.stringify(saveTask));
-  }
+  let listItem = document.querySelectorAll('li');
+  const tasks = [];
+
+  listItem.forEach(listItem => {
+    tasks.push({
+      text: listItem.innerText,
+      completed: listItem.classList.contains('completed')
+    })
+  })
+
+  localStorage.setItem('Task', JSON.stringify(tasks));
 }
+saveTasksButton.addEventListener('click', saveTasks);
 
 // 11 - Carregando o conteudo do localstorage
 function loadTasks() {
-  let allKeys = Object.keys(localStorage);
+  const tasks = JSON.parse(localStorage.getItem('Task'));
   let taskKeys = [];
+  let stringTaskKeys = '';
 
-  for (let i = 0; i < allKeys.length; i += 1) {
-    if (allKeys[i].includes('task')) {
-      taskKeys.push(allKeys[i]);
-    }
+  if (tasks === null) return;
+
+  for (let i = 0; i < tasks.length; i += 1) {
+    taskKeys.push(tasks[i]);
   }
-  taskKeys.sort();
+
+  stringTaskKeys = JSON.stringify(taskKeys);
 
   for (let i = 0; i < taskKeys.length; i += 1) {
-    let savedTasks = JSON.parse(localStorage.getItem(taskKeys[i]));
-    let listItem = document.createElement('li');
-    listItem.className = 'item-task';
-    listItem.innerText = savedTasks;
-    orderedList.appendChild(listItem);
+    if (taskKeys[i].completed === true) {
+      let listItem = document.createElement('li');
+      listItem.className = 'item-task completed';
+      listItem.innerText = taskKeys[i].text;
+      orderedList.appendChild(listItem);
+    } else {
+      let listItem = document.createElement('li');
+      listItem.className = 'item-task';
+      listItem.innerText = taskKeys[i].text;
+      orderedList.appendChild(listItem);
+    }
   }
 }
-
-saveTasksButton.addEventListener('click', saveTasks);
 
 window.onload = () => {
   loadTasks();
