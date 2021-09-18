@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 main {
   width: 800px;
   padding: 20px;
@@ -23,20 +28,36 @@ header {
   border: 5px solid black;
 }
 
-#criar-tarefa {
+#buttons-down {
+  display: flex;
+}
+
+#mover-cima , #mover-baixo {
+  width: 50px;
+  height: 40px;
+  font-size: 25px;
+  margin: 10px 0 0 10px;
+  border-radius: 30px;
+  border: 5px solid rgb(17 , 129 , 129);
+  background-color: rgb(40 , 184 , 184);
+}
+
+#criar-tarefa , #salvar-tarefas {
   width: 150px;
   height: 40px;
-  margin-left: 10px;
+  font-size: 14px;
+  margin: 10px 0 0 10px;
   border-radius: 30px;
   background-color: green;
   border: 6px solid darkgreen;
 }
 
-#apaga-tudo , #remover-finalizados {
+#apaga-tudo , #remover-finalizados , #remover-selecionado {
   width: 150px;
   height: 40px;
-  margin: 20px 0 0 10px;
+  font-size: 14px;
+  margin: 10px 0 0 10px;
   border-radius: 30px;
   background-color: red;
-  border: 6px solid darkred;
+  border: 5px solid darkred;
 }
