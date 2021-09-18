@@ -10,9 +10,13 @@ function addTask() {
 }
 button.addEventListener('click', addTask);
 
-// 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)
-// O que será verificado:
+function colorItemList(event) {
+  const item = document.querySelectorAll('li')
 
-// Será verificado que, ao se carregar a página, os itens da lista não tem o estilo CSS background-color: rgb(128, 128, 128)
+  for (let index = 0; index < item.length; index += 1) {
+    item[index].style.backgroundColor = 'white';
+  }
 
-// Será verificado que, ao se clicar em um item da lista, ele passa a ter o estilo CSS background-color: rgb(128, 128, 128).
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
+}
+document.getElementById('lista-tarefas').addEventListener('click', colorItemList);
