@@ -17,3 +17,7 @@ p {
 button {
   background-color: green;
 }
+
+.completed {
+  text-decoration: line-through;
+}
