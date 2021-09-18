@@ -1,0 +1,15 @@
+body {
+  font-family: -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+#buttonInput {
+  display: inline-block;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.last-select {
+  background-color: rgb(128, 128, 128);
+}
