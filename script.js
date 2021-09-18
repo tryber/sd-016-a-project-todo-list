@@ -48,3 +48,15 @@ buttonClearlist.addEventListener('click', function(){
     list[i].remove('li');
   }
 })
+
+//Capturar o butão
+const buttonDel = document.querySelector('#remover-finalizados');
+//Adicionar escutador 
+buttonDel.addEventListener('click', () => {
+  // Capturar o li com completed
+  const liCompleted = document.querySelectorAll('.completed');
+  // Verificar se tem mais de um 
+  for (let index = 0; index < liCompleted.length; index += 1){
+    liCompleted[index].remove('li');
+  }
+})
