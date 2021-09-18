@@ -51,7 +51,7 @@ function addTask() {
   }
 }
 
-//  Requisito 10
+//  Remover Tudo
 let buttonClean = document.querySelector('#apaga-tudo');
 function removeAll() {
   let ol = document.querySelector('ol');
@@ -61,3 +61,14 @@ function removeAll() {
   }
 }
 buttonClean.addEventListener('click', removeAll);
+
+// Remover Finalizados
+let buttonCleanCompleted = document.querySelector('#remover-finalizados');
+function removeCompleted() {
+  let ol = document.querySelector('ol');
+  let TasksCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < TasksCompleted.length; index += 1) {
+    ol.removeChild(TasksCompleted[index]);
+  }
+}
+buttonCleanCompleted.addEventListener('click', removeCompleted);
