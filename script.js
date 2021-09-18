@@ -20,10 +20,10 @@ function colorItemList(event) {
 document.getElementById('lista-tarefas').addEventListener('click', colorItemList);
 
 function scratchTask(event) {
-  if (event.target.classList.contains('completed')){
-      event.target.classList.remove('completed');
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
   } else {
-      event.target.classList.add('completed')
-  } 
-}  
-list.addEventListener('dblclick', scratchTask); 
+    event.target.classList.add('completed')
+  }
+}
+list.addEventListener('dblclick', scratchTask);
