@@ -37,3 +37,14 @@ function ClickComplete(){
 
 selectbutton.addEventListener('click', MudaBackground);
 selectbutton.addEventListener('click', ClickComplete);
+
+// Capturar botao
+const buttonClearlist = document.querySelector('#apaga-tudo');
+// Adicionar escutador 
+buttonClearlist.addEventListener('click', function(){
+  // Quantos li existe no momento, primeiro eu tenho que capturar class dos lis
+  const list = document.querySelectorAll('.listAdd');
+  for(let i = 0; i < list.length; i += 1){
+    list[i].remove('li');
+  }
+})
