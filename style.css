@@ -4,7 +4,7 @@ body{
 
 .contener{
   background-color: #EB984E;
-  padding: 25px;
+  padding: 40px;
   border-radius: 10px;
 }
 
@@ -13,17 +13,44 @@ body{
 }
 
 #criar-tarefa{
-  padding: 7px;
   background-color: #145A32;
-  border: 0;
-  color: #EBEDEF;
-  font-weight: 600;
 }
 
 #apaga-tudo{
-  padding: 7px;
   background-color: #E51C1C;
+}
+
+#remover-finalizados{
+  background-color: #1E3BA6;
+}
+
+.style-button{
   border: 0;
   color: #EBEDEF;
   font-weight: 600;
+  padding: 7px;
+  border: 0;
+  border-radius: 4px;
+  margin-left: 15px;
+}
+
+#texto-tarefa{
+  padding: 6px;
+  border: 0;
+  width: 40%;
+  height: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.cabecalho{
+  color: #2C3E50;
+}
+
+#funcionamento{
+  font-style: italic;
+}
+
+header{
+  margin-bottom: 35px;
 }
