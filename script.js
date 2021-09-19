@@ -1,8 +1,4 @@
-let getButton = document.getElementById('criar-tarefa')
-let getField = document.getElementById('texo-tarefa')
-let getList = document.getElementById('lista-tarefas')
-
-
+//desafio 5 elaborado com ajuda do aluno Mateus Turola
 function createTask() {
   const orderList = document.querySelector('#lista-tarefas');
   const getInput = document.querySelector('#texto-tarefa');
@@ -12,3 +8,6 @@ function createTask() {
   orderList.appendChild(itemList);
   getInput.value = '';
 }
+
+const buttonCreate = document.querySelector('#criar-tarefa');
+buttonCreate.addEventListener('click', createTask);
