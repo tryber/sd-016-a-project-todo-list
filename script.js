@@ -5,6 +5,7 @@ const listItem = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
 const removeDoneButton = document.querySelector('#remover-finalizados');
 const saveAllButton = document.querySelector('#salvar-tarefas');
+const removeItemButton = document.querySelector('#remover-selecionado');
 const buttonUp = document.querySelector('#mover-cima');
 const buttonDown = document.querySelector('#mover-baixo');
 
@@ -14,9 +15,11 @@ function changeColor(event) {
 
   for (let i = 0; i < listItem.length; i += 1) {
     listItem[i].style.backgroundColor = 'white';
+    listItem[i].classList.remove('selected');
   }
   // o event vai receber a cor nova e se não for event entra no FOR acima para ter BG branco
   selectedItem.style.backgroundColor = colorBg;
+  selectedItem.classList.add('selected');
 }
 
 function completedTask(event) {
@@ -52,6 +55,16 @@ function removeDoneTasks() {
     }
   });
 } removeDoneTasks();
+
+function removerSelected() {
+  removeItemButton.addEventListener('click', () => {
+    for (let i = 0; i < listItem.length; i += 1) {
+      if (listItem[i].classList.contains('selected')) {
+        listItem[i].remove();
+      }
+    }
+  });
+} removerSelected();
 
 function clearAllTasks() {
   clearButton.addEventListener('click', () => {
