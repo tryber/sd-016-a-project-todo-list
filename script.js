@@ -2,6 +2,7 @@ const inputButton = document.querySelector('#criar-tarefa');
 const inputText = document.querySelector('#texto-tarefa');
 const ordenedList = document.querySelector('#lista-tarefas');
 const listItem = document.querySelector('#lista-tarefas').children;
+const clearButton = document.querySelector('#apaga-tudo');
 
 function changeColor(event) {
   const selectedItem = event.target;
@@ -36,3 +37,12 @@ function addNewTask() {
     }
   });
 } addNewTask();
+
+function clearAllTasks() {
+  clearButton.addEventListener('click', () => {
+    const li = listItem.length;
+    for (let i = 0; i < li; i += 1) {
+      listItem[0].remove();
+    }
+  });
+} clearAllTasks();
