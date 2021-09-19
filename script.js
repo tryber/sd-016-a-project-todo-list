@@ -33,6 +33,7 @@ function completedItem(evt) {
 
 function clearList() {
   list.innerText = '';
+  localStorage.clear();
 }
 
 function clearCompleted() {
@@ -42,6 +43,32 @@ function clearCompleted() {
   }
 }
 
+function saveList() {
+  const items = document.getElementsByTagName('li');
+  for (let i = 0; i < items.length; i += 1) {
+    let task = items[i].innerText;
+    if (items[i].classList.contains('completed')) task += ',completed';
+    localStorage.setItem(i, task);
+  }
+}
+
+function loadList() {
+  for (let i = 0; i < localStorage.length; i += 1) {
+    const listItem = document.createElement('li');
+    const completed = ',completed';
+    let task = localStorage[i];
+    if (localStorage[i].includes(completed)) {
+      task = task.replace(completed, '');
+      listItem.className = 'completed';
+    }
+    listItem.innerText = task;
+
+    list.appendChild(listItem);
+  }
+}
+
+window.addEventListener('load', loadList);
+
 const createItemButton = document.getElementById('criar-tarefa');
 createItemButton.addEventListener('click', addListItem);
 
@@ -50,6 +77,9 @@ clearListButton.addEventListener('click', clearList);
 
 const clearCompletedButton = document.getElementById('remover-finalizados');
 clearCompletedButton.addEventListener('click', clearCompleted);
+
+const saveListButton = document.getElementById('salvar-tarefas');
+saveListButton.addEventListener('click', saveList);
 
 list.addEventListener('click', selectListItem);
 list.addEventListener('dblclick', completedItem);
