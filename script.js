@@ -10,6 +10,7 @@ function add () {
   const textInput = inputAdd.value;
   const taskLine = document.createElement('li');
   taskLine.classList.add('line');
+  taskLine.classList.add('list-group-item');
   taskLine.innerHTML = textInput;
   addList.appendChild(taskLine);
   inputAdd.value = '';

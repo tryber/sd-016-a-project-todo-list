@@ -1,3 +1,25 @@
+#title {
+  font-family: 'Roboto', serif;
+  margin-top: 20px;
+}
+
 .completed {
   text-decoration: line-through;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  background-color:cornsilk;
+}
+
+main {
+  font-family: 'Roboto', serif;
+  min-height: 350px;
+}
+
+body {
+  background-color:cornsilk;
 }
