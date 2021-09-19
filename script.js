@@ -3,6 +3,7 @@ const inputText = document.querySelector('#texto-tarefa');
 const ordenedList = document.querySelector('#lista-tarefas');
 const listItem = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
+const removeDoneButton = document.querySelector('#remover-finalizados');
 
 function changeColor(event) {
   const selectedItem = event.target;
@@ -24,6 +25,17 @@ function completedTask(event) {
   selectedItem.classList.add('completed');
 }
 
+function removeDoneTasks() {
+  removeDoneButton.addEventListener('click', () => {
+    for (let i = 0; i < listItem.length; i += 1) {
+      if (listItem[i].classList.contains('completed')) {
+        listItem[i].remove();
+        i -= 1;
+      }
+    }
+  });
+} removeDoneTasks();
+
 function addNewTask() {
   inputButton.addEventListener('click', () => {
     const newLi = document.createElement('li');
@@ -40,9 +52,9 @@ function addNewTask() {
 
 function clearAllTasks() {
   clearButton.addEventListener('click', () => {
-    const li = listItem.length;
-    for (let i = 0; i < li; i += 1) {
-      listItem[0].remove();
+    for (let i = 0; i < listItem.length; i += 1) {
+      listItem[i].remove();
+      i -= 1;
     }
   });
 } clearAllTasks();
