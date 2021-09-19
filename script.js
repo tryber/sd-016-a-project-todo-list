@@ -14,7 +14,7 @@ function changeColor(event) {
   const colorBg = 'rgb(128,128,128)';
 
   for (let i = 0; i < listItem.length; i += 1) {
-    listItem[i].style.backgroundColor = 'white';
+    listItem[i].style.backgroundColor = '#3A0CA3';
     listItem[i].classList.remove('selected');
   }
   // o event vai receber a cor nova e se não for event entra no FOR acima para ter BG branco
