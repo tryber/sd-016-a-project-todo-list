@@ -1,12 +1,14 @@
 const getBUttonSave = document.querySelector('#salvar-tarefas');
 const getOl = document.querySelector('#lista-tarefas');
 const getListChild = document.querySelector('#lista-tarefas').children;
+const getButtonRemove = document.querySelector('#remover-selecionado');
 
 // Referência do código ao Brunão Turma 16 - Tribo A;
 function clearNotSelectedColor() {
   const getOlChildren = document.querySelector('ol').children;
   for (let index = 0; index < getOlChildren.length; index += 1) {
     getOlChildren[index].style.backgroundColor = 'white';
+    getOlChildren[index].classList.remove('selected');
   }
 }
 
@@ -18,6 +20,7 @@ function changeBackGroundColor() {
       // Referência do código ao Brunão Turma 16 - Tribo A;
       clearNotSelectedColor();
       getLi[index].style.backgroundColor = 'rgb(128,128,128)';
+      getLi[index].classList.add('selected');
     });
   }
 }
@@ -54,13 +57,13 @@ function deletedTasks() {
   });
 }
 
-function deleteCompletedTasks(event) {
+function deleteCompletedTasks() {
   const getButtonCompleted = document.querySelector('#remover-finalizados');
   const getLi = document.querySelectorAll('li');
   for (let index = 0; index < getLi.length; index += 1) {
     getButtonCompleted.addEventListener('click', () => {
       // https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList, referenciando o método contains.
-      //contains compara array e includes compara string
+      // contains compara array e includes compara string
       if (getLi[index].classList.contains('completed')) {
         getLi[index].remove();
       }
@@ -82,7 +85,7 @@ function addList() {
   deleteCompletedTasks();
 }
 
-//Referencia do código ao Lucas Fernandes.
+// Referencia do código ao Lucas Fernandes.
 function saveList() {
   getBUttonSave.addEventListener('click', () => {
     const setOlList = getOl.innerHTML;
@@ -92,7 +95,7 @@ function saveList() {
 
 function loadList() {
   saveList();
-  const getOlList = localStorage.getItem('list');  
+  const getOlList = localStorage.getItem('list');
   if (getOlList !== null) {
     getOl.innerHTML = getOlList;
   }
@@ -102,3 +105,14 @@ function cretatList() {
   document.querySelector('#criar-tarefa').addEventListener('click', addList);
 }
 cretatList();
+
+function removeSelected() {
+  getButtonRemove.addEventListener('click', () => {
+    for (let index = 0; index < getListChild.length; index += 1) {
+      if (getListChild[index].classList.contains('selected')) {
+        getListChild[index].remove();
+      }
+    }
+  });
+}
+removeSelected();
