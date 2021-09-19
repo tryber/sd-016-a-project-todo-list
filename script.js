@@ -4,6 +4,7 @@ let lista = document.querySelector('#lista-tarefas')
 let btnApagar = document.querySelector('#apaga-tudo');
 let btnFinalizados = document.querySelector('#remover-finalizados');
 let btnSalvar = document.querySelector('#salvar-tarefas');
+let btnExcluiSelecionado = document.querySelector('#remover-selecionado');
 
 function adicionaTarefa (){ 
    
@@ -104,4 +105,11 @@ function adicionaTarefa (){
 
 
     btnSalvar.addEventListener('click', salvarTarefas);
-    window.addEventListener('load', exbirItensSalvos);   
+    window.addEventListener('load', exbirItensSalvos); 
+    
+    function excluirSelecionado(){
+        let selecionado = document.querySelector('.selected');
+        selecionado.remove();
+    };
+
+    btnExcluiSelecionado.addEventListener('click', excluirSelecionado);
