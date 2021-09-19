@@ -4,20 +4,7 @@ const ordenedList = document.querySelector('#lista-tarefas');
 const listItem = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
 const removeDoneButton = document.querySelector('#remover-finalizados');
-
-function addNewTask() {
-  inputButton.addEventListener('click', () => {
-    const newLi = document.createElement('li');
-    newLi.classList.add('list-item');
-    newLi.innerText = inputText.value;
-    ordenedList.appendChild(newLi);
-    inputText.value = '';
-    for (let i = 0; i < listItem.length; i += 1) {
-      listItem[i].addEventListener('click', changeColor);
-      listItem[i].addEventListener('dblclick', completedTask);
-    }
-  });
-} addNewTask();
+const saveAllButton = document.querySelector('#salvar-tarefas');
 
 function changeColor(event) {
   const selectedItem = event.target;
@@ -39,6 +26,20 @@ function completedTask(event) {
   selectedItem.classList.add('completed');
 }
 
+function addNewTask() {
+  inputButton.addEventListener('click', () => {
+    const newLi = document.createElement('li');
+    newLi.classList.add('list-item');
+    newLi.innerText = inputText.value;
+    ordenedList.appendChild(newLi);
+    inputText.value = '';
+    for (let i = 0; i < listItem.length; i += 1) {
+      listItem[i].addEventListener('click', changeColor);
+      listItem[i].addEventListener('dblclick', completedTask);
+    }
+  });
+} addNewTask();
+
 function removeDoneTasks() {
   removeDoneButton.addEventListener('click', () => {
     for (let i = 0; i < listItem.length; i += 1) {
@@ -58,3 +59,23 @@ function clearAllTasks() {
     }
   });
 } clearAllTasks();
+
+function savedTasks() {
+  saveAllButton.addEventListener('click', () => {
+    // chamo todo o conteúdo (incluíndo tags com classe/id) da ordenedList
+    const values = ordenedList.innerHTML;
+    // seto o local storage com uma key e o valor
+    localStorage.setItem('Tasks-saves', values);
+  });
+}
+
+function loadTasks() {
+  // chamar a função com os valores salvos
+  savedTasks();
+  // armazena na variavel o local storage já setado
+  const saveTasks = localStorage.getItem('Tasks-saves');
+  if (saveTasks !== null) {
+    // incrementa na ordenedList os valores
+    ordenedList.innerHTML = saveTasks;
+  }
+} loadTasks();
