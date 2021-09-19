@@ -94,3 +94,26 @@ function loadTasks() {
     ordenedList.innerHTML = saveTasks;
   }
 } loadTasks();
+
+function itemUp() {
+  buttonUp.addEventListener('click', () => {
+    const itemSelected = document.querySelector('.selected');
+    // condição !== para evitar problema caso seja clicado sem um item estar selecionado
+    if (itemSelected !== null && itemSelected.previousElementSibling) {
+      // armazeno o elemento anterior ao selecionado (com a classe selected)
+      const previousElement = itemSelected.previousElementSibling;
+      ordenedList.insertBefore(itemSelected, previousElement);
+    }
+  });
+} itemUp();
+
+function itemDown() {
+  buttonDown.addEventListener('click', () => {
+    const itemSelected = document.querySelector('.selected');
+    if (itemSelected !== null && itemSelected.nextElementSibling) {
+      // armazeno o próximo elemento da classe selected
+      const nextElement = itemSelected.nextElementSibling;
+      ordenedList.insertBefore(nextElement, itemSelected);
+    }
+  });
+} itemDown();
