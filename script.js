@@ -5,6 +5,20 @@ const listItem = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
 const removeDoneButton = document.querySelector('#remover-finalizados');
 
+function addNewTask() {
+  inputButton.addEventListener('click', () => {
+    const newLi = document.createElement('li');
+    newLi.classList.add('list-item');
+    newLi.innerText = inputText.value;
+    ordenedList.appendChild(newLi);
+    inputText.value = '';
+    for (let i = 0; i < listItem.length; i += 1) {
+      listItem[i].addEventListener('click', changeColor);
+      listItem[i].addEventListener('dblclick', completedTask);
+    }
+  });
+} addNewTask();
+
 function changeColor(event) {
   const selectedItem = event.target;
   const colorBg = 'rgb(128,128,128)';
@@ -35,20 +49,6 @@ function removeDoneTasks() {
     }
   });
 } removeDoneTasks();
-
-function addNewTask() {
-  inputButton.addEventListener('click', () => {
-    const newLi = document.createElement('li');
-    newLi.classList.add('list-item');
-    newLi.innerText = inputText.value;
-    ordenedList.appendChild(newLi);
-    inputText.value = '';
-    for (let i = 0; i < listItem.length; i += 1) {
-      listItem[i].addEventListener('click', changeColor);
-      listItem[i].addEventListener('dblclick', completedTask);
-    }
-  });
-} addNewTask();
 
 function clearAllTasks() {
   clearButton.addEventListener('click', () => {
