@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu';
+}
+
+header {
+  background-color: #3A0CA3;
+  text-align: center;
+  color: white;
+  border: 2px solid black;
+  padding-bottom: 8px;
+}
+#div-header, h1, p {
+  padding: 10px;
+}
+
+#texto-tarefa, #criar-tarefa {
+  height: 40px;
+}
+
+#criar-tarefa {
+  margin-bottom: 4px;
+}
+
+#criar-tarefa:hover {
+  margin-bottom: 4px;
+  height: 45px; 
+}
+
+#bg {
+  background-color: #4CC9F0;
+}
+
+main {
+  margin-top: 10px;
+  text-align: center;
+  color: black;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 30px;
+  background-color: #3A0CA3;
+  padding: 15px;
+}
+
+.list-item {
+  width: fit-content;
+  font-size: large;
+  padding: 2px; 
+}
+
+.completed {
+  text-decoration:line-through;
+}
+
+.btn-move {
+  border: 1px solid black;
+  border-radius: 20px;
+  color:white;
+  background-color: #FB8500;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.btn-remove1 {
+  border: 1px solid black;
+  border-radius: 20px;
+  color: black;
+  background-color: #dc3545;
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+footer {
+   font-size: large;
+   color: white;
+   margin-top: 300px;
+}
+
+footer p {
+  color: black;
+}
