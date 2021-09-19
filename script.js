@@ -9,10 +9,21 @@ btnCriarTarefa.addEventListener('click', function () {
   listaTarefas = document.querySelector("#lista-tarefas")
   //alterar a cor da linha
   listaTarefas.addEventListener('click', newColor)
+  //riscar a tarefa
   listaTarefas.addEventListener('dblclick', riskTasK)
   textoTarefa.value =''
-  //
 })
+
+//Item 10 - clicar no botão `apaga-tudo` para deixar lista de tarefas vazia
+
+let btnLimparTarefas = document.getElementById('apaga-tudo');
+btnLimparTarefas.addEventListener('click', function() {
+  let lineTarefas = document.querySelectorAll("li")
+  for (let index = 0; index < lineTarefas.length; index += 1) {
+    document.querySelector("#lista-tarefas").removeChild(lineTarefas[index])
+  }
+  })
+
 
 function newColor(color){
   let lineTarefas = document.getElementById("lista-tarefas").children
