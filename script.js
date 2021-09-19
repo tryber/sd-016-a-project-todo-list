@@ -67,6 +67,52 @@ function loadList() {
   }
 }
 
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  list.removeChild(selected);
+}
+
+function checkTaskPositionBottom(task) {
+  const tasks = document.getElementsByTagName('li');
+  if (tasks[tasks.length - 1].outerHTML === task) return false;
+  return true;
+}
+
+function checkTaskPositionTop(task) {
+  const tasks = document.getElementsByTagName('li');
+  if (tasks[0].outerHTML === task) return false;
+  return true;
+}
+
+function moveTaskUp() {
+  const tasks = document.getElementsByTagName('li');
+
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('selected') && checkTaskPositionTop(tasks[i].outerHTML)) {
+      const toUp = tasks[i].outerHTML;
+      const toDown = tasks[i - 1].outerHTML;
+
+      tasks[i].outerHTML = toDown;
+      tasks[i - 1].outerHTML = toUp;
+    }
+  }
+}
+
+function moveTaskDown() {
+  const tasks = document.getElementsByTagName('li');
+
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('selected') && checkTaskPositionBottom(tasks[i].outerHTML)) {
+      const toDown = tasks[i].outerHTML;
+      const toUp = tasks[i + 1].outerHTML;
+
+      tasks[i + 1].outerHTML = toDown;
+      tasks[i].outerHTML = toUp;
+      break;
+    }
+  }
+}
+
 window.addEventListener('load', loadList);
 
 const createItemButton = document.getElementById('criar-tarefa');
@@ -80,6 +126,15 @@ clearCompletedButton.addEventListener('click', clearCompleted);
 
 const saveListButton = document.getElementById('salvar-tarefas');
 saveListButton.addEventListener('click', saveList);
+
+const removeSelectedButton = document.getElementById('remover-selecionado');
+removeSelectedButton.addEventListener('click', removeSelected);
+
+const moveUpButton = document.getElementById('mover-cima');
+moveUpButton.addEventListener('click', moveTaskUp);
+
+const moveDownButton = document.getElementById('mover-baixo');
+moveDownButton.addEventListener('click', moveTaskDown);
 
 list.addEventListener('click', selectListItem);
 list.addEventListener('dblclick', completedItem);
