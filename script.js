@@ -1,3 +1,7 @@
+const getBUttonSave = document.querySelector('#salvar-tarefas');
+const getOl = document.querySelector('#lista-tarefas');
+const getListChild = document.querySelector('#lista-tarefas').children;
+
 // Referência do código ao Brunão Turma 16 - Tribo A;
 function clearNotSelectedColor() {
   const getOlChildren = document.querySelector('ol').children;
@@ -43,10 +47,9 @@ function changeTextList(event) {
 
 function deletedTasks() {
   const getButton = document.querySelector('#apaga-tudo');
-  const getLi = document.querySelectorAll('li');
   getButton.addEventListener('click', () => {
-    for (let index = 0; index < getLi.length; index += 1) {
-      getLi[index].remove();
+    for (let index = 0; index < getListChild.length; index += 1) {
+      getListChild[index].remove();
     }
   });
 }
@@ -67,7 +70,6 @@ function deleteCompletedTasks(event) {
 
 function addList() {
   const getInput = document.querySelector('#texto-tarefa');
-  const getOl = document.querySelector('#lista-tarefas');
   const createLi = document.createElement('li');
   createLi.innerText = getInput.value;
   // Referência do código para o Carlos Dal Soler, Turma 16 - Tribo A;
@@ -79,6 +81,22 @@ function addList() {
   deletedTasks();
   deleteCompletedTasks();
 }
+
+//Referencia do código ao Lucas Fernandes.
+function saveList() {
+  getBUttonSave.addEventListener('click', () => {
+    const setOlList = getOl.innerHTML;
+    localStorage.setItem('list', setOlList);
+  });
+}
+
+function loadList() {
+  saveList();
+  const getOlList = localStorage.getItem('list');  
+  if (getOlList !== null) {
+    getOl.innerHTML = getOlList;
+  }
+} loadList();
 
 function cretatList() {
   document.querySelector('#criar-tarefa').addEventListener('click', addList);
