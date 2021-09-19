@@ -44,16 +44,13 @@ function adicionaTarefa (){
 
     lista.addEventListener('dblclick', riscaTarefa);
 
-    function apagarTarefas (event){
+    function apagarTarefas (){
         let apagar = document.querySelectorAll('.line')
-        if (event.target = btnApagar){
-         for (let i =0; i < apagar.length; i+=1){
+         for (let i = apagar.length -1; i >= 0; i-=1){
            let itemApagar = apagar[i];
-           console.log(itemApagar);
             itemApagar.remove();
          }
         
-        }
     }
 
     function excluiFinalizados (){
@@ -61,7 +58,6 @@ function adicionaTarefa (){
         
             for (let key = 0;key < excluiFinalizados.length; key+=1){
                 let excluir = excluiFinalizados[key];
-                console.log(excluir);
                 excluir.remove();
             }
     }
@@ -69,5 +65,43 @@ function adicionaTarefa (){
     btnFinalizados.addEventListener('click', excluiFinalizados);
 
     function salvarTarefas (){
+        let listaSalvar =[];
+        let salvoRisco = [];
+        for (let key = 0; key < lista.children.length; key+=1){
+            let salvar = lista.children[key].innerText;
+            if (lista.children[key].classList.contains('completed')){
+                salvoRisco.push(salvar);
+            } else {
+                listaSalvar.push(salvar);
+            };          
+            
+        }; 
+        localStorage.setItem('lista', JSON.stringify(listaSalvar));
+        localStorage.setItem('riscados', JSON.stringify(salvoRisco));
+    };
 
-    }    
+    // Desafio feito com auxilio do Leandro Bonfim.
+    function exbirItensSalvos (){
+        if (localStorage.getItem('lista')){
+        let exibiItem = JSON.parse(localStorage.getItem('lista'));
+        for (i = 0; i < exibiItem.length ; i +=1){
+            let novaLista = document.createElement('li');
+            novaLista.classList.add('line');
+            novaLista.innerText = exibiItem[i];
+            lista.appendChild(novaLista);
+        }
+    } if (localStorage.getItem('riscados')){
+        let exibiItemRiscado = JSON.parse(localStorage.getItem('riscados'));
+        for (i = 0; i < exibiItemRiscado.length ; i +=1){
+            let novaListaRiscada = document.createElement('li');
+            novaListaRiscada.innerText = exibiItemRiscado[i];
+            novaListaRiscada.classList.add('completed');
+            novaListaRiscada.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+            lista.appendChild(novaListaRiscada);
+    }
+}
+}
+
+
+    btnSalvar.addEventListener('click', salvarTarefas);
+    window.addEventListener('load', exbirItensSalvos);   
