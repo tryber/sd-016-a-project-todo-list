@@ -5,6 +5,8 @@ const listItem = document.querySelector('#lista-tarefas').children;
 const clearButton = document.querySelector('#apaga-tudo');
 const removeDoneButton = document.querySelector('#remover-finalizados');
 const saveAllButton = document.querySelector('#salvar-tarefas');
+const buttonUp = document.querySelector('#mover-cima');
+const buttonDown = document.querySelector('#mover-baixo');
 
 function changeColor(event) {
   const selectedItem = event.target;
