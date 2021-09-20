@@ -1,7 +1,7 @@
 const buttonCreatTarefa = document.querySelector('#criar-tarefa');
 const listOrder = document.querySelector('#lista-tarefas');
-// const buttonDown = document.getElementById('mover-baixo');
 // const buttonUp = document.getElementById('mover-cima');
+// const buttonDown = document.getElementById('mover-baixo');
 // const selectLi = document.querySelectorAll('li');
 
 function inputOfButton() {
@@ -15,14 +15,15 @@ function inputOfButton() {
 buttonCreatTarefa.addEventListener('click', inputOfButton);
 
 // Adiciona fundo cinza ao item selecionado e branco aos demais.
-listOrder.addEventListener('click', (event) => {
+function changeColor(event) {
   const selectLi = document.querySelectorAll('li');
-  const changeEvent = event.target;
+  const currentEvent = event.target;
   for (let index = 0; index < selectLi.length; index += 1) {
     selectLi[index].style.backgroundColor = 'white';
   }
-  changeEvent.style.backgroundColor = 'grey';
-});
+  currentEvent.style.backgroundColor = 'grey';
+}
+listOrder.addEventListener('click', changeColor);
 
 // Adiciona e remove evento que risca itens selecionados com double click.
 function textRiscado(event) {
@@ -56,8 +57,10 @@ function clearListRiscados() {
 buttonClearListRiscados.addEventListener('click', clearListRiscados);
 
 // function buttonUpList(event) {
+//   const currentEvent = event.target;
+//   const selectLi = document.querySelectorAll('li');
 //   for (let index = 0; index < selectLi.length; index += 1) {
-
+//     listOrder.insertBefore(selectLi[index], selectLi[index]);
 //   }
 // }
 
