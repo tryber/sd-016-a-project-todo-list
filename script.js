@@ -1,5 +1,7 @@
 const buttonCreatTarefa = document.querySelector('#criar-tarefa');
 const listOrder = document.querySelector('#lista-tarefas');
+// const buttonDown = document.getElementById('mover-baixo');
+// const buttonUp = document.getElementById('mover-cima');
 // const selectLi = document.querySelectorAll('li');
 
 function inputOfButton() {
@@ -10,25 +12,25 @@ function inputOfButton() {
   listOrder.appendChild(creatList);
   inputButton.value = '';
 }
-
 buttonCreatTarefa.addEventListener('click', inputOfButton);
 
-function selectBackgroundColor(event) {
+// Adiciona fundo cinza ao item selecionado e branco aos demais.
+listOrder.addEventListener('click', (event) => {
   const selectLi = document.querySelectorAll('li');
+  const changeEvent = event.target;
   for (let index = 0; index < selectLi.length; index += 1) {
     selectLi[index].style.backgroundColor = 'white';
   }
-  event.target.style.backgroundColor = 'grey';
-  // event.target.classList.add('move');
-}
+  changeEvent.style.backgroundColor = 'grey';
+});
 
-listOrder.addEventListener('click', selectBackgroundColor);
-
+// Adiciona e remove evento que risca itens selecionados com double click.
 function textRiscado(event) {
   event.target.classList.toggle('completed');
 }
-
 listOrder.addEventListener('dblclick', textRiscado);
+
+// Cria Evento de apagar toda a lista para o botão de Apagar Lista.
 const buttonClearList = document.getElementById('apaga-tudo');
 
 function removeItemList() {
@@ -38,8 +40,9 @@ function removeItemList() {
     listOrder.removeChild(list);
   }
 }
-
 buttonClearList.addEventListener('click', removeItemList);
+
+// Cria Evento ao botão lista para o botão de Apagar Lista.
 const buttonClearListRiscados = document.querySelector('#remover-finalizados');
 
 function clearListRiscados() {
@@ -52,16 +55,10 @@ function clearListRiscados() {
 
 buttonClearListRiscados.addEventListener('click', clearListRiscados);
 
-// const selectLi = document.querySelectorAll('li');
-// const classMove = document.querySelector('.move');
-// const buttonDown = document.getElementById('mover-baixo');
-// const buttonUp = document.getElementById('mover-cima');
-// buttonDown.addEventListener('click', buttonDownList);
-// buttonUp.addEventListener('click', buttonUpList);
-
-// function buttonDownList () {
+// function buttonUpList(event) {
 //   for (let index = 0; index < selectLi.length; index += 1) {
-//     const element = classMove[index];
-//     element = element + 1;
+
 //   }
 // }
+
+// buttonUp.addEventListener('click', buttonUpList);
