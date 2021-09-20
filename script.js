@@ -18,6 +18,9 @@ function clearInputText(){
 const buttonInput = document.getElementById('criar-tarefa');
 buttonInput.addEventListener('click', createListItem);
 
+const buttoninputClear = document.getElementById('apaga-tudo');
+buttoninputClear.addEventListener('click', clear);
+
 function selectItem(origin){
     const selector = document.getElementsByClassName('selected');
     const adictSelect=origin.target;
@@ -30,5 +33,9 @@ function selectItem(origin){
 function selectorItem(){
     const listOfItens = document.getElementById('lista-tarefas');
     listOfItens.addEventListener('click', selectItem);
+}
+function clear(){
+    const listOfTasks = document.getElementById('lista-tarefas');
+    listOfTasks.innerHTML = '';
 }
 selectorItem();
