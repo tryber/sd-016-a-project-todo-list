@@ -2,8 +2,11 @@ const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 
 function UpdateBackgroundColor(event) {
-  console.log(event.target);
-  event.target.classList.toggle('selected');
+  const targetClassList = event.target.classList;
+  const previousSelected = document.querySelector('.selected');
+  if (targetClassList.contains('selected')) return;
+  if (previousSelected !== null) previousSelected.classList.toggle('selected');
+  targetClassList.toggle('selected');
 }
 
 function AddTask() {
