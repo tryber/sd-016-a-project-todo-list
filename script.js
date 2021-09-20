@@ -78,6 +78,12 @@ function checkTaskPositionBottom(task) {
   return true;
 }
 
+function checkTaskPositionTop(task) {
+  const tasks = document.getElementsByTagName('li');
+  if (tasks[0].outerHTML === task) return false;
+  return true;
+}
+
 function moveTaskUp() {
   const tasks = document.getElementsByTagName('li');
 
