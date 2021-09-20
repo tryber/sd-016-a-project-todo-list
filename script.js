@@ -78,3 +78,17 @@ function checkTaskPositionBottom(task) {
   return true;
 }
 
+function moveTaskUp() {
+  const tasks = document.getElementsByTagName('li');
+
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('selected') && checkTaskPositionTop(tasks[i].outerHTML)) {
+      const toUp = tasks[i].outerHTML;
+      const toDown = tasks[i - 1].outerHTML;
+
+      tasks[i].outerHTML = toDown;
+      tasks[i - 1].outerHTML = toUp;
+    }
+  }
+}
+
