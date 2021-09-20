@@ -2,6 +2,7 @@ const button = document.querySelector('#criar-tarefa');
 const list = document.querySelector('#lista-tarefas');
 const clearButton = document.querySelector('#apaga-tudo');
 const removeButton = document.querySelector('#remover-finalizados');
+const saveButton = document.querySelector('#salvar-tarefas');
 
 function listElementHilight(event) {
   const hilightElement = document.querySelector('.hilight');
@@ -52,3 +53,42 @@ function removeFinished() {
 }
 
 removeButton.addEventListener('click', removeFinished);
+
+function saveListLocalSorage() {
+  const listElement = document.querySelectorAll('li');
+
+  console.log(listElement);
+  const oldList = [];
+  const classElement = [];
+  for (let i = 0; i < listElement.length; i += 1) {
+    const textItems = listElement[i].innerText;
+
+    console.log(listElement[i].className);
+    oldList.push(textItems);
+    classElement.push(listElement[i].className);
+  }
+
+  localStorage.setItem('listItems', JSON.stringify(oldList));
+  localStorage.setItem('classList', JSON.stringify(classElement));
+}
+saveButton.addEventListener('click', saveListLocalSorage);
+
+function initialPageLoading() {
+  if (localStorage.getItem('listItems') !== null) {
+    const itemList = JSON.parse(localStorage.getItem('listItems'));
+    const classList = JSON.parse(localStorage.getItem('classList'));
+    const listLength = itemList.length - 1;
+    for (let index = 0; index <= listLength; index += 1) {
+      const listElement = document.createElement('li');
+      listElement.className = classList[index];
+      listElement.innerText = itemList[index];
+      listElement.addEventListener('click', listElementHilight);
+      listElement.addEventListener('dblclick', riskElement);
+      list.appendChild(listElement);
+    }
+  }
+}
+
+initialPageLoading();
+
+saveButton.addEventListener('click', saveListLocalSorage);
