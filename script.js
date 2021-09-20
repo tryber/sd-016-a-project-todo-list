@@ -24,9 +24,14 @@ function selectTask(event) {
 
 // Desafio 9 https://www.w3schools.com/cssref/pr_text_text-decoration.asp
 function strikeTask(event) {
-  const selector = event;
-  selector.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-  selector.target.className += ' completed';
+  const selector = event.target;
+  if (selector.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
+    selector.classList.remove('completed');
+    selector.style.textDecoration = '';
+  } else {
+    selector.classList.add('completed');
+    selector.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  }
 }
 
 // Desafio 10 https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
