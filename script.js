@@ -11,3 +11,23 @@ function createTask() {
 
 const buttonCreate = document.querySelector('#criar-tarefa');
 buttonCreate.addEventListener('click', createTask);
+
+function removeGrey() {
+  const searchSelect = document.querySelectorAll('.select');
+  for(let index = 0; index < searchSelect.length; index += 1) {
+    searchSelect[index].classList.remove('select');
+    searchSelect[index].style.backgroundColor = 'white'
+  }
+
+}
+
+function turnGrey(event) {
+  removeGrey()
+  event.target.style.backgroundColor = "rgb(128, 128, 128)"
+  event.target.classList.add('select');
+}
+
+const callList = document.getElementById('lista-tarefas');
+callList.addEventListener('click', turnGrey);
+
+
