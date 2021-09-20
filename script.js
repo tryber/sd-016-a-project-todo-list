@@ -47,3 +47,12 @@ function removeList() {
 const removeButton = document.getElementById('apaga-tudo')
 removeButton.addEventListener('click', removeList)
 
+function removeCompleted() {
+  const removeCompleteds = document.querySelectorAll('.completed')
+  for(let index = 0; index < removeCompleteds.length; index += 1) {
+    callList.removeChild(removeCompleteds[index])
+  }
+}
+
+const removeCompletedButton = document.getElementById('remover-finalizados')
+removeCompletedButton.addEventListener('click', removeCompleted)
