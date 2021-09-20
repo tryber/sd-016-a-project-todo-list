@@ -7,3 +7,7 @@ header {
 .task {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.completed {
+  text-decoration: line-through;
+}

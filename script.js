@@ -10,6 +10,7 @@ button.addEventListener('click', () => {
   const list = document.querySelector('#lista-tarefas');
   list.addEventListener('click', changeBg);
   input.value = '';
+  list.addEventListener('dblclick', completed);
 });
 
 function changeBg(color) {
@@ -18,4 +19,8 @@ function changeBg(color) {
     line[index].style.backgroundColor = 'white';
   }
   color.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+// https://www.w3schools.com/jsref/prop_element_classlist.asp
+function completed(dblclick) {
+  dblclick.target.classList.toggle('completed');
 }
