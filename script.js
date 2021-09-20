@@ -36,3 +36,14 @@ function doubleClick(event) {
 
 callList.addEventListener('dblclick', doubleClick)
 
+
+function removeList() {
+  const removeTasks = document.querySelectorAll('.task')
+  for(let index = 0; index < removeTasks.length; index += 1) {
+    callList.removeChild(removeTasks[index])
+  }
+}
+
+const removeButton = document.getElementById('apaga-tudo')
+removeButton.addEventListener('click', removeList)
+
