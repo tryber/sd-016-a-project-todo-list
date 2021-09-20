@@ -5,9 +5,9 @@
     "passes": 0,
     "pending": 0,
     "failures": 0,
-    "start": "2021-09-19T20:08:21.225Z",
-    "end": "2021-09-19T20:08:24.911Z",
-    "duration": 3686,
+    "start": "2021-09-20T11:16:33.356Z",
+    "end": "2021-09-20T11:16:38.126Z",
+    "duration": 4770,
     "testsRegistered": 28,
     "passPercent": 0,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e56c69cf-9264-4f57-acbe-a6cf6984a6ff",
+      "uuid": "b796ad09-ca9b-4c72-9e0e-8d13ea810486",
       "title": "",
       "fullFile": "cypress/integration/project.spec.js",
       "file": "cypress/integration/project.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c1e327a0-6570-4933-9aec-6b6c1be9942b",
+          "uuid": "7e145580-fb8c-462a-985f-3a1897869715",
           "title": "1 - Adicone à sua lista o título \"Minha Lista de Tarefas\" em uma tag <header>",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Será verificado se sua página possui uma tag `header` com o conteúdo `Minha Lista de Tarefas`",
               "fullTitle": "1 - Adicone à sua lista o título \"Minha Lista de Tarefas\" em uma tag <header> Será verificado se sua página possui uma tag `header` com o conteúdo `Minha Lista de Tarefas`",
               "timedOut": null,
-              "duration": 352,
+              "duration": 659,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -51,8 +51,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '1 - Adicone à sua lista o t...'",
                 "diff": null
               },
-              "uuid": "8c5b4cd1-3e1b-4f92-b20f-d31c55fc9341",
-              "parentUUID": "c1e327a0-6570-4933-9aec-6b6c1be9942b",
+              "uuid": "1359c1d4-a752-4cd2-a896-bda14c07712d",
+              "parentUUID": "7e145580-fb8c-462a-985f-3a1897869715",
               "isHook": false,
               "skipped": false
             }
@@ -60,17 +60,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "8c5b4cd1-3e1b-4f92-b20f-d31c55fc9341"
+            "1359c1d4-a752-4cd2-a896-bda14c07712d"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 352,
+          "duration": 659,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "52650ed2-5137-4634-8b3b-fa261d57acff",
+          "uuid": "d379af98-cf0a-486c-8ca7-4a74a81b5ef8",
           "title": "2 - Adicione abaixo do título um pequeno e discreto parágrafo com id=\"funcionamento\" e com o texto \"Clique duas vezes em um item para marcá-lo como completo\"",
           "fullFile": "",
           "file": "",
@@ -81,7 +81,7 @@
               "title": "Será verificado que existe na sua página um elemento com o id `funcionamento` com o conteúdo `Clique duas vezes em um item para marcá-lo como completo`",
               "fullTitle": "2 - Adicione abaixo do título um pequeno e discreto parágrafo com id=\"funcionamento\" e com o texto \"Clique duas vezes em um item para marcá-lo como completo\" Será verificado que existe na sua página um elemento com o id `funcionamento` com o conteúdo `Clique duas vezes em um item para marcá-lo como completo`",
               "timedOut": null,
-              "duration": 292,
+              "duration": 302,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -94,8 +94,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '2 - Adicione abaixo do títu...'",
                 "diff": null
               },
-              "uuid": "b1af0eb6-f4aa-4ab2-9c92-2947aff2f2b2",
-              "parentUUID": "52650ed2-5137-4634-8b3b-fa261d57acff",
+              "uuid": "9ee65222-d220-4581-b84a-8d48e31c3228",
+              "parentUUID": "d379af98-cf0a-486c-8ca7-4a74a81b5ef8",
               "isHook": false,
               "skipped": false
             }
@@ -103,17 +103,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "b1af0eb6-f4aa-4ab2-9c92-2947aff2f2b2"
+            "9ee65222-d220-4581-b84a-8d48e31c3228"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 292,
+          "duration": 302,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "f776eb2f-eaef-4b88-a0c5-348f01aec561",
+          "uuid": "1dc315d1-d368-4002-960b-49b23e740cf9",
           "title": "3 - Adicione um input com o id=\"texto-tarefa\" onde o usuário poderá digitar o nome do item que deseja adicionar à lista",
           "fullFile": "",
           "file": "",
@@ -124,7 +124,7 @@
               "title": "Será verificada a existência de um elemento do tipo `input` com o id `texto-tarefa`",
               "fullTitle": "3 - Adicione um input com o id=\"texto-tarefa\" onde o usuário poderá digitar o nome do item que deseja adicionar à lista Será verificada a existência de um elemento do tipo `input` com o id `texto-tarefa`",
               "timedOut": null,
-              "duration": 322,
+              "duration": 403,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -137,8 +137,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '3 - Adicione um input com o...'",
                 "diff": null
               },
-              "uuid": "2894ce50-8630-4939-a43a-a3add5bf1b59",
-              "parentUUID": "f776eb2f-eaef-4b88-a0c5-348f01aec561",
+              "uuid": "967b46d1-3f4c-44b7-a743-e39f9813d474",
+              "parentUUID": "1dc315d1-d368-4002-960b-49b23e740cf9",
               "isHook": false,
               "skipped": false
             }
@@ -146,17 +146,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "2894ce50-8630-4939-a43a-a3add5bf1b59"
+            "967b46d1-3f4c-44b7-a743-e39f9813d474"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 322,
+          "duration": 403,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "85dd664e-41ff-4cdc-ae3d-9ef5c862c8e8",
+          "uuid": "3312f401-0882-437d-bafd-e8c6dcec38d0",
           "title": "4 - Adicione uma lista ordenada de tarefas com o id=\"lista-tarefas\"",
           "fullFile": "",
           "file": "",
@@ -167,7 +167,7 @@
               "title": "Será verificada a existência de um elemento `ol` com o id `lista-tarefas`",
               "fullTitle": "4 - Adicione uma lista ordenada de tarefas com o id=\"lista-tarefas\" Será verificada a existência de um elemento `ol` com o id `lista-tarefas`",
               "timedOut": null,
-              "duration": 220,
+              "duration": 259,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -180,8 +180,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '4 - Adicione uma lista orde...'",
                 "diff": null
               },
-              "uuid": "9ae74c23-e199-4bd0-bf10-99047bb6e571",
-              "parentUUID": "85dd664e-41ff-4cdc-ae3d-9ef5c862c8e8",
+              "uuid": "4fe291df-8d54-4e79-9086-12b9bc68d6e5",
+              "parentUUID": "3312f401-0882-437d-bafd-e8c6dcec38d0",
               "isHook": false,
               "skipped": false
             }
@@ -189,17 +189,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "9ae74c23-e199-4bd0-bf10-99047bb6e571"
+            "4fe291df-8d54-4e79-9086-12b9bc68d6e5"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 220,
+          "duration": 259,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "19924dae-b8bc-4566-bbd6-6e6cc8a3fa88",
+          "uuid": "15afc31a-e36b-4664-9abe-ce5ef1c0b137",
           "title": "5 - Adicione um botão com id=\"criar-tarefa\" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo",
           "fullFile": "",
           "file": "",
@@ -210,7 +210,7 @@
               "title": "Será verificada a existência de um elemento do tipo `button` com o id `criar-tarefa",
               "fullTitle": "5 - Adicione um botão com id=\"criar-tarefa\" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo Será verificada a existência de um elemento do tipo `button` com o id `criar-tarefa",
               "timedOut": null,
-              "duration": 203,
+              "duration": 287,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -223,8 +223,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '5 - Adicione um botão com i...'",
                 "diff": null
               },
-              "uuid": "c326819a-ce46-43c1-919a-388047d29792",
-              "parentUUID": "19924dae-b8bc-4566-bbd6-6e6cc8a3fa88",
+              "uuid": "ef0234b4-51e6-4dc6-916e-77c898802bf6",
+              "parentUUID": "15afc31a-e36b-4664-9abe-ce5ef1c0b137",
               "isHook": false,
               "skipped": false
             },
@@ -241,8 +241,8 @@
               "context": null,
               "code": "var todo1 = {\n  content: 'minha primeira tarefa'\n};\naddTodo(todo1);\ncheckTodoList([todo1]);\ncy.get(TODO_ADD_INPUT_SELECTOR).should('have.value', '');",
               "err": {},
-              "uuid": "87ce3aca-9676-4a42-a01d-c0656a8e9183",
-              "parentUUID": "19924dae-b8bc-4566-bbd6-6e6cc8a3fa88",
+              "uuid": "672b5903-2d75-4af8-912f-5dcf033d9545",
+              "parentUUID": "15afc31a-e36b-4664-9abe-ce5ef1c0b137",
               "isHook": false,
               "skipped": true
             },
@@ -259,8 +259,8 @@
               "context": null,
               "code": "var todo1 = {\n  content: 'minha primeira tarefa'\n};\nvar todo2 = {\n  content: 'minha segunda tarefa'\n};\naddTodo(todo1);\ncheckTodoList([todo1]);\naddTodo(todo2);\ncheckTodoList([todo1, todo2]);\ncy.get(TODO_ADD_INPUT_SELECTOR).should('have.value', '');",
               "err": {},
-              "uuid": "b4ead4c4-b369-4e93-9a5f-38e11ac14f97",
-              "parentUUID": "19924dae-b8bc-4566-bbd6-6e6cc8a3fa88",
+              "uuid": "22b6f4b1-8f9f-4084-8f40-14b20496c5a5",
+              "parentUUID": "15afc31a-e36b-4664-9abe-ce5ef1c0b137",
               "isHook": false,
               "skipped": true
             }
@@ -268,20 +268,20 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "c326819a-ce46-43c1-919a-388047d29792"
+            "ef0234b4-51e6-4dc6-916e-77c898802bf6"
           ],
           "pending": [],
           "skipped": [
-            "87ce3aca-9676-4a42-a01d-c0656a8e9183",
-            "b4ead4c4-b369-4e93-9a5f-38e11ac14f97"
+            "672b5903-2d75-4af8-912f-5dcf033d9545",
+            "22b6f4b1-8f9f-4084-8f40-14b20496c5a5"
           ],
-          "duration": 203,
+          "duration": 287,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "6b9c4a1d-9807-466d-b2ba-f6f7a7d70e01",
+          "uuid": "5c9bfd80-105a-433f-8334-9eee8d049df6",
           "title": "6 - Ordene os itens da lista de tarefas por ordem de criação",
           "fullFile": "",
           "file": "",
@@ -292,7 +292,7 @@
               "title": "Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante",
               "fullTitle": "6 - Ordene os itens da lista de tarefas por ordem de criação Três itens serão criados na lista e será checado se eles estão ordenados por ordem de criação - ou seja, primeiro o primeiro item criado, depois o segundo, e assim por diante",
               "timedOut": null,
-              "duration": 240,
+              "duration": 303,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -305,8 +305,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '6 - Ordene os itens da list...'",
                 "diff": null
               },
-              "uuid": "995ec692-450f-4a10-9047-08db36ff06cb",
-              "parentUUID": "6b9c4a1d-9807-466d-b2ba-f6f7a7d70e01",
+              "uuid": "a53c1854-0789-445a-9140-42596a39b224",
+              "parentUUID": "5c9bfd80-105a-433f-8334-9eee8d049df6",
               "isHook": false,
               "skipped": false
             }
@@ -314,17 +314,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "995ec692-450f-4a10-9047-08db36ff06cb"
+            "a53c1854-0789-445a-9140-42596a39b224"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 240,
+          "duration": 303,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "42a4a444-1c3f-44b6-8aa2-a9c8b89d84dd",
+          "uuid": "fe0f3742-ed25-4c9d-b4cc-ce482009ed16",
           "title": "7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128)",
           "fullFile": "",
           "file": "",
@@ -335,7 +335,7 @@
               "title": "Será verificado que, ao se carregar a página, os itens da lista **não tem** o estilo CSS `background-color: rgb(128, 128, 128)`",
               "fullTitle": "7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) Será verificado que, ao se carregar a página, os itens da lista **não tem** o estilo CSS `background-color: rgb(128, 128, 128)`",
               "timedOut": null,
-              "duration": 197,
+              "duration": 220,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -348,8 +348,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '7 - Clicar em um item da li...'",
                 "diff": null
               },
-              "uuid": "da10dc28-fcee-47ea-bf20-9d12baa85a28",
-              "parentUUID": "42a4a444-1c3f-44b6-8aa2-a9c8b89d84dd",
+              "uuid": "63d20d0c-c77b-4580-ac38-b3530b133828",
+              "parentUUID": "fe0f3742-ed25-4c9d-b4cc-ce482009ed16",
               "isHook": false,
               "skipped": false
             },
@@ -366,8 +366,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'uma tarefa qualquer'\n}, {\n  content: 'uma outra tarefa atoa'\n}];\naddTodos(todos);\ncheckTodoList(todos);\ncy.get(TODO_LIST_LINE_SELECTOR).first().click().then(function ($li) {\n  expect($li).to.have.css('background-color', 'rgb(128, 128, 128)');\n});",
               "err": {},
-              "uuid": "55218255-dd4d-4079-a877-5eb2e388b79f",
-              "parentUUID": "42a4a444-1c3f-44b6-8aa2-a9c8b89d84dd",
+              "uuid": "e40db876-3d42-4f82-b354-d4830a779fee",
+              "parentUUID": "fe0f3742-ed25-4c9d-b4cc-ce482009ed16",
               "isHook": false,
               "skipped": true
             }
@@ -375,19 +375,19 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "da10dc28-fcee-47ea-bf20-9d12baa85a28"
+            "63d20d0c-c77b-4580-ac38-b3530b133828"
           ],
           "pending": [],
           "skipped": [
-            "55218255-dd4d-4079-a877-5eb2e388b79f"
+            "e40db876-3d42-4f82-b354-d4830a779fee"
           ],
-          "duration": 197,
+          "duration": 220,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "30ddc2ea-b87d-4fde-864f-b8b1faafb114",
+          "uuid": "efc4e611-bb2b-4feb-9616-388fa360663f",
           "title": "8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo",
           "fullFile": "",
           "file": "",
@@ -398,7 +398,7 @@
               "title": "Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento",
               "fullTitle": "8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento",
               "timedOut": null,
-              "duration": 235,
+              "duration": 347,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -411,8 +411,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '8 - Não deve ser possível s...'",
                 "diff": null
               },
-              "uuid": "d0d0cd11-ca95-4366-8edb-0fefe74558d2",
-              "parentUUID": "30ddc2ea-b87d-4fde-864f-b8b1faafb114",
+              "uuid": "ba96b77e-be66-4a9f-b27f-a5fc31b4938d",
+              "parentUUID": "efc4e611-bb2b-4feb-9616-388fa360663f",
               "isHook": false,
               "skipped": false
             }
@@ -420,17 +420,17 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "d0d0cd11-ca95-4366-8edb-0fefe74558d2"
+            "ba96b77e-be66-4a9f-b27f-a5fc31b4938d"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 235,
+          "duration": 347,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "2e5ec810-ebdf-495b-a320-9a9cf106b05a",
+          "uuid": "96981953-321a-4c9b-b0f8-57e83b78795e",
           "title": "9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item",
           "fullFile": "",
           "file": "",
@@ -441,7 +441,7 @@
               "title": "Será verificado que, antes da ação ser disparada, o elemento adicionado à lista não tem nem a classe `completed` nem o estilo `line-through solid rgb(0, 0, 0)`",
               "fullTitle": "9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item Será verificado que, antes da ação ser disparada, o elemento adicionado à lista não tem nem a classe `completed` nem o estilo `line-through solid rgb(0, 0, 0)`",
               "timedOut": null,
-              "duration": 237,
+              "duration": 277,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -454,8 +454,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '9 - Clicar duas vezes em um...'",
                 "diff": null
               },
-              "uuid": "c5c3d6f0-3057-46c2-b4c7-151cda155981",
-              "parentUUID": "2e5ec810-ebdf-495b-a320-9a9cf106b05a",
+              "uuid": "eb732904-374d-4dfa-a827-33f9ed0fedfd",
+              "parentUUID": "96981953-321a-4c9b-b0f8-57e83b78795e",
               "isHook": false,
               "skipped": false
             },
@@ -472,8 +472,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'já terminei essa tarefa'\n}, {\n  content: 'está eu ainda não terminei'\n}];\naddTodos(todos);\ncy.get(TODO_LIST_LINE_SELECTOR).first().dblclick();\ncy.get(TODO_LIST_LINE_SELECTOR).first().should('have.class', 'completed');\ncy.get('.completed').should('have.css', 'text-decoration', 'line-through solid rgb(0, 0, 0)');",
               "err": {},
-              "uuid": "a8051e59-d1e0-4dc3-910d-4bb22aa3b484",
-              "parentUUID": "2e5ec810-ebdf-495b-a320-9a9cf106b05a",
+              "uuid": "7e160c14-7d36-4967-ae9a-5a7cb2493001",
+              "parentUUID": "96981953-321a-4c9b-b0f8-57e83b78795e",
               "isHook": false,
               "skipped": true
             },
@@ -490,8 +490,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'já terminei essa tarefa'\n}, {\n  content: 'está eu ainda não terminei'\n}];\naddTodos(todos);\ncy.get(TODO_LIST_LINE_SELECTOR).first().dblclick().dblclick();\ncy.get(TODO_LIST_LINE_SELECTOR).first().should('not.have.class', 'completed');\ncy.get(TODO_LIST_LINE_SELECTOR).first().should('not.have.css', 'text-decoration', 'line-through solid rgb(0, 0, 0)');",
               "err": {},
-              "uuid": "a0c1ec8c-37bb-4fda-bb9a-5d55fefb91b3",
-              "parentUUID": "2e5ec810-ebdf-495b-a320-9a9cf106b05a",
+              "uuid": "2e2ac89c-d040-493c-a79c-ff3a67e6120d",
+              "parentUUID": "96981953-321a-4c9b-b0f8-57e83b78795e",
               "isHook": false,
               "skipped": true
             }
@@ -499,20 +499,20 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "c5c3d6f0-3057-46c2-b4c7-151cda155981"
+            "eb732904-374d-4dfa-a827-33f9ed0fedfd"
           ],
           "pending": [],
           "skipped": [
-            "a8051e59-d1e0-4dc3-910d-4bb22aa3b484",
-            "a0c1ec8c-37bb-4fda-bb9a-5d55fefb91b3"
+            "7e160c14-7d36-4967-ae9a-5a7cb2493001",
+            "2e2ac89c-d040-493c-a79c-ff3a67e6120d"
           ],
-          "duration": 237,
+          "duration": 277,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "63195da3-9a7c-4ccc-bdaa-7995eb9303be",
+          "uuid": "1366b739-ff0d-4685-af4c-e11b44163948",
           "title": "10 - Adicione um botão com id=\"apaga-tudo\" que quando clicado deve apagar todos os itens da lista",
           "fullFile": "",
           "file": "",
@@ -523,7 +523,7 @@
               "title": "Será verificado que existe um elemento `button` com o id `apaga-tudo`",
               "fullTitle": "10 - Adicione um botão com id=\"apaga-tudo\" que quando clicado deve apagar todos os itens da lista Será verificado que existe um elemento `button` com o id `apaga-tudo`",
               "timedOut": null,
-              "duration": 205,
+              "duration": 282,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -536,8 +536,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '10 - Adicione um botão com ...'",
                 "diff": null
               },
-              "uuid": "2db4fcf9-31c8-4237-8ece-ed5b2d924fb7",
-              "parentUUID": "63195da3-9a7c-4ccc-bdaa-7995eb9303be",
+              "uuid": "5df952c3-6fb3-405c-b5cf-809e4fbe2b13",
+              "parentUUID": "1366b739-ff0d-4685-af4c-e11b44163948",
               "isHook": false,
               "skipped": false
             },
@@ -554,8 +554,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'blablabla'\n}, {\n  content: 'hahahahaha'\n}];\naddTodos(todos);\ncy.get(TODO_REMOVE_ALL_BUTTON_SELECTOR).click();\ncheckTodoList();",
               "err": {},
-              "uuid": "058e672b-45d7-4a4c-aeef-0cb6835456a6",
-              "parentUUID": "63195da3-9a7c-4ccc-bdaa-7995eb9303be",
+              "uuid": "014b1ac0-8d8c-4011-ac17-129c8b9f9bd7",
+              "parentUUID": "1366b739-ff0d-4685-af4c-e11b44163948",
               "isHook": false,
               "skipped": true
             }
@@ -563,19 +563,19 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "2db4fcf9-31c8-4237-8ece-ed5b2d924fb7"
+            "5df952c3-6fb3-405c-b5cf-809e4fbe2b13"
           ],
           "pending": [],
           "skipped": [
-            "058e672b-45d7-4a4c-aeef-0cb6835456a6"
+            "014b1ac0-8d8c-4011-ac17-129c8b9f9bd7"
           ],
-          "duration": 205,
+          "duration": 282,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "88903fd6-4d17-4cc2-864f-f9b52b4480f3",
+          "uuid": "d5a6e56d-58e2-4996-ad5c-c06c7a5f6e89",
           "title": "11 - Adicione um botão com id=\"remover-finalizados\" que quando clicado remove **somente** os elementos finalizados da sua lista",
           "fullFile": "",
           "file": "",
@@ -586,7 +586,7 @@
               "title": "Será verificado que existe um elemento `button` com o id `remover-finalizados`",
               "fullTitle": "11 - Adicione um botão com id=\"remover-finalizados\" que quando clicado remove **somente** os elementos finalizados da sua lista Será verificado que existe um elemento `button` com o id `remover-finalizados`",
               "timedOut": null,
-              "duration": 223,
+              "duration": 285,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -599,8 +599,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '11 - Adicione um botão com ...'",
                 "diff": null
               },
-              "uuid": "b7c6a160-7f59-4029-8171-379c124f9584",
-              "parentUUID": "88903fd6-4d17-4cc2-864f-f9b52b4480f3",
+              "uuid": "a58d80ac-629e-48e7-aa5c-8f4c7ce8ab15",
+              "parentUUID": "d5a6e56d-58e2-4996-ad5c-c06c7a5f6e89",
               "isHook": false,
               "skipped": false
             },
@@ -617,8 +617,8 @@
               "context": null,
               "code": "var todo1 = {\n  content: 'vou terminar essa tarefa logo'\n};\nvar todo2 = {\n  content: 'essa tarefa eu vou demorar para finalizar'\n};\nvar todo3 = {\n  content: 'essa tarefa tbm vai demorar...'\n};\nvar todos = [todo1, todo2, todo3];\naddTodos(todos);\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(2)\")).dblclick();\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(3)\")).dblclick();\ncy.get(TODO_REMOVE_DONE_BUTTON_SELECTOR).click();\ncheckTodoList([todo1]);",
               "err": {},
-              "uuid": "73243964-5978-40f8-b931-cb7d81a9be4f",
-              "parentUUID": "88903fd6-4d17-4cc2-864f-f9b52b4480f3",
+              "uuid": "d2632feb-1b0d-4059-9131-d8f41aecb430",
+              "parentUUID": "d5a6e56d-58e2-4996-ad5c-c06c7a5f6e89",
               "isHook": false,
               "skipped": true
             }
@@ -626,19 +626,19 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "b7c6a160-7f59-4029-8171-379c124f9584"
+            "a58d80ac-629e-48e7-aa5c-8f4c7ce8ab15"
           ],
           "pending": [],
           "skipped": [
-            "73243964-5978-40f8-b931-cb7d81a9be4f"
+            "d2632feb-1b0d-4059-9131-d8f41aecb430"
           ],
-          "duration": 223,
+          "duration": 285,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "96bfa9b6-f538-4b5d-83a2-e4a2747c6837",
+          "uuid": "830a489d-39d9-4ae6-9586-c076ec547aa5",
           "title": "12 - Adicione um botão com id=\"salvar-tarefas\" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava",
           "fullFile": "",
           "file": "",
@@ -649,7 +649,7 @@
               "title": "Será verificado que existe um elemento `button` com o id `salvar-tarefas`",
               "fullTitle": "12 - Adicione um botão com id=\"salvar-tarefas\" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava Será verificado que existe um elemento `button` com o id `salvar-tarefas`",
               "timedOut": null,
-              "duration": 209,
+              "duration": 269,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -662,8 +662,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '12 - Adicione um botão com ...'",
                 "diff": null
               },
-              "uuid": "96285428-9b89-4474-aaf8-6ca64b3326c5",
-              "parentUUID": "96bfa9b6-f538-4b5d-83a2-e4a2747c6837",
+              "uuid": "cc1dcf69-a617-498d-80cc-bd6b1f835c60",
+              "parentUUID": "830a489d-39d9-4ae6-9586-c076ec547aa5",
               "isHook": false,
               "skipped": false
             },
@@ -680,8 +680,8 @@
               "context": null,
               "code": "var todo1 = {\n  content: 'primeira tarefa a ser salva'\n};\nvar todo2 = {\n  content: 'esta tarefa será salva também'\n};\nvar todo3 = {\n  content: 'mais uma para salvar'\n};\nvar todos = [todo1, todo2, todo3];\naddTodos(todos);\ncheckTodoList(todos);\ncy.get(TODO_LIST_LINE_SELECTOR).first().dblclick();\ncy.get(TODO_SAVE_LIST_BUTTON_SELECTOR).click();\ncy.reload();\nvar newTodosState = [(0, _objectSpread2[\"default\"])({}, todo1, {\n  done: true\n}), todo2, todo3];\ncheckTodoList(newTodosState);",
               "err": {},
-              "uuid": "2630a395-c328-456f-9904-fcffb0149e23",
-              "parentUUID": "96bfa9b6-f538-4b5d-83a2-e4a2747c6837",
+              "uuid": "70bd8a97-3f99-4a77-a33f-7fe57ea07d8d",
+              "parentUUID": "830a489d-39d9-4ae6-9586-c076ec547aa5",
               "isHook": false,
               "skipped": true
             }
@@ -689,19 +689,19 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "96285428-9b89-4474-aaf8-6ca64b3326c5"
+            "cc1dcf69-a617-498d-80cc-bd6b1f835c60"
           ],
           "pending": [],
           "skipped": [
-            "2630a395-c328-456f-9904-fcffb0149e23"
+            "70bd8a97-3f99-4a77-a33f-7fe57ea07d8d"
           ],
-          "duration": 209,
+          "duration": 269,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+          "uuid": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
           "title": "13 - Adicione dois botões, um com id=\"mover-cima\" e outro com id=\"mover-baixo\", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas",
           "fullFile": "",
           "file": "",
@@ -712,7 +712,7 @@
               "title": "Será verificada a existência de dois elementos `button`, um com o id `mover-cima` e o outro com o id `mover-baixo`",
               "fullTitle": "13 - Adicione dois botões, um com id=\"mover-cima\" e outro com id=\"mover-baixo\", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas Será verificada a existência de dois elementos `button`, um com o id `mover-cima` e o outro com o id `mover-baixo`",
               "timedOut": null,
-              "duration": 237,
+              "duration": 287,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -725,8 +725,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '13 - Adicione dois botões, ...'",
                 "diff": null
               },
-              "uuid": "8fc2ea70-b782-497c-adbe-b4e950c1c19a",
-              "parentUUID": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+              "uuid": "c1bffc0c-73ff-4584-8cee-ef531ab4be97",
+              "parentUUID": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
               "isHook": false,
               "skipped": false
             },
@@ -743,8 +743,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'primeira tarefa'\n}, {\n  content: 'segunda tarefa'\n}, {\n  content: 'terceira tarefa'\n}, {\n  content: 'quarta tarefa'\n}];\nvar newTodosState = [todos[3], todos[2], todos[1], todos[0]];\naddTodos(todos);\ncheckTodoList(todos);\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(2)\")).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(4)\")).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(3)\")).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(1)\")).click();\ncy.get(TODO_MOVE_DOWN_BUTTON_SELECTOR).click();\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(4)\")).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(3)\")).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncheckTodoList(newTodosState);",
               "err": {},
-              "uuid": "4f87825d-c3a2-45ee-bb7f-9e525863343a",
-              "parentUUID": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+              "uuid": "411eecd4-43ad-4f02-94d5-3055864a3e8f",
+              "parentUUID": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
               "isHook": false,
               "skipped": true
             },
@@ -761,8 +761,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'primeira tarefa',\n  done: true\n}, {\n  content: 'segunda tarefa'\n}];\naddTodos(todos);\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(1)\")).click().dblclick();\ncy.get(TODO_MOVE_DOWN_BUTTON_SELECTOR).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncheckTodoList(todos);",
               "err": {},
-              "uuid": "1d134b29-93d1-412e-a832-b59fde9832d0",
-              "parentUUID": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+              "uuid": "a0f42410-81d0-4166-aad0-0ce11e713964",
+              "parentUUID": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
               "isHook": false,
               "skipped": true
             },
@@ -779,8 +779,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'primeira tarefa'\n}, {\n  content: 'segunda tarefa'\n}, {\n  content: 'terceira tarefa'\n}, {\n  content: 'quarta tarefa'\n}];\naddTodos(todos);\ncheckTodoList(todos);\ncy.get(TODO_MOVE_DOWN_BUTTON_SELECTOR).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncheckTodoList(todos);",
               "err": {},
-              "uuid": "64cea431-b77d-4180-b1b0-66c2aefa76d0",
-              "parentUUID": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+              "uuid": "9223ddd3-5ba6-4156-83c3-e8b1ac3cb529",
+              "parentUUID": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
               "isHook": false,
               "skipped": true
             },
@@ -797,8 +797,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'primeira tarefa'\n}, {\n  content: 'segunda tarefa'\n}];\naddTodos(todos);\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(1)\")).click();\ncy.get(TODO_MOVE_DOWN_BUTTON_SELECTOR).click();\nvar newTodos = [{\n  content: 'segunda tarefa'\n}, {\n  content: 'primeira tarefa'\n}];\ncheckTodoList(newTodos);\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncheckTodoList(todos);",
               "err": {},
-              "uuid": "0f536bce-b9a0-4e8c-811b-522d188387f7",
-              "parentUUID": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+              "uuid": "f134133d-e7bb-4faa-a75c-82f78b044698",
+              "parentUUID": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
               "isHook": false,
               "skipped": true
             },
@@ -815,8 +815,8 @@
               "context": null,
               "code": "var todos = [{\n  content: 'primeira tarefa'\n}, {\n  content: 'segunda tarefa'\n}];\naddTodos(todos);\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(1)\")).click();\ncy.get(TODO_MOVE_UP_BUTTON_SELECTOR).click();\ncheckTodoList(todos);\ncy.get(\"\".concat(TODO_LIST_LINE_SELECTOR, \":nth-child(2)\")).click();\ncy.get(TODO_MOVE_DOWN_BUTTON_SELECTOR).click();\ncheckTodoList(todos);",
               "err": {},
-              "uuid": "60349c56-4bc5-4e46-ac14-d0a0df7ad0c9",
-              "parentUUID": "7c58b1e6-fe96-40ea-9afd-b1a6e6be4923",
+              "uuid": "7865f803-f79e-4b54-9cbe-17dc8d1d5f18",
+              "parentUUID": "1e4f3c4b-6592-4f28-88fc-ed1b6fd37400",
               "isHook": false,
               "skipped": true
             }
@@ -824,23 +824,23 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "8fc2ea70-b782-497c-adbe-b4e950c1c19a"
+            "c1bffc0c-73ff-4584-8cee-ef531ab4be97"
           ],
           "pending": [],
           "skipped": [
-            "4f87825d-c3a2-45ee-bb7f-9e525863343a",
-            "1d134b29-93d1-412e-a832-b59fde9832d0",
-            "64cea431-b77d-4180-b1b0-66c2aefa76d0",
-            "0f536bce-b9a0-4e8c-811b-522d188387f7",
-            "60349c56-4bc5-4e46-ac14-d0a0df7ad0c9"
+            "411eecd4-43ad-4f02-94d5-3055864a3e8f",
+            "a0f42410-81d0-4166-aad0-0ce11e713964",
+            "9223ddd3-5ba6-4156-83c3-e8b1ac3cb529",
+            "f134133d-e7bb-4faa-a75c-82f78b044698",
+            "7865f803-f79e-4b54-9cbe-17dc8d1d5f18"
           ],
-          "duration": 237,
+          "duration": 287,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "7cd43afd-fd75-413d-904b-e9de367a4861",
+          "uuid": "176190fd-da88-4d3e-b0b2-dd24896399aa",
           "title": "14 - Adicione um botão com id=\"remover-selecionado\" que, quando clicado, remove o item selecionado",
           "fullFile": "",
           "file": "",
@@ -851,7 +851,7 @@
               "title": "Será verificada a presença de um elemento `button` com um id `remover-selecionado`",
               "fullTitle": "14 - Adicione um botão com id=\"remover-selecionado\" que, quando clicado, remove o item selecionado Será verificada a presença de um elemento `button` com um id `remover-selecionado`",
               "timedOut": null,
-              "duration": 263,
+              "duration": 294,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -864,8 +864,8 @@
                 "estack": "Uncaught SyntaxError: Unexpected identifier\n\nThis error originated from your application code, not from Cypress.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the 'uncaught:exception' event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a 'before each' hook we are skipping the remaining tests in the current suite: '14 - Adicione um botão com ...'",
                 "diff": null
               },
-              "uuid": "357d3774-7b51-4eb6-93db-214efd32f7c1",
-              "parentUUID": "7cd43afd-fd75-413d-904b-e9de367a4861",
+              "uuid": "53ccd653-c410-4ce1-80ea-eff023798b14",
+              "parentUUID": "176190fd-da88-4d3e-b0b2-dd24896399aa",
               "isHook": false,
               "skipped": false
             },
@@ -882,8 +882,8 @@
               "context": null,
               "code": "var todo1 = {\n  content: 'não posso remover essa tarefa'\n};\nvar todo2 = {\n  content: 'essa tarefa aqui eu posso remover'\n};\nvar todos = [todo1, todo2];\naddTodos(todos);\ncheckTodoList(todos);\ncy.get(TODO_LIST_LINE_SELECTOR).last().click();\ncy.get(TODO_REMOVE_SELECTED_BUTTON_SELECTOR).click();\ncheckTodoList([todo1]);",
               "err": {},
-              "uuid": "a5457571-7446-42e1-9b43-7596d762cb92",
-              "parentUUID": "7cd43afd-fd75-413d-904b-e9de367a4861",
+              "uuid": "0107eec9-7a94-4ca4-9a9c-514adf828984",
+              "parentUUID": "176190fd-da88-4d3e-b0b2-dd24896399aa",
               "isHook": false,
               "skipped": true
             }
@@ -891,13 +891,13 @@
           "suites": [],
           "passes": [],
           "failures": [
-            "357d3774-7b51-4eb6-93db-214efd32f7c1"
+            "53ccd653-c410-4ce1-80ea-eff023798b14"
           ],
           "pending": [],
           "skipped": [
-            "a5457571-7446-42e1-9b43-7596d762cb92"
+            "0107eec9-7a94-4ca4-9a9c-514adf828984"
           ],
-          "duration": 263,
+          "duration": 294,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
