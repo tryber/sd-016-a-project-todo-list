@@ -1,6 +1,7 @@
 const buttonCreateTask = document.getElementById('criar-tarefa');
 const inputItemList = document.getElementById('texto-tarefa');
 const addList = document.getElementById('lista-tarefas');
+const buttonClearList = document.getElementById('apaga-tudo');
 
 function onClick(e) {
   const selected = document.querySelector('.selected');
@@ -29,3 +30,11 @@ function createTask() {
 }
 
 buttonCreateTask.addEventListener('click', createTask);
+
+function clearList() {
+  addList.innerHTML = '';
+}
+
+console.log(addList);
+
+buttonClearList.addEventListener('click', clearList);
