@@ -1,0 +1,12 @@
+.selected {
+  background-color: grey;
+}
+
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+#mover-cima {
+  margin-left: 20px;
+}
