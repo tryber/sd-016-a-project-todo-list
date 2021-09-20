@@ -3,11 +3,11 @@ const getList = document.querySelector('#lista-tarefas');
 const getInput = document.querySelector('#texto-tarefa');
 
 // Desafio 5
-getButtonAdd.addEventListener('click', function () { 
-  let createTask = document.createElement('li');
+getButtonAdd.addEventListener('click', function () {
+  const createTask = document.createElement('li');
   getList.appendChild(createTask);
   createTask.style.backgroundColor = 'white';
-  createTask.className = 'task'
+  createTask.className = 'task';
   createTask.innerHTML = getInput.value;
   getInput.value = '';
 });
@@ -44,7 +44,7 @@ getButtonClearAll.addEventListener('click', function () {
 
 // Desafio 11 https://www.codegrepper.com/code-examples/javascript/remove+element+with+class+name+javascript
 const getButtonClearSelected = document.querySelector('#remover-finalizados');
-getButtonClearSelected.addEventListener('click', function() {
+getButtonClearSelected.addEventListener('click', function () {
   const completedElements = document.querySelectorAll('.completed');
   while (completedElements.length > 0) {
     completedElements[0].parentNode.removeChild(completedElements[0]);
