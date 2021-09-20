@@ -1,10 +1,8 @@
-
-
-
 function createListItem(){
     const inputsElements = document.getElementById('texto-tarefa').value;
     const listOfItens = document.getElementById('lista-tarefas');
     const itensOfList = document.createElement('li');
+    itensOfList.className ='taskItens';
     itensOfList.innerText = inputsElements;
 
     listOfItens.appendChild(itensOfList);
@@ -20,4 +18,17 @@ function clearInputText(){
 const buttonInput = document.getElementById('criar-tarefa');
 buttonInput.addEventListener('click', createListItem);
 
-//function itensInteraction(){}
+function selectItem(origin){
+    const selector = document.getElementsByClassName('selected');
+    const adictSelect=origin.target;
+    for(index=0;index<selector.length;index){
+    selector[index].classList.remove('selected');
+    
+    }
+    adictSelect.classList.add('selected');
+}
+function selectorItem(){
+    const listOfItens = document.getElementById('lista-tarefas');
+    listOfItens.addEventListener('click', selectItem);
+}
+selectorItem();
