@@ -14,17 +14,15 @@ getButtonAdd.addEventListener('click', function () {
 
 // Desafio 7
 function selectTask(event) {
-  let color = 'white';
-  const selector = event;
-  if (selector.target.style.backgroundColor = color) {
-    selector.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  } else if (selector.target.style.backgroundColor = 'rgb(128, 128, 128)') {
-    selector.target.style.backgroundColor = color;
+  const taskList = document.querySelectorAll('li');
+  for (let i = 0; i < taskList.length; i += 1) {
+    taskList[i].style.backgroundColor = 'white';
   }
+  const selector = event;
+  selector.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 // Desafio 9 https://www.w3schools.com/cssref/pr_text_text-decoration.asp
-const taskList = document.querySelectorAll('.task');
 function strikeTask(event) {
   const selector = event;
   selector.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
