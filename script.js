@@ -1,4 +1,5 @@
 let btnLimparFinish = document.getElementById("remover-finalizados");
+let btnRemoveSelect = document.getElementById("remover-selecionado");
 let btnCriarTarefa = document.getElementById('criar-tarefa');
 btnCriarTarefa.addEventListener('click', function () {
   let textoTarefa = document.getElementById("texto-tarefa");
@@ -28,11 +29,21 @@ btnLimparTarefas.addEventListener('click', function() {
 function removeFinish(){
   let lineTarefas = document.querySelectorAll(".completed")
   for (let index = 0; index < lineTarefas.length; index += 1) {
-    document.querySelector("#lista-tarefas").removeChild(lineTarefas[index])
-     
+    document.querySelector("#lista-tarefas").removeChild(lineTarefas[index])  
   }
 }
 btnLimparFinish.addEventListener('click', removeFinish)
+
+//Item 14 - clicar no botão `remover-selecionado` 
+function removeSelect(){
+  let lineTarefas = document.querySelector("#lista-tarefas").children
+  for (let index = 0; index < lineTarefas.length; index += 1) {
+    if (lineTarefas[index].style.backgroundColor != 'rgba(100, 148, 237, 0.11)'){
+      document.querySelector("#lista-tarefas").removeChild(lineTarefas[index])
+    }  
+  }
+}
+btnRemoveSelect.addEventListener('click', removeSelect);
 
 function newColor(color){
   let lineTarefas = document.getElementById("lista-tarefas").children
