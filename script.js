@@ -92,3 +92,43 @@ function moveTaskUp() {
   }
 }
 
+function moveTaskDown() {
+  const tasks = document.getElementsByTagName('li');
+
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].classList.contains('selected') && checkTaskPositionBottom(tasks[i].outerHTML)) {
+      const toDown = tasks[i].outerHTML;
+      const toUp = tasks[i + 1].outerHTML;
+
+      tasks[i + 1].outerHTML = toDown;
+      tasks[i].outerHTML = toUp;
+      break;
+    }
+  }
+}
+
+window.addEventListener('load', loadList);
+
+const createItemButton = document.getElementById('criar-tarefa');
+createItemButton.addEventListener('click', addListItem);
+
+const clearListButton = document.getElementById('apaga-tudo');
+clearListButton.addEventListener('click', clearList);
+
+const clearCompletedButton = document.getElementById('remover-finalizados');
+clearCompletedButton.addEventListener('click', clearCompleted);
+
+const saveListButton = document.getElementById('salvar-tarefas');
+saveListButton.addEventListener('click', saveList);
+
+const removeSelectedButton = document.getElementById('remover-selecionado');
+removeSelectedButton.addEventListener('click', removeSelected);
+
+const moveUpButton = document.getElementById('mover-cima');
+moveUpButton.addEventListener('click', moveTaskUp);
+
+const moveDownButton = document.getElementById('mover-baixo');
+moveDownButton.addEventListener('click', moveTaskDown);
+
+list.addEventListener('click', selectListItem);
+list.addEventListener('dblclick', completedItem);
