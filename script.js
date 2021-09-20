@@ -30,4 +30,9 @@ function turnGrey(event) {
 const callList = document.getElementById('lista-tarefas');
 callList.addEventListener('click', turnGrey);
 
+function doubleClick(event) {
+  event.target.classList.toggle('completed');
+}
+
+callList.addEventListener('dblclick', doubleClick)
 
