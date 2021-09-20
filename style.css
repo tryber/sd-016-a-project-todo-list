@@ -64,7 +64,7 @@ font-size: 30px;
 section {
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
+  width: 50%;
 }
 
 #salvar-tarefas {
@@ -76,4 +76,9 @@ section {
   display: flex;
   justify-content: center;
   flex-flow: column;
+}
+
+#remover-selecionado {
+  color:aliceblue;
+  background-color:rgb(179, 47, 6) 
 }
