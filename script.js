@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
-const button = document.querySelector('#criar-tarefa');
-const list = document.querySelector('#lista-tarefas');
+const createTaskButton = document.querySelector('#criar-tarefa');
+const deleteAllButton = document.querySelector('#apaga-tudo');
+let list = document.querySelector('#lista-tarefas');
 
 function UpdateBackgroundColor(event) {
   const targetClassList = event.target.classList;
@@ -27,4 +28,13 @@ function AddTask() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
-button.addEventListener('click', AddTask);
+function DeleteAll() {
+  const newList = document.createElement('ol');
+  newList.id = 'lista-tarefas';
+  list.parentElement.appendChild(newList);
+  list.parentElement.removeChild(list);
+  list = newList;
+}
+
+createTaskButton.addEventListener('click', AddTask);
+deleteAllButton.addEventListener('click', DeleteAll);
