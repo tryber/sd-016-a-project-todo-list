@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
 const createTaskButton = document.querySelector('#criar-tarefa');
 const deleteAllButton = document.querySelector('#apaga-tudo');
+const deleteCompletedButton = document.querySelector('#remover-finalizados');
 let list = document.querySelector('#lista-tarefas');
 
 function UpdateBackgroundColor(event) {
@@ -36,5 +37,13 @@ function DeleteAll() {
   list = newList;
 }
 
+function DeleteCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    completed[i].parentElement.removeChild(completed[i]);
+  }
+}
+
 createTaskButton.addEventListener('click', AddTask);
 deleteAllButton.addEventListener('click', DeleteAll);
+deleteCompletedButton.addEventListener('click', DeleteCompleted);
