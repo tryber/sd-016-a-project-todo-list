@@ -36,3 +36,45 @@ function clearList() {
   localStorage.clear();
 }
 
+function clearCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    list.removeChild(completed[i]);
+  }
+}
+
+function saveList() {
+  const items = document.getElementsByTagName('li');
+  for (let i = 0; i < items.length; i += 1) {
+    let task = items[i].innerText;
+    if (items[i].classList.contains('completed')) task += ',completed';
+    localStorage.setItem(i, task);
+  }
+}
+
+function loadList() {
+  for (let i = 0; i < localStorage.length; i += 1) {
+    const listItem = document.createElement('li');
+    const completed = ',completed';
+    let task = localStorage[i];
+    if (localStorage[i].includes(completed)) {
+      task = task.replace(completed, '');
+      listItem.className = 'completed';
+    }
+    listItem.innerText = task;
+
+    list.appendChild(listItem);
+  }
+}
+
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  list.removeChild(selected);
+}
+
+function checkTaskPositionBottom(task) {
+  const tasks = document.getElementsByTagName('li');
+  if (tasks[tasks.length - 1].outerHTML === task) return false;
+  return true;
+}
+
