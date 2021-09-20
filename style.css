@@ -82,3 +82,25 @@ section {
   color:aliceblue;
   background-color:rgb(179, 47, 6) 
 }
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  flex-basis: 10px;
+  border-radius: 100px;
+}
+#mover-cima {
+  color: aliceblue;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  flex-grow: 7;
+}
+
+#mover-baixo {
+  color: aliceblue;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  flex-grow: 7;
+}
