@@ -90,3 +90,13 @@ li {
   background-color: blueviolet;
   border: blueviolet;
 }
+
+#mover-baixo {
+background-color:deeppink;
+border: deeppink;
+}
+
+#mover-cima {
+  background-color: yellow;
+  border: yellow;
+}
