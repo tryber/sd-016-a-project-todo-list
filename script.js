@@ -10,13 +10,20 @@ button.addEventListener('click', () => {
   lista.appendChild(item);
   d.getElementById('texto-tarefa').value = '';
   itens = d.getElementsByTagName('li');
-  teste()
+  selectLi();
 });
 
-function teste() {
+function selectLi() {
 for (let index = 0; index < itens.length; index += 1) {
   itens[index].addEventListener('click', (event) => {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    disselectLi();
+    event.target.classList.add('tarefa');
     })
   }
-}; 
+};
+
+function disselectLi() {
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].classList.remove('tarefa');
+  }
+};
