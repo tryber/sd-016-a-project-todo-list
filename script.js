@@ -60,55 +60,27 @@ function getItems() {
   });
 }
 
-function moveDown() {
+function moveUp() {
   items.forEach((item) => {
-    if (item.classList.contains('selected') && item.nextSibling) {
-      lista.insertBefore(item, item['nextSibling']['nextSibling']);
-    } else if (item.classList.contains('selected')) {
+    let selected = item.classList.contains('selected');
+    if (selected && item.previousSibling) {
+      lista.insertBefore(item, item.previousSibling);
+    } else if (selected) {
       alert('Não há mais movimentos possíveis nesta direção');
     }
-  })
+  });
 }
 
-// function wichSelection(upDown) {
-//   let sibling = 'previousSibling';
-//   items.forEach((item) => {
-//     let selected = item.classList.contains('selected');
-//     if (upDown === 'down') {
-//       sibling = 'nextSibling';
-//       if (selected && item.nextSibling) {
-//         lista.insertBefore(item, item['nextSibling']['nextSibling']);
-//       } else if (selected) {
-//         alert('Não há mais movimentos possíveis nesta direção');
-//       }
-//     } else {
-//       if (selected && item[sibling]) {
-//         lista.insertBefore(item, item.previousSibling);
-//       } else if (selected) {
-//         alert('Não há mais movimentos possíveis nesta direção');
-//       }
-//     }
-//   });
-// }
-// function moveItem(upOrDown = false) {
-//   // source https://stackoverflow.com/questions/4793604/how-to-insert-an-element-after-another-element-in-javascript-without-using-a-lib
-//   const direction = upOrDown;
-//   if (direction) {
-//     wichSelection('down');
-//   } else {
-//     wichSelection('up');
-//   }
-
-//   getItems();
-// }
-
-// function moveDown() {
-//   moveItem(true);
-// }
-
-// function moveUp() {
-//   moveItem(false);
-// }
+function moveDown() {
+  items.forEach((item) => {
+    let selected = item.classList.contains('selected');
+    if (selected && item.nextSibling) {
+      lista.insertBefore(item, item['nextSibling']['nextSibling']);
+    } else if (selected) {
+      alert('Não há mais movimentos possíveis nesta direção');
+    }
+  });
+}
 
 function removeSelected() {
   items.forEach((item) => {
