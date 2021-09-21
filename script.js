@@ -6,6 +6,7 @@
 //   });
 // }
 
+// Função criada com ajuda de Rafael Santos e Emerson Moreira
 function buttonSave() {
   const button = document.querySelector('#salvar-tarefas');
   const list = document.querySelector('ol');
