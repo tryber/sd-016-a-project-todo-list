@@ -12,6 +12,6 @@ h1 {
   border-radius: 4px;
 }
 
-li {
-  background-color: 0;
+.tarefa {
+  background-color: rgb(128 , 128 , 128);
 }
