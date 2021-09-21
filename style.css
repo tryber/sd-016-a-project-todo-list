@@ -1,9 +1,9 @@
 body {
-  background-color: #58d68d;
+  background-color: rgb(88, 214, 141 );
 }
 
 .contener {
-  background-color: #eb984e;
+  background-color: rgb(235, 152, 78);
   padding: 40px;
   border-radius: 10px;
 }
@@ -13,20 +13,20 @@ body {
 }
 
 #criar-tarefa {
-  background-color: #145a32;
+  background-color: rgb(20, 90, 50);
 }
 
 #apaga-tudo {
-  background-color: #e51c1c;
+  background-color: rgb(229, 28, 28 );
 }
 
 #remover-finalizados {
-  background-color: #1e3ba6;
+  background-color: rgb(30, 59, 166);
 }
 
 .style-button {
   border: 0;
-  color: #ebedef;
+  color: rgb(235, 237, 239);
   font-weight: 600;
   padding: 7px;
   border-radius: 4px;
@@ -43,7 +43,7 @@ body {
 }
 
 .cabecalho {
-  color: #2c3e50;
+  color: rgb(44, 62, 80);
 }
 
 #funcionamento {
