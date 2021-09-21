@@ -1,0 +1,21 @@
+body {
+  background-color: hsl(26 , 100% , 92%);
+}
+
+#criar-tarefa {
+  background-color: red;
+}
+
+h1 {
+  background-color: lime;
+  border: solid 1px black;
+  border-radius: 4px;
+}
+
+.tarefa {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
