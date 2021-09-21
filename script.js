@@ -11,13 +11,15 @@ button.addEventListener('click', () => {
   d.getElementById('texto-tarefa').value = '';
   itens = d.getElementsByTagName('li');
   selectLi();
+  markLi();
 });
 
 function selectLi() {
-for (let index = 0; index < itens.length; index += 1) {
-  itens[index].addEventListener('click', (event) => {
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].addEventListener('click', (event) => {
+    const evento = event.target
     disselectLi();
-    event.target.classList.add('tarefa');
+    evento.classList.add('tarefa');
     })
   }
 };
@@ -25,5 +27,24 @@ for (let index = 0; index < itens.length; index += 1) {
 function disselectLi() {
   for (let index = 0; index < itens.length; index += 1) {
     itens[index].classList.remove('tarefa');
+  }
+};
+
+function markLi() {
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].addEventListener('dblclick', (event) => {
+    const evento = event.target
+    evento.classList.add('completed');
+    unmarkLi();
+    })
+  }
+};
+
+function unmarkLi() {
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].addEventListener('dblclick', (event) => {
+    const evento = event.target
+    evento.classList.remove('completed');
+    })
   }
 };
