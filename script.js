@@ -1,3 +1,11 @@
+// function buttonUp() {
+//   const button = document.querySelector('#mover-cima');
+//   button.addEventListener('click', () => {
+//     const liSelected = document.querySelector('#selected');
+
+//   });
+// }
+
 function buttonSave() {
   const button = document.querySelector('#salvar-tarefas');
   const list = document.querySelector('ol');
