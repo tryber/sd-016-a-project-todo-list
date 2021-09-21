@@ -62,7 +62,7 @@ function getItems() {
 
 function moveUp() {
   items.forEach((item) => {
-    let selected = item.classList.contains('selected');
+    const selected = item.classList.contains('selected');
     if (selected && item.previousSibling) {
       lista.insertBefore(item, item.previousSibling);
     } else if (selected) {
@@ -73,9 +73,9 @@ function moveUp() {
 
 function moveDown() {
   items.forEach((item) => {
-    let selected = item.classList.contains('selected');
+    const selected = item.classList.contains('selected');
     if (selected && item.nextSibling) {
-      lista.insertBefore(item, item['nextSibling']['nextSibling']);
+      lista.insertBefore(item, item.nextSibling.nextSibling);
     } else if (selected) {
       alert('Não há mais movimentos possíveis nesta direção');
     }
