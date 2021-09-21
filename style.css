@@ -1,0 +1,34 @@
+#funcionamento {
+    font-size: small;
+    font-family: "Inconsolata";
+}
+
+li {
+    background-color: white;
+    width:fit-content;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+header {
+    font-family: "Karla";
+    margin-top: 30px;
+    font-size: xx-large;
+    background-color: #E8EDDF;
+}
+
+body {
+    text-align: center;
+    background-color: #C9DCB3;
+}
+
+footer{
+    font-size: small;
+    color: grey;
+    clear: both;
+    position: relative;
+    height: -200px;
+    margin-top: 170px;
+}
