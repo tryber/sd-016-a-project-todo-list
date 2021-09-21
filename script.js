@@ -59,17 +59,31 @@ function getItems() {
   });
 }
 
-function moveItem(upOrDown = false) {
-  const direction = upOrDown;
+function wichSelection(upDown) {
+  let sibling = null;
+  let siblingItem = null;
   items.forEach((item) => {
-    if (item.classList.contains('selected')) {
-      if (direction) {
-        lista.insertBefore(item, item.nextSibling.nextSibling);
-      } else if (item.previousSibling) {
-        lista.insertBefore(item, item.previousSibling);
-      }
+    if (upDown === 'down') {
+      siblingItem = 'nextElementSibling';
+      sibling = 'nextSibling.nextSinling';
+    } else if (upDown === 'up') {
+      sibling = 'previousSibling';
+      siblingItem = sibling;
+    }
+    if (item.classList.contains('selected') && item[siblingItem]) {
+      lista.insertBefore(item, item['nextSibling.nextSibling']);
     }
   });
+}
+function moveItem(upOrDown = false) {
+  // source https://stackoverflow.com/questions/4793604/how-to-insert-an-element-after-another-element-in-javascript-without-using-a-lib
+  const direction = upOrDown;
+  if (direction) {
+    wichSelection('down');
+  } else {
+    wichSelection('up');
+  }
+
   getItems();
 }
 
