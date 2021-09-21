@@ -60,49 +60,62 @@ function getItems() {
   });
 }
 
-function wichSelection(upDown) {
-  items.forEach((item) => {
-    if (upDown === 'down') {
-      if (item.classList.contains('selected') && item.nextSibling) {
-        lista.insertBefore(item, item.nextSibling.nextSibling);
-      } else if (item.classList.contains('selected')) {
-        alert('Não há mais movimentos possíveis nesta direção');
-      }
-    } else if (upDown === 'up') {
-      if (item.classList.contains('selected') && item.previousSibling) {
-        lista.insertBefore(item, item.previousSibling);
-      } else if (item.classList.contains('selected')) {
-        alert('Não há mais movimentos possíveis nesta direção');
-      }
-    }
-  });
-}
-function moveItem(upOrDown = false) {
-  // source https://stackoverflow.com/questions/4793604/how-to-insert-an-element-after-another-element-in-javascript-without-using-a-lib
-  const direction = upOrDown;
-  if (direction) {
-    wichSelection('down');
-  } else {
-    wichSelection('up');
-  }
-
-  getItems();
-}
-
 function moveDown() {
-  moveItem(true);
+  items.forEach((item) => {
+    if (item.classList.contains('selected') && item.nextSibling) {
+      lista.insertBefore(item, item['nextSibling']['nextSibling']);
+    } else if (item.classList.contains('selected')) {
+      alert('Não há mais movimentos possíveis nesta direção');
+    }
+  })
 }
 
-function moveUp() {
-  moveItem(false);
-}
+// function wichSelection(upDown) {
+//   let sibling = 'previousSibling';
+//   items.forEach((item) => {
+//     let selected = item.classList.contains('selected');
+//     if (upDown === 'down') {
+//       sibling = 'nextSibling';
+//       if (selected && item.nextSibling) {
+//         lista.insertBefore(item, item['nextSibling']['nextSibling']);
+//       } else if (selected) {
+//         alert('Não há mais movimentos possíveis nesta direção');
+//       }
+//     } else {
+//       if (selected && item[sibling]) {
+//         lista.insertBefore(item, item.previousSibling);
+//       } else if (selected) {
+//         alert('Não há mais movimentos possíveis nesta direção');
+//       }
+//     }
+//   });
+// }
+// function moveItem(upOrDown = false) {
+//   // source https://stackoverflow.com/questions/4793604/how-to-insert-an-element-after-another-element-in-javascript-without-using-a-lib
+//   const direction = upOrDown;
+//   if (direction) {
+//     wichSelection('down');
+//   } else {
+//     wichSelection('up');
+//   }
+
+//   getItems();
+// }
+
+// function moveDown() {
+//   moveItem(true);
+// }
+
+// function moveUp() {
+//   moveItem(false);
+// }
 
 function removeSelected() {
   items.forEach((item) => {
     if (item.classList.contains('selected')) {
-      item.remove()
+      item.remove();
     }
-  })
+  });
 }
 
 // source: https://stackoverflow.com/questions/22991871/localstorage-save-array/22992002
@@ -159,4 +172,4 @@ upButton.addEventListener('click', moveUp);
 
 downButton.addEventListener('click', moveDown);
 
-removeButton.addEventListener('click', removeSelected)
+removeButton.addEventListener('click', removeSelected);
