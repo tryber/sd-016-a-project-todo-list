@@ -27,5 +27,5 @@ function changeColorItem(event) {
 }
 
 function crossItem(event) {
-    event.target.classList.toggle('crossed-item');
+    event.target.classList.toggle('completed');
 }
