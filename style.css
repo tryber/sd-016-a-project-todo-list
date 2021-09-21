@@ -23,7 +23,7 @@ background-color: rgb(128,128,128);
 }
 #center-input{
     position: fixed;
-    margin-bottom: 20px; 
+    margin-bottom: 0px; 
 }
 #texto-tarefa{
     
@@ -32,7 +32,11 @@ background-color: rgb(128,128,128);
    margin-top: 200px;
 }
 #center-btn{
-    margin-left: 200px;
+   display: flex;
+   flex-direction: column;
+   align-self:flex-end;
+   margin-right: 150px;
+   position: fixed;
 }
 #criar-tarefa{
  background-color: #36aaaa; 
@@ -60,4 +64,8 @@ background-color: rgb(128,128,128);
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+}
+#lista-tarefas{
+    display: flex;
+    flex-direction: column;  
 }
