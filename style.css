@@ -18,6 +18,7 @@ body {
 
 #apaga-tudo {
   background-color: rgb(229 , 28 , 28);
+  margin-top: 30px;
 }
 
 #remover-finalizados {
@@ -39,7 +40,6 @@ body {
   width: 40%;
   height: 15px;
   border-radius: 5px;
-  margin-bottom: 20px;
 }
 
 .cabecalho {
