@@ -1,0 +1,74 @@
+body{
+    background-image: linear-gradient(to right, rgb(248, 149, 198) , #AA80F0,#6D3DF0);
+}    
+.color{
+background-color: rgb(128,128,128);     
+}
+.completed{
+    text-decoration: line-through solid rgb(0,0,0);
+}
+#list-title{
+    font-size: 40px;
+    font-family: 'Poiret One', cursive;
+    margin-top: -280px;
+    position:absolute;
+    color: rgb(107, 107, 107);
+}
+#funcionamento{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-bottom: 30px;
+    margin-top: -100px;
+    position:absolute;
+}
+#center-input{
+    position: fixed;
+    margin-bottom: 0px; 
+}
+#texto-tarefa{
+   border-radius: 30px;
+   border: grey solid 1px;
+   width: 200px; 
+}
+.center-list{
+    width: 350px;
+    margin-top: 50px;
+}
+#center-btn{
+   display: flex;
+   flex-direction: column;
+   align-self:flex-end;
+   margin-right: 150px;
+   position: fixed;
+}
+#criar-tarefa{
+ background-color: #36aaaa; 
+ border: none;
+ width: 120px;
+ height: 25px;
+ border-radius: 30px; 
+ color: white;
+}
+#apaga-tudo{
+    background-color: #741a1a; 
+    border: none;
+    width: 120px;
+    height: 25px;
+    border-radius: 30px; 
+    color: white;   
+}
+.small-bg{
+    background-color:white;
+    width: 980px;
+    height: 400px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#lista-tarefas{
+  position: fixed;
+   
+}
