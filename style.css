@@ -26,10 +26,13 @@ background-color: rgb(128,128,128);
     margin-bottom: 0px; 
 }
 #texto-tarefa{
-    
+   border-radius: 30px;
+   border: grey solid 1px;
+   width: 200px; 
 }
-#center-list{
-   margin-top: 200px;
+.center-list{
+    width: 350px;
+    margin-top: 50px;
 }
 #center-btn{
    display: flex;
@@ -66,6 +69,6 @@ background-color: rgb(128,128,128);
     justify-content: center;
 }
 #lista-tarefas{
-    display: flex;
-    flex-direction: column;  
+  position: fixed;
+   
 }
