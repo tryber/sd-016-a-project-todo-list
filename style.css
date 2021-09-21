@@ -1,0 +1,16 @@
+#texto-tarefa {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#criar-tarefa {
+  display: inline-block;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through;
+}
