@@ -60,18 +60,19 @@ function getItems() {
 }
 
 function wichSelection(upDown) {
-  let sibling = null;
-  let siblingItem = null;
   items.forEach((item) => {
     if (upDown === 'down') {
-      siblingItem = 'nextElementSibling';
-      sibling = 'nextSibling.nextSinling';
+      if (item.classList.contains('selected') && item.nextSibling) {
+        lista.insertBefore(item, item.nextSibling.nextSibling);
+      } else if (item.classList.contains('selected')) {
+        alert('Não há mais movimentos possíveis nesta direção');
+      }
     } else if (upDown === 'up') {
-      sibling = 'previousSibling';
-      siblingItem = sibling;
-    }
-    if (item.classList.contains('selected') && item[siblingItem]) {
-      lista.insertBefore(item, item['nextSibling.nextSibling']);
+      if (item.classList.contains('selected') && item.previousSibling) {
+        lista.insertBefore(item, item.previousSibling);
+      } else if (item.classList.contains('selected')) {
+        alert('Não há mais movimentos possíveis nesta direção');
+      }
     }
   });
 }
