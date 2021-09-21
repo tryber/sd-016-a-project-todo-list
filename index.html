@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Projeto Lista de Tarefas/title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
+      <header>
         <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento"> Clique duas vezes em um item para marcá-lo como completo</p>
-        </header>
-        <main> 
-            <section class="insertion"> 
-                <input type="text" id="texto-tarefa" placeholder="escreva aqui">
-                <button id="criar-tarefa">Adicionar item</button>
-                <button id="remover-finalizados">Apagar completos</button>
-                <button id="apaga-tudo">Apagar tudo</button>
-                <button id="salvar-tarefas">Salvar tarefas</button>
-                <button id="mover-cima">Up</button>
-                <button id="mover-baixo">Down</button>
-                <button id="remover-selecionado">Remover selecionado</button>   
-            </section>
-            <section class="list">
-                <ol id="lista-tarefas"></ol>
-              </section>
-        </main>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+      <main>
+        <section class="insertion">
+          <input type="text" id="texto-tarefa" placeholder="escreva aqui!">
+          <button id="criar-tarefa">Adicionar item</button>
+          <button id="remover-finalizados">Apagar completos</button>
+          <button id="apaga-tudo">Apagar tudo</button>
+          <button id="salvar-tarefas">Salvar tarefas</button>
+          <button id="mover-cima">Up</button>
+          <button id="mover-baixo">Down</button>
+          <button id="remover-selecionado">Remover selecionado</button>
+        </section>
+        <section class="list">
+          <ol id="lista-tarefas"></ol>
+        </section>
+      </main>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
