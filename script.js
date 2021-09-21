@@ -4,6 +4,8 @@ const clearButton = document.querySelector('#apaga-tudo');
 const removeButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
 const buttonRemoveSelected = document.querySelector('#remover-selecionado');
+const buttonUp = document.querySelector('#mover-cima');
+const buttonDown = document.querySelector('#mover-baixo');
 
 function listElementHilight(event) {
   const hilightElement = document.querySelector('.hilight');
@@ -57,10 +59,11 @@ removeButton.addEventListener('click', removeFinished);
 
 function saveListLocalSorage() {
   const listElement = document.querySelectorAll('li');
-
-  console.log(listElement);
+  const hilightElement = document.querySelector('.hilight');
+  hilightElement.classList.remove('hilight');
   const oldList = [];
   const classElement = [];
+
   for (let i = 0; i < listElement.length; i += 1) {
     const textItems = listElement[i].innerText;
 
@@ -68,7 +71,7 @@ function saveListLocalSorage() {
     oldList.push(textItems);
     classElement.push(listElement[i].className);
   }
-
+  hilightElement.classList.add('hilight');
   localStorage.setItem('listItems', JSON.stringify(oldList));
   localStorage.setItem('classList', JSON.stringify(classElement));
 }
@@ -102,3 +105,37 @@ function removeSelected() {
 }
 
 buttonRemoveSelected.addEventListener('click', removeSelected);
+
+function checkHilight() {
+  let result = false;
+  if (document.querySelectorAll('.hilight').length > 0) {
+    result = true;
+  }
+  return result;
+}
+
+function changeUpPosition() {
+  if (checkHilight()) {
+    const upingElement = document.querySelectorAll('.hilight')[0];
+    const downningElement = document.querySelectorAll('.hilight')[0].previousElementSibling;
+    if (downningElement !== null) {
+      list.insertBefore(upingElement, downningElement);
+    }
+  }
+}
+
+buttonUp.addEventListener('click', changeUpPosition);
+
+function changeDownPosition() {
+  if (checkHilight()) {
+    const upingElement = document.querySelectorAll('.hilight')[0].nextElementSibling;
+    const downningElement = document.querySelectorAll('.hilight')[0];
+    const lastElement = list.lastElementChild;
+
+    if (downningElement !== lastElement) {
+      list.insertBefore(downningElement, upingElement.nextElementSibling);
+    }
+  }
+}
+
+buttonDown.addEventListener('click', changeDownPosition);
