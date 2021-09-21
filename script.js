@@ -3,6 +3,7 @@ const list = document.querySelector('#lista-tarefas');
 const clearButton = document.querySelector('#apaga-tudo');
 const removeButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
+const buttonRemoveSelected = document.querySelector('#remover-selecionado');
 
 function listElementHilight(event) {
   const hilightElement = document.querySelector('.hilight');
@@ -92,3 +93,12 @@ function initialPageLoading() {
 initialPageLoading();
 
 saveButton.addEventListener('click', saveListLocalSorage);
+
+function removeSelected() {
+  const listElement = document.querySelectorAll('.hilight');
+  for (let index = 0; index < listElement.length; index += 1) {
+    list.removeChild(listElement[index]);
+  }
+}
+
+buttonRemoveSelected.addEventListener('click', removeSelected);
