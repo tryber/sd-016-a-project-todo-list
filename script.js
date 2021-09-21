@@ -7,6 +7,7 @@ const clearTaskButton = document.getElementById('remover-finalizados');
 const saveButton = document.getElementById('salvar-tarefas');
 const upButton = document.getElementById('mover-cima');
 const downButton = document.getElementById('mover-baixo');
+const removeButton = document.getElementById('remover-selecionado');
 
 function changeBackground(item) {
   items.forEach((element) => {
@@ -96,6 +97,14 @@ function moveUp() {
   moveItem(false);
 }
 
+function removeSelected() {
+  items.forEach((item) => {
+    if (item.classList.contains('selected')) {
+      item.remove()
+    }
+  })
+}
+
 // source: https://stackoverflow.com/questions/22991871/localstorage-save-array/22992002
 // usei para aprender a transformar em objeto JSON e depois recuperá-lo
 if (localStorage.getItem('tasks')) {
@@ -149,3 +158,5 @@ saveButton.addEventListener('click', saveTasks);
 upButton.addEventListener('click', moveUp);
 
 downButton.addEventListener('click', moveDown);
+
+removeButton.addEventListener('click', removeSelected)
