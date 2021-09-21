@@ -1,0 +1,44 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: black
+}
+
+header {
+  color: rgb(20, 70, 8);
+  font-size: 1.8em;
+  font-weight: 600;
+
+
+
+
+}
+
+#bloco {
+  background-color: blanchedalmond;
+  margin-left: 250px;
+  margin-right: 250px;
+  margin-top: 50px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.buttons {
+  padding: 07px;
+}
+
+#bloco,
+header {}
+
+
+#funcionamento {
+  color: blue;
+}
+
+.Selecionado {
+  background-color: rgb(128, 128, 128)
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
