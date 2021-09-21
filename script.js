@@ -1,12 +1,31 @@
-let pressBut = document.getElementById('criar-tarefa');
 
-let newItem = document.getElementById('texto-tarefa').innerText;
+let pressButton = document.getElementById('criar-tarefa');
+pressButton.addEventListener('click', getItem);
 
-let putItemList = document.createElement('li');
+let inputElement = document.getElementById('texto-tarefa');
 
-pressBut = document.addEventListener('click', getItem);
+let olElement = document.getElementById('lista-tarefas');
 
 function getItem() {
+    let newItem = document.createElement('li');
+    newItem.innerText = inputElement.value;
+    newItem.addEventListener('click', changeColorItem);
+    newItem.addEventListener('dblclick', crossItem);
+    olElement.appendChild(newItem);
+    inputElement.value = '';
+}
 
-    console.log('feito');
+
+
+function changeColorItem(event) {
+    let oldSelected = document.querySelector(".selected");
+    if (oldSelected) {
+        oldSelected.classList.remove("selected");
+    }
+
+    event.target.classList.add("selected");
+}
+
+function crossItem(event) {
+    event.target.classList.toggle('crossed-item');
 }
