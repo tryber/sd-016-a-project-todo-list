@@ -1,40 +1,39 @@
-body{
-  background-color: #58D68D ;
+body {
+  background-color: #58d68d;
 }
 
-.contener{
-  background-color: #EB984E;
+.contener {
+  background-color: #eb984e;
   padding: 40px;
   border-radius: 10px;
 }
 
-.completed{
-  text-decoration: line-through solid rgb(0, 0, 0);
+.completed {
+  text-decoration: line-through solid black;
 }
 
-#criar-tarefa{
-  background-color: #145A32;
+#criar-tarefa {
+  background-color: #145a32;
 }
 
-#apaga-tudo{
-  background-color: #E51C1C;
+#apaga-tudo {
+  background-color: #e51c1c;
 }
 
-#remover-finalizados{
-  background-color: #1E3BA6;
+#remover-finalizados {
+  background-color: #1e3ba6;
 }
 
-.style-button{
+.style-button {
   border: 0;
-  color: #EBEDEF;
+  color: #ebedef;
   font-weight: 600;
   padding: 7px;
-  border: 0;
   border-radius: 4px;
   margin-left: 15px;
 }
 
-#texto-tarefa{
+#texto-tarefa {
   padding: 6px;
   border: 0;
   width: 40%;
@@ -43,14 +42,14 @@ body{
   margin-bottom: 20px;
 }
 
-.cabecalho{
-  color: #2C3E50;
+.cabecalho {
+  color: #2c3e50;
 }
 
-#funcionamento{
+#funcionamento {
   font-style: italic;
 }
 
-header{
+header {
   margin-bottom: 35px;
 }
