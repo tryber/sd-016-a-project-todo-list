@@ -1,43 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Fernando Mós">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minha Lista de Tarefas</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <h4 id="funcionamento">Clique duas vezes em um item para marcá-lo como completo &#10004;.</h4>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Fernando Mós" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Lista de Tarefas</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <h4 id="funcionamento">
+        Clique duas vezes em um item para marcá-lo como completo &#10004;.
+      </h4>
 
-    <input id="texto-tarefa" placeholder="Insira sua nova tarefa" autofocus>
-    <div id="container-buttons">
-      <button class="btnStyle" id="criar-tarefa">Adicionar</button>
-      <button class="btnStyle" id="salvar-tarefas">Salvar tarefas</button>
-      <button class="btnStyle" id="remover-finalizados">Concluídos</button>
-      <button class="btnStyle" id="apaga-tudo">Limpar</button>
-      <button class="btnStyle" id="remover-selecionado">Remover selecionado</button>
-    </div>
-  </header>
-  <main>
-    <p>Selecione a cor do seu <strong>post-it:</strong></p>
-    <div id='pallete-color'>
-      <div class="postItColors" id="firstColor"></div>
-      <div class="postItColors" id="secondColor"></div>
-      <div class="postItColors" id="thirdColor"></div>
-      <div class="postItColors" id="fourthColor"></div>
-    </div>
-    <div id="containerInput">
-      <ol id="lista-tarefas"></ol>
-    </div>
-  </main>
-  <footer>
-    <a href="https://github.com/FernandoMos92" target="_blank"><img src="./img/my-octocat-1631727957742-removebg-preview.png" class="my-icon-footer" alt="My icon with link github"></a>
-    <a href="https://www.linkedin.com/in/fernando-mos/" target="_blank"><img src="./img/linkedin.png" class="my-icon-footer" alt="Icon for LinkedIn" ></a>
-  </footer>
-  <script src="./script.js"></script>
-</body>
+      <input id="texto-tarefa" placeholder="Insira sua nova tarefa" autofocus />
+      <div id="container-buttons">
+        <button class="btnStyle" id="criar-tarefa">Adicionar</button>
+        <button class="btnStyle" id="salvar-tarefas">Salvar tarefas</button>
+        <button class="btnStyle" id="remover-finalizados">Concluídos</button>
+        <button class="btnStyle" id="apaga-tudo">Limpar</button>
+        <button class="btnStyle" id="remover-selecionado">
+          Remover selecionado
+        </button>
+      </div>
+    </header>
+    <main>
+      <p>Selecione a cor do seu <strong>post-it:</strong></p>
+      <div>
+        <button class="btn-arrow" id="mover-cima">Mover para cima</button>
+        <button class="btn-arrow" id="mover-baixo">Mover para baixo</button>
+      </div>
+      <div id="pallete-color">
+        <div class="postItColors" id="firstColor"></div>
+        <div class="postItColors" id="secondColor"></div>
+        <div class="postItColors" id="thirdColor"></div>
+        <div class="postItColors" id="fourthColor"></div>
+      </div>
+      <div id="containerInput">
+        <ol id="lista-tarefas"></ol>
+      </div>
+    </main>
+    <footer>
+      <a href="https://github.com/FernandoMos92" target="_blank"
+        ><img
+          src="./img/my-octocat-1631727957742-removebg-preview.png"
+          class="my-icon-footer"
+          alt="My icon with link github"
+      /></a>
+      <a href="https://www.linkedin.com/in/fernando-mos/" target="_blank"
+        ><img
+          src="./img/linkedin.png"
+          class="my-icon-footer"
+          alt="Icon for LinkedIn"
+      /></a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
 </html>

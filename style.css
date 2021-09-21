@@ -6,7 +6,7 @@
 
   --btnColor: rgb(112 , 79 , 160);
 
-  --postItColor: rgb(255 , 255 , 165);
+  --postItColor: white;
 }
 
 html {
@@ -105,6 +105,33 @@ main p {
   width: 150px;
   margin-top: 20px;
   justify-content: space-evenly;
+}
+
+.btn-arrow {
+  width: 130px;
+  margin: 0;
+  background-color: rgb(173 , 250 , 110);
+  color: black;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.btn-arrow:hover {
+  background-color: black;
+  color: rgb(173 , 250 , 110);
+}
+
+#mover-cima {
+  position: relative;
+  top: 60px;
+  right: 850px;
+}
+
+#mover-baixo {
+  position: relative;
+  top: 60px;
+  left: 450px;
 }
 
 .postItColors {
