@@ -5,7 +5,7 @@
 
 body {
   background-color: rgb(233 , 216 , 166);
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat , sans-serif;
 }
 
 header {
@@ -69,5 +69,5 @@ button {
 }
 
 #remover-finalizados {
-  background-color: rgb(202 , 103 ,2);
+  background-color: rgb(202 , 103 , 2);
 }
