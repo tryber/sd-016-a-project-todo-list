@@ -4,7 +4,7 @@
 }
  
 body {
-  background-color: #e9d8a6;
+  background-color: rgb(233,216,166);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -17,7 +17,7 @@ h1, p {
 }
 
 button {
-  color: #ffffff;
+  color: white;
   font-weight: 700;
   padding: 7px;
   border: none;
@@ -25,7 +25,7 @@ button {
 }
 
 #container {
-  background-color: #ffffff;
+  background-color: white;
   max-height: 500px;
   width: 50%;
   margin: 50px auto;
@@ -35,7 +35,6 @@ button {
 
 #funcionamento {
   margin-top: 15px;
-
 }
 
 #input {
@@ -49,7 +48,7 @@ button {
 }
 
 #criar-tarefa {
-  background-color: #ee9b00;
+  background-color: rgb(238,155,0);
 }
 
 #lista-tarefas {
@@ -58,17 +57,17 @@ button {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128,128,128);
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0,0,0);
 }
 
 #apaga-tudo {
-  background-color: #ae2012;
+  background-color: rgb(174,32,18);
 }
 
 #remover-finalizados {
-  background-color: #ca6702;
+  background-color: rgb(202,103,2);
 }
