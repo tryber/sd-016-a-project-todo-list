@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
 /* eslint-disable max-lines-per-function */
@@ -21,7 +22,7 @@ function clearLastSelected() {
 
 // Ao clicar botão adiciona novos itens
 btnCreateItem.addEventListener('click', () => {
-  if (textTask.value == '') {
+  if (textTask.value === '') {
     alert('Digite o nome da tarefa');
     textTask.focus();
   } else {
@@ -46,15 +47,6 @@ btnClearCompleted.addEventListener('click', () => {
   }
 });
 
-// Ao clicar botão remove todos os itens da lista
-btnClearAll.addEventListener('click', () => {
-  const listItem = document.querySelectorAll('.list-item');
-
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].remove();
-  }
-});
-
 btnSaveTasks.addEventListener('click', () => {
   const taskContents = [];
   const taskClasses = [];
@@ -67,52 +59,6 @@ btnSaveTasks.addEventListener('click', () => {
 
   localStorage.setItem('taskContents', JSON.stringify(taskContents));
   localStorage.setItem('taskClasses', JSON.stringify(taskClasses));
-});
-
-btnMoveUp.addEventListener('click', () => {
-  const listItem = document.querySelectorAll('.list-item');
-
-  for (let index = 0; index < listItem.length; index += 1) {
-    const isSelectedItem = listItem[index].classList.contains('selected');
-    const isValidMovement = (index - 1 >= 0);
-
-    if (isSelectedItem && isValidMovement) {
-      const selectedItem = listItem[index];
-      const previousElement = listItem[index - 1];
-      let auxiliar;
-
-      auxiliar = previousElement.textContent;
-      previousElement.innerHTML = selectedItem.textContent;
-      selectedItem.innerHTML = auxiliar;
-
-      auxiliar = previousElement.className;
-      previousElement.className = selectedItem.className;
-      selectedItem.className = auxiliar;
-    }
-  }
-});
-
-btnMoveDown.addEventListener('click', () => {
-  const listItem = document.querySelectorAll('.list-item');
-
-  for (let index = listItem.length - 1; index >= 0; index -= 1) {
-    const isSelectedItem = listItem[index].classList.contains('selected');
-    const isValidMovement = (index + 1 < listItem.length);
-
-    if (isSelectedItem && isValidMovement) {
-      const selectedItem = listItem[index];
-      const nextElement = listItem[index + 1];
-      let auxiliar;
-
-      auxiliar = nextElement.textContent;
-      nextElement.innerHTML = selectedItem.textContent;
-      selectedItem.innerHTML = auxiliar;
-
-      auxiliar = nextElement.className;
-      nextElement.className = selectedItem.className;
-      selectedItem.className = auxiliar;
-    }
-  }
 });
 
 btnRemoveSelected.addEventListener('click', () => {
@@ -146,7 +92,3 @@ document.addEventListener('dblclick', (event) => {
     }
   }
 });
-
-window.onload = function () {
-  loadTasks();
-};
