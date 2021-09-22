@@ -1,12 +1,8 @@
 /* eslint-disable func-names */
 /* eslint-disable no-undef */
+/* eslint-disable max-lines-per-function */
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable eqeqeq */
-/* eslint-disable max-lines-per-function */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable guard-for-in */
-/* eslint-disable no-unused-vars */
-
 const toDoList = document.querySelector('#lista-tarefas');
 const btnCreateItem = document.querySelector('#criar-tarefa');
 const textTask = document.querySelector('#texto-tarefa');
@@ -16,6 +12,12 @@ const btnSaveTasks = document.querySelector('#salvar-tarefas');
 const btnMoveUp = document.querySelector('#mover-cima');
 const btnMoveDown = document.querySelector('#mover-baixo');
 const btnRemoveSelected = document.querySelector('#remover-selecionado');
+
+function clearLastSelected() {
+  for (let index = 0; index < toDoList.childElementCount; index += 1) {
+    toDoList.children[index].classList.remove('selected');
+  }
+}
 
 // Ao clicar botão adiciona novos itens
 btnCreateItem.addEventListener('click', () => {

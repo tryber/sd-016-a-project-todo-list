@@ -1,116 +1,116 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-    margin: auto;
-    text-align: center;
-    font-size: 1em;
-    width: 80%;
-  }
-  
-  header, main, .list {
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 3px;
-  }
-  
-  header {
-    margin-top: 30px;
-    margin-bottom: 10px;
-    background-color: rgb(195, 113, 215);
-    padding-bottom: 10px;
-  }
-  
-  header h1 {
-    padding-top: 10px;
-  }
-  
-  header p {
-    margin-top: 10px;
-    font-style: italic;
-    color: rgb(80, 79, 79);
-  }
-  
-  nav {
-    width: 80%;
-  }
-  
-  main {
-    background-color: rgb(207, 207, 207);
-    height: 80%;
-  }
-  
-  .insertion {
-    float: left;
-    background-color: rgb(176, 176, 176);
-    height: 100%;
-    padding: 10px;
-    border-radius: 3px;
-  }
-  
-  .insert {
-    background-color: tomato;
-  }
-  
-  .list {
-    display: inline-block;
-    padding-bottom: 30px;
-    padding-top: 20px;
-    width: 40%;
-    height: 100%;
-  }
-  
-  .selected {
-    background-color: rgb(128,128,128);
-    color: rgb(18, 106, 133);
-    font-weight: 900;
-  }
-  
-  .completed {
-    text-decoration: line-through solid rgb(0,0,0);
-    color: rgb(145, 172, 194);
-  }
-  
-  ol li {
-    user-select: none;
-    font-size: 2em;
-    list-style-type: decimal;
-    text-align: justify;
-    margin-left: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  #lista-tarefas {
-    min-width: 330px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background: white;
-    list-style-position:inside;
-    border-radius: 3px;
-    padding: 10px;
-    height: 100%;
-    overflow: auto;
-  }
-  
-  input[type='text'] { 
-    width: 200px;
-  }
-  
-  button, input[type='text'] {
-    border: 1px solid #3F6583;
-    padding: 5px;
-    border-radius: 2px;
-  }
-  
-  fieldset {
-    padding: 10px;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: auto;
+  text-align: center;
+  font-size: 1em;
+  width: 80%;
+}
+
+header, main, .list {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+}
+
+header {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  background-color: rgb(195, 113, 215);
+  padding-bottom: 10px;
+}
+
+header h1 {
+  padding-top: 10px;
+}
+
+header p {
+  margin-top: 10px;
+  font-style: italic;
+  color: rgb(80, 79, 79);
+}
+
+nav {
+  width: 80%;
+}
+
+main {
+  background-color: rgb(207, 207, 207);
+  height: 80%;
+}
+
+.insertion {
+  float: left;
+  background-color: rgb(176, 176, 176);
+  height: 100%;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.insert {
+  background-color: tomato;
+}
+
+.list {
+  display: inline-block;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  width: 40%;
+  height: 100%;
+}
+
+.selected {
+  background-color: rgb(128,128,128);
+  color: rgb(18, 106, 133);
+  font-weight: 900;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0,0,0);
+  color: rgb(145, 172, 194);
+}
+
+ol li {
+  user-select: none;
+  font-size: 2em;
+  list-style-type: decimal;
+  text-align: justify;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#lista-tarefas {
+  min-width: 330px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  list-style-position:inside;
+  border-radius: 3px;
+  padding: 10px;
+  height: 100%;
+  overflow: auto;
+}
+
+input[type='text'] { 
+  width: 200px;
+}
+
+button, input[type='text'] {
+  border: 1px solid #3F6583;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+fieldset {
+  padding: 10px;
+}
