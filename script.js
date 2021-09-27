@@ -174,9 +174,9 @@ function saveTask() {
   const tarefasArray = [];
   // pegando o value inserido na lista de tarefas 
   for (let index = 0; index < tarefasLi.length; index +=1) {
-    tarefasArray.push(tarefasLi[index].value);
+    tarefasArray.push(tarefasLi[index].outerHTML);
   }
-  window.localStorage.setItem('lista-tarefas', JSON.stringify(tarefasArray));
+  localStorage.setItem('lista-tarefas', JSON.stringify(tarefasArray));
 };
 
 function eventSaveTask() {
@@ -187,17 +187,21 @@ eventSaveTask();
 
 // chamar o localstorage para carregar
 function carregarListaSalva() {
-  // if (localStorage.getItem('lista-tarefas') !== null) {
-  //  const tarefasStorage = window.localStorage.setItem('lista-tarefas', JSON.stringify([]));
-  // } 
-  // converte para objeto com o json.parse
-  let tarefasStored = JSON.parse(window.localStorage.getItem('lista-tarefas'));
-  // console.log(tarefasStored) para teste
-  for (let index = 0; index <= tarefasStored.length; index +=1) {
+  if (localStorage.getItem('lista-tarefas') !== null) {
+    // converte para objeto com o json.parse
+    let tarefasStored = JSON.parse(localStorage.getItem('lista-tarefas'));
+    // console.log(tarefasStored) para teste
     // criar as li
     const tarefasLi = document.createElement('li');
-    tarefas.innerText = tarefasStored[index];
     // append na ol pai
-    document.querySelector('#lista-tarefas').appendChild(tarefasLi)
+    document.querySelector('#lista-tarefas').appendChild(tarefasLi);
+    for (let index = 0; index <= tarefasStored.length; index +=1) {
+      // adiciona o conteudo guardado no local storage
+      tarefasLi.innerText = tarefasStored[index];
+    }
   }
+}
+
+window.onload = function load() {
+  carregarListaSalva();
 }
