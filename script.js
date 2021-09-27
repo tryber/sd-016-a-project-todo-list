@@ -25,8 +25,8 @@ function colorLi(event) {
   const li = document.querySelector('#lista-tarefas').children;
   for (let index = 0; index < li.length; index += 1) {
     li[index].style.backgroundColor = 'rgb(255, 255, 255)';
-    // ou deixar vazio para não confudir demais
-    li[index].id = 'not-selected';
+    // opção de deixar vazio porque houve problemas com os botões de subir e descer
+    li[index].id = '';
   }
   // add Id para confirmar a seleção e para dps fazer o lance do botão
   // usar o mesmo conceito inicialmente do backgroundColor -> add para um e remove/add outro a outro
@@ -42,9 +42,6 @@ function eventColorLi() {
 }
 
 function completedTarefa(event) {
-	// let li = document.querySelector('#lista-tarefas').children;
-	// ou passa só um ou passa todos ou passa um e nao o utro -- remover for para teste
-	// for (let index = 0; index < li.length; index += 1) {
   // usando o contains seguindo o indicado no seguinte link
   // https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
   if (event.target.classList.contains('completed')) {
@@ -66,9 +63,9 @@ function removeAllTarefas() {
   // fonte para o código abaixo foi encontrada e baseado na seguinte página, na resposta de Gibolt
   // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
   const tarefaList = document.querySelector('#lista-tarefas');
+  // "while houver primeiro filho da lista de tarefas faça algo"
   while (tarefaList.firstChild) {
-		// remove filho enquanto houver algum firschild na ul
-    // assim evita que tenha de apagar um por vez pq no loop pegava cada elemento por vez na posicao index;
+		// remove filho enquanto houver algum firschild na ul, e evita o problema de apagar um por vez
     tarefaList.removeChild(tarefaList.firstChild);
   }
 }
@@ -95,20 +92,30 @@ function removeCompletedButton() {
 removeCompletedButton();
 
 function moveToPrevious () {
-  // quem move é cinza -> o selected
   // o uso do outerHTML foi baseado no código do Humberto Castro, e confirmado no link abaixo
-  // o outerHTML pegar o fragmento html e pode substituir o html
+  // o outerHTML pegar o fragmento html, por exemplo, pode haver um span ou p dentro, e pode substituir o html
   // https://w3schools.unlockfuture.com/jsref/prop_html_outerhtml.html
-  const selectedElement = document.querySelector("#selected").outerHTML;
-  const notSelectedElement = document.querySelector('#not-selected').outerHTML;
-  // as infos contidas em selectedElement tem de migrar para os not-selected
-  // comparar se as infos de selectedElemente existem ou nao no not-selected -- são diferentes
-	if (selectedElement !== notSelectedElement) {
-    // então mandar os dados para o proximo e o previo
-    // pega o elemento previo -- seta para cima -- que irá receber as infos do irmao previamente selecionado
-    document.querySelector('#selected').previousSibling.outerHTML = selectedElement;
-    // pega o elemento inicialmente selecionado, que irá receber o not selected pq a seta subiu quando selected vai para o irmão de cima
-    document.querySelector('#selected').nextSibling.outerHTML = notSelectedElement;
+  // é necessário haver PELO MENOS um selected, originalmente nenhum tem o id selected ou seja, length === 0;
+  if (document.querySelectorAll("#selected").length !== 0) {
+    // considera o único elemento selected
+    const selectedElement = document.querySelector("#selected").outerHTML;
+    const liList = document.querySelectorAll('li');
+
+    // comprar os outerhtml dos selected e os li
+    // const notSelectedElement = document.querySelector('li').outerHTML;
+    // console.log(notSelectedElement)
+    // retorna apenas um  elemento dessa forma, no caso, o primeiro se não for selecionado --> então chamar todas os li 
+
+    if (selectedElement !== document.querySelectorAll('li').outerHTML) {
+      // [liList.length - 1] representa a posição do ultimo elemento  ->> talvez aqui isso não faça diferença
+      // chamar o outhtml do elemento acima do selected, ou seja, não selecionado
+      const notSelectedLi = document.querySelector('#selected').previousSibling.outerHTML;
+      // console.log(notSelectedLi) -- ok
+      // esse elemento nao selecionado ira receber do irmao previamente selecionado, que esta abaixo dele
+      document.querySelector('#selected').previousSibling.outerHTML = selectedElement;
+      // o elemento inicialmente selecionado, irá receber as infos do irmao superior que era o not selected
+      document.querySelector('#selected').nextSibling.outerHTML = notSelectedLi; 
+    }
   }
 }
 
@@ -118,22 +125,22 @@ function eventMoveToPrevious() {
 }
 eventMoveToPrevious();
 
-// aparentemente o problema agora ta focado no primeiro e ultimo item da lista, e algo relacionado a mudança dos nomes internos (?)
+// aparentemente o problema agora ta focado no primeiro e ultimo item da lista -- ainda continua com problema
 
 function moveToNext() {
-  // Essa funcao tambem foi criada baseada no apresentado pelo Humberto
-  // mesmo esquema do moveToPrevious;
-  const selectedElement = document.querySelector('#selected').outerHTML;
-  const notSelectedElement = document.querySelector('#not-selected').outerHTML;
-  if (selectedElement !== notSelectedElement) {
-    // a lógica muda pq está descendo
-    // como esta descendo, o next precisa receber o outerHTML do selected
-    document.querySelector('#selected').nextSibling.outerHTML = selectedElement;
-    // como o selected esta descendo, o elemento previamente selecionado precisa ficar com o not-selected
-    // remover o previous pq na lista o selected ficou mantido e dois ficam coloridos; com outerHTML vai logo substituir o selecteed
-    // document.querySelector('#selected').previousSibling.outerHTML = notSelectedElement --> ruminar mais isso aqui para entender melhor
-    document.querySelector('#selected').outerHTML = notSelectedElement;
+  // Essa funcao tambem foi criada baseada no apresentado pelo Humberto Castro
+  // parecido como o esquema do moveToPrevious;  
+  if (document.querySelectorAll('#selected').length !== 0) {
+    const selectedElement = document.querySelector('#selected').outerHTML;
+    const liList = document.querySelectorAll('li');
+    if (selectedElement !== document.querySelectorAll('li')[liList.length - 1].outerHTML) {
+      // como esta descendo, o next precisa receber o outerHTML do selected
+      const notSelectedLi = document.querySelector('#selected').nextSibling.outerHTML;
+      // como esta descendo, o next precisa receber o outerHTML do selected
+      document.querySelector('#selected').nextSibling.outerHTML = selectedElement;
+      document.querySelector('#selected').outerHTML = notSelectedLi;
   }
+ }
 }
 
 function eventMoveToNext() {
@@ -155,49 +162,42 @@ function eventRemoveSelected() {
 }
 eventRemoveSelected();
 
-// ainda está faltando a função para salvar a lista, mas ela foi comentada nas monitorias -- check anotações -- a aula ainda esta atrasada --
-// sugestão do Sumo de fazer o bonus do local storage
+// função feita com base no exercicio do course e os seguintes links
+// https://blog.logrocket.com/localstorage-javascript-complete-guide/
+// https://www.section.io/engineering-education/how-to-use-localstorage-with-javascript/
+//https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
 
-// função feita com base no exercicio do course
-// function saveTask() {
-//   // chama os filhos da ol onde estao as tarefas
-//   const tarefas = document.querySelector('ol').children;
-//   // pegando o value inserido em cada tarefa
-//   // const tarefaText = tarefas.value --> podendo ser mais de uma pode vir em lista, entao coloquei logo no for de baixo
-//   // lista que ficará salva -- inicialmente esta vazia para receber os dados
-//   const listTarefas = [];
-//   for (let index = 0; index < tarefas.length; index += 1) {
-//     listTarefas.push(tarefas[index].value)
-//   }
-//   // setItem funciona como key, value
-//   // https://blog.logrocket.com/localstorage-javascript-complete-guide/
-//   localStorage.setItem('lista-tarefas', JSON.stringify(listTarefas));
-// };
+function saveTask() {
+  // chamar as tarefas que sao li
+  const tarefasLi = document.querySelectorAll('li');
+  // as infos da Li vão para um array
+  const tarefasArray = [];
+  // pegando o value inserido na lista de tarefas 
+  for (let index = 0; index < tarefasLi.length; index +=1) {
+    tarefasArray.push(tarefasLi[index].value);
+  }
+  window.localStorage.setItem('lista-tarefas', JSON.stringify(tarefasArray));
+};
 
-// function eventSaveTask() {
-//   const saveButton = document.querySelector('#salvar-tarefas');
-//   saveButton.addEventListener('click', saveTask)
-// }
-// eventSaveTask();
+function eventSaveTask() {
+  const saveButton = document.querySelector('#salvar-tarefas');
+  saveButton.addEventListener('click', saveTask)
+}
+eventSaveTask();
 
-// // chamar o localstorage para carregar
-// // com base no course
-// function carregarListaSalva() {
-//   if (localStorage.getItem('lista-tarefas') === null) {
-//     localStorage.setItem('lista-tarefas', JSON.stringify([]));
-//   } 
-//   // aparentemente está dando erro de carregamento das li -> entao loop para carregar as li e append elas
-//   let tarefas = JSON.parse(localStorage.getItem('lista-tarefas'))
-//   for (let index = 0; index <= tarefas.length; index +=1) {
-//     // criar as li
-//     const tarefasLi = document.createElement('li');
-//     tarefasLi.innerText = tarefas[index];
-//     // append na ol pai
-//     const olPai = document.querySelector('#lista-tarefas')
-//     olPai.appendChild(tarefasLi)
-//   }
-// }
-
-// window.onload = function() {
-//   carregarListaSalva()
-// }
+// chamar o localstorage para carregar
+function carregarListaSalva() {
+  // if (localStorage.getItem('lista-tarefas') !== null) {
+  //  const tarefasStorage = window.localStorage.setItem('lista-tarefas', JSON.stringify([]));
+  // } 
+  // converte para objeto com o json.parse
+  let tarefasStored = JSON.parse(window.localStorage.getItem('lista-tarefas'));
+  // console.log(tarefasStored) para teste
+  for (let index = 0; index <= tarefasStored.length; index +=1) {
+    // criar as li
+    const tarefasLi = document.createElement('li');
+    tarefas.innerText = tarefasStored[index];
+    // append na ol pai
+    document.querySelector('#lista-tarefas').appendChild(tarefasLi)
+  }
+}
