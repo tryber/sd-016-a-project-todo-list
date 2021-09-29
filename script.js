@@ -92,3 +92,22 @@ document.addEventListener('dblclick', (event) => {
     }
   }
 });
+
+// Botão Salvar Tarefas - Requisito 12
+const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
+function salvarTarefas() {
+  localStorage.clear();
+  const listaTarefas2 = document.querySelector('#lista-tarefas');
+  /* Não preciso de 'For' porque o ID lista-tarefas já tem todo o HTML */
+  localStorage.setItem('tarefas', listaTarefas2.innerHTML);
+}
+
+/* Movimento dos Botões com suas funções */
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
+function apagaTudo() {
+  const botaoApagaTudo2 = document.querySelectorAll('.tarefa');
+  for (let index = 0; index < botaoApagaTudo2.length; index += 1) {
+    botaoApagaTudo2[index].remove();
+  }
+  localStorage.clear();
+}
