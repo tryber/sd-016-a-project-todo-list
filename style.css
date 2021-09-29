@@ -15,3 +15,8 @@ div {
 .completed {
   text-decoration: line-through;
 }
+
+.listItem::selection {
+  background-color: rgb(100 , 100 , 100);
+  color: white;
+}
