@@ -1,0 +1,26 @@
+div {
+  vertical-align: top;
+}
+
+.buttons {
+  width: auto;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#texto-tarefa {
+  height: 30px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.listItem::selection {
+  background-color: rgb(100 , 100 , 100);
+  color: white;
+}
+
+.selected {
+  background-color: gray;
+}
