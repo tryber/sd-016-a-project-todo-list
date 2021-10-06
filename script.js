@@ -1,113 +1,148 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable func-names */
-/* eslint-disable no-undef */
-/* eslint-disable max-lines-per-function */
-/* eslint-disable sonarjs/no-duplicate-string */
-/* eslint-disable eqeqeq */
-const toDoList = document.querySelector('#lista-tarefas');
-const btnCreateItem = document.querySelector('#criar-tarefa');
-const textTask = document.querySelector('#texto-tarefa');
-const btnClearAll = document.querySelector('#apaga-tudo');
-const btnClearCompleted = document.querySelector('#remover-finalizados');
-const btnSaveTasks = document.querySelector('#salvar-tarefas');
-const btnMoveUp = document.querySelector('#mover-cima');
-const btnMoveDown = document.querySelector('#mover-baixo');
-const btnRemoveSelected = document.querySelector('#remover-selecionado');
+/* eslint-disable quotes */
+/* eslint-disable no-use-before-define */
+const taskList = document.querySelector('#lista-tarefas');
+const taskItem = '.task-item';
 
-function clearLastSelected() {
-  for (let index = 0; index < toDoList.childElementCount; index += 1) {
-    toDoList.children[index].classList.remove('selected');
-  }
-}
+const completedTask = () => {
+  const lis = document.querySelectorAll('.task-item');
 
-// Ao clicar botão adiciona novos itens
-btnCreateItem.addEventListener('click', () => {
-  if (textTask.value === '') {
-    alert('Digite o nome da tarefa');
-    textTask.focus();
-  } else {
-    console.log('botão de adicionar item foi clicado.');
-    const item = document.createElement('li');
-    const createdItem = toDoList.appendChild(item);
-    createdItem.className = 'list-item';
-    createdItem.innerHTML = textTask.value;
-    textTask.value = '';
-    textTask.focus();
-  }
-});
+  lis.forEach((item) => {
+    item.addEventListener('dblclick', (event) => {
+      if (!event.target.classList.contains('completed')) {
+        event.target.classList.add('completed');
+      } else {
+        event.target.classList.remove('completed');
+      }
+    });
+  });
+};
 
-// Ao clicar botão remove tarefa completada
-btnClearCompleted.addEventListener('click', () => {
-  const completedTasks = document.querySelectorAll('.completed');
-
-  for (let index = 0; index < completedTasks.length; index += 1) {
-    if (completedTasks[index].classList.contains('completed')) {
-      completedTasks[index].remove();
-    }
-  }
-});
-
-btnSaveTasks.addEventListener('click', () => {
-  const taskContents = [];
-  const taskClasses = [];
-  const tasks = document.querySelectorAll('#lista-tarefas li');
-
-  for (let index = 0; index < tasks.length; index += 1) {
-    taskContents.push(tasks[index].textContent);
-    taskClasses.push(tasks[index].className);
-  }
-
-  localStorage.setItem('taskContents', JSON.stringify(taskContents));
-  localStorage.setItem('taskClasses', JSON.stringify(taskClasses));
-});
-
-btnRemoveSelected.addEventListener('click', () => {
-  const listItems = document.querySelectorAll('.list-item');
-
-  for (let index = 0; index < listItems.length; index += 1) {
-    if (listItems[index].classList.contains('selected')) {
-      listItems[index].remove();
-    }
-  }
-});
-
-// Listener que seleciona o item da lista
-document.addEventListener('click', (event) => {
-  if (event.target.classList.contains('list-item')) {
-    console.log('item da lista foi clicado.');
-    clearLastSelected();
-    event.target.classList.add('selected');
-  }
-});
-
-// Listener que ao ter double-check marca como completa a tarefa
-document.addEventListener('dblclick', (event) => {
-  if (event.target.classList.contains('list-item')) {
-    if (event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed');
-      event.target.classList.remove('selected');
+const createTask = () => {
+  const buttonCreateTask = document.querySelector('#criar-tarefa');
+  const inputCreateTask = document.querySelector('#texto-tarefa');
+  buttonCreateTask.addEventListener('click', () => {
+    const inputValue = inputCreateTask.value;
+    if (!inputValue) {
+      console.log('Valor inválido');
     } else {
-      event.target.classList.add('completed');
-      event.target.classList.remove('selected');
+      taskList.innerHTML += `<li class='task-item'>${inputValue}</li>`;
+      inputCreateTask.value = '';
+      inputCreateTask.focus();
     }
-  }
-});
 
-// Botão Salvar Tarefas - Requisito 12
-const botaoSalvarTarefas = document.querySelector('#salvar-tarefas');
-function salvarTarefas() {
-  localStorage.clear();
-  const listaTarefas2 = document.querySelector('#lista-tarefas');
-  /* Não preciso de 'For' porque o ID lista-tarefas já tem todo o HTML */
-  localStorage.setItem('tarefas', listaTarefas2.innerHTML);
-}
+    completedTask();
+  });
+};
 
-/* Movimento dos Botões com suas funções */
-const botaoApagaTudo = document.querySelector('#apaga-tudo');
-function apagaTudo() {
-  const botaoApagaTudo2 = document.querySelectorAll('.tarefa');
-  for (let index = 0; index < botaoApagaTudo2.length; index += 1) {
-    botaoApagaTudo2[index].remove();
-  }
-  localStorage.clear();
-}
+const highlightTask = () => {
+  const ol = document.querySelector('#lista-tarefas');
+  const gray = 'gray-bgcolor';
+
+  ol.addEventListener('click', (event) => {
+    const lis = document.querySelectorAll(taskItem);
+    lis.forEach((item) => {
+      const li = item;
+      li.classList.remove(gray);
+    });
+
+    const e = event.target;
+    e.classList.add(gray);
+  });
+};
+
+const eraseTasks = () => {
+  const button = document.querySelector('#apaga-tudo');
+
+  button.addEventListener('click', () => {
+    const lis = document.querySelectorAll(taskItem);
+    lis.forEach((item) => {
+      item.remove();
+    });
+  });
+};
+
+const eraseCompleted = () => {
+  const btn = document.querySelector('#remover-finalizados');
+
+  btn.addEventListener('click', () => {
+    const lis = document.querySelectorAll(taskItem);
+    lis.forEach((item) => {
+      if (item.classList.contains('completed')) {
+        item.remove();
+      }
+    });
+  });
+};
+
+const saveTasks = () => {
+  const btn = document.querySelector('#salvar-tarefas');
+  const myStorage = localStorage;
+
+  btn.addEventListener('click', () => {
+    myStorage.setItem('task-list', taskList.innerHTML);
+  });
+
+  taskList.innerHTML = myStorage.getItem('task-list');
+  completedTask();
+};
+
+const moveUp = () => {
+  // marretei MUITO a cabeça, mas passando pelas breakouts, alguém falou sobre
+  // elementSibling e fui logo pesquisar e cheguei numa POSSIVEL solução
+  // eu vi uma explicação massa aqui: https://www.javascripttutorial.net/javascript-dom/javascript-siblings/
+  const moveUpBtn = document.querySelector('#mover-cima');
+
+  moveUpBtn.addEventListener('click', () => {
+    const selected = document.querySelector('.gray-bgcolor');
+    if (selected !== null) {
+      const previous = selected.previousElementSibling;
+      // é aqui que ele sobe, inserindo ANTES (before)
+      if (selected !== taskList.firstChild) {
+        taskList.insertBefore(selected, previous);
+      }
+    }
+  });
+};
+
+const moveDown = () => {
+  // a diferença pro moveDown() do moveUp() é justamente o sibling, MAS
+  // aqui é o PRÓXIMO (after) e não ANTES (before) como acima. O resto
+  // é bem similar, muda o proximo elemento que o insertBefore() vai receber
+  // em vez de ser o primeiro filho, vai ser o ultimo filho
+  const moveDownBtn = document.querySelector('#mover-baixo');
+
+  moveDownBtn.addEventListener('click', () => {
+    const selected = document.querySelector('.gray-bgcolor');
+    if (selected !== null) {
+      const next = selected.nextElementSibling;
+      // é aqui que ele sobe, inserindo ANTES (before)
+      if (selected !== taskList.lastChild) {
+        taskList.insertBefore(selected, next.nextElementSibling);
+      }
+    }
+  });
+};
+
+const eraseSelected = () => {
+  const btn = document.querySelector('#remover-selecionado');
+
+  btn.addEventListener('click', () => {
+    const lis = document.querySelectorAll(taskItem);
+    lis.forEach((item) => {
+      if (item.classList.contains('gray-bgcolor')) {
+        item.remove();
+      }
+    });
+  });
+};
+
+saveTasks();
+createTask();
+eraseTasks();
+highlightTask();
+
+moveUp();
+moveDown();
+
+eraseSelected();
+eraseCompleted();
