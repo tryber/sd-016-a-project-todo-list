@@ -136,6 +136,21 @@ const eraseSelected = () => {
   });
 };
 
+function clearLastSelected() {
+  for (let index = 0; index < taskList.childElementCount; index += 1) {
+    taskList.children[index].classList.remove('selected');
+  }
+}
+
+// Listener que seleciona o item da lista
+document.addEventListener('click', (event) => {
+  if (event.target.classList.contains('list-item')) {
+    console.log('item da lista foi clicado.');
+    clearLastSelected();
+    event.target.classList.add('selected');
+  }
+});
+
 saveTasks();
 createTask();
 eraseTasks();

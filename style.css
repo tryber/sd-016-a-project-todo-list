@@ -1,116 +1,156 @@
+/* variaveis globais e imports */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+
+:root {
+  --highlight-gray: rgba(128, 128, 128, 1);
+  --trybe-green: #2FC18C;
+}
+
+/* proposito do requisito 7+ */
+.gray-bgcolor {
+  background-color: var(--highlight-gray);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-}
-
+/* estilos do corpo */
 body {
-  margin: auto;
-  text-align: center;
-  font-size: 1em;
-  width: 80%;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Quicksand", sans-serif;
+  background: var(--trybe-green);
 }
 
-header, main, .list {
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 3px;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". .";
 }
 
+/* estilos do header */
 header {
-  margin-top: 30px;
-  margin-bottom: 10px;
-  background-color: rgb(195, 113, 215);
-  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-header h1 {
-  padding-top: 10px;
+#funcionamento {
+  margin: 20px;
+  font-weight: 700;
 }
 
-header p {
-  margin-top: 10px;
-  font-style: italic;
-  color: rgb(80, 79, 79);
+#texto-tarefa {
+  height: 40px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
 }
 
-nav {
-  width: 80%;
+#criar-tarefa {
+  margin: 25px 0;
+  width: 110px;
+  border: none;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
-main {
-  background-color: rgb(207, 207, 207);
-  height: 80%;
+#criar-tarefa:active {
+  background-color: gray;
+  color: white;
 }
 
-.insertion {
-  float: left;
-  background-color: rgb(176, 176, 176);
+#apaga-tudo {
+  width: 110px;
+  border: none;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#apaga-tudo:active {
+  background-color: gray;
+  color: white;
+}
+
+#remover-finalizados {
+  margin-top: 25px;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#remover-finalizados:active {
+  background-color: gray;
+  color: white;
+}
+
+#remover-selecionado {
+  margin: 25px 0;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#remover-selecionado:active {
+  background-color: gray;
+  color: white;
+}
+
+#salvar-tarefas {
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#salvar-tarefas:active {
+  background-color: gray;
+  color: white;
+}
+
+#mover-cima, #mover-baixo {
+  margin-top: 25px;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#mover-cima:active, #mover-baixo:active {
+  background-color: gray;
+  color: white;
+}
+
+/* estilos da area e lista das tarefas */
+
+.area-tarefas {
   height: 100%;
-  padding: 10px;
-  border-radius: 3px;
-}
-
-.insert {
-  background-color: tomato;
-}
-
-.list {
-  display: inline-block;
-  padding-bottom: 30px;
-  padding-top: 20px;
-  width: 40%;
-  height: 100%;
-}
-
-.selected {
-  background-color: rgb(128,128,128);
-  color: rgb(18, 106, 133);
-  font-weight: 900;
-}
-
-.completed {
-  text-decoration: line-through solid rgb(0,0,0);
-  color: rgb(145, 172, 194);
-}
-
-ol li {
-  user-select: none;
-  font-size: 2em;
-  list-style-type: decimal;
-  text-align: justify;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #lista-tarefas {
-  min-width: 330px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background: white;
-  list-style-position:inside;
-  border-radius: 3px;
-  padding: 10px;
-  height: 100%;
-  overflow: auto;
-}
-
-input[type='text'] { 
-  width: 200px;
-}
-
-button, input[type='text'] {
-  border: 1px solid #3F6583;
-  padding: 5px;
-  border-radius: 2px;
-}
-
-fieldset {
-  padding: 10px;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 3px;
 }
