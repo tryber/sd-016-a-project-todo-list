@@ -1,0 +1,156 @@
+/* variaveis globais e imports */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
+
+:root {
+  --highlight-gray: rgba(128, 128, 128, 1);
+  --trybe-green: #2FC18C;
+}
+
+/* proposito do requisito 7+ */
+.gray-bgcolor {
+  background-color: var(--highlight-gray);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* estilos do corpo */
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: "Quicksand", sans-serif;
+  background: var(--trybe-green);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". .";
+}
+
+/* estilos do header */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#funcionamento {
+  margin: 20px;
+  font-weight: 700;
+}
+
+#texto-tarefa {
+  height: 40px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+}
+
+#criar-tarefa {
+  margin: 25px 0;
+  width: 110px;
+  border: none;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#criar-tarefa:active {
+  background-color: gray;
+  color: white;
+}
+
+#apaga-tudo {
+  width: 110px;
+  border: none;
+  height: 30px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#apaga-tudo:active {
+  background-color: gray;
+  color: white;
+}
+
+#remover-finalizados {
+  margin-top: 25px;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#remover-finalizados:active {
+  background-color: gray;
+  color: white;
+}
+
+#remover-selecionado {
+  margin: 25px 0;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#remover-selecionado:active {
+  background-color: gray;
+  color: white;
+}
+
+#salvar-tarefas {
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#salvar-tarefas:active {
+  background-color: gray;
+  color: white;
+}
+
+#mover-cima, #mover-baixo {
+  margin-top: 25px;
+  width: 110px;
+  border: none;
+  height: 35px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#mover-cima:active, #mover-baixo:active {
+  background-color: gray;
+  color: white;
+}
+
+/* estilos da area e lista das tarefas */
+
+.area-tarefas {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#lista-tarefas {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+}

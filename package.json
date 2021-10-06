@@ -23,5 +23,20 @@
     "cypress:open": "cypress open",
     "lint": "eslint --no-inline-config --ext .js,.jsx --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "lint:styles": "stylelint **/*.css --config .stylelintrc.json --ignore-disables --allow-empty-input"
-  }
+  },
+  "name": "sd-016-a-project-todo-list",
+  "description": "Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.",
+  "version": "1.0.0",
+  "main": "script.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tryber/sd-016-a-project-todo-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tryber/sd-016-a-project-todo-list/issues"
+  },
+  "homepage": "https://github.com/tryber/sd-016-a-project-todo-list#readme"
 }
