@@ -123,6 +123,8 @@ function createButtonsDownUp() {
 }
 createButtonsDownUp();
 
+// Creditos à Danielle Silva que tem um código super bem escrito e auto-explicativo!! Foi praticamente uma aula assincrona por git! Aprendi demais!!
+
 const moveUp = document.querySelector('#mover-cima');
 
 function moveParaCima() {
@@ -137,3 +139,34 @@ function moveParaCima() {
 }
 moveUp.addEventListener('click', moveParaCima);
 
+const moveDown = document.querySelector('#mover-baixo');
+
+function moveParaBaixo() {
+  let listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    if (listItems[index].classList.contains('select') && listItems[index].nextElementSibling) {
+      listItems[index].parentNode.insertBefore(listItems[index].nextElementSibling, listItems[index]);
+    }
+  }
+}
+moveDown.addEventListener('click', moveParaBaixo);
+
+function createBtnRemoveSelected () {
+const btnRemoveSelected = document.createElement('button');
+btnRemoveSelected.id = 'remover-selecionado';
+btnRemoveSelected.innerText = 'Remove item';
+document.body.appendChild(btnRemoveSelected);
+}
+createBtnRemoveSelected();
+
+const removeSelected = document.getElementById('remover-selecionado');
+
+function removeSelecionado() {
+  const listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    if (listItems[index].classList.contains('select')) {
+      listItems[index].remove();
+    }
+  }
+}
+removeSelected.addEventListener('click', removeSelecionado);
