@@ -17,8 +17,10 @@ function addLiListenner(event) {
   const listItem = document.querySelectorAll('li')
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].style.backgroundColor = 'white';
+    listItem[index].classList.remove('select')
   }
   event.target.style.backgroundColor = 'rgb(128,128,128)';
+  event.target.classList.add('select');
 }
 
 document.querySelector('#lista-tarefas').addEventListener('click', addLiListenner);
@@ -53,12 +55,13 @@ buttonNew.innerText = 'remove finalizados';
 document.body.appendChild(buttonNew)
 
 
-document.getElementById('remover-finalizados').addEventListener('click', removeCompletedTasks)
+let removeFinalizados = document.getElementById('remover-finalizados');
+removeFinalizados.addEventListener('click', removeCompletedTasks)
 
-function removeCompletedTasks (event) {
+function removeCompletedTasks(event) {
   const listItems = document.querySelectorAll('li');
   for (let index = 0; index < listItems.length; index += 1) {
-    if (listItems[index].className === "completed") {
+    if (listItems[index].classList.contains("completed")) {
       listItems[index].remove(); // Danielle Silva tribo B e Julia Barcelos
     }
   }
@@ -78,15 +81,12 @@ function removeCompletedTasks (event) {
 // ajudada por JULIA BARCELOS <3 <3 <3 E João Veidz
 let inputList = document.getElementById('lista-tarefas')
 
-function reloadPag () {
+function reloadPag() {
   const arrayLi = localStorage.getItem('newList');
-  inputList.innerHTML =  JSON.parse(localStorage.getItem('newList')) // transforma string para objeto
-  removeCompletedTasks()
+  inputList.innerHTML = JSON.parse(arrayLi) // transforma string para objeto
 }
 
 function saveTasks() {
-  
-  ;
   localStorage.setItem('newList', JSON.stringify(inputList.innerHTML)); // transforma de objeto para string
   // reloadPag()
   // let wtf = JSON.stringify(inputList.innerHTML)
@@ -94,38 +94,46 @@ function saveTasks() {
   // console.log(document.getElementById('lista-tarefas'))
 }
 
-function createButtonSaveTasks (){
-let buttonSaveTasks = document.createElement('button')
-buttonSaveTasks.id = 'salvar-tarefas';
-buttonSaveTasks.innerText = 'salvar tarefas';
-document.body.appendChild(buttonSaveTasks)
+function createButtonSaveTasks() {
+  let buttonSaveTasks = document.createElement('button')
+  buttonSaveTasks.id = 'salvar-tarefas';
+  buttonSaveTasks.innerText = 'salvar tarefas';
+  document.body.appendChild(buttonSaveTasks)
 }
 createButtonSaveTasks()
 
 document.querySelector('#salvar-tarefas').addEventListener('click', saveTasks)
-window.onload = function(){
+window.onload = function () {
   reloadPag()
 }
 
 
+// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 
-// - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
-// O que será verificado:
+function createButtonsDownUp() {
+  let buttonUp = document.createElement('button');
+  buttonUp.innerHTML = "mover para cima"
+  buttonUp.id = "mover-cima"
+  let buttonDown = document.createElement('button');
+  buttonDown.innerHTML = "mover para baixo"
+  buttonDown.id = "mover-baixo";
+  let bodyParent = document.body;
+  bodyParent.appendChild(buttonUp)
+  bodyParent.appendChild(buttonDown)
+}
+createButtonsDownUp();
 
-// Será verificado que existe um elemento button com o id salvar-tarefas
+const moveUp = document.querySelector('#mover-cima');
 
-// Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está.
+function moveParaCima() {
+  let listItems = document.querySelectorAll('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    if (listItems[index].classList.contains('select') && listItems[index].previousElementSibling) {
+      listItems[index].parentNode.insertBefore(listItems[index], listItems[index].previousElementSibling); //Sintaxe
+      // var elementoInserido = elementoPai.insertBefore(novoElemento, elementoDeReferencia);
+      //https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore#syntax
+    }
+  }
+}
+moveUp.addEventListener('click', moveParaCima);
 
-// function saveTasks() {
-//   let newOl = document.querySelector('#lista-tarefas')
-//   localStorage.setItem('taskListStorage', JSON.stringify(newOl.innerHTML));
-// }
-// let saveTask = document.querySelector('#salvar-tarefas');
-// saveTask.addEventListener('click', saveTasks);
-
-// window.onload = () => {
-//   // if (localStorage !== null) {
-//     const taskHTML = JSON.parse(localStorage.getItem('taskListStorage'));
-//     taskList.innerHTML = taskHTML;
-//   // }
-// };
