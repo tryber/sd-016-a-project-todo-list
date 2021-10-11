@@ -1,5 +1,7 @@
 let listItems = document.getElementById('lista-tarefas');
 
+if (localStorage.task != undefined) listItems.innerHTML = localStorage.task;
+
 document.getElementById('criar-tarefa').addEventListener('click', addItem);
 
 document.getElementById('texto-tarefa').addEventListener('keypress', (x) => (x.key === 'Enter') ? addItem() : null);
@@ -8,8 +10,16 @@ document.getElementById('apaga-tudo').addEventListener('click', () => {
   listItems.innerHTML = '';
 });
 
-function addItem()
-{
+document.getElementById('remover-finalizados').addEventListener('click', () => {
+  listItems.childNodes.forEach((child) => {
+    if(child.classList.contains('completed')) child.remove();  
+  });
+});
+
+document.getElementById('salvar-tarefas').addEventListener('click', () => localStorage.setItem('task', listItems.innerHTML));
+
+
+function addItem(){
   let li = document.createElement('li');
   let input = document.getElementById('texto-tarefa');
   
