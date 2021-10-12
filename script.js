@@ -1,27 +1,27 @@
 let listItems = document.getElementById('lista-tarefas');
 
-if (localStorage.task != undefined) listItems.innerHTML = localStorage.task;
+loadingSaveItemsAndAddListener();
 
-document.getElementById('criar-tarefa').addEventListener('click', addItem);
+document.getElementById('criar-tarefa').addEventListener('click', addTask);
 
-document.getElementById('texto-tarefa').addEventListener('keypress', (x) => (x.key === 'Enter') ? addItem() : null);
+document.getElementById('texto-tarefa').addEventListener('keypress', (p) => {if (p.key === 'Enter') addTask()});
 
-document.getElementById('apaga-tudo').addEventListener('click', () => {
-  listItems.innerHTML = '';
-});
+document.getElementById('apaga-tudo').addEventListener('click', () => listItems.innerHTML = '');
 
 document.getElementById('remover-finalizados').addEventListener('click', () => {
-  listItems.childNodes.forEach((child) => {
-    if(child.classList.contains('completed')) child.remove();  
-  });
+  let completed = document.getElementsByClassName('completed');
+
+  for (let i = completed.length; i > 0; i -= 1){
+    completed[i-1].remove();
+  }
 });
 
-document.getElementById('salvar-tarefas').addEventListener('click', () => localStorage.setItem('task', listItems.innerHTML));
+document.getElementById('salvar-tarefas').addEventListener('click', () => {
+  localStorage.setItem('task', listItems.innerHTML);
+});
 
 
-function addItem(){
-  let li = document.createElement('li');
-  let input = document.getElementById('texto-tarefa');
+function createElementLi(li = document.createElement('li')){
   
   li.addEventListener('click', (pointer) => {
     let her = pointer.target;
@@ -37,7 +37,22 @@ function addItem(){
     her.classList = her.classList.contains('completed') ? '' : 'completed';
   });
 
-  if (input.value != '') listItems.appendChild(li).innerText = input.value;
+  return li;
+}
 
-  input.value = '';
+function addTask(){
+  let input = document.getElementById('texto-tarefa');
+  let li = createElementLi();
+
+  if (input.value != ''){
+    listItems.appendChild(li).innerText = input.value;
+    input.value = '';
+  }
+}
+
+function loadingSaveItemsAndAddListener(){
+  if (localStorage.task != undefined) {
+    listItems.innerHTML = localStorage.task;
+    listItems.childNodes.forEach((child) => createElementLi(child));
+  }
 }
