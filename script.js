@@ -10,6 +10,12 @@ document.getElementById('apaga-tudo').addEventListener('click', () => listItems.
 
 document.getElementById('salvar-tarefas').addEventListener('click', () => localStorage.setItem('task', listItems.innerHTML));
 
+document.getElementById('remover-selecionado').addEventListener('click', () => {
+  let selected = document.querySelector('.selected')
+  
+  if (selected != undefined) selected.remove();
+});
+
 document.getElementById('remover-finalizados').addEventListener('click', () => {
   let completed = document.getElementsByClassName('completed');
   
