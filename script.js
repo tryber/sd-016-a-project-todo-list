@@ -16,12 +16,16 @@ const coloreElementos = document.querySelector('ol');
 
 coloreElementos.addEventListener('click', (event) => {
   const descolorir = document.getElementsByTagName('li');
-  for (let index = 0; index <= descolorir.length ; index += 1){
-    console.log(descolorir[index]);
-    descolorir[index].classList.remove('batata')
-  }
-  event.target.classList.add('batata');
+ for (let index = 0 ; index < descolorir.length ; index += 1) {
+   descolorir[index].classList.remove('batata');
+ }
+ event.target.classList.add('batata');
 })
+
+coloreElementos.addEventListener('dblclick', (event) => {
+  event.target.classList.toggle('completed')
+}
+)
 
 
 
