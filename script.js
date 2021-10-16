@@ -1,5 +1,7 @@
+// Recebi ajuda do Emerson, da Fumagalli e do Severo
 const click1 = document.querySelector('.criar-tarefa');
-const click2 = document.querySelector('#apaga-tudo')
+const click2 = document.querySelector('#apaga-tudo');
+const click3 = document.querySelector('#remover-finalizados');
 
 function atualizaLista(){
   const valor = document.querySelector('#texto-tarefa');
@@ -34,6 +36,16 @@ function apagaGeral () {
 
 click2.addEventListener('click', apagaGeral);
 
+function removeComplete (){
+  const apaga = document.querySelectorAll('.completed');
+  for (let index = 0 ; index < apaga.length ; index += 1) {
+    coloreElementos.removeChild(apaga[index]);
+  }
+  
+  
+} 
+
+click3.addEventListener('click',removeComplete )
 
 
 //function pintarDeCinza () {
