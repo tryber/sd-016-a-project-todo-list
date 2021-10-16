@@ -1,17 +1,18 @@
-let click1 = document.querySelector('.criar-tarefa');
-
-click1.addEventListener('click', atualizaLista);
-
+const click1 = document.querySelector('.criar-tarefa');
+const coloreElementos = document.querySelector('.tarefa')
 function atualizaLista(){
-    let valor = document.querySelector('#texto-tarefa').value;
-    let lista = document.querySelector('#lista-tarefas');
-    let item = document.createElement('li');
-    item.className = 'tarefa';
-    item.innerHTML = valor;
-    lista.appendChild(item);
-    valor.value = '';
+  const valor = document.querySelector('#texto-tarefa');
+  const lista = document.querySelector('#lista-tarefas');
+  const item = document.createElement('li');
+  item.className = 'tarefa';
+  item.innerHTML = valor.value;
+  lista.appendChild(item);
+  valor.value = '';
 }
+click1.addEventListener('click', atualizaLista);
+coloreElementos.addEventListener('click' , pintarDeCinza)
 
-
-
+function pintarDeCinza () {
+  coloreElementos.setAttribute('style', 'background-color: rgb(128, 128, 128');
+}
 
