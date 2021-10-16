@@ -2,6 +2,7 @@
 const click1 = document.querySelector('.criar-tarefa');
 const click2 = document.querySelector('#apaga-tudo');
 const click3 = document.querySelector('#remover-finalizados');
+const click4 = document.querySelector('#salvar-tarefas');
 
 function atualizaLista(){
   const valor = document.querySelector('#texto-tarefa');
@@ -41,13 +42,19 @@ function removeComplete (){
   for (let index = 0 ; index < apaga.length ; index += 1) {
     coloreElementos.removeChild(apaga[index]);
   }
-  
-  
 } 
-
 click3.addEventListener('click',removeComplete )
 
+function salvarLista () {
+  return localStorage.setItem('lista',JSON.stringify(coloreElementos.innerHTML));
+}
 
+window.onload = () => {
+  const info = JSON.parse(localStorage.getItem('lista'));
+  coloreElementos.innerHTML = info
+}
+
+click4.addEventListener('click', salvarLista);
 //function pintarDeCinza () {
   //coloreElementos.classList.toggle('batata')
   //console.log(coloreElementos);
