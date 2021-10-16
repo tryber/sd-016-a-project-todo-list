@@ -1,4 +1,5 @@
 const click1 = document.querySelector('.criar-tarefa');
+const click2 = document.querySelector('#apaga-tudo')
 
 function atualizaLista(){
   const valor = document.querySelector('#texto-tarefa');
@@ -27,7 +28,11 @@ coloreElementos.addEventListener('dblclick', (event) => {
 }
 )
 
+function apagaGeral () {
+  return coloreElementos.innerHTML = '';
+}
 
+click2.addEventListener('click', apagaGeral);
 
 
 
