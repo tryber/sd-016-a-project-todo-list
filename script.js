@@ -8,14 +8,24 @@ function atualizaLista(){
   item.innerHTML = valor.value;
   lista.appendChild(item);
   valor.value = '';
-  item.addEventListener('click' , pintarDeCinza);
+  //item.addEventListener('click' , pintarDeCinza);
 }
 
 click1.addEventListener('click', atualizaLista);
 const coloreElementos = document.querySelector('ol');
+
 coloreElementos.addEventListener('click', (event) => {
-  event.target.setAttribute('style', 'background-color: rgb(128, 128, 128)');
+  const descolorir = document.getElementsByTagName('li');
+  for (let index = 0; index <= descolorir.length ; index += 1){
+    console.log(descolorir[index]);
+    descolorir[index].classList.remove('batata')
+  }
+  event.target.classList.add('batata');
 })
+
+
+
+
 
 //function pintarDeCinza () {
   //coloreElementos.classList.toggle('batata')
