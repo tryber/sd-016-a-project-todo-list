@@ -1,0 +1,86 @@
+body{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+header{
+  text-align: center;
+}
+
+h1{
+  display: inline-block;
+  margin: 0;
+}
+
+button{
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: none;
+  height: 21px;
+}
+
+img {
+  cursor: pointer;
+  width: 36px;
+}
+
+#salvar-tarefas{
+  position: absolute;
+  top: 6px;
+  margin-left: 9px;
+}
+
+#apaga-tudo{
+  position: absolute;
+  right: 18px;
+  top: 9px;
+}
+
+article{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  width: 100%;
+  margin: 15px;
+}
+
+article > button > img {
+  margin: 0 10px;
+}
+
+.flex-container {
+  margin-top: 36px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.flex-container > button {
+  margin: 3px;
+  margin-left: 9px;
+}
+
+input{ 
+  display: inline;
+  height: 36px;
+  width: 600px;
+  font-size: 21px;
+}
+
+#lista-tarefas{
+  margin: 0;
+  padding-left: 10%;
+  width: 78%;
+  height: 100vh;
+  font-size: 18px;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}

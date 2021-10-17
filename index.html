@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,  initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>ToDo List, by Adelson</title>
+</head>
+<body>
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <button id="salvar-tarefas">
+            <img src="icons/save-list.png" alt="botão para salvar a lista">
+        </button>
+        <button id="apaga-tudo">
+            <img src="icons/delete.png" alt="botão para deletar toda a lista">
+        </button>
+        <hr>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <article>
+            <button id="mover-cima">
+                <img src="icons/up-arrow.png" alt="botão para subir um item">
+            </button>
+            <button id="mover-baixo">
+                <img src="icons/down-arrow.png" alt="botão para descer um item">
+            </button>
+            <button id="remover-selecionado">
+                <img src="icons/trash.png" alt="botão para remover um item">
+            </button>
+            <button id="remover-finalizados">
+                <img src="icons/clear.png" alt="botão para limpar todos itens marcados">
+            </button>
+    </article>
+    <div class="flex-container">
+        <input type="text" id="texto-tarefa" placeholder=" Clique aqui e adicione um item a sua lista de tarefas">
+        <button id="criar-tarefa" width="1000px">
+            <img src="icons/add.png" alt="botão para adicionar um item">
+        </button>
+    </div>
+    <main>
+        <ol id="lista-tarefas"></ol>
+    </main>
+    <script src="features.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
