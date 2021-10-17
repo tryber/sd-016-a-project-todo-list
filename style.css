@@ -6,7 +6,7 @@
 body {
   margin: 0 auto;
   text-align: center;
-  background-color: rgb(209, 208, 208);
+  background-color: rgb(209 , 208 , 208);
 }
 
 header {
@@ -46,8 +46,7 @@ main {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-
-  padding: 20px 0px 0px 30px;
+  padding: 20px 0 0 30px;
   border-radius: 5px;
 }
 
