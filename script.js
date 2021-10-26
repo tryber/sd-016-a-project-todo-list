@@ -68,6 +68,7 @@ function removeAllTarefas() {
 		// remove filho enquanto houver algum firschild na ul, e evita o problema de apagar um por vez
     tarefaList.removeChild(tarefaList.firstChild);
   }
+  // avaliar depois se não é útil zerar o localStorage
 }
 
 function removeAllButton() {
@@ -96,26 +97,22 @@ function moveToPrevious () {
   // o outerHTML pegar o fragmento html, por exemplo, pode haver um span ou p dentro, e pode substituir o html
   // https://w3schools.unlockfuture.com/jsref/prop_html_outerhtml.html
   // é necessário haver PELO MENOS um selected, originalmente nenhum tem o id selected ou seja, length === 0;
-  if (document.querySelectorAll("#selected").length !== 0) {
+  if (document.querySelectorAll('#selected').length !== 0) {
     // considera o único elemento selected
-    const selectedElement = document.querySelector("#selected").outerHTML;
-    const liList = document.querySelectorAll('li');
-
-    // comprar os outerhtml dos selected e os li
-    // const notSelectedElement = document.querySelector('li').outerHTML;
-    // console.log(notSelectedElement)
-    // retorna apenas um  elemento dessa forma, no caso, o primeiro se não for selecionado --> então chamar todas os li 
-
+    const selectedElement = document.querySelector('#selected').outerHTML;
     if (selectedElement !== document.querySelectorAll('li').outerHTML) {
       // [liList.length - 1] representa a posição do ultimo elemento  ->> talvez aqui isso não faça diferença
       // chamar o outhtml do elemento acima do selected, ou seja, não selecionado
       const notSelectedLi = document.querySelector('#selected').previousSibling.outerHTML;
-      // console.log(notSelectedLi) -- ok
       // esse elemento nao selecionado ira receber do irmao previamente selecionado, que esta abaixo dele
       document.querySelector('#selected').previousSibling.outerHTML = selectedElement;
       // o elemento inicialmente selecionado, irá receber as infos do irmao superior que era o not selected
-      document.querySelector('#selected').nextSibling.outerHTML = notSelectedLi; 
+      document.querySelector('#selected').nextSibling.outerHTML = notSelectedLi;
     }
+    // no livecode os botões funcionam mas os eventos não
+    // adicionar os eventos de click e doubleclick
+    eventColorLi();
+    eventCompletedTarefa();
   }
 }
 
@@ -125,11 +122,9 @@ function eventMoveToPrevious() {
 }
 eventMoveToPrevious();
 
-// aparentemente o problema agora ta focado no primeiro e ultimo item da lista -- ainda continua com problema
-
 function moveToNext() {
-  // Essa funcao tambem foi criada baseada no apresentado pelo Humberto Castro
-  // parecido como o esquema do moveToPrevious;  
+  // Essa funcao foi criada baseada no apresentado pelo Humberto Castro
+  // parecido como o esquema do moveToPrevious;
   if (document.querySelectorAll('#selected').length !== 0) {
     const selectedElement = document.querySelector('#selected').outerHTML;
     const liList = document.querySelectorAll('li');
@@ -139,8 +134,12 @@ function moveToNext() {
       // como esta descendo, o next precisa receber o outerHTML do selected
       document.querySelector('#selected').nextSibling.outerHTML = selectedElement;
       document.querySelector('#selected').outerHTML = notSelectedLi;
-  }
- }
+  	}
+  	// no livecode os botões funcionam mas os eventos não
+  	// adicionar os eventos de click e doubleclick 
+  	eventColorLi();
+  	eventCompletedTarefa();
+ 	}
 }
 
 function eventMoveToNext() {
@@ -162,46 +161,56 @@ function eventRemoveSelected() {
 }
 eventRemoveSelected();
 
-// função feita com base no exercicio do course e os seguintes links
+// As funcionalidades de salvar e carregar foram realizadas com base no código do Humberto Castro
+// houve também o uso das seguintes fontes e o exercício do course
 // https://blog.logrocket.com/localstorage-javascript-complete-guide/
 // https://www.section.io/engineering-education/how-to-use-localstorage-with-javascript/
-//https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
+// https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
 
+// a cunho comparativo foi realizado diferente do shopping cart, onde não usei o stringfy, focando direto no innertHTML/Text para o salvamento
 function saveTask() {
-  // chamar as tarefas que sao li
-  const tarefasLi = document.querySelectorAll('li');
-  // as infos da Li vão para um array
-  const tarefasArray = [];
-  // pegando o value inserido na lista de tarefas 
-  for (let index = 0; index < tarefasLi.length; index +=1) {
-    tarefasArray.push(tarefasLi[index].outerHTML);
+  const olList = document.querySelector('#lista-tarefas').children;
+  if (olList.length !== 0) {
+    // ou seja, se houver elemento na ol
+    const tarefasLi = document.querySelectorAll('li');
+    const tarefasArray = [];
+    // pegando o value inserido na lista de tarefas
+    for (let index = 0; index < tarefasLi.length; index += 1) {
+      // se salvasse com o innerText retornaria um array com o texto das tarefas
+      // aí no carregamento do localStorage teria de criar um append deles como li -- outerHTML melhor mesmo
+      tarefasArray.push(tarefasLi[index].outerHTML);
+    }
+    localStorage.setItem('tarefas', JSON.stringify(tarefasArray));
   }
-  localStorage.setItem('lista-tarefas', JSON.stringify(tarefasArray));
-};
+}
 
 function eventSaveTask() {
   const saveButton = document.querySelector('#salvar-tarefas');
-  saveButton.addEventListener('click', saveTask)
+  saveButton.addEventListener('click', saveTask);
 }
 eventSaveTask();
 
-// chamar o localstorage para carregar
+// a cunho comparativo é mais parecido com o realizado no shopping cart
 function carregarListaSalva() {
-  if (localStorage.getItem('lista-tarefas') !== null) {
-    // converte para objeto com o json.parse
-    let tarefasStored = JSON.parse(localStorage.getItem('lista-tarefas'));
-    // console.log(tarefasStored) para teste
-    // criar as li
-    const tarefasLi = document.createElement('li');
-    // append na ol pai
-    document.querySelector('#lista-tarefas').appendChild(tarefasLi);
-    for (let index = 0; index <= tarefasStored.length; index +=1) {
+  if (localStorage.getItem('tarefas') !== null) {
+    const tarefasStored = JSON.parse(localStorage.getItem('tarefas'));
+    // console.log(tarefasStored);
+    // o problema estava no <= !!!!
+    for (let index = 0; index < tarefasStored.length; index += 1) {
+      // criar as li
+      const tarefasLi = document.createElement('li');
+      // append na ol pai
+      document.querySelector('#lista-tarefas').appendChild(tarefasLi);
       // adiciona o conteudo guardado no local storage
-      tarefasLi.innerText = tarefasStored[index];
+      // substituindo por outerHTMl para não carregar o html <li> etc
+      tarefasLi.outerHTML = tarefasStored[index];
     }
   }
+  // tal como no shopping cart, o localStorage recarregado não acompanha as funcionalidades de eventos
+  eventColorLi();
+  eventCompletedTarefa();
 }
 
 window.onload = function load() {
   carregarListaSalva();
-}
+};
