@@ -42,4 +42,17 @@ window.onload = () => {
     });
   }
   apagarTarefas();
+
+  function apagarTarefasFinalizadas() {
+    const btnApagar = document.getElementById('remover-finalizados');
+    btnApagar.addEventListener('click', () => {
+      const tarefas = document.querySelectorAll('.tarefa');
+      for (let i = 0; i < tarefas.length; i += 1) {
+        if (tarefas[i].classList.contains('completed')) {
+          tarefas[i].remove();
+        }
+      }
+    });
+  }
+  apagarTarefasFinalizadas();
 };
