@@ -34,4 +34,12 @@ window.onload = () => {
     });
   }
   criarTarefa();
+
+  function apagarTarefas() {
+    const btnApagar = document.getElementById('apaga-tudo');
+    btnApagar.addEventListener('click', () => {
+      listaTarefas.innerText = '';
+    });
+  }
+  apagarTarefas();
 };
