@@ -1,0 +1,5 @@
+.completed {
+
+  /* stylelint-disable-next-line color-named */
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
