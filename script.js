@@ -55,6 +55,19 @@ function apagarTarefasFinalizadas() {
 }
 apagarTarefasFinalizadas();
 
+function apagarTarefaSelecionada() {
+  const btnApagarSelecionado = document.getElementById('remover-selecionado');
+  btnApagarSelecionado.addEventListener('click', () => {
+    const tarefas = document.querySelectorAll('.tarefa');
+    for (let i = 0; i < tarefas.length; i += 1) {
+      if (tarefas[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        tarefas[i].remove();
+      }
+    }
+  });
+}
+apagarTarefaSelecionada();
+
 function salvarTarefas() {
   const btnSalvar = document.getElementById('salvar-tarefas');
   btnSalvar.addEventListener('click', () => {
