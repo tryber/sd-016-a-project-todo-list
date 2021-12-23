@@ -1,13 +1,12 @@
-/* eslint-disable sonarjs/no-collapsible-if */
 const listaTarefas = document.getElementById('lista-tarefas');
 
 function backgroundColorTarefa(event) {
   const tarefas = document.querySelectorAll('.tarefa');
   for (let i = 0; i < tarefas.length; i += 1) {
-    tarefas[i].className = 'tarefa';
+    tarefas[i].style.backgroundColor = 'white';
   }
   // eslint-disable-next-line no-param-reassign
-  event.target.id = 'selected';
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function tarefaCompleta(event) {
@@ -75,38 +74,6 @@ function salvarTarefas() {
   });
 }
 salvarTarefas();
-
-function moverParaCima() {
-  const btnCima = document.getElementById('mover-cima');
-  btnCima.addEventListener('click', () => {
-    const itemMover = document.getElementById('selected');
-    if (document.querySelectorAll('#selected').length !== 0) {
-      if (itemMover.previousElementSibling) {
-        itemMover.parentNode.insertBefore(
-          itemMover,
-          itemMover.previousElementSibling,
-        );
-      }
-    }
-  });
-}
-moverParaCima();
-
-function moverParaBaixo() {
-  const btnBaixo = document.getElementById('mover-baixo');
-  btnBaixo.addEventListener('click', () => {
-    const itemMover = document.getElementById('selected');
-    if (document.querySelectorAll('#selected').length !== 0) {
-      if (itemMover.nextElementSibling) {
-        itemMover.parentNode.insertBefore(
-          itemMover.nextElementSibling,
-          itemMover,
-        );
-      }
-    }
-  });
-}
-moverParaBaixo();
 
 window.onload = function storage() {
   listaTarefas.innerHTML = localStorage.getItem('Lista');

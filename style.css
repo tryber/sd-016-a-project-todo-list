@@ -4,7 +4,7 @@
   text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
-#selected {
+.selected {
 
   /* stylelint-disable-next-line color-named */
   background-color: rgb(128 , 128 , 128);
