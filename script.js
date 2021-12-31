@@ -46,7 +46,6 @@ function clearTasks() {
     document.querySelector('#lista-tarefas').removeChild(listItems[index])
   }
 }
-
 // Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista
 
 let buttonNew = document.createElement('button')
