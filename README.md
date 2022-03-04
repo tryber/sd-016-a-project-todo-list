@@ -1,4 +1,4 @@
-# Habilidades
+# Habilidades desenvolvidas
 
 - Manipular CSS
 
