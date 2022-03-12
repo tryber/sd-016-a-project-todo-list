@@ -1,23 +1,35 @@
 const input = document.getElementById('texto-tarefa');
 const button = document.getElementById('criar-tarefa');
 const ol = document.getElementById('lista-tarefas');
-const buttonSave = document.getElementById('salvar-tarefas')
+const buttonSave = document.getElementById('salvar-tarefas');
 const buttonUp = document.getElementById('mover-cima');
-const buttonDown = document.getElementById('mover-baixo')
+const buttonDown = document.getElementById('mover-baixo');
 
 // requisito 8.
 function liStyle() {
   ol.addEventListener('click', (event) => {
     for (let index = 0; index < ol.children.length; index += 1) {
       ol.children[index].style.background = 'rgb(5, 28, 58)';
-      ol.children[index].classList.remove('selected')
+      ol.children[index].classList.remove('selected');
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
       event.target.classList.add('selected');
-
     }
   });
 }
 liStyle();
+
+// requisito 14 (bônus)
+function remove() {
+  const bottomRemove = document.getElementById('remover-selecionado');
+  const li = document.querySelectorAll('.list');
+  bottomRemove.addEventListener('click', () => {
+    for (let index = 0; index < li.length; index += 1) {
+      if (li[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        li[index].remove();
+      }
+    }
+  });
+}
 
 // requisito 5
 function buttonValue() {
@@ -27,7 +39,7 @@ function buttonValue() {
   li.addEventListener('click', liStyle);
   ol.appendChild(li);
   input.value = '';
-  remove()
+  remove();
 }
 button.addEventListener('click', buttonValue);
 
@@ -48,7 +60,7 @@ function clearAll() {
       let list = value[index];
       ol.removeChild(list);
     }
-  })
+  });
 };
 clearAll();
 
@@ -58,11 +70,11 @@ function clearCompleted() {
   remove.addEventListener('click', () => {
     const value = document.querySelectorAll('.completed');
     for (let index = 0; index < value.length; index += 1) {
-      let removeCompleted = value[index];
+      const removeCompleted = value[index];
       ol.removeChild(removeCompleted);
     }
-  })
-};
+  });
+}
 clearCompleted();
 
 // requisito  12 (bônus)
@@ -70,52 +82,39 @@ clearCompleted();
 function saveAll() {
   buttonSave.addEventListener('click', () => {
     const values = ol.innerHTML;
-    localStorage.setItem('list', values)
+    localStorage.setItem('list', values);
   })
 }
 
 function saveList() {
   saveAll();
-  let saveList = localStorage.getItem('list');
+  const saveList = localStorage.getItem('list');
   if (saveList !== null) {
-    ol.innerHTML = saveList
+    ol.innerHTML = saveList;
   }
 }
-saveList()
+saveList();
 
-//requisito 14 (bônus)
-function remove() {
-  const bottomRemove = document.getElementById('remover-selecionado')
-  const li = document.querySelectorAll('.list');
-  bottomRemove.addEventListener('click', () => {
-    for (let index = 0; index < li.length; index += 1) {
-      if (li[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-        li[index].remove();
-      }
-    }
-  });
-}
-
-//requisito 13 (bônus)
-//ajuda de Lucas Fernandes.
+// requisito 13 (bônus)
+// ajuda de Lucas Fernandes.
 function up() {
   buttonUp.addEventListener('click', () => {
-    let selected = document.querySelector('.selected');
+    const selected = document.querySelector('.selected');
     if (selected !== null && selected.previousElementSibling) {
       const previous = selected.previousElementSibling;
-      ol.insertBefore(selected, previous)
+      ol.insertBefore(selected, previous);
     }
   });
 }
-up()
+up();
 
 function Down() {
   buttonDown.addEventListener('click', () => {
-    let selected = document.querySelector('.selected');
+    const selected = document.querySelector('.selected');
     if (selected !== null && selected.nextElementSibling) {
       const next = selected.nextElementSibling;
-      ol.insertBefore(next, selected)
+      ol.insertBefore(next, selected);
     }
   });
 }
-Down()
+Down();
